@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map spec="1.0.5" name="Alpha Complex" version="2.0.0" genre="nebula">
+  <include src="defaults.xml"/>
+  <gametype>dtm</gametype>
+  <!--Legacy versions supported setting specific world time, we'll just lock it for now.-->
+  <world>
+    <gamerules>
+      <doDaylightCycle>false</doDaylightCycle>
+    </gamerules>
+  </world>
+  <authors>
+    <author uuid="da98a2f1673c4cecb547e0a342abfde4" />
+  </authors>
+  <spawns>
+    <spawn>
+      <regions>
+        <point yaw="90">98.5, 158.0, 106.5</point>
+      </regions>
+    </spawn>
+    <spawn team="red" loadout="default">
+      <regions>
+        <point yaw="180">0.5, 105.0, 200.5</point>
+      </regions>
+    </spawn>
+    <spawn team="blue" loadout="default">
+      <regions>
+        <point>0.5, 105.0, 9.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <items>
+    <remove-drops>
+      <any>
+        <material>log</material>
+        <material>leather helmet</material>
+        <material>glass</material>
+        <material>diamond pickaxe</material>
+        <material>iron sword</material>
+        <material>bow</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>iron sword</material>
+        <material>bow</material>
+        <material>diamond pickaxe</material>
+      </any>
+    </repair-tools>
+  </items>
+  <zones>
+    <zone modify="never">
+      <region>
+        <sphere origin="0, 104, 9" radius="10" />
+      </region>
+    </zone>
+    <zone modify="never">
+      <region>
+        <sphere origin="0, 104, 200" radius="10" />
+      </region>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid min="58,106,133" max="58,105,133" />
+      </region>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid min="-58,105,76" max="-58,106,76" />
+      </region>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid min="-58,106,133" max="-58,105,133" />
+      </region>
+    </zone>
+  </zones>
+  <objectives>
+    <monuments materials="obsidian">
+      <monuments owner="red">
+        <monument name="Left">
+          <region>
+            <block>34, 109, 243</block>
+          </region>
+        </monument>
+        <monument name="Right">
+          <region>
+            <block>-34, 109, 243</block>
+          </region>
+        </monument>
+      </monuments>
+      <monuments owner="blue">
+        <monument name="Left">
+          <region>
+            <block>34, 109, -34</block>
+          </region>
+        </monument>
+        <monument name="Right">
+          <region>
+            <block>-34, 109, -34</block>
+          </region>
+        </monument>
+      </monuments>
+    </monuments>
+  </objectives>
+  <teams>
+    <team id="red" color="red" min="3" max="20" max-overfill="25">Team Alpha</team>
+    <team id="blue" color="blue" min="3" max="20" max-overfill="25">Team Omega</team>
+  </teams>
+  <loadouts>
+    <loadout id="default">
+      <item slot="0" material="iron sword" />
+      <item slot="1" material="bow">
+        <enchantments>
+          <enchantment level="1">arrow infinite</enchantment>
+        </enchantments>
+      </item>
+      <item slot="2" material="diamond pickaxe">
+        <enchantments>
+          <enchantment level="1">dig speed</enchantment>
+        </enchantments>
+      </item>
+      <item slot="3" material="golden apple" amount="3" />
+      <item slot="4" material="log" amount="32" />
+      <item slot="5" material="glass" amount="64" />
+      <item slot="6" material="cooked fish" amount="64" />
+      <item slot="7" material="exp_bottle" amount="4" />
+      <item slot="27" material="arrow" />
+      <item slot="28" material="lapis block" />
+      <helmet team-color="true" material="leather helmet" />
+      <effect duration="100" level="4">damage resistance</effect>
+    </loadout>
+  </loadouts>
+</map>

@@ -1,0 +1,133 @@
+﻿<?xml version="1.0"?>
+<map description="Nimbly navigate into the water and to the hill!" name="Cruhan" spec="1.0.4"
+  version="1.0.0">
+  <include src="Shared/tutorials/koth.xml"/>
+  <include src="defaults.xml"/>
+  <include src="Shared/reward-one-gap.xml"/>
+  <include src="Shared/conquest-shop.xml"/>
+  <authors>
+    <author uuid="e3c3f34f49d742279b9db29d9a3b97f8"/>  <!-- Tazz -->
+    <author uuid="1c74c43029a0471fb30bcc2d9031ebcb"/> <!-- Jiveh -->
+  </authors>
+  <tutorial>
+    <step countdown="5s" freeze="true" location="35.5, 72, 34.5" pitch="24" yaw="-25">
+      <chat>
+        <line>^r • {tutorial.generic.team-spawns}</line>
+      </chat>
+    </step>
+    <step countdown="4s" freeze="true" location="-12, 70, 6" pitch="35" yaw="-111">
+      <chat>
+        <line>^r • {tutorial.koth.hill-area}</line>
+      </chat>
+    </step>
+  </tutorial>
+  <gametype>hill</gametype>
+  <teams>
+    <load-group id="teams.red-blue" max="15" min="1"/>
+  </teams>
+  <spawns>
+    <spawn team="spectators" yaw="90">
+      <regions>
+        <block>32, 83, -16</block>
+      </regions>
+    </spawn>
+    <spawn loadout="default" respawn-delay="8s" respawn-freeze="true" team="red" yaw="180">
+      <regions>
+        <point>41.5, 70, 46.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" respawn-delay="8s" respawn-freeze="true" team="blue" yaw="0">
+      <regions>
+        <point>-40.5, 70, -46.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <objectives>
+    <hill capture-time="10s" earn-points="always" name="{directions.center}" points="1">
+      <capture>
+        <cylinder base="0, 63, 0" height="7" radius="6"/>
+      </capture>
+      <progress>
+        <cuboid max="5, 71, 5" min="-5, 59, -5"/>
+      </progress>
+    </hill>
+    <hill capture-time="6s" earn-points="always" name="{colors.red}" points="1">
+      <capture>
+        <cylinder base="31, 68, 9" height="2" radius="3"/>
+      </capture>
+      <progress>
+        <cuboid max="28, 68, 6" min="34, 68, 12"/>
+      </progress>
+    </hill>
+    <hill capture-time="6s" earn-points="always" name="{colors.blue}" points="1">
+      <capture>
+        <cylinder base="-31, 68, -9" height="2" radius="3"/>
+      </capture>
+      <progress>
+        <cuboid max="-28, 68, -6" min="-34, 68, -12"/>
+      </progress>
+    </hill>
+    <scores limit="500">
+      <score team="blue"/>
+      <score team="red"/>
+    </scores>
+  </objectives>
+  <loadouts>
+    <loadout id="default">
+      <effect duration="8s">damage resistance</effect>
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="leather leggings" team-color="true"/>
+      <boots material="leather boots" team-color="true"/>
+      <item material="iron sword" slot="0"/>
+      <item material="bow" slot="1"/>
+      <item amount="16" material="bread" slot="6"/>
+      <item material="golden apple" slot="7"/>
+      <item amount="16" material="arrow" slot="27"/>
+    </loadout>
+  </loadouts>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>leather leggings</material>
+        <material>leather boots</material>
+        <material>bread</material>
+        <material>golden apple</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>iron sword</material>
+        <material>bow</material>
+      </any>
+    </repair-tools>
+  </items>
+  <zones>
+    <zone>
+      <region>
+        <cuboid max="44, 78, 49" min="37, 63, 35"/>
+      </region>
+      <enter>
+        <team>red</team>
+      </enter>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone>
+      <region>
+        <cuboid max="-43, 78, -48" min="-36, 63, -34"/>
+      </region>
+      <enter>
+        <team>blue</team>
+      </enter>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <load-group id="no-build"/>
+  </zones>
+  <world>
+    <gamerules>
+      <doDaylightCycle>false</doDaylightCycle>
+    </gamerules>
+  </world>
+</map>

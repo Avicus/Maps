@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="Wool Terrace" spec="1.0.4" version="1.0.0">
+  <include src="defaults.xml"/>
+  <include src="Shared/conquest-shop.xml"/>
+  <authors>
+    <author uuid="0b8f95fa0f404f289fd0b8e243bb6800"/> <!-- Fouled -->
+    <author uuid="3cce00809faa48f982cf64410305822a"/> <!-- ProfessorUtonium -->
+    <author uuid="ec00f0bb1c4548768f112b033b35c7e2"/> <!-- Arigenn -->
+    <author uuid="d9b4ffbc11d0453aa93f82dc59fca4b6"/> <!-- hugWulf -->
+    <author uuid="1c74c43029a0471fb30bcc2d9031ebcb"/> <!-- Tazz -->
+  </authors>
+  <teams>
+    <load-group id="teams.red-blue" max="15" min="1"/>
+  </teams>
+  <spawns>
+    <!-- Spectator spawn -->
+    <spawn>
+      <regions>
+        <point yaw="-135">49.5, 50, 9.5</point>
+      </regions>
+    </spawn>
+    <!-- Team spawns -->
+    <spawn loadout="default" team="red" yaw="135">
+      <regions>
+        <point yaw="135">60.5, 21, 58.5</point>
+        <point yaw="135">59.5, 16, 57.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="blue" yaw="-45">
+      <regions>
+        <point yaw="-45">0.5, 21, -1.5</point>
+        <point yaw="-45">1.5, 16, -0.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <zones>
+    <zones>
+      <!-- Disable Build -->
+      <zone modify="never" region="everywhere">
+      </zone>
+    </zones>
+    <!-- Posts -->
+    <zone id="red-post">
+      <region>
+        <block>12, 15, 10</block>
+      </region>
+      <post yaw="-45"/>
+    </zone>
+    <zone id="blue-post">
+      <region>
+        <block>48, 15, 46</block>
+      </region>
+      <post yaw="135"/>
+    </zone>
+    <!-- Nets -->
+    <zone id="blue-net">
+      <region>
+        <cuboid max="3, 21, 1" min="0, 25, -2"/>
+      </region>
+      <net owner="blue" points="1"/>
+    </zone>
+    <zone id="red-net">
+      <region>
+        <cuboid max="60, 25, 58" min="57, 21, 55"/>
+      </region>
+      <net owner="red" points="1"/>
+    </zone>
+  </zones>
+  <loadouts>
+    <loadout id="default">
+      <effect duration="5s">damage resistance</effect>
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="leather leggings" team-color="true"/>
+      <boots material="iron boots" team-color="true"/>
+      <item material="stone sword" slot="0"/>
+      <item material="bow" slot="1"/>
+      <item amount="1" material="golden apple" slot="2"/>
+      <item amount="16" material="arrow" slot="3"/>
+      <item amount="64" material="golden carrot" slot="7"/>
+    </loadout>
+    <loadout id="kill-reward">
+      <item material="golden apple"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="kill-reward"/>
+    </rewards>
+  </kills>
+  <items>
+    <remove-drops>
+      <any>
+        <material>stone sword</material>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>leather leggings</material>
+        <material>iron boots</material>
+        <material>bow</material>
+        <material>golden carrot</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>stone sword</material>
+        <material>bow</material>
+      </any>
+    </repair-tools>
+  </items>
+  <results>
+    <win scenario="objectives">
+      <check>
+        <time>7m</time>
+      </check>
+    </win>
+  </results>
+  <objectives>
+    <scores limit="5">
+      <score team="red"/>
+      <score team="blue"/>
+    </scores>
+    <flag color="blue" owner="red" post="blue-post" recover-time="15s"/>
+    <flag color="red" owner="blue" post="red-post" recover-time="15s"/>
+  </objectives>
+</map>

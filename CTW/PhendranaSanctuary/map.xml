@@ -1,0 +1,232 @@
+<?xml version="1.0"?>
+<map name="Phendrana Sanctuary" spec="1.0.4" version="1.0.3">
+  <include src="defaults.xml"/>
+  <include src="Shared/tutorials/ctw.xml"/>
+  <tutorial>
+    <step countdown="5s" freeze="true" location="86,7,-627" pitch="0" yaw="90">
+      <chat>
+        <line>^r • {tutorial.generic.team-spawns}</line>
+      </chat>
+    </step>
+    <step countdown="5s" freeze="true" location="85,8,-590" pitch="0" yaw="90">
+      <chat>
+        <line>^r • {tutorial.ctw.wool-area}</line>
+      </chat>
+    </step>
+    <step countdown="5s" freeze="true" location="66,8,-588" pitch="0" yaw="90">
+      <chat>
+        <line>^r • {tutorial.ctw.wool-chest}</line>
+      </chat>
+    </step>
+    <step countdown="5s" freeze="true" location="99,7,-630" pitch="0" yaw="180">
+      <chat>
+        <line>^r • {tutorial.ctw.wool-monument}</line>
+      </chat>
+    </step>
+  </tutorial>
+  <authors>
+    <author uuid="8de835a6916a4fcf9b25239dda454411"/> <!-- Passively -->
+  </authors>
+  <teams>
+    <team color="green" id="green" max="25" min="1">{colors.green}</team>
+    <team color="yellow" id="yellow" max="25" min="1">{colors.yellow}</team>
+  </teams>
+  <gametype>ctw</gametype>
+  <spawns auto-respawn="false" respawn-delay="5s" respawn-freeze="true">
+    <spawn team="spectators">
+      <regions>
+        <point yaw="90">188.5, 46, -626.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="green" yaw="90">
+      <regions>
+        <point yaw="90">297.5, 7, -626.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="yellow" yaw="-90">
+      <regions>
+        <point yaw="-90">77.5, 7, -626.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <world>
+    <gamerules>
+      <doDaylightCycle>true</doDaylightCycle>
+    </gamerules>
+  </world>
+  <regions>
+    <subtract id="void-outer"> <!-- All blocks of void minus the mid region -->
+      <void/>
+      <cuboid max="154,34,-683" min="222,0,-571"/>
+      <cuboid max="305,34,-580" min="291,0,-596"/>
+      <cuboid max="305,34,-658" min="291,0,-674"/>
+      <cuboid max="71,34,-674" min="85,0,-658"/>
+      <cuboid max="71,34,-596" min="85,0,-580"/>
+    </subtract>
+    <above id="height-limit" y="34"/>
+    <join id="purple-woolchests">
+      <block>62, 8, -588</block>
+      <block>62, 9, -588</block>
+      <block>62, 10, -588</block>
+    </join>
+    <join id="cyan-woolchests">
+      <block>62, 8, -666</block>
+      <block>62, 9, -666</block>
+      <block>62, 10, -666</block>
+    </join>
+    <join id="pink-woolchests">
+      <block>312, 8, -666</block>
+      <block>312, 9, -666</block>
+      <block>312, 10, -666</block>
+    </join>
+    <join id="red-woolchests">
+      <block>312, 8, -588</block>
+      <block>312, 9, -588</block>
+      <block>312, 10, -588</block>
+    </join>
+  </regions>
+  <loadouts>
+    <loadout id="default">
+      <effect duration="5s">damage resistance</effect>
+      <helmet material="iron helmet"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="iron leggings" team-color="true"/>
+      <boots material="leather boots" team-color="true"/>
+      <item material="iron sword" slot="0"/>
+      <item material="bow" slot="1">
+        <enchantments>
+          <enchantment>arrow infinite</enchantment>
+        </enchantments>
+      </item>
+      <item material="diamond pickaxe" slot="2">
+        <enchantments>
+          <enchantment level="3">durability</enchantment>
+        </enchantments>
+      </item>
+      <item material="stone axe" slot="3"/>
+      <item amount="16" material="golden carrot" slot="4"/>
+      <item material="golden apple" slot="5"/>
+      <item amount="32" material="glass" slot="7"/>
+      <item amount="48" material="log" slot="8"/>
+      <item amount="1" material="arrow" slot="27"/>
+    </loadout>
+    <loadout id="kill-reward">
+      <item material="golden apple"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="kill-reward"/>
+    </rewards>
+  </kills>
+  <items>
+    <remove-drops>
+      <any>
+        <material>iron helmet</material>
+        <material>leather chestplate</material>
+        <material>iron leggings</material>
+        <material>leather boots</material>
+        <material>arrow</material>
+        <material>golden carrot</material>
+        <material>glass</material>
+        <material>log</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>iron sword</material>
+        <material>stone axe</material>
+        <material>diamond pickaxe</material>
+        <material>bow</material>
+      </any>
+    </repair-tools>
+  </items>
+  <zones>
+    <zone modify="never">
+      <region>
+        <subtract>
+          <cuboid max="71, 9, -619" min="107, 0, -635"/>
+          <point>98, 8, -621</point>
+          <point>98, 8, -633</point>
+        </subtract>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <subtract>
+          <cuboid max="305,9,-619" min="269, 0, -635"/>
+          <point>276, 8, -621</point>
+          <point>276, 8, -633</point>
+        </subtract>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <!-- green woolrooms -->
+    <zone modify="always">
+      <enter>
+        <team>yellow</team>
+      </enter>
+      <region>
+        <cuboid max="305,34,-580" min="291,0,-596"/>
+        <cuboid max="305,34,-658" min="291,0,-674"/>
+      </region>
+      <message>{errors.own-wool-room}</message>
+    </zone>
+    <!-- yellow woolrooms -->
+    <zone modify="always">
+      <enter>
+        <team>green</team>
+      </enter>
+      <region>
+        <cuboid max="71,34,-596" min="85,0,-580"/>
+        <cuboid max="71,34,-674" min="85,0,-658"/>
+      </region>
+      <message>{errors.own-wool-room}</message>
+    </zone>
+    <zone modify="never" region="void-outer">
+      <message>{errors.outside-map}</message>
+    </zone>
+    <zone modify="never" region="height-limit">
+      <message>{errors.height-limit}</message>
+    </zone>
+  </zones>
+  <objectives>
+    <wools pickup="false" team="green">
+      <wool color="cyan">
+        <source>
+          <region id="cyan-woolchests"/>
+        </source>
+        <destination>
+          <block>276, 8, -633</block>
+        </destination>
+      </wool>
+      <wool color="purple">
+        <source>
+          <region id="purple-woolchests"/>
+        </source>
+        <destination>
+          <block>276, 8, -621</block>
+        </destination>
+      </wool>
+    </wools>
+    <wools team="yellow">
+      <wool color="red">
+        <source>
+          <region id="red-woolchests"/>
+        </source>
+        <destination>
+          <block>98, 8, -621</block>
+        </destination>
+      </wool>
+      <wool color="pink">
+        <source>
+          <region id="pink-woolchests"/>
+        </source>
+        <destination>
+          <block>98, 8, -633</block>
+        </destination>
+      </wool>
+    </wools>
+  </objectives>
+</map>

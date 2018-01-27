@@ -1,0 +1,157 @@
+<?xml version="1.0"?>
+<map description="Break all four monuments to win!" name="Boatz" spec="1.0.3" version="1.0.1">
+  <include src="defaults.xml"/>
+  <authors>
+    <author uuid="c2a4c847653e482ab62ed7f8b64330cb"/> <!-- Alm -->
+  </authors>
+  <teams>
+    <team color="pink" id="pink" max="30" min="1">{colors.pink}</team>
+    <team color="blue" id="blue" max="30" min="1">{colors.blue}</team>
+    <team color="purple" id="purple" max="30" min="1">{colors.purple}</team>
+    <team color="orange" id="orange" max="30" min="1">{colors.orange}</team>
+  </teams>
+  <spawns>
+    <spawn look="-12, 32, -4" team="spectators">
+      <regions>
+        <circle center="-12, 52, -4" radius="30"/>
+      </regions>
+    </spawn>
+    <spawn loadout="default" look="-12, 32, -4" region="spawn" team="pink"/>
+    <spawn loadout="default" look="-12, 32, -4" region="spawn" team="blue"/>
+    <spawn loadout="default" look="-12, 32, -4" region="spawn" team="purple"/>
+    <spawn loadout="default" look="-12, 32, -4" region="spawn" team="orange"/>
+  </spawns>
+  <regions>
+    <join id="spawn">
+      <cuboid max="-57, 21, -44" min="-43, 21, -56"/>
+      <cuboid max="-59, 21, 22" min="-32, 21, -20"/>
+      <cuboid max="-14, 21, 50" min="-42, 21, 17"/>
+      <cuboid max="43, 21, 50" min="26, 21, -57"/>
+    </join>
+    <cuboid id="speed" max="17, 5, -36" min="19, 5, -38"/>
+    <cuboid id="haste" max="-23, 5, -49" min="-25, 5, -51"/>
+    <cuboid id="tnt" max="-45, 5, -30" min="-43, 5, -32"/>
+    <cuboid id="regeneration" max="-51, 5, 36" min="-53, 5, 38"/>
+    <cuboid id="pearls" max="-7, 5, 35" min="-5, 5, 37"/>
+  </regions>
+  <objectives>
+    <monuments materials="redstone block">
+      <monument name="A">
+        <region>
+          <cuboid max="-11, 28, 9" min="-13, 26, 9"/>
+        </region>
+      </monument>
+      <monument name="B">
+        <region>
+          <cuboid max="1, 28, -3" min="1, 26, -5"/>
+        </region>
+      </monument>
+      <monument name="C">
+        <region>
+          <cuboid max="-11, 28, -17" min="-13, 26, -17"/>
+        </region>
+      </monument>
+      <monument name="D">
+        <region>
+          <cuboid max="-25, 28, -3" min="-25, 26, -5"/>
+        </region>
+      </monument>
+    </monuments>
+  </objectives>
+  <zones>
+    <zone velocity="0, 2.2, 0">
+      <region>
+        <cuboid max="-10, 13, -6" min="-14, 12, -2"/>
+      </region>
+    </zone>
+    <zone region="everywhere">
+      <break>
+        <not>
+          <!-- No TNT damage or island damage -->
+          <any>
+            <explosion/>
+            <material>wool</material>
+          </any>
+        </not>
+      </break>
+      <tnt>
+        <instant-ignite/>
+      </tnt>
+    </zone>
+    <zone region="regeneration">
+      <loadout parent="boat">
+        <effect amplifier="3" duration="20s">regeneration</effect>
+      </loadout>
+    </zone>
+    <zone region="haste">
+      <loadout parent="boat">
+        <effect amplifier="2" duration="1m">fast digging</effect>
+      </loadout>
+    </zone>
+    <zone region="speed">
+      <loadout parent="boat">
+        <effect amplifier="2" duration="1m">speed</effect>
+      </loadout>
+    </zone>
+    <zone loadout="boat" region="tnt"/>
+    <zone loadout="boat" region="pearls"/>
+  </zones>
+  <executors>
+    <executor check="always">
+      <execution-group id="spawn-items">
+        <summon-entity region="tnt" type="dropped item">
+          <item material="tnt"/>
+        </summon-entity>
+        <summon-entity region="pearls" type="dropped item">
+          <item count="4" material="ender pearl"/>
+        </summon-entity>
+      </execution-group>
+    </executor>
+    <executor check="always">
+      <loop check="always" execute="spawn-items" id="spawn-loop" interval="20s" stop="never"/>
+    </executor>
+  </executors>
+  <triggers>
+    <trigger execute="spawn-loop" on="match-start"/>
+  </triggers>
+  <loadouts>
+    <loadout id="default">
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="iron chestplate"/>
+      <boots material="iron boots"/>
+      <item material="iron sword" slot="0"/>
+      <item material="bow" slot="1"/>
+      <item material="iron pickaxe" slot="2"/>
+      <item amount="16" material="bread" slot="6"/>
+      <item amount="24" material="arrow" slot="8"/>
+      <vehicle remove="true">boat</vehicle>
+    </loadout>
+    <loadout id="boat">
+      <item material="boat"/>
+    </loadout>
+  </loadouts>
+  <items>
+    <remove-drops>
+      <any>
+        <material>arrow</material>
+        <material>bread</material>
+        <material>wood</material>
+        <material>stick</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>iron sword</material>
+        <material>iron chestplate</material>
+        <material>iron boots</material>
+        <material>bow</material>
+        <material>iron pickaxe</material>
+      </any>
+    </repair-tools>
+  </items>
+  <world>
+    <gamerules>
+      <doDaylightCycle>false</doDaylightCycle>
+    </gamerules>
+  </world>
+</map>

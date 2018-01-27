@@ -1,0 +1,155 @@
+﻿<map name="Snowy Overworld" spec="1.0.0" version="1.1.0">
+  <include src="defaults.xml"/>
+  <gametype>dtm</gametype>
+  <include src="Shared/reward-one-gap.xml"/>
+  <include src="Shared/tutorials/dtm.xml"/>
+  <authors>
+    <author uuid="8de835a6916a4fcf9b25239dda454411"/>
+    <!-- Passively -->
+  </authors>
+  <tutorial>
+    <step countdown="5s" freeze="false" location="9, 12, -4" pitch="56" yaw="-180">
+      <chat>
+        <line>^r • {tutorial.generic.team-spawns}</line>
+      </chat>
+    </step>
+    <step countdown="5s" freeze="false" location="57, 6.5, 30" pitch="1.6" yaw="90">
+      <chat>
+        <line>^r • {tutorial.dtm.monument-area}</line>
+        <line>^r • {tutorial.dtm.monument-objective}</line>
+      </chat>
+    </step>
+  </tutorial>
+  <teams>
+    <load-group id="teams.red-blue" max="22" min="1"/>
+  </teams>
+  <spawns>
+    <!-- Spectator Spawn -->
+    <spawn>
+      <regions>
+        <point yaw="90">52, 43, 63</point>
+      </regions>
+    </spawn>
+    <!-- Team Spawns -->
+    <spawn loadout="default" team="red" yaw="0">
+      <regions>
+        <point yaw="0">9, 7, -10</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="blue" yaw="180">
+      <regions>
+        <point yaw="180">9, 7, 136</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <objectives>
+    <monuments materials="obsidian">
+      <monuments owner="red">
+        <monument name="{directions.left}">
+          <region>
+            <block>53, 8, 30</block>
+          </region>
+        </monument>
+        <monument name="{directions.right}">
+          <region>
+            <block>-35, 8, 30</block>
+          </region>
+        </monument>
+      </monuments>
+      <monuments owner="blue">
+        <monument name="{directions.left}">
+          <region>
+            <block>53, 8, 96</block>
+          </region>
+        </monument>
+        <monument name="{directions.right}">
+          <region>
+            <block>-35, 8, 96</block>
+          </region>
+        </monument>
+      </monuments>
+    </monuments>
+  </objectives>
+  <zones>
+    <!-- Entering Red Spawn -->
+    <zone modify="never">
+      <region>
+        <cuboid max="-9, 13, -14" min="26, 0, 0"/>
+      </region>
+      <enter>
+        <team>red</team>
+      </enter>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <!-- Entering Blue Spawn -->
+    <zone modify="never">
+      <region>
+        <cuboid max="27, 13, 140" min="-8, 0, 126"/>
+      </region>
+      <enter>
+        <team>blue</team>
+      </enter>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <invert>
+          <cuboid max="-39, 35, -14" min="57, 0, 141"/>
+        </invert>
+      </region>
+      <message>{errors.outside-map}</message>
+    </zone>
+  </zones>
+  <loadouts>
+    <loadout id="default">
+      <effect>night vision</effect>
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <boots material="leather boots" team-color="true"/>
+      <item material="stone sword" slot="0"/>
+      <item material="bow" slot="1">
+        <enchantment>arrow infinite</enchantment>
+      </item>
+      <item material="diamond pickaxe" slot="2">
+        <enchantment level="1">dig speed</enchantment>
+        <enchantment level="2">durability</enchantment>
+      </item>
+      <item material="stone axe" slot="3"/>
+      <item amount="64" material="glass" slot="5"/>
+      <item amount="64" damage="2" material="log" slot="6"/>
+      <item amount="32" material="golden carrot" slot="7"/>
+      <item material="golden apple" slot="8"/>
+      <item amount="1" material="arrow" slot="28"/>
+    </loadout>
+    <loadout id="kill-reward">
+      <item material="golden apple"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="kill-reward"/>
+    </rewards>
+  </kills>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>leather boots</material>
+        <material>iron sword</material>
+        <material>bow</material>
+        <material>stone axe</material>
+        <material>golden carrot</material>
+        <material>stone sword</material>
+        <material>diamond pickaxe</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>stone sword</material>
+        <material>bow</material>
+        <material>diamond pickaxe</material>
+      </any>
+    </repair-tools>
+  </items>
+</map>

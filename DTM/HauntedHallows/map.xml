@@ -1,0 +1,279 @@
+<?xml version="1.0"?>
+<map description="Spooky and scary. Can you make it to the monuments?" name="Haunted Hallows"
+  spec="1.0.0"
+  version="1.0.0">
+  <include src="defaults.xml"/>
+  <gametype>dtm</gametype>
+  <include src="Shared/reward-one-gap.xml"/>
+  <authors>
+    <author uuid="21822ebaa4cb4f1eb8033871d5ac0ff3"/> <!-- Izjust4fun -->
+    <author uuid="297428a6b482455899f5b413067ed48d"/> <!-- Red_Dead -->
+  </authors>
+  <teams>
+    <team color="green" id="green" max="25" min="1">{colors.green}</team>
+    <team color="orange" id="orange" max="25" min="1">{colors.orange}</team>
+  </teams>
+  <spawns>
+    <!-- Spectator spawn -->
+    <spawn>
+      <regions>
+        <point yaw="90">-1208.5, 41, -1002.5</point>
+      </regions>
+    </spawn>
+    <!-- Team spawns -->
+    <spawn loadout="default" team="green" yaw="180">
+      <regions>
+        <point yaw="180">-1279.5, 17, -800.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="orange" yaw="0">
+      <regions>
+        <point yaw="0">-1279.5, 17, -1204.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <objectives>
+    <monuments materials="obsidian">
+      <monuments owner="orange">
+        <monument name="{directions.left}">
+          <region>
+            <block>-1337, 23, -1111</block>
+          </region>
+        </monument>
+        <monument name="{directions.right}">
+          <region>
+            <block>-1223, 23, -1111</block>
+          </region>
+        </monument>
+      </monuments>
+      <monuments owner="green">
+        <monument name="{directions.left}">
+          <region>
+            <block>-1223, 23, -895</block>
+          </region>
+        </monument>
+        <monument name="{directions.right}">
+          <region>
+            <block>-1337, 23, -895</block>
+          </region>
+        </monument>
+      </monuments>
+    </monuments>
+  </objectives>
+  <zones>
+    <!-- Entering Orange Spawn -->
+    <zone modify="never">
+      <region>
+        <cuboid max="-1302, 37, -1253" min="-1258, 0, -1181"/>
+      </region>
+      <enter>
+        <team>orange</team>
+      </enter>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <!-- Entering Green Spawn -->
+    <zone modify="never">
+      <region>
+        <cuboid max="-1302, 37, -826" min="-1259, 0, -755"/>
+      </region>
+      <enter>
+        <team>green</team>
+      </enter>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <!-- Orange Spawn -->
+    <zone modify="never">
+      <region>
+        <cuboid max="-1302, 37, -1253" min="-1258, 0, -1181"/>
+      </region>
+      <message>{errors.cannot-build}</message>
+    </zone>
+    <!-- Green Spawn -->
+    <zone modify="never">
+      <region>
+        <cuboid max="-1302, 37, -826" min="-1259, 0, -755"/>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <!-- Center Portal Orange -->
+    <zone modify="never">
+      <region>
+        <cuboid max="-1281, 21, -1185" min="-1279, 17, -1185"/>
+      </region>
+      <enter>
+        <team>orange</team>
+      </enter>
+      <portal>
+        <destination>
+          <point>-1279.5, 15, -1080.5</point>
+        </destination>
+      </portal>
+    </zone>
+    <!-- Left Portal Orange -->
+    <zone modify="never">
+      <region>
+        <cuboid max="-1265, 20, -1191" min="-1265, 15, -1193"/>
+      </region>
+      <enter>
+        <team>orange</team>
+      </enter>
+      <portal>
+        <destination>
+          <point>-1250.5, 15, -1114.5</point>
+        </destination>
+      </portal>
+    </zone>
+    <!-- Right Portal Orange -->
+    <zone modify="never">
+      <region>
+        <cuboid max="-1295, 20, -1193" min="-1295, 15, -1191"/>
+      </region>
+      <enter>
+        <team>orange</team>
+      </enter>
+      <portal>
+        <destination>
+          <point>-1308.5, 15, -1114.5</point>
+        </destination>
+      </portal>
+    </zone>
+    <!-- Center Portal Green -->
+    <zone modify="never">
+      <region>
+        <cuboid max="-1279, 21, -821" min="-1281, 17, -821"/>
+      </region>
+      <enter>
+        <team>green</team>
+      </enter>
+      <portal>
+        <destination>
+          <point>-1279.5, 15, -924.5</point>
+        </destination>
+      </portal>
+    </zone>
+    <!-- Right Portal Green -->
+    <zone modify="never">
+      <region>
+        <cuboid max="-1265, 20, -813" min="-1265, 16, -815"/>
+      </region>
+      <enter>
+        <team>green</team>
+      </enter>
+      <portal>
+        <destination>
+          <point>-1250.5, 17, -890.5</point>
+        </destination>
+      </portal>
+    </zone>
+    <!-- Left Portal Green -->
+    <zone modify="never">
+      <region>
+        <cuboid max="-1295, 20, -815" min="-1295, 16, -813"/>
+      </region>
+      <enter>
+        <team>green</team>
+      </enter>
+      <portal>
+        <destination>
+          <point>-1308.5, 17, -890.5</point>
+        </destination>
+      </portal>
+    </zone>
+    <!-- Green Central Portal Protection -->
+    <zone modify="never">
+      <region>
+        <cuboid max="-1285, 14, -926" min="-1276, 20, -920"/>
+      </region>
+      <message>{errors.cannot-build}</message>
+    </zone>
+    <!-- Green Left Portal Protection -->
+    <zone modify="never">
+      <region>
+        <cuboid max="-1303, 21, -887" min="-1312, 14, -894"/>
+      </region>
+      <message>{errors.cannot-build}</message>
+    </zone>
+    <!-- Green Right Portal Protection -->
+    <zone modify="never">
+      <region>
+        <cuboid max="-1248, 14, -895" min="-1257, 21, -887"/>
+      </region>
+      <message>{errors.cannot-build}</message>
+    </zone>
+    <!-- Orange Central Portal Protection -->
+    <zone modify="never">
+      <region>
+        <cuboid max="-1284,21,-1086" min="-1275, 15, -1078"/>
+      </region>
+      <message>{errors.cannot-build}</message>
+    </zone>
+    <!-- Orange Right Portal Protection -->
+    <zone modify="never">
+      <region>
+        <cuboid max="-1312, 14, -1112" min="-1305, 22, -1120"/>
+      </region>
+      <message>{errors.cannot-build}</message>
+    </zone>
+    <!-- Orange Left Portal Protection -->
+    <zone modify="never">
+      <region>
+        <cuboid max="-1255, 21, -1119" min="-1248, 14, -1111"/>
+      </region>
+      <message>{errors.cannot-build}</message>
+    </zone>
+  </zones>
+  <world>
+    <gamerules>
+      <doDaylightCycle>false</doDaylightCycle>
+    </gamerules>
+  </world>
+  <items>
+    <repair-tools>
+      <any>
+        <material>iron sword</material>
+        <material>bow</material>
+        <material>diamond pickaxe</material>
+        <material>shears</material>
+        <material>iron axe</material>
+        <material>iron spade</material>
+      </any>
+    </repair-tools>
+    <remove-drops>
+      <any>
+        <material>pumpkin</material>
+        <material>leather chestplate</material>
+        <material>leather leggings</material>
+        <material>leather boots</material>
+        <material>pumpkin pie</material>
+        <material>leaves</material>
+        <material>arrow</material>
+        <material>log</material>
+        <material>lapis block</material>
+        <material>wood</material>
+      </any>
+    </remove-drops>
+  </items>
+  <loadouts>
+    <loadout id="default">
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="leather leggings" team-color="true"/>
+      <boots material="leather boots" team-color="true"/>
+      <effect duration="10s">damage resistance</effect>
+      <item material="iron sword" slot="0" unbreakable="true"/>
+      <item material="bow" slot="1" unbreakable="true">
+        <enchantment>arrow infinite</enchantment>
+      </item>
+      <item material="diamond pickaxe" slot="2" unbreakable="true"/>
+      <item amount="64" material="log" slot="3"/>
+      <item amount="64" material="leaves" slot="4"/>
+      <item amount="2" material="golden apple" slot="5"/>
+      <item amount="16" material="pumpkin pie" slot="6"/>
+      <item material="iron axe" slot="7"/>
+      <item material="iron spade" slot="8"/>
+      <item material="shears" slot="26"/>
+      <item material="arrow" slot="27"/>
+      <item material="lapis block" slot="28"/>
+    </loadout>
+  </loadouts>
+</map>

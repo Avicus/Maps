@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map genre="arcade" name="OiTQCampus" spec="1.0.3" version="1.2.0">
+  <include src="defaults.xml"/>
+  <include src="Shared/oitc.xml"/>
+  <authors>
+    <author uuid="43b09f859b744872b0ab9ccd9024f6bf"/> <!-- Aydran -->
+  </authors>
+  <spawns>
+    <spawn team="spectators" yaw="0">
+      <regions>
+        <cuboid max="0, 79, -0" min="0, 79, -0"/>
+      </regions>
+    </spawn>
+    <spawn loadout="default" yaw="0">
+      <regions>
+        <cuboid max="-5, 86, -54" min="-5, 86, -54"/>
+        <cuboid max="30, 84, -40" min="30, 84, -40"/>
+        <cuboid max="-58, 85, -90" min="-58, 85, -90"/>
+        <cuboid max="-59, 70, -0" min="-59, 70, -0"/>
+        <cuboid max="7, 88, -10" min="7, 88, -10"/>
+        <cuboid max="6, 88, 8" min="6, 88, 8"/>
+        <cuboid max="-8, 88, 7" min="-8, 88, 7"/>
+        <cuboid max="-10, 88, -6" min="-10, 88, -6"/>
+        <cuboid max="5, 69, 5" min="5, 69, 5"/>
+        <cuboid max="-9, 69, 9" min="-9, 69, 9"/>
+        <cuboid max="-0, 79, -0" min="0, 79, -0"/>
+        <cuboid max="-15, 72, -17" min="-15, 72, -17"/>
+      </regions>
+    </spawn>
+  </spawns>
+</map>

@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="Curabitur" spec="1.0.0" version="1.1.0">
+  <include src="defaults.xml"/>
+  <include src="Shared/tutorials/dtm.xml"/>
+  <gametype>dtm</gametype>
+  <authors>
+    <author uuid="9da4217e7c3141d1b82d53b0ecc981d0"/> <!-- MerlinMaster -->
+    <author uuid="ba601988d27b4349ae154b0a1424bfa8"/> <!-- Horizin -->
+  </authors>
+  <teams>
+    <team color="lime" id="lime" max="25" min="1">{colors.lime}</team>
+    <team color="blue" id="blue" max="25" min="1">{colors.blue}</team>
+  </teams>
+  <tutorial>
+    <step countdown="5s" freeze="false" location="1,34,145" pitch="0" yaw="0">
+      <chat>
+        <line>^r • {tutorial.generic.team-spawns}</line>
+      </chat>
+    </step>
+    <step countdown="4s" location="25,31,104" pitch="-20" yaw="-135">
+      <chat>
+        <line>^r • {tutorial.dtm.monument-area}</line>
+      </chat>
+    </step>
+    <step countdown="5s" location="-22,30,92" pitch="-4" yaw="21">
+      <chat>
+        <line>^r • {tutorial.dtm.monument-objective}</line>
+      </chat>
+    </step>
+  </tutorial>
+  <spawns>
+    <spawn yaw="90">
+      <regions>
+        <circle center="70, 44, 34" radius="1"/>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="lime" yaw="0">
+      <regions>
+        <circle center="1, 34, -85" radius="2"/>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="blue" yaw="180">
+      <regions>
+        <circle center="1, 34, 154" radius="2"/>
+      </regions>
+    </spawn>
+  </spawns>
+  <objectives>
+    <monuments materials="obsidian">
+      <monuments owner="lime">
+        <monument name="{directions.left}">
+          <region>
+            <block>-26, 34, -33</block>
+          </region>
+        </monument>
+        <monument name="{directions.right}">
+          <region>
+            <block>28, 34, -33</block>
+          </region>
+        </monument>
+      </monuments>
+      <monuments owner="blue">
+        <monument name="{directions.left}">
+          <region>
+            <block>28, 34, 101</block>
+          </region>
+        </monument>
+        <monument name="{directions.right}">
+          <region>
+            <block>-26, 34, 101</block>
+          </region>
+        </monument>
+      </monuments>
+    </monuments>
+  </objectives>
+  <loadouts>
+    <loadout id="default">
+      <helmet material="leather helmet" team-color="true"/>
+      <item material="stone sword" slot="0"/>
+      <item material="bow" slot="1"/>
+      <item material="diamond pickaxe" slot="2"/>
+      <item amount="3" material="golden apple" slot="3"/>
+      <item amount="8" material="cooked beef" slot="4"/>
+      <item amount="32" material="glass" slot="5"/>
+      <item amount="64" material="stone" slot="6"/>
+      <item amount="32" material="log" slot="7"/>
+      <item amount="24" material="arrow" slot="10"/>
+    </loadout>
+    <loadout id="kill-reward">
+      <item material="golden apple"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="kill-reward"/>
+    </rewards>
+  </kills>
+  <zones>
+    <zone modify="never">
+      <region>
+        <cylinder base="1, 33, 154" height="9" radius="11"/>
+      </region>
+      <enter>
+        <team>blue</team>
+      </enter>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cylinder base="1, 33, -86" height="9" radius="11"/>
+      </region>
+      <enter>
+        <team>lime</team>
+      </enter>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+  </zones>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>glass</material>
+        <material>stone</material>
+        <material>log</material>
+        <material>cooked beef</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>stone sword</material>
+        <material>bow</material>
+        <material>diamond pickaxe</material>
+      </any>
+    </repair-tools>
+  </items>
+</map>

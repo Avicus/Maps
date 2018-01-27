@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="Good Morning Vietnam" spec="1.0.4" version="1.0.0">
+  <include src="defaults.xml"/>
+  <include src="Shared/reward-one-gap.xml"/>
+  <include src="Shared/conquest-shop.xml"/>
+  <authors>
+    <author role="The author of the map." uuid="bf3319534f9243ee8abc7544b8234936"/> <!-- Vice -->
+  </authors>
+  <teams>
+    <team color="yellow" id="yellow" max="12" max-overfill="14" min="1">{colors.yellow}</team>
+    <team color="red" id="red" max="12" max-overfill="14" min="1">{colors.red}</team>
+  </teams>
+  <spawns>
+    <!-- Spectator spawn -->
+     <spawn>
+      <regions>
+        <point yaw="0">32.5, 14, -103.5</point>
+      </regions>
+     </spawn>
+    <!-- Team spawns -->
+     <spawn loadout="default" team="red">
+         <regions>
+            <point yaw="45">96.5, 16, -89.5</point>
+            <point yaw="135">96.5, 16, -5.5</point>
+         </regions>
+     </spawn>
+     <spawn loadout="default" team="yellow">
+         <regions>
+            <point yaw="-135">-32.5, 16, -5.5</point>
+            <point yaw="-45">-32.5, 16, -89.5</point>
+         </regions>
+     </spawn>
+   </spawns>
+  <zones>
+    <!-- Posts -->
+    <zone id="red-post">
+      <region>
+        <block>62, 20, -47</block>
+      </region>
+      <post yaw="90"/>
+    </zone>
+    <zone id="yellow-post">
+      <region>
+        <block>2, 20, -47</block>
+      </region>
+      <post yaw="-90"/>
+    </zone>
+    <!-- Nets -->
+    <zone>
+      <region>
+        <cuboid max="3, 20, -48" min="1, 20, -46"/>
+      </region>
+      <net points="1">
+        <capture-check>
+          <team>yellow</team>
+        </capture-check>
+      </net>
+    </zone>
+    <zone>
+      <region>
+        <cuboid max="61, 20, -46" min="63, 20, -48"/>
+      </region>
+      <net points="1">
+        <capture-check>
+          <team>red</team>
+        </capture-check>
+      </net>
+    </zone>
+    <zone modify="never">
+        <region>
+            <invert>
+                 <cuboid max="98, 0, -95" min="-34, 31, 1" />
+            </invert>
+        </region>
+    </zone>
+    <zone modify="never">  <!--  Red  -->
+          <region>
+               <cylinder base="96, 14, -5" radius="10" height="8" />
+          </region>
+          <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never">  <!--  Red  -->
+          <region>
+               <cylinder base="96, 14, -89" radius="10" height="8" />
+          </region>
+          <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never">  <!--  Yellow  -->
+          <region>
+               <cylinder base="-32, 14, -5" radius="10" height="8" />
+          </region>
+          <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never">  <!--  Yellow  -->
+          <region>
+               <cylinder base="-32, 14, -89" radius="10" height="8" />
+          </region>
+          <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never">  <!--  Flag Red Side  -->
+          <region>
+               <cylinder base="62, 19, -47" radius="3" height="4" />
+          </region>
+    </zone>
+    <zone modify="never">  <!--  Flag Yellow Side  -->
+          <region>
+               <cylinder base="2, 19, -47" radius="3" height="4" />
+          </region>
+    </zone>
+  </zones>
+  <loadouts>
+    <loadout id="default">
+      <effect duration="5s">damage resistance</effect>
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="chainmail leggings"/>
+      <boots material="leather boots" team-color="true"/>
+      <item material="iron sword" slot="0"/>
+      <item material="bow" slot="1"/>
+      <item material="diamond pickaxe" slot="2"/>
+      <item material="iron axe" slot="3"/>
+      <item material="wood" slot="4" amount="16"/>
+      <item material="glass" slot="5" amount="8"/>
+      <item amount="24" material="arrow" slot="26"/>
+      <item material="iron spade" slot="27"/>
+      <item amount="1" material="golden apple" slot="6"/>
+      <item amount="32" material="cooked beef" slot="7"/>
+    </loadout>
+    <loadout id="bonus">
+      <item>golden apple</item>
+      <item amount="4" material="arrow"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="bonus"/>
+    </rewards>
+  </kills>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>chainmail leggings</material>
+        <material>leather boots</material>
+        <material>cooked beef</material>
+        <material>golden apple</material>
+        <material>arrow</material>
+        <material>flint</material>
+        <material>wood</material>
+        <material>log</material>
+        <material>glass</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>iron sword</material>
+        <material>bow</material>
+        <material>iron spade</material>
+        <material>diamond pickaxe</material>
+      </any>
+    </repair-tools>
+  </items>
+  <results>
+    <win scenario="objectives">
+      <check>
+        <time>7m</time>
+      </check>
+    </win>
+  </results>
+  <objectives>
+    <scores limit="5">
+      <score team="red"/>
+      <score team="yellow"/>
+    </scores>
+    <flag color="red" owner="red" post="red-post" recover-time="15s"/>
+    <flag color="yellow" owner="yellow" post="yellow-post" recover-time="15s"/>
+  </objectives>
+</map>

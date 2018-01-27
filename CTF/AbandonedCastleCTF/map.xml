@@ -1,0 +1,140 @@
+<map name="Abandoned Castle CTF" spec="1.0.4" version="1.0.0">
+  <include src="defaults.xml"/>
+  <include src="Shared/conquest-shop.xml"/>
+
+  <authors>
+    <author role="The author of the map."
+      uuid="075b5514-293a-4bd5-bcef-367e687d3556"/> <!--  KojaCola  -->
+  </authors>
+  <teams>
+    <team color="yellow" id="yellow" max="20" max-overfill="25" min="1">{colors.yellow}</team>
+    <team color="lime" id="lime" max="20" max-overfill="25" min="1">{colors.lime}</team>
+  </teams>
+  <spawns>
+    <!--  Spectator spawn  -->
+    <spawn>
+      <regions>
+        <point yaw="90">51.5, 30, 36.5</point>
+      </regions>
+    </spawn>
+    <!--  Team spawns  -->
+    <spawn loadout="default" team="yellow">
+      <regions>
+        <point yaw="0">10.5, 15, -20.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="lime">
+      <regions>
+        <point yaw="180">10.5, 15, 93.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <zones>
+    <load-group id="no-build"/>
+    <!--  Posts  -->
+    <zone id="yellow-post">
+      <region>
+        <block>10, 21, -23</block>
+      </region>
+      <post yaw="0"/>
+    </zone>
+    <zone id="lime-post">
+      <region>
+        <block>10, 21, 95</block>
+      </region>
+      <post yaw="180"/>
+    </zone>
+    <!--  Nets  -->
+    <zone>
+      <region>
+        <cuboid max="8, 16, -23" min="12, 13, -19"/>
+      </region>
+      <net points="1">
+        <capture-check>
+          <team>yellow</team>
+        </capture-check>
+      </net>
+    </zone>
+    <zone>
+      <region>
+        <cuboid max="8, 16, 91" min="12, 13, 95"/>
+      </region>
+      <net points="1">
+        <capture-check>
+          <team>lime</team>
+        </capture-check>
+      </net>
+    </zone>
+    <!--  yellow spawn  -->
+    <zone modify="never">
+      <enter>
+        <team>yellow</team>
+      </enter>
+      <region>
+        <cuboid max="-31, 50, -155" min="-37, 41, -144"/>
+      </region>
+      <message>{errors.enemy-base}</message>
+    </zone>
+    <!--  lime spawn  -->
+    <zone modify="never">
+      <enter>
+        <team>lime</team>
+      </enter>
+      <region>
+        <cuboid max="-37, 50, 27" min="-31, 41, 16"/>
+      </region>
+      <message>{errors.enemy-base}</message>
+    </zone>
+  </zones>
+  <loadouts>
+    <loadout id="default">
+      <effect duration="5s">damage resistance</effect>
+      <item material="iron sword" slot="0"/>
+      <item material="bow" slot="1"/>
+      <item amount="1" material="golden apple" slot="2"/>
+      <item amount="32" material="cooked beef" slot="3"/>
+      <item amount="16" material="arrow" slot="8"/>
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="chainmail leggings" team-color="true"/>
+      <boots material="iron boots" team-color="true"/>
+    </loadout>
+    <loadout id="bonus">
+      <effect amplifier="1" duration="5s">speed</effect>
+      <item amount="4" material="arrow"/>
+      <item material="golden apple"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="bonus"/>
+    </rewards>
+  </kills>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>chainmail leggings</material>
+        <material>iron boots</material>
+        <material>cooked beef</material>
+        <material>golden apple</material>
+        <material>arrow</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>iron sword</material>
+        <material>bow</material>
+      </any>
+    </repair-tools>
+  </items>
+  <objectives>
+    <scores limit="3">
+      <score team="yellow"/>
+      <score team="lime"/>
+    </scores>
+    <flag color="yellow" owner="yellow" post="yellow-post"/>
+    <flag color="lime" owner="lime" post="lime-post"/>
+  </objectives>
+</map>

@@ -1,0 +1,238 @@
+<map genre="walls" name="Ruins Ascension" spec="1.0.5" version="1.0.0">
+  <include src="defaults.xml"/>
+  <include src="Shared/walls.xml"/>
+  <include src="Shared/tutorials/walls.xml"/>
+  <authors>
+    <author uuid="18056f66-5514-4dec-9cb8-85d052e1d54c"/>
+    <author uuid="8978ee18-88b3-4054-b94c-bfa9a94ee8db"/>
+  </authors>
+  <gametype>walls</gametype>
+  <teams>
+    <team color="red" id="red" max="10" min="1">{colors.red}</team>
+    <team color="purple" id="purple" max="10" min="1">{colors.purple}</team>
+    <team color="blue" id="blue" max="10" min="1">{colors.blue}</team>
+    <team color="yellow" id="yellow" max="10" min="1">{colors.yellow}</team>
+  </teams>
+  <spawns>
+    <spawn>
+      <regions>
+        <point pitch="0" yaw="180">17, 251, -21</point>
+      </regions>
+    </spawn>
+    <spawn team="red">
+      <regions>
+        <point pitch="0" yaw="180">62, 11, 34</point>
+      </regions>
+    </spawn>
+    <spawn team="purple">
+      <regions>
+        <point pitch="0" yaw="270">-43, 11, 29</point>
+      </regions>
+    </spawn>
+    <spawn team="blue">
+      <regions>
+        <point pitch="0" yaw="0">-37, 11, -77</point>
+      </regions>
+    </spawn>
+    <spawn team="yellow">
+      <regions>
+        <point pitch="0" yaw="90">69, 11, -71</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <regions>
+    <join id="walls">
+      <cuboid max="21, 11, -28" min="70, 90, -28"/>
+      <cuboid max="6, 11, -29" min="6, 90, -78"/>
+      <cuboid max="20, 11, -13" min="20, 90, 36"/>
+      <cuboid max="5, 11, -14" min="-44, 90, -14"/>
+    </join>
+  </regions>
+  <zones>
+    <zone modify="never" region="walls"/>
+    <zone modify="never">
+      <region>
+        <invert>
+          <cuboid max="71, 2, -79" min="-46, 255, 38"/>
+        </invert>
+      </region>
+    </zone>
+    <zone>
+      <region>
+        <cuboid max="71, 2, -79" min="-46, 90, 38"/>
+      </region>
+      <modify>
+        <any>
+          <material>emerald_ore</material>
+          <material>grass</material>
+          <material>water_lily</material>
+          <material>dirt</material>
+        </any>
+      </modify>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid max="71, 91, -79" min="-46, 255, 38"/>
+      </region>
+    </zone>
+    <zone icarus="8">
+      <region>
+        <cylinder base="13, 2, -21" height="10" radius="4"/>
+      </region>
+    </zone>
+    <zone icarus="8">
+      <region>
+        <cylinder base="13, 50, -21" height="10" radius="4"/>
+      </region>
+    </zone>
+    <zone icarus="8">
+      <region>
+        <cylinder base="13, 87, -21" height="5" radius="4"/>
+      </region>
+    </zone>
+    <zone velocity="1, 0.5, -1">
+      <region>
+        <cuboid max="43, 107, -23" min="45, 106, -25"/>
+      </region>
+    </zone>
+    <zone velocity="1.2, 3, 1.2">
+      <region>
+        <cuboid max="-29, 106, -52" min="-27, 105, -50"/>
+      </region>
+    </zone>
+    <zone velocity="0, 2, 1.3">
+      <region>
+        <cuboid max="10, 106, -67" min="8, 105, -65"/>
+      </region>
+    </zone>
+    <zone velocity="1.1, 3, 0">
+      <region>
+        <cuboid max="-42, 107, -14" min="-40, 106, -16"/>
+      </region>
+    </zone>
+    <zone velocity="1.1, 2,-1.1">
+      <region>
+        <cuboid max="-28, 106, 16" min="-26, 105, 14"/>
+      </region>
+    </zone>
+    <zone velocity="0, 2.3, -1.7">
+      <region>
+        <cuboid max="12, 108, 22" min="14, 107, 20"/>
+      </region>
+    </zone>
+    <zone velocity="-0.5, 2.3, -2">
+      <region>
+        <cuboid max="65, 106, 33" min="63, 105, 35"/>
+      </region>
+    </zone>
+    <zone velocity="-1.1, 3, 1.1">
+      <region>
+        <cuboid max="69, 106, -14" min="67, 105, -16"/>
+      </region>
+    </zone>
+    <zone velocity="1.3, 1.5, -1.1">
+      <region>
+        <cuboid max="57, 107, -63" min="59, 106, -65"/>
+      </region>
+    </zone>
+    <zone velocity="0, 2, 1.3">
+      <region>
+        <cuboid max="57, 107, -63" min="59, 106, -65"/>
+      </region>
+    </zone>
+    <zone velocity="-10,3.4, 10">
+      <region>
+        <cuboid max="53, 125, -48" min="55, 124, -50"/>
+      </region>
+    </zone>
+    <zone velocity="-3.5, 2.3, 2">
+      <region>
+        <cuboid max="7, 120, -56" min="8, 119, -55"/>
+      </region>
+    </zone>
+    <zone velocity="2.5, 3, 0">
+      <region>
+        <cuboid max="-15, 136, -41" min="-13, 135, -39"/>
+      </region>
+    </zone>
+    <zone velocity="1.7, 2.5, -1.7">
+      <region>
+        <cuboid max="-18, 123, 8" min="-19, 122, 7"/>
+      </region>
+    </zone>
+    <zone velocity="0, 3.2, -1.7">
+      <region>
+        <cuboid max="11, 128, 1" min="13, 127, -1"/>
+      </region>
+    </zone>
+    <zone velocity="-2.5, 3, 0">
+      <region>
+        <cuboid max="55, 120, 19" min="53, 119, 17"/>
+      </region>
+    </zone>
+    <zone velocity="-3, 2, -5">
+      <region> <!-- 1st coordinate needs fixing -->
+        <cuboid max="33, 154, 12" min="35, 153, 10"/>
+      </region>
+    </zone>
+    <zone velocity="1.8, 2, -1.8">
+      <region>
+        <cuboid max="-5, 150, -10" min="-4, 149, -9"/>
+      </region>
+    </zone>
+    <zone velocity="1.3, 1.1, 1.3">
+      <region>
+        <cuboid max="6, 163, -38" min="8, 162, -36"/>
+      </region>
+    </zone>
+  </zones>
+  <kill-rewards>
+    <item>golden apple</item>
+  </kill-rewards>
+  <walls end-time="30m" fall-time="5m">
+    <wall region="walls"/>
+  </walls>
+  <tutorial>
+    <step coutdown="5s" freeze="true" location="63, 31, 29" pitch="0" yaw="-45">
+      <title stay="5s" text="^cBuy ^fpickaxes ^cfrom the shop."/>
+    </step>
+    <step countdown="5s" freeze="true" location="66, 48, 28" pitch="45" yaw="135">
+      <title stay="5s" text="^cMine ^aemeralds ^cupstairs."/>
+    </step>
+    <step countdown="5s" freeze="true" location="33, 11, 27" pitch="0" yaw="90">
+      <title stay="5s" subtitle="^cfrom the villagers." text="^cBuy armor and weapons"/>
+    </step>
+    <step countdown="5s" freeze="false" location="13, 20, -20" pitch="90" yaw="180">
+      <title stay="5s" subtitle="^ajump ^conto the ^elaunch pad ^cto fight."
+        text="^cAfter the walls fall,"/>
+    </step>
+  </tutorial>
+  <compasses>
+    <compass target="enemy"/>
+  </compasses>
+  <gamerules>
+    <doModSpawning>false</doModSpawning>
+    <doFireTick>false</doFireTick>
+    <doDaylightCycle>false</doDaylightCycle>
+    <storm>false</storm>
+    <weather check="always"/>
+    <difficulty>peaceful</difficulty>
+  </gamerules>
+  <broadcasts>
+    <broadcast interval="1m">^bBuy items from villagers using ^8dirt ^band ^aemeralds^b!</broadcast>
+  </broadcasts>
+  <damage>
+    <disable>
+      <all>
+        <damage>fall</damage>
+        <inside>
+          <region>
+            <join>
+              <cuboid max="71, 2, -79" min="-46, 255, 38"/>
+            </join>
+          </region>
+        </inside>
+      </all>
+    </disable>
+  </damage>
+</map>

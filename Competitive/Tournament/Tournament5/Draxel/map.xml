@@ -1,0 +1,121 @@
+<?xml version="1.0"?>
+<map name="Draxel" spec="1.0.0" version="1.1.0">
+  <include src="defaults.xml"/>
+  <include src="Shared/reward-one-gap.xml"/>
+  <authors>
+    <author uuid="0b8f95fa0f404f289fd0b8e243bb6800"/>  <!-- Fouled -->
+    <author uuid="6bec5c3a49344b199aa8c7c569820f7d"/> <!-- Claf -->
+  </authors>
+  <teams>
+    <load-group id="teams.red-blue" max="8" min="1"/>
+  </teams>
+  <spawns>
+    <spawn team="spectators" yaw="-180">
+      <regions>
+        <point yaw="-180">-17.5,41,36.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" respawn-delay="5s" respawn-freeze="true" team="blue">
+      <regions>
+        <point yaw="90">47.5,14,-20.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" respawn-delay="5s" respawn-freeze="true" team="red">
+      <regions>
+        <point yaw="-90">-82.5,14,-20.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <objectives>
+    <hill capture-time="7s" earn-points="always" id="hill-a" name="Point A" points="1">
+      <capture>
+        <cuboid max="-9,25,-44" min="-4,21,-49"/>
+      </capture>
+      <progress>
+        <cuboid max="-11,40,-42" min="-2,0,-51"/>
+      </progress>
+    </hill>
+    <hill capture-time="7s" earn-points="always" id="hill-center" name="{directions.center}"
+      points="1">
+      <capture>
+        <cuboid max="-21, 14, -24" min="-15, 16, -18"/>
+      </capture>
+      <progress>
+        <cuboid max="-22, 10, -25" min="-14, 38, -17"/>
+      </progress>
+    </hill>
+    <hill capture-time="7s" earn-points="always" id="hill-b" name="Point B" points="1">
+      <capture>
+        <cuboid max="-26,25,3" min="-31,21,8"/>
+      </capture>
+      <progress>
+        <cuboid max="-24,40,1" min="-33,0,10"/>
+      </progress>
+    </hill>
+    <scores limit="750">
+      <score id="bscore" team="blue"/>
+      <score id="rscore" team="red"/>
+    </scores>
+  </objectives>
+  <results>
+    <win scenario="team" team="blue">
+      <check>
+        <any>
+          <objective team="blue">bscore</objective>
+        </any>
+      </check>
+    </win>
+    <win scenario="team" team="red">
+      <check>
+        <any>
+          <objective team="red">rscore</objective>
+        </any>
+      </check>
+    </win>
+  </results>
+  <loadouts>
+    <loadout id="default">
+      <effect duration="5s">damage resistance</effect>
+      <helmet material="leather helmet" team-color="true" unbreakable="true"/>
+      <chestplate material="leather chestplate" team-color="true" unbreakable="true"/>
+      <leggings material="iron leggings" team-color="true" unbreakable="true"/>
+      <boots material="leather boots" team-color="true" unbreakable="true"/>
+      <item material="iron sword" slot="0" unbreakable="true"/>
+      <item material="bow" slot="1" unbreakable="true"/>
+      <item material="golden apple" slot="2"/>
+      <item amount="32" material="cooked beef" slot="7"/>
+      <item amount="32" material="arrow" slot="8"/>
+    </loadout>
+    <loadout id="kill-reward">
+      <item amount="12" material="arrow"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="kill-reward"/>
+    </rewards>
+  </kills>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>iron leggings</material>
+        <material>leather boots</material>
+        <material>cooked beef</material>
+        <material>golden apple</material>
+        <material>arrow</material>
+        <material>iron sword</material>
+        <material>bow</material>
+      </any>
+    </remove-drops>
+  </items>
+  <zones>
+    <load-group id="no-build"/>
+  </zones>
+  <world>
+    <gamerules>
+      <doDaylightCycle>false</doDaylightCycle>
+    </gamerules>
+  </world>
+</map>

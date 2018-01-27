@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="Alpine Holiday" spec="1.0.0" version="1.1.0">
+  <include src="defaults.xml"/>
+  <include src="Shared/reward-one-gap.xml"/>
+  <authors>
+    <author role="Ideas, building" uuid="3feb57900603446c9bbfd5fb40759f41"/> <!-- dev_revs -->
+    <author role="Building" uuid="a201086047354de0b9f31130961ea955"/> <!-- Flaan -->
+    <author role="Building" uuid="c9afb17da4f64a2486ac1d8e255c310e"/> <!-- Leyre -->
+    <author role="Server, XML" uuid="47b15675a0484e8f863a0cbf86ba22dc"/> <!-- profbananaslug -->
+    <author role="Executive producer" uuid="3cef9279977f4a66ab7d42665d795a10"/> <!-- Autotool -->
+  </authors>
+  <teams>
+    <team color="red" id="red" max="8" min="1">{colors.red}</team>
+    <team color="green" id="green" max="8" min="1">{colors.green}</team>
+  </teams>
+  <spawns>
+    <spawn team="spectators" yaw="90">
+      <regions>
+        <point yaw="90">-201.5, 128, 153.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="red" yaw="0">
+      <regions>
+        <point yaw="0">-252.5, 110, 85.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="green" yaw="180">
+      <regions>
+        <point yaw="180">-252.5, 110, 222.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <loadouts>
+    <loadout id="default">
+      <effect amplifier="10" duration="10s">damage resistance</effect>
+      <helmet material="leather helmet" team-color="true" unbreakable="true"/>
+      <chestplate material="leather chestplate" team-color="true" unbreakable="true"/>
+      <leggings material="iron leggings" unbreakable="true"/>
+      <boots material="leather boots" team-color="true" unbreakable="true"/>
+      <item material="stone sword" slot="0" unbreakable="true"/>
+      <item material="bow" slot="1" unbreakable="true"/>
+      <item amount="2" material="golden apple" slot="2"/>
+      <item amount="16" material="cooked fish" slot="6"/>
+      <item amount="16" material="arrow" slot="28"/>
+    </loadout>
+    <loadout id="four-arrow">
+      <item amount="4" material="arrow"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="four-arrow"/>
+    </rewards>
+  </kills>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>iron leggings</material>
+        <material>leather boots</material>
+        <material>bow</material>
+        <material>cooked fish</material>
+        <material>arrow</material>
+        <material>stone sword</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>stone sword</material>
+        <material>bow</material>
+      </any>
+    </repair-tools>
+  </items>
+  <zones>
+    <zones>
+      <zone modify="never" region="everywhere">
+      </zone>
+    </zones>
+    <zone id="red-post">
+      <region>
+        <block>-253, 68, 118</block>
+      </region>
+      <post yaw="0"/>
+    </zone>
+    <zone id="green-post">
+      <region>
+        <block>-253, 68, 188</block>
+      </region>
+      <post yaw="180"/>
+    </zone>
+    <zone id="red-net">
+      <region>
+        <cuboid max="-252, 70, 119" min="-254, 68, 117"/>
+      </region>
+      <net owner="red" points="1"/>
+    </zone>
+    <zone id="green-net">
+      <region>
+        <cuboid max="-252, 70, 189" min="-254, 68, 187"/>
+      </region>
+      <net owner="green" points="1"/>
+    </zone>
+  </zones>
+  <results>
+    <win scenario="objectives">
+      <check>
+        <any>
+          <time>12m</time>
+        </any>
+      </check>
+    </win>
+  </results>
+  <objectives>
+    <scores limit="100">
+      <score team="red"/>
+      <score team="green"/>
+    </scores>
+    <flag color="red" owner="red" pickup-method="move" post="red-post" recover-time="20s"/>
+    <flag color="green" owner="green" pickup-method="move" post="green-post" recover-time="20s"/>
+  </objectives>
+</map>

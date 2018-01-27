@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map spec="1.0.5" name="Trinity" version="1.0.0" genre="nebula">
+  <gametype>dtm</gametype>
+  <authors>
+    <author uuid="1d7bd66949c34c85a3e079b823fa2a2c" />
+    <author uuid="307b2c8711c642ab86955dc34383144f" />
+    <author uuid="64a9ed9c9f8140b4be863f45aa4c2240" />
+  </authors>
+  <spawns>
+    <spawn>
+      <regions>
+        <point yaw="-90">-105.5, 113.0, -55.5</point>
+      </regions>
+    </spawn>
+    <spawn team="red" loadout="default">
+      <regions>
+        <point yaw="180">-2.5, 67.0, 28.0</point>
+      </regions>
+    </spawn>
+    <spawn team="blue" loadout="default">
+      <regions>
+        <point>-2.0, 67.0, -138.0</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>leather leggings</material>
+        <material>leather boots</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>iron sword</material>
+        <material>bow</material>
+        <material>diamond pickaxe</material>
+      </any>
+    </repair-tools>
+  </items>
+  <zones>
+    <zone modify="never">
+      <region>
+        <cuboid min="-11, 66, 7" max="-11, 66, 7"/>
+      </region>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid min="-11, 66, -142" max="4, 66, -119"/>
+      </region>
+    </zone>
+  </zones>
+  <objectives>
+    <monuments materials="obsidian">
+      <monuments owner="blue">
+        <monument name="F-Left">
+          <region>
+            <block>-21, 75, -125</block>
+          </region>
+        </monument>
+        <monument name="F-Right">
+          <region>
+            <block>15, 75, -125</block>
+          </region>
+        </monument>
+        <monument name="B-Left">
+          <region>
+            <block>-51, 75, -152</block>
+          </region>
+        </monument>
+        <monument name="B-Mid">
+          <region>
+            <block>-3, 75, -173</block>
+          </region>
+        </monument>
+        <monument name="B-Right">
+          <region>
+            <block>46, 75, -151</block>
+          </region>
+        </monument>
+      </monuments>
+      <monuments owner="red">
+        <monument name="F-Left">
+          <region>
+            <block>15, 75, 13</block>
+          </region>
+        </monument>
+        <monument name="F-Right">
+          <region>
+            <block>-21, 75, 13</block>
+          </region>
+        </monument>
+        <monument name="B-Left">
+          <region>
+            <block>45, 75, 40</block>
+          </region>
+        </monument>
+        <monument name="B-Mid">
+          <region>
+            <block>-3, 75, 61</block>
+          </region>
+        </monument>
+        <monument name="B-Right">
+          <region>
+            <block>-52, 75, 39</block>
+          </region>
+        </monument>
+      </monuments>
+    </monuments>
+  </objectives>
+  <teams>
+    <team id="red" color="red" min="3" max="20" max-overfill="25">Theseus</team>
+    <team id="blue" color="blue" min="3" max="20" max-overfill="25">Adonis</team>
+  </teams>
+  <loadouts>
+    <loadout id="default">
+      <item slot="0" material="iron sword" />
+      <item slot="1" material="bow">
+        <enchantments>
+          <enchantment level="5">arrow infinite</enchantment>
+        </enchantments>
+      </item>
+      <item slot="2" material="diamond pickaxe">
+        <enchantments>
+          <enchantment level="1">dig speed</enchantment>
+        </enchantments>
+      </item>
+      <item slot="3" material="golden apple" amount="3" />
+      <item slot="4" material="glass" amount="64" />
+      <item slot="5" material="log" amount="64" />
+      <item slot="6" material="cooked fish" amount="24" />
+      <item slot="28" material="arrow" />
+      <chestplate team-color="true" material="leather chestplate" />
+      <helmet team-color="true" material="leather helmet" />
+      <boots team-color="true" material="leather boots" />
+      <leggings team-color="true" material="leather leggings" />
+      <effect duration="100" level="4">damage resistance</effect>
+    </loadout>
+  </loadouts>
+</map>

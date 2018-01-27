@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="Wumbo" spec="1.0.4" version="1.0.0">
+  <include src="defaults.xml"/>
+  <authors>
+    <author uuid="3cce00809faa48f982cf64410305822a"/>
+    <!-- ProfessorUtonium -->
+    <author uuid="d9b4ffbc11d0453aa93f82dc59fca4b6"/>
+    <!-- hugWulf -->
+  </authors>
+  <teams>
+    <load-group id="teams.red-blue" max="15" min="1"/>
+  </teams>
+  <spawns>
+    <!-- Spectator spawn -->
+    <spawn>
+      <regions>
+        <point yaw="0">-89.5, 46, -98.5</point>
+      </regions>
+    </spawn>
+    <!-- Team spawns -->
+    <spawn loadout="default" team="red" yaw="-90">
+      <regions>
+        <point yaw="-90">-180.5, 11, -63.5</point>
+        <point yaw="-90">-180.5, 11, -29.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="blue" yaw="90">
+      <regions>
+        <point yaw="90">0.5, 11, -29.5</point>
+        <point yaw="90">0.5, 11, -63.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <zones>
+    <zone modify="never">
+      <region>
+        <cuboid max="-33, 32, -10" min="-54, 0, -87"/>
+      </region>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid max="16, 32, -13" min="-26, 0, -90"/>
+      </region>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid max="-112, 0, -36" min="-68, 32, -7"/>
+      </region>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid max="-68, 32, -91" min="-112, 0, -58"/>
+      </region>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid max="-147, 32, -3" min="-126, 0, -79"/>
+      </region>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid max="-194, 32, -3" min="-154, 0, -86"/>
+      </region>
+    </zone>
+    <!-- Posts -->
+    <zone id="pink-post">
+      <region>
+        <block>-109, 14, -76</block>
+      </region>
+      <post yaw="90"/>
+    </zone>
+    <zone id="purple-post">
+      <region>
+        <block>-109, 14, -18</block>
+      </region>
+      <post yaw="90"/>
+    </zone>
+    <zone id="orange-post">
+      <region>
+        <block>-71, 14, -18</block>
+      </region>
+      <post yaw="-90"/>
+    </zone>
+    <zone id="green-post">
+      <region>
+        <block>-71, 14, -76</block>
+      </region>
+      <post yaw="-90"/>
+    </zone>
+    <!-- Nets -->
+    <zone id="blue-net">
+      <region>
+        <cuboid max="-3, 21, -82" min="9, 4, -9"/>
+      </region>
+      <net owner="blue" points="1"/>
+    </zone>
+    <zone id="red-net">
+      <region>
+        <cuboid max="-191, 23, -71" min="-177, 6, -15"/>
+      </region>
+      <net owner="red" points="1"/>
+    </zone>
+  </zones>
+  <loadouts>
+    <loadout id="default">
+      <effect duration="5s">damage resistance</effect>
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="leather leggings" team-color="true"/>
+      <boots material="leather boots" team-color="true"/>
+      <item material="stone sword" slot="0"/>
+      <item material="bow" slot="1"/>
+      <item material="diamond pickaxe" slot="2"/>
+      <item amount="1" material="golden apple" slot="3"/>
+      <item amount="16" material="log" slot="4"/>
+      <item amount="16" material="glass" slot="5"/>
+      <item amount="64" material="golden carrot" slot="8"/>
+      <item amount="32" material="arrow" slot="20"/>
+    </loadout>
+  </loadouts>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>leather leggings</material>
+        <material>leather boots</material>
+        <material>golden carrot</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>stone sword</material>
+        <material>bow</material>
+      </any>
+    </repair-tools>
+  </items>
+  <objectives>
+    <scores limit="4">
+      <score team="red"/>
+      <score team="blue"/>
+    </scores>
+    <flag color="purple" owner="red" post="purple-post"/>
+    <flag color="pink" owner="red" post="pink-post"/>
+    <flag color="green" owner="blue" post="green-post"/>
+    <flag color="orange" owner="blue" post="orange-post"/>
+  </objectives>
+</map>

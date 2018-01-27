@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="Ponylands 2.5" spec="1.0.4" version="1.1.0">
+  <include src="defaults.xml"/>
+  <gametype>dtm</gametype>
+  <authors>
+    <author uuid="ae5c1e91745b4a6fa33711484ede6957"/> <!-- Clijmart -->
+    <author uuid="9116d3fa14004adaaecd2eae1d73e383"/> <!-- Xuph -->
+  </authors>
+  <teams>
+    <team color="lime" id="lime" max="24" min="1">Ponies</team>
+    <team color="pink" id="pink" max="24" min="1">Unicorns</team>
+  </teams>
+  <spawns>
+    <!-- Spectator spawn -->
+    <spawn>
+      <regions>
+        <point yaw="180">0.5, 93, 0.5</point>
+      </regions>
+    </spawn>
+    <!-- Team spawns -->
+    <spawn loadout="default-ponies" team="lime" yaw="90">
+      <regions>
+        <point yaw="90">98.5, 42, 1.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default-unicorns" team="pink" yaw="-90">
+      <regions>
+        <point yaw="-90">-97.5, 42, 1.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <objectives>
+    <monuments destroyable="true" materials="emerald block">
+      <monuments owner="lime">
+        <monument name="Heart">
+          <region>
+            <cuboid max="64, 18, -2" min="66, 14, 2"/>
+          </region>
+        </monument>
+      </monuments>
+      <monuments owner="pink">
+        <monument name="Heart">
+          <region>
+            <cuboid max="-64, 18, -2" min="-66, 14, 2"/>
+          </region>
+        </monument>
+      </monuments>
+    </monuments>
+    <monuments materials="obsidian">
+      <monuments owner="lime">
+        <monument name="{directions.left}">
+          <region>
+            <block>49, 25, -17</block>
+          </region>
+        </monument>
+        <monument name="{directions.right}">
+          <region>
+            <block>54, 25, 23</block>
+          </region>
+        </monument>
+      </monuments>
+      <monuments owner="pink">
+        <monument name="{directions.left}">
+          <region>
+            <block>-54, 25, 23</block>
+          </region>
+        </monument>
+        <monument name="{directions.right}">
+          <region>
+            <block>-49, 25, -17</block>
+          </region>
+        </monument>
+      </monuments>
+    </monuments>
+  </objectives>
+  <loadouts>
+    <loadout id="default-ponies">
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="leather leggings" team-color="true"/>
+      <boots material="leather boots" team-color="true"/>
+      <item material="iron sword" slot="0"/>
+      <item material="bow" slot="1">
+        <enchantments>
+          <enchantment>arrow infinite</enchantment>
+        </enchantments>
+      </item>
+      <item material="diamond pickaxe" slot="2">
+        <enchantments>
+          <enchantment level="1">dig speed</enchantment>
+        </enchantments>
+      </item>
+      <item amount="3" material="golden apple" slot="3"/>
+      <item amount="64" material="log" slot="5"/>
+      <item amount="64" damage="5" material="stained glass" slot="6"/>
+      <item amount="32" material="cooked fish" slot="8"/>
+      <item amount="5" material="exp bottle" slot="9"/>
+      <item amount="1" material="lapis block" slot="10"/>
+      <item amount="1" material="arrow" slot="28"/>
+    </loadout>
+    <loadout id="default-unicorns">
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="leather leggings" team-color="true"/>
+      <boots material="leather boots" team-color="true"/>
+      <item material="iron sword" slot="0"/>
+      <item material="bow" slot="1">
+        <enchantments>
+          <enchantment>arrow infinite</enchantment>
+        </enchantments>
+      </item>
+      <item material="diamond pickaxe" slot="2">
+        <enchantments>
+          <enchantment level="1">dig speed</enchantment>
+        </enchantments>
+      </item>
+      <item amount="3" material="golden apple" slot="3"/>
+      <item amount="64" material="log" slot="5"/>
+      <item amount="64" damage="6" material="stained glass" slot="6"/>
+      <item amount="32" material="cooked fish" slot="8"/>
+      <item amount="5" material="exp bottle" slot="9"/>
+      <item amount="1" material="lapis block" slot="10"/>
+      <item amount="1" material="arrow" slot="28"/>
+    </loadout>
+    <loadout id="kill-reward">
+      <item material="golden apple"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="kill-reward"/>
+    </rewards>
+  </kills>
+  <damage>
+    <disable>
+      <all>
+        <damage>fall</damage>
+        <inside>
+          <region>
+            <join>
+              <cuboid max="101, 46, 7" min="90, 0, -9"/>
+              <cuboid max="-97, 0, -1" min="-89, 46, 2"/>
+            </join>
+          </region>
+        </inside>
+      </all>
+    </disable>
+  </damage>
+  <zones>
+    <zone modify="never">
+      <region>
+        <invert>
+          <cuboid max="101, 74, -30" min="-101, 0, 30"/>
+        </invert>
+      </region>
+      <message>{errors.outside-map}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid max="101, 48, 7" min="90, 0, -9"/>
+      </region>
+      <enter>
+        <team>lime</team>
+      </enter>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid max="-101, 48, 7" min="-90, 0, -9"/>
+      </region>
+      <enter>
+        <team>pink</team>
+      </enter>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+  </zones>
+  <world>
+    <storm>false</storm>
+    <weather check="always"/>
+  </world>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>leather leggings</material>
+        <material>leather boots</material>
+        <material>cooked fish</material>
+        <material>golden apple</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>iron sword</material>
+        <material>bow</material>
+        <material>diamond pickaxe</material>
+      </any>
+    </repair-tools>
+  </items>
+</map>

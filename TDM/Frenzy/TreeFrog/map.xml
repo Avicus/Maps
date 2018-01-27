@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="Tree Frog" spec="1.0.0" version="1.1.0">
+  <include src="defaults.xml"/>
+  <authors>
+    <author uuid="38ab65dd95f9406f917c6accc995421f"/>
+  </authors>
+  <compasses>
+    <compass target="enemy"/>
+  </compasses>
+  <gametype>lts</gametype>
+  <teams>
+    <team color="blue" id="blue" max="16" min="1">{colors.blue}</team>
+    <team color="yellow" id="yellow" max="16" min="1">{colors.yellow}</team>
+  </teams>
+  <zones>
+    <zones>
+      <zone modify="never" region="everywhere"/>
+    </zones>
+  </zones>
+  <objectives>
+    <last-team-standing team="blue"/>
+    <last-team-standing team="yellow"/>
+  </objectives>
+  <elimination lives="1"/>
+  <results>
+    <win scenario="objectives">
+      <check>
+        <time>5m</time>
+      </check>
+    </win>
+  </results>
+  <spawns>
+    <!-- Spectator spawn -->
+    <spawn>
+      <regions>
+        <point yaw="-67">30, 71, -142</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="yellow">
+      <regions>
+        <point yaw="90">100, 49, -141</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="blue">
+      <regions>
+        <point yaw="-90">-36, 49, -141</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <loadouts>
+    <loadout id="default">
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="chainmail leggings"/>
+      <boots material="leather boots" team-color="true"/>
+      <item material="wood sword" slot="0"/>
+      <item material="bow" slot="1"/>
+      <item amount="16" material="bread" slot="2"/>
+      <item material="compass" slot="3"/>
+      <item amount="16" material="arrow" slot="8"/>
+    </loadout>
+    <loadout id="one-golden-apple">
+      <item material="golden apple"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="one-golden-apple"/>
+    </rewards>
+  </kills>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>chainmail leggings</material>
+        <material>leather boots</material>
+        <material>bread</material>
+        <material>compass</material>
+        <material>arrow</material>
+        <material>golden apple</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>wood sword</material>
+        <material>bow</material>
+      </any>
+    </repair-tools>
+  </items>
+</map>

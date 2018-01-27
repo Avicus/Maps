@@ -1,0 +1,135 @@
+<?xml version="1.0"?>
+<map genre="walls" name="Tetris Jungle" spec="1.0.0" version="1.0.0">
+  <include src="defaults.xml"/>
+  <include src="Shared/walls.xml"/>
+  <include src="Shared/tutorials/walls.xml"/>
+  <authors>
+    <author uuid="297428a6b482455899f5b413067ed48d"/> <!-- cyan_Dead -->
+    <author uuid="be49b1a8600e47519725a8aead777363"/> <!-- Izjust4fun -->
+  </authors>
+  <gametype>walls</gametype>
+  <teams>
+    <team color="cyan" id="cyan" max="20" min="1">{colors.cyan}</team>
+    <team color="pink" id="pink" max="20" min="1">{colors.pink}</team>
+    <team color="orange" id="orange" max="20" min="1">{colors.orange}</team>
+    <team color="lime" id="lime" max="20" min="1">{colors.lime}</team>
+  </teams>
+  <tutorial>
+    <step countdown="5s" freeze="true" location="-737,78,-1163" pitch="21" yaw="117">
+      <chat>
+        <line>^r • {tutorial.generic.team-spawns}</line>
+      </chat>
+    </step>
+    <step countdown="5s" freeze="true" location="-692,155,-1181" pitch="28" yaw="-154">
+      <chat>
+        <line>^r • {tutorial.walls.wall-area}</line>
+      </chat>
+    </step>
+    <step countdown="5s" freeze="true" location="-684,86,-1209" pitch="-22" yaw="-33">
+      <chat>
+        <line>^r • {tutorial.walls.wall-mid-loot}</line>
+      </chat>
+    </step>
+  </tutorial>
+  <spawns>
+    <spawn>
+      <regions>
+        <point yaw="90">-678.5,126,-1199.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="cyan">
+      <regions>
+        <point yaw="0">-712.5,78,-1264.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="pink">
+      <regions>
+        <point yaw="90">-613.5,78,-1234.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="orange">
+      <regions>
+        <point yaw="180">-643.5,78,-1135.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="lime">
+      <regions>
+        <point yaw="145">-742.5,78,-1165.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <zones>
+    <zone modify="never">
+      <region>
+        <invert>
+          <cuboid max="-738,145,-1260" min="-619,0,-1141"/>
+        </invert>
+      </region>
+    </zone>
+    <zone modify="never" region="height-limit"/>
+    <zone modify="never">
+      <region>
+        <join>
+          <cuboid max="-670,256,-1191" min="-670,0,-1140"/>
+          <cuboid max="-687,256,-1191" min="-687,0,-1140"/>
+          <cuboid max="-670,256,-1261" min="-670,0,-1210"/>
+          <cuboid max="-687,256,-1261" min="-687,0,-1210"/>
+          <cuboid max="-739,256,-1209" min="-688,0,-1209"/>
+          <cuboid max="-739,256,-1192" min="-688,0,-1192"/>
+          <cuboid max="-618,256,-1209" min="-669,0,-1209"/>
+          <cuboid max="-618,256,-1192" min="-669,0,-1192"/>
+        </join>
+      </region>
+    </zone>
+    <zone enter="never" modify="never">
+      <region>
+        <cuboid max="-669,256,-1263" min="-688,0,-1262"/>
+        <cuboid max="-669,256,-1138" min="-688,0,-1139"/>
+        <cuboid max="-617,256,-1210" min="-616,0,-1191"/>
+        <cuboid max="-741,256,-1210" min="-740,0,-1191"/>
+      </region>
+    </zone>
+  </zones>
+  <regions>
+    <above id="height-limit" y="145"/>
+  </regions>
+  <walls end-time="30m" fall-time="10m">
+    <wall>
+      <region>
+        <join>
+          <cuboid max="-670,159,-1191" min="-670,78,-1140"/>
+          <cuboid max="-687,159,-1191" min="-687,78,-1140"/>
+          <cuboid max="-670,159,-1261" min="-670,78,-1210"/>
+          <cuboid max="-687,159,-1261" min="-687,78,-1210"/>
+          <cuboid max="-739,159,-1209" min="-688,78,-1209"/>
+          <cuboid max="-739,159,-1192" min="-688,78,-1192"/>
+          <cuboid max="-618,159,-1209" min="-669,78,-1209"/>
+          <cuboid max="-618,159,-1192" min="-669,78,-1192"/>
+        </join>
+      </region>
+    </wall>
+  </walls>
+  <loadouts>
+    <loadout id="default">
+      <helmet material="leather helmet" team-color="true"/>
+      <item material="wood axe" slot="0"/>
+      <item material="compass" slot="7"/>
+      <item amount="5" material="bread" slot="8"/>
+    </loadout>
+    <loadout id="r">
+      <item material="golden apple"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="r"/>
+    </rewards>
+  </kills>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+      </any>
+    </remove-drops>
+  </items>
+</map>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map spec="1.0.5" name="Diamond Shore" version="1.0.0" genre="nebula">
+  <gametype>dtm</gametype>
+  <authors>
+    <author uuid="6ce8680c1d1b492b90feb92aa24f0b5b" />
+  </authors>
+  <spawns>
+    <spawn>
+      <regions>
+        <point yaw="180">1320.5, 123.0, -406.5</point>
+      </regions>
+    </spawn>
+    <spawn team="red" loadout="default">
+      <regions>
+        <point>1380.5, 61.0, -502.5</point>
+      </regions>
+    </spawn>
+    <spawn team="blue" loadout="default">
+      <regions>
+        <point yaw="180">1426.5, 61.0, -317.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <items>
+    <remove-drops>
+      <any>
+        <material>chainmail helmet</material>
+        <material>leather chestplate</material>
+        <material>leather leggings</material>
+        <material>leather boots</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>stone sword</material>
+        <material>iron axe</material>
+        <material>bow</material>
+        <material>diamond pickaxe</material>
+      </any>
+    </repair-tools>
+  </items>
+  <zones>
+    <zone modify="never">
+      <region>
+        <sphere origin="1380,61,-503" radius="8" />
+      </region>
+    </zone>
+    <zone modify="never">
+    <region>
+      <sphere origin="1426,61,-318" radius="8" />
+    </region>
+  </zone>
+</zones>
+  <objectives>
+    <monuments materials="obsidian">
+      <monuments owner="blue">
+        <monument name="Left">
+          <region>
+            <block>1402, 50, -351</block>
+          </region>
+        </monument>
+        <monument name="Middle">
+          <region>
+            <block>1392, 59, -361</block>
+          </region>
+        </monument>
+        <monument name="Right">
+          <region>
+            <block>1382, 49, -366</block>
+          </region>
+        </monument>
+      </monuments>
+      <monuments owner="red">
+        <monument name="Left">
+          <region>
+            <block>1404, 50, -470</block>
+          </region>
+        </monument>
+        <monument name="Middle">
+          <region>
+            <block>1414, 59, -460</block>
+          </region>
+        </monument>
+        <monument name="Right">
+          <region>
+            <block>1424, 49, -455</block>
+          </region>
+        </monument>
+      </monuments>
+    </monuments>
+  </objectives>
+  <teams>
+    <team id="red" color="red" min="4" max="30" max-overfill="37">Red Team</team>
+    <team id="blue" color="blue" min="4" max="30" max-overfill="37">Blue Team</team>
+  </teams>
+  <loadouts>
+    <loadout id="default">
+      <item slot="0" material="stone_sword">
+        <enchantments>
+          <enchantment level="1">knockback</enchantment>
+        </enchantments>
+      </item>
+      <item slot="1" material="bow" />
+      <item slot="2" material="diamond_pickaxe">
+        <enchantments>
+          <enchantment level="5">dig_speed</enchantment>
+        </enchantments>
+      </item>
+      <item slot="3" material="golden_apple" amount="3" />
+      <item slot="4" material="log" amount="64" />
+      <item slot="5" material="glass" amount="64" />
+      <item slot="6" material="iron_axe" />
+      <item slot="7" material="bread" amount="32" />
+      <item slot="27" material="arrow" amount="64" />
+      <chestplate team-color="true" material="leather_chestplate" />
+      <helmet material="chainmail_helmet" />
+      <boots team-color="true" material="leather_boots">
+        <enchantments>
+          <enchantment level="2">protection_fall</enchantment>
+        </enchantments>
+      </boots>
+      <leggings team-color="true" material="leather_leggings" />
+      <effect duration="100" level="4">damage resistance</effect>
+    </loadout>
+  </loadouts>
+</map>

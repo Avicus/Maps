@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="Campi Erbosi" spec="1.0.0" version="1.1.0">
+  <include src="defaults.xml"/>
+  <gametype>dtm</gametype>
+  <include src="Shared/tutorials/dtm.xml"/>
+  <include src="Shared/reward-one-gap.xml"/>
+  <authors>
+    <author uuid="45455be9468f47988ebe035109608f4a"/> <!-- PrinceRelyt -->
+  </authors>
+  <teams>
+    <team color="lime" id="lime" max="18" min="1">{colors.lime}</team>
+    <team color="purple" id="purple" max="18" min="1">{colors.purple}</team>
+  </teams>
+  <tutorial>
+    <step countdown="5s" freeze="false" location="-108, 74, 34" pitch="0" yaw="90">
+      <chat>
+        <line>^r • {tutorial.generic.team-spawns}</line>
+      </chat>
+    </step>
+    <step countdown="4s" location="-74,72,67" pitch="-17" yaw="0">
+      <chat>
+        <line>^r • {tutorial.dtm.monument-area}</line>
+      </chat>
+    </step>
+    <step countdown="5s" location="79,78,-4" pitch="51" yaw="-95">
+      <chat>
+        <line>^r • {tutorial.dtm.monument-objective}</line>
+      </chat>
+    </step>
+  </tutorial>
+  <spawns>
+    <!-- Spectator spawn -->
+    <spawn>
+      <regions>
+        <point yaw="180">4.5, 65, 2.5</point>
+      </regions>
+    </spawn>
+    <!-- Team spawns -->
+    <spawn loadout="default" team="lime" yaw="-90">
+      <regions>
+        <point yaw="-90">-114.5, 74, 33.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="purple" yaw="90">
+      <regions>
+        <point yaw="90">124.5, 74, 33.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <world>
+    <gamerules>
+      <doDaylightCycle>true</doDaylightCycle>
+    </gamerules>
+  </world>
+  <objectives>
+    <monuments materials="obsidian">
+      <monuments owner="lime">
+        <monument name="{directions.left}">
+          <region>
+            <join>
+              <block>-75, 76, 73</block>
+              <block>-75, 75, 73</block>
+            </join>
+          </region>
+        </monument>
+        <monument name="{directions.right}">
+          <region>
+            <join>
+              <block>-75, 76, -5</block>
+              <block>-75, 75, -5</block>
+            </join>
+          </region>
+        </monument>
+      </monuments>
+      <monuments owner="purple">
+        <monument name="{directions.left}">
+          <region>
+            <join>
+              <block>83, 76, -7</block>
+              <block>83, 75, -7</block>
+            </join>
+          </region>
+        </monument>
+        <monument name="{directions.right}">
+          <region>
+            <join>
+              <block>83, 76, 71</block>
+              <block>83, 75, 71</block>
+            </join>
+          </region>
+        </monument>
+      </monuments>
+    </monuments>
+  </objectives>
+  <loadouts>
+    <loadout id="default">
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="leather leggings" team-color="true"/>
+      <boots material="leather boots" team-color="true"/>
+      <item material="iron sword" slot="0"/>
+      <item material="bow" slot="1">
+        <enchantment>arrow infinite</enchantment>
+      </item>
+      <item material="diamond pickaxe" slot="2"/>
+      <item material="iron axe" slot="3"/>
+      <item amount="2" material="golden apple" slot="4"/>
+      <item amount="32" material="glass" slot="5"/>
+      <item amount="64" material="log" slot="6"/>
+      <item amount="16" material="cooked beef" slot="7"/>
+      <item amount="64" material="ladder" slot="8"/>
+      <item material="iron spade" slot="27">
+        <enchantment level="1">dig speed</enchantment>
+      </item>
+      <item material="arrow" slot="28"/>
+    </loadout>
+  </loadouts>
+  <zones>
+    <zone modify="never">
+      <region>
+        <join>
+          <invert>
+            <cuboid max="-132, 120, 100" min="149, 0, -30"/>
+          </invert>
+          <above y="100"/>
+        </join>
+      </region>
+      <message>{errors.outside-map}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cylinder base="-114, 73, 33" height="7" radius="7"/>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cylinder base="124, 73, 33" height="7" radius="7"/>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid max="-1000,0,-1000" min="1000,50,1000"/>
+      </region>
+      <message>{errors.cannot-build}</message>
+    </zone>
+  </zones>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>leather leggings</material>
+        <material>leather boots</material>
+        <material>glass</material>
+        <material>cooked beef</material>
+        <material>golden apple</material>
+        <material>ladder</material>
+        <material>arrow</material>
+        <material>redstone</material>
+        <material>dirt</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>iron sword</material>
+        <material>iron axe</material>
+        <material>bow</material>
+        <material>diamond pickaxe</material>
+        <material>iron spade</material>
+      </any>
+    </repair-tools>
+  </items>
+</map>

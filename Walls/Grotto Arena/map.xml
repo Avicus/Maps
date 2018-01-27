@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<map genre="walls" name="Grotto Arena" spec="1.0.5" version="1.0.0">
+  <include src="default.xml"/>
+  <include src="Shared/walls.xml"/>
+  <include src="Shared/tutorials/walls.xml"/>
+  <authors>
+    <author uuid="7041fe1f-5d34-4373-b6dc-8a7d4605033b"/>
+    <!-- To add another author just repeat the code above with a different uuid. -->
+  </authors>
+  <gametype>walls</gametype>
+  <teams>
+    <team color="blue" id="blue" max="16" min="1">{color.blue}</team>
+    <team color="lime" id="lime" max="16" min="1">{color.lime}</team>
+    <team color="orange" id="orange" max="16" min="1">{color.orange}</team>
+    <team color="red" id="red" max="16" min="1">{color.red}</team>
+  </teams>
+  <spawns>
+    <spawn> <!-- Map spawn. (Where you spawn when you join the game.) -->
+      <regions>
+        <point pitch="0" yaw="180">133, 235, 133</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="blue"> <!-- Where each team spawns when the game starts. -->
+      <regions>
+        <point pitch="0" yaw="0">142, 224, 7</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="lime">
+      <regions>
+        <point pitch="0" yaw="-90">7, 224, 136</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="orange">
+      <regions>
+        <point pitch="0" yaw="-180">137, 224, 270</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="red">
+      <regions>
+        <point pitch="0" yaw="90">270, 224, 141</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <zones>
+    <zone modify="never">
+      <region id="wall"> <!-- Region(s) that will disapper when the walls fall. -->
+        <cuboid max="198, 224, 143" min="202, 230, 134"/>
+        <cuboid max="136, 223, 197" min="143, 229, 199"/>
+        <cuboid max="78, 225, 136" min="78, 228, 143"/>
+        <cuboid max="143, 224, 79" min="136, 229, 80"/>
+      </region>
+    </zone>
+    <zone modify="never"> <!-- Outside of the map. (Whole map cords)-->
+      <region>
+        <invert>
+          <cuboid max="153, 220, 75" min="82, 225, 4"/>
+          <cuboid max="202, 220, 152" min="273, 255, 81"/>
+          <cuboid max="126, 220, 202" min="197, 255, 273"/>
+          <cuboid max="75, 220, 125" min="4, 255, 196"/>
+        </invert>
+      </region>
+    </zone>
+    <zone modify="never">
+      <invert>
+        <cuboid max="103, 208, 132" min="75, 229, 145"/>
+        <cuboid max="145, 207, 103" min="133, 229, 75"/>
+        <cuboid max="174, 209, 145" min="202, 229, 132"/>
+        <cuboid max="133, 204, 174" min="146, 229, 202"/>
+        <cuboid max="103, 202, 103" min="174, 214, 174"/>
+      </invert>
+    </zone>
+  </zones>
+  <compasses>
+    <compass target="enemy"/>
+  </compasses>
+  <gamerules>
+    <doModSpawning>false</doModSpawning>
+    <doFireTick>false</doFireTick>
+    <doDaylightCycle>false</doDaylightCycle>
+    <storm>false</storm>
+    <weather check="always"/>
+    <difficulty>peaceful</difficulty>
+  </gamerules>
+  <kill-rewards>
+    <item>golden apple</item>
+  </kill-rewards>
+  <walls end-time="30m" fall-time="10m">
+    <wall region="walls"/>
+  </walls>
+</map>

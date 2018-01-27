@@ -1,0 +1,16 @@
+<!-- Base tutorial that should be included by all DTC with DTM maps. -->
+<map>
+  <include src="Shared/tutorials/main.xml"/>
+  <tutorial>
+    <prefix countdown="4s">
+      <title stay="3s" subtitle="^a^l{tutorial.mixed.dtc-dtm.title}"/>
+      <chat>
+        <line>^a^m--------------^f ^l{tutorial.mixed.dtc-dtm.title} ^a^m--------------</line>
+        <line>^r • {tutorial.mixed.dtc-dtm.desc1}</line>
+        <line>^r • {tutorial.mixed.dtc-dtm.desc2}</line>
+        <line>^r • {tutorial.mixed.dtc-dtm.desc3}</line>
+        <line>^a^m------------------------------------------</line>
+      </chat>
+    </prefix>
+  </tutorial>
+</map>

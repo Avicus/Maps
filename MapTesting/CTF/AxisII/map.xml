@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="Axis II" spec="1.0.4" version="1.0.0">
+  <include src="defaults.xml"/>
+  <include src="Shared/reward-one-gap.xml"/>
+  <authors>
+    <author uuid="bf3319534f9243ee8abc7544b8234936"/>  <!-- ViceWatercolour -->
+  </authors>
+  <teams>
+    <load-group id="teams.red-blue" max="14" min="1"/>
+  </teams>
+  <spawns>
+    <!-- Spectator spawn -->
+    <spawn>
+      <regions>
+        <point yaw="90">88.5, 12, 2820.5</point>
+      </regions>
+    </spawn>
+    <!-- Team spawns -->
+    <spawn loadout="main" team="red" yaw="0">
+      <regions>
+        <point yaw="0">59.5, 9, 2864.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="main" team="blue" yaw="180">
+      <regions>
+        <point yaw="180">59.5, 9, 2776.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <zones>
+    <!-- Posts -->
+    <zone id="red-post1">
+      <region>
+        <block>104, 17, 2864</block>
+      </region>
+      <post yaw="135"/>
+    </zone>
+    <zone id="red-post2">
+      <region>
+        <block>14, 17, 2864</block>
+      </region>
+      <post yaw="-135"/>
+    </zone>
+    <zone id="blue-post1">
+      <region>
+        <block>14, 17, 2776</block>
+      </region>
+      <post yaw="-45"/>
+    </zone>
+    <zone id="blue-post2">
+      <region>
+        <block>104, 17, 2776</block>
+      </region>
+      <post yaw="45"/>
+    </zone>
+    <!-- Nets -->
+    <zone>
+      <region>
+        <cuboid max="61, 10, 2862" min="57, 9, 2867"/>
+      </region>
+      <net points="1">
+        <capture-check>
+          <team>red</team>
+        </capture-check>
+      </net>
+    </zone>
+    <zone>
+      <region>
+        <cuboid max="61, 9, 2773" min="57, 10, 2778"/>
+      </region>
+      <net points="1">
+        <capture-check>
+          <team>blue</team>
+        </capture-check>
+      </net>
+    </zone>
+    <!-- iron deposits -->
+    <zone modify="never">
+      <region>
+        <invert>
+          <join>
+            <cuboid max="57, 8, 2767" min="61, 11, 2765"/>
+            <cuboid max="57, 8, 2875" min="61, 11, 2873"/>
+          </join>
+        </invert>
+      </region>
+      <message>You may not edit the map!</message>
+    </zone>
+    <!-- blue spawn -->
+    <zone modify="never">
+      <enter>
+        <team>blue</team>
+      </enter>
+      <region>
+        <join>
+          <cuboid max="49, 8, 2770" min="69, 13, 2773"/>
+          <cuboid max="61, 8, 2778" min="57, 13, 2773"/>
+        </join>
+      </region>
+      <message>{errors.enemy-base}</message>
+    </zone>
+    <!-- red spawn -->
+    <zone modify="never">
+      <enter>
+        <team>red</team>
+      </enter>
+      <region>
+        <join>
+          <cuboid max="49, 8, 2867" min="69, 13, 2870"/>
+          <cuboid max="61, 8, 2867" min="57, 13, 2862"/>
+        </join>
+      </region>
+      <message>{errors.enemy-base}</message>
+    </zone>
+    <!-- map jump pads -->
+    <zone velocity="23.0,13.0,23.0"> <!-- redpad front right -->
+      <region>
+        <cuboid max="39, 2, 2808" min="37, 4, 2810"/>
+      </region>
+    </zone>
+    <zone velocity="23.0,13.0,23.0"> <!-- redpad front left -->
+      <region>
+        <cuboid max="79, 2, 2810" min="81, 4, 2808"/>
+      </region>
+    </zone>
+    <zone velocity="23.0,13.0,23.0"> <!-- bluepad front left -->
+      <region>
+        <cuboid max="37, 2, 2830" min="39, 4, 2832"/>
+      </region>
+    </zone>
+    <zone velocity="23.0,13.0,23.0"> <!-- bluepad front right -->
+      <region>
+        <cuboid max="81, 2, 2832" min="79, 4, 2830"/>
+      </region>
+    </zone>
+    <zone velocity="0.0,13.0,0.0"> <!-- bluepad flag left -->
+      <region>
+        <point>101, 6.5, 2861</point>
+      </region>
+    </zone>
+    <zone velocity="0.0,13.0,0.0"> <!-- bluepad flag right -->
+      <region>
+        <point>17, 6.5, 2861</point>
+      </region>
+    </zone>
+    <zone velocity="0.0,13.0,0.0"> <!-- redpad flag left -->
+      <region>
+        <point>17, 6.5, 2779</point>
+      </region>
+    </zone>
+    <zone velocity="0.0,13.0,0.0"> <!-- redpad flag right -->
+      <region>
+        <point>101, 6, 2779</point>
+      </region>
+    </zone>
+    <zone velocity="7.0,2.0,7.0"> <!-- redpad toplevel right -->
+      <region>
+        <cuboid max="87, 22, 2780" min="85, 20, 2778"/>
+      </region>
+    </zone>
+    <zone velocity="7.0,2.0,7.0"> <!-- redpad toplevel left -->
+      <region>
+        <cuboid max="31, 22, 2788" min="33, 20, 2780"/>
+      </region>
+    </zone>
+    <zone velocity="7.0,2.0,7.0"> <!-- blue toplevel right -->
+      <region>
+        <cuboid max="31, 22, 2860" min="33, 20, 2862"/>
+      </region>
+    </zone>
+    <zone velocity="7.0,2.0,7.0"> <!-- bluepad toplevel left -->
+      <region>
+        <cuboid max="87, 22, 2862" min="85, 21, 2860"/>
+      </region>
+    </zone>
+    <zone velocity="0.0,8.0,0.0"> <!-- bluepad center left -->
+      <region>
+        <point>54, 6, 2837</point>
+      </region>
+    </zone>
+    <zone velocity="0.0,8.0,0.0"> <!-- bluepad center right -->
+      <region>
+        <point>64, 6, 2837</point>
+      </region>
+    </zone>
+    <zone velocity="0.0,8.0,0.0"> <!-- redpad center left -->
+      <region>
+        <point>64, 6, 2803</point>
+      </region>
+    </zone>
+    <zone velocity="0.0,8.0,0.0"> <!-- redpad center right -->
+      <region>
+        <point>54, 6, 2803</point>
+      </region>
+    </zone>
+    <!-- map portals -->
+    <zone modify="never"> <!-- red left to center -->
+      <region>
+        <cuboid max="48, 5, 2837" min="48, 2, 2835"/>
+      </region>
+      <portal yaw="0">
+        <destination>
+          <point>59, 12, 2835</point>
+        </destination>
+      </portal>
+    </zone>
+    <zone modify="never"> <!-- red right to center -->
+      <region>
+        <cuboid max="70, 5, 2835" min="70, 2, 2837"/>
+      </region>
+      <portal yaw="0">
+        <destination>
+          <point>59, 12, 2835</point>
+        </destination>
+      </portal>
+    </zone>
+    <zone modify="never"> <!-- red center to back center -->
+      <region>
+        <cuboid max="60, 14, 2834" min="58, 11, 2834"/>
+      </region>
+      <portal yaw="180">
+        <destination>
+          <point>59, 3, 2857</point>
+        </destination>
+      </portal>
+    </zone>
+    <zone modify="never"> <!-- blue center to back center -->
+      <region>
+        <cuboid max="58, 14, 2806" min="60, 11, 2806"/>
+      </region>
+      <portal yaw="0">
+        <destination>
+          <point>59, 3, 2873</point>
+        </destination>
+      </portal>
+    </zone>
+    <zone modify="never"> <!-- blue left to center -->
+      <region>
+        <cuboid max="70, 5, 2803" min="70, 2, 2805"/>
+      </region>
+      <portal yaw="180">
+        <destination>
+          <point>59, 12, 2804</point>
+        </destination>
+      </portal>
+    </zone>
+    <zone modify="never"> <!-- blue right to center -->
+      <region>
+        <cuboid max="48, 5, 2805" min="48, 2, 2803"/>
+      </region>
+      <portal yaw="180">
+        <destination>
+          <point>59, 12, 2804</point>
+        </destination>
+      </portal>
+    </zone>
+  </zones>
+  <decay>
+    <area fall-delay="15s" region="bridges-low">
+      <phase delay="5s">stained glass:8</phase>
+      <phase delay="5s">stained glass:7</phase>
+      <phase delay="3s">stained glass:15</phase>
+      <phase delay="2s">glass</phase>
+    </area>
+    <area fall-delay="5s" region="bridges-top">
+      <phase delay="1s">stained glass:8</phase>
+      <phase delay="1s">stained glass:7</phase>
+      <phase delay="1s">stained glass:15</phase>
+      <phase delay="2s">glass</phase>
+    </area>
+  </decay>
+  <damage>
+    <disable>
+      <damage>fall</damage>
+    </disable>
+  </damage>
+  <world>
+    <storm>false</storm>
+    <weather check="always"/>
+    <gamerules>
+      <doDaylightCycle>false</doDaylightCycle>
+      <naturalRegeneration>false</naturalRegeneration>
+      <doTileDrops>false</doTileDrops>
+    </gamerules>
+  </world>
+  <loadouts>
+    <loadout id="main">
+      <effect duration="5s">damage resistance</effect>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="chainmail leggings"/>
+      <boots material="iron boots" team-color="true"/>
+      <item material="iron sword" slot="0"/>
+      <item material="bow" slot="1"/>
+      <item amount="1" material="golden apple" slot="2"/>
+      <item amount="32" material="cooked beef" slot="3"/>
+      <item amount="16" material="arrow" slot="8"/>
+    </loadout>
+    <loadout id="sponge" parent="main">
+      <helmet material="sponge"/>
+    </loadout>
+    <loadout id="wool" parent="main">
+      <helmet material="wool"/>
+    </loadout>
+    <loadout id="sand" parent="main">
+      <helmet material="sand"/>
+    </loadout>
+    <loadout id="obsidian" parent="main">
+      <helmet material="obsidian"/>
+    </loadout>
+    <loadout id="glass" parent="main">
+      <helmet material="glass"/>
+    </loadout>
+    <loadout id="log" parent="main">
+      <helmet material="log"/>
+    </loadout>
+    <loadout id="arrow">
+      <item amount="8" material="arrow"/>
+    </loadout>
+  </loadouts>
+  <kits>
+    <kit description="Wear a sponge helmet" id="Sponge" loadout="sponge" name="Sponge">
+      <icon material="sponge"/>
+    </kit>
+    <kit description="Wear a wool helmet" id="Wool" loadout="wool" name="Wool">
+      <icon material="wool"/>
+    </kit>
+    <kit description="Wear a sand helmet" id="Sand" loadout="sand" name="Sand">
+      <icon material="sand"/>
+    </kit>
+    <kit description="Wear a glass helmet" id="Glass" loadout="glass" name="Glass">
+      <icon material="glass"/>
+    </kit>
+    <kit description="Wear a log helmet" id="Log" loadout="log" name="Log">
+      <icon material="log"/>
+    </kit>
+    <kit description="Wear an obsidian helmet" id="Obsidian" loadout="obsidian" name="Obsidian">
+      <icon material="obsidian"/>
+    </kit>
+  </kits>
+  <regions>
+    <join id="bridges-top">
+      <cuboid max="75, 20, 2862" min="43, 20, 2778"/>
+      <cuboid max="61, 8, 2778" min="57, 13, 2773"/>
+    </join>
+    <join id="bridges-low">
+      <cuboid max="32, 11, 2829" min="30, 11, 2811"/>
+      <cuboid max="88, 11, 2811" min="86, 11, 2829"/>
+    </join>
+  </regions>
+  <kills>
+    <rewards>
+      <reward loadout="arrow"/>
+    </rewards>
+  </kills>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>chainmail leggings</material>
+        <material>leather boots</material>
+        <material>cooked beef</material>
+        <material>golden apple</material>
+        <material>arrow</material>
+        <material>sponge</material>
+        <material>wool</material>
+        <material>sand</material>
+        <material>glass</material>
+        <material>log</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>iron sword</material>
+        <material>bow</material>
+      </any>
+    </repair-tools>
+  </items>
+  <broadcasts>
+    <broadcast format="tip" interval="2m">Use jump pads and portals to navigate!</broadcast>
+    <broadcast format="tip" interval="2m">Some grey stained glass bridges will decay after 15
+      seconds of walking on top of it!
+    </broadcast>
+  </broadcasts>
+  <objectives>
+    <scores limit="8">
+      <score team="red"/>
+      <score team="blue"/>
+    </scores>
+    <flag color="blue" owner="blue" post="blue-post1"/>
+    <flag color="blue" owner="blue" post="blue-post2"/>
+    <flag color="red" owner="red" post="red-post1"/>
+    <flag color="red" owner="red" post="red-post2"/>
+  </objectives>
+</map>

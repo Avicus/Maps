@@ -1,0 +1,13 @@
+<!-- Helper file to reward an arrow on a kill. -->
+<map>
+  <kills>
+    <rewards>
+      <reward loadout="one-golden-apple"/>
+    </rewards>
+  </kills>
+  <loadouts>
+    <loadout id="one-golden-apple">
+      <item material="golden apple"/>
+    </loadout>
+  </loadouts>
+</map>

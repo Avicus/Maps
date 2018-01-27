@@ -1,0 +1,40 @@
+<?xml version="1.1"?>
+<map description="Get in the carts to win!" genre="arcade" name="Cartz" spec="1.0.5"
+  version="1.0.0">
+  <include src="defaults.xml"/>
+  <authors>
+    <author uuid="c2a4c847653e482ab62ed7f8b64330cb"/> <!-- ALM -->
+  </authors>
+  <ffa friendly-fire="false" max="36" max-overfill="50" min="2"/>
+  <zones>
+    <load-group id="no-build"/>
+  </zones>
+  <spawns>
+    <spawn look="25, 4, 6" team="spectators">
+      <regions>
+        <circle center="25, 35, 6" radius="30"/>
+      </regions>
+    </spawn>
+    <spawn look="25, 4, 6" mode="spread" team="ffa">
+      <regions>
+        <circle center="25, 33, 6" radius="18"/>
+      </regions>
+    </spawn>
+  </spawns>
+  <carts center="25, 4, 6" height="30" radius="25" radius-subtract="5"/>
+  <items>
+    <remove-drops>
+      <always/>
+    </remove-drops>
+  </items>
+  <modify-damage>
+    <mod action="set" mod="0">
+      entity attack
+      <check>
+        <victim>
+          <entity>player</entity>
+        </victim>
+      </check>
+    </mod>
+  </modify-damage>
+</map>

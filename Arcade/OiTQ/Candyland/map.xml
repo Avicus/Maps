@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map genre="arcade" name="Candyland OiTQ" spec="1.0.3" version="1.0.0">
+  <include src="defaults.xml"/>
+  <include src="Shared/oitc.xml"/>
+  <authors>
+    <author uuid="06465266c5bf4aa0a6b814ed309abb5f"/> <!-- 8bitChap -->
+  </authors>
+  <spawns>
+    <spawn team="spectators" yaw="0">
+      <regions>
+        <block>147, 125, 423</block>
+      </regions>
+    </spawn>
+    <spawn loadout="default" yaw="0">
+      <regions>
+        <point>166, 107, 474</point>
+        <point>154, 107, 480</point>
+        <point>147, 107, 483</point>
+        <point>121, 107, 473</point>
+        <point>107, 108, 438</point>
+        <point>107, 108, 438</point>
+        <point>84, 108, 411</point>
+        <point>71, 108, 388</point>
+        <point>114, 108, 346</point>
+        <point>157, 112, 351</point>
+        <point>179, 117, 362</point>
+        <point>193, 107, 376</point>
+        <point>187, 107, 396</point>
+        <point>179, 108, 413</point>
+        <point>188, 107, 428</point>
+        <point>183, 107, 443</point>
+        <point>165, 108, 441</point>
+        <point>137, 109, 424</point>
+        <point>124, 108, 435</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>leather leggings</material>
+        <material>leather boots</material>
+      </any>
+    </remove-drops>
+  </items>
+</map>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map genre="sky wars" name="Swamp Lands" spec="1.0.0" version="1.0.0">
+  <include src="defaults.xml"/>
+  <include src="Shared/skywars.xml"/>
+  <authors>
+    <author uuid="0b8f95fa0f404f289fd0b8e243bb6800"/>  <!-- Fouled -->
+  </authors>
+  <ffa max="8" max-overfill="8" min="2"/>
+  <objectives>
+    <last-competitor-standing/>
+  </objectives>
+  <results>
+    <win scenario="objectives">
+      <check>
+        <time>7m</time>
+      </check>
+    </win>
+  </results>
+  <compasses>
+    <compass target="enemy"/>
+  </compasses>
+  <spawns>
+    <spawn team="spectators" yaw="180">
+      <regions>
+        <block>0, 50, 105</block>
+      </regions>
+    </spawn>
+    <spawn loadout="default" look="-45, 31, 46" mode="safe">
+      <regions>
+        <block>2, 20, 84</block>
+        <block>30, 20, 73</block>
+        <block>41, 20, 41</block>
+        <block>30, 20, 13</block>
+        <block>-1, 20, 2</block>
+        <block>-29, 20, 13</block>
+        <block>-40, 20, 45</block>
+        <block>-29, 20, 73</block>
+      </regions>
+    </spawn>
+  </spawns>
+  <elimination lives="1"/>
+  <loadouts>
+    <loadout id="default">
+      <helmet material="leather helmet" team-color="true"/>
+      <item material="wood sword" slot="0"/>
+      <item amount="4" material="cooked beef" slot="7"/>
+      <item material="compass" slot="8"/>
+    </loadout>
+  </loadouts>
+  <remove-drops>
+    <any>
+      <material>compass</material>
+    </any>
+  </remove-drops>
+</map>

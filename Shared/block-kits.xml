@@ -1,0 +1,74 @@
+<!-- Default kits used for all maps that have block disguises. -->
+<map>
+  <kits>
+    <!-- Building Blocks -->
+    <kit name="Workbench">
+      <icon material="Workbench"/>
+      <loadout>
+        <disguise material="Workbench">falling block</disguise>
+      </loadout>
+    </kit>
+    <kit name="Bookshelf">
+      <icon material="Bookshelf"/>
+      <loadout>
+        <disguise material="bookshelf">falling block</disguise>
+      </loadout>
+    </kit>
+    <kit name="Stone">
+      <icon material="stone"/>
+      <loadout>
+        <disguise material="stone">falling block</disguise>
+      </loadout>
+    </kit>
+    <kit name="Wood">
+      <icon material="wood"/>
+      <loadout>
+        <disguise material="wood">falling block</disguise>
+      </loadout>
+    </kit>
+    <kit name="Glowstone">
+      <icon material="glowstone"/>
+      <loadout>
+        <disguise material="glowstone">falling block</disguise>
+      </loadout>
+    </kit>
+    <kit name="Grass">
+      <icon material="grass"/>
+      <loadout>
+        <disguise material="grass">falling block</disguise>
+      </loadout>
+    </kit>
+    <!-- Misc -->
+    <kit name="Beacon">
+      <icon material="beacon"/>
+      <loadout>
+        <disguise material="beacon">falling block</disguise>
+      </loadout>
+    </kit>
+    <!-- Supply -->
+    <kit name="Gold">
+      <icon material="gold block"/>
+      <loadout>
+        <disguise material="gold block">falling block</disguise>
+      </loadout>
+    </kit>
+    <kit name="Emerald">
+      <icon material="emerald block"/>
+      <loadout>
+        <disguise material="emerald block">falling block</disguise>
+      </loadout>
+    </kit>
+    <kit name="Iron">
+      <icon material="iron block"/>
+      <loadout>
+        <disguise material="iron block">falling block</disguise>
+      </loadout>
+    </kit>
+    <kit name="Diamond">
+      <icon material="diamond block"/>
+      <loadout>
+        <disguise material="diamond block">falling block</disguise>
+      </loadout>
+    </kit>
+  </kits>
+</map>

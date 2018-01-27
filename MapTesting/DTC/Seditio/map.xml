@@ -1,0 +1,157 @@
+<?xml version="1.0"?>
+<map name="Seditio" spec="1.0.5" version="2.0.2">
+  <include src="defaults.xml"/>
+  <authors>
+    <author uuid="8de835a6916a4fcf9b25239dda454411"/> <!-- Passively -->
+    <author uuid="1c898c77b0cc474a8ce4b5521f2b18e7"/> <!-- Prodigy4532 -->
+  </authors>
+  <teams>
+    <team color="green" id="green" max="15" min="1">{colors.green}</team>
+    <team color="orange" id="orange" max="15" min="1">{colors.orange}</team>
+  </teams>
+  <spawns>
+    <spawn loadout="all">
+      <regions>
+        <point yaw="90">-179.5, 51, 64.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="kitgreen" team="green">
+      <regions>
+        <point yaw="0">-136.5, 19, -10.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="kitorange" team="orange">
+      <regions>
+        <point yaw="180">-136.5, 19, 139.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <loadouts>
+    <loadout id="all">
+      <effect>night vision</effect>
+    </loadout>
+    <loadout id="all-users" parent="all">
+      <effect duration="10000s">night vision</effect>
+      <item material="iron sword" slot="0"/>
+      <item material="bow" slot="1">
+        <enchantments>
+          <enchantment level="1">arrow infinite</enchantment>
+        </enchantments>
+      </item>
+      <item material="diamond pickaxe" slot="2">
+        <enchantments>
+          <enchantment level="2">durability</enchantment>
+        </enchantments>
+      </item>
+      <item material="iron axe" slot="3"/>
+      <item amount="64" material="smooth brick" slot="4"/>
+      <item amount="1" material="golden apple" slot="6"/>
+      <item amount="32" material="golden carrot" slot="8"/>
+      <item amount="1" material="arrow" slot="28"/>
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="chainmail chestplate"/>
+      <leggings material="leather leggings" team-color="true"/>
+      <boots material="leather boots" team-color="true"/>
+    </loadout>
+    <loadout id="kitorange" parent="all-users">
+      <item amount="32" damage="1" material="stained glass" slot="7"/>
+    </loadout>
+    <loadout id="kitgreen" parent="all-users">
+      <item amount="32" damage="13" material="stained glass" slot="7"/>
+    </loadout>
+    <loadout id="kill-reward">
+      <item material="golden apple"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="kill-reward"/>
+    </rewards>
+  </kills>
+  <results>
+    <win scenario="objectives">
+      <check>
+        <time>45m</time>
+      </check>
+    </win>
+  </results>
+  <objectives>
+    <leakables destroyable="true" first-phase="gold" materials="obsidian">
+      <leakables owner="orange">
+        <leakable leak-distance="4" name="Core">
+          <region>
+            <cuboid max="-143, 14, 89" min="-130, 25, 102"/>
+          </region>
+        </leakable>
+      </leakables>
+      <leakables owner="green">
+        <leakable leak-distance="4" name="Core">
+          <region>
+            <cuboid max="-143, 14, 27" min="-130, 25, 40"/>
+          </region>
+        </leakable>
+      </leakables>
+    </leakables>
+  </objectives>
+  <zones>
+    <zone modify="never">
+      <region>
+        <invert>
+          <cuboid max="-160, 41, 121" min="-116, 1, 8"/>
+        </invert>
+      </region>
+      <message>{errors.outside-map}</message>
+    </zone>
+    <zone modify="never">
+      <enter>
+        <team>green</team>
+      </enter>
+      <region>
+        <cuboid max="-134, 256, -13" min="-139, 1, 8"/>
+      </region>
+      <message>{errors.enemy-base}</message>
+    </zone>
+    <zone modify="never">
+      <enter>
+        <team>orange</team>
+      </enter>
+      <region>
+        <cuboid max="-139, 256, 142" min="-134, 1, 121"/>
+      </region>
+      <message>{errors.enemy-base}</message>
+    </zone>
+  </zones>
+  <items>
+    <remove-drops>
+      <any>
+        <material>stained glass:1</material>
+        <material>stained glass:13</material>
+        <material>smooth brick</material>
+        <material>wood</material>
+        <material>golden carrot</material>
+        <material>golden apple</material>
+        <material>arrow</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>iron sword</material>
+        <material>iron axe</material>
+        <material>diamond pickaxe</material>
+        <material>bow</material>
+        <material>leather helmet</material>
+        <material>chainmail chestplate</material>
+        <material>leather leggings</material>
+        <material>leather boots</material>
+      </any>
+    </repair-tools>
+  </items>
+  <phases countdown-message="{phases.transition}" fail-message="{phases.cores.fail}">
+    <phase delay="8m" id="gold" success-message="{phases.core.gold}">
+      ^eGold
+      <materials>
+        <material find="obsidian" replace="gold block"/>
+      </materials>
+    </phase>
+  </phases>
+</map>

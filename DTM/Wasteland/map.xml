@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map spec="1.0.5" name="Wasteland" version="2.1.0" genre="nebula">
+  <gametype>dtm</gametype>
+  <authors>
+    <!--TODO: Get UUID for steven5703-->
+    <author uuid="93db9798b9954bdab70a23f5d33124a0" />
+  </authors>
+  <spawns>
+    <spawn>
+      <regions>
+        <point yaw="90">-266.5, 111.0, 193.5</point>
+      </regions>
+    </spawn>
+    <spawn team="red" loadout="default">
+      <regions>
+        <point yaw="-90">-231.5, 25.0, 289.5</point>
+      </regions>
+    </spawn>
+    <spawn team="green" loadout="default">
+      <regions>
+        <point yaw="-90">-231.5, 25.0, 85.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>chainmail chestplate</material>
+        <material>chainmail leggings</material>
+        <material>chainmail boots</material>
+        <material>gold axe</material>
+        <material>arrow</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>bow</material>
+        <material>diamond pickaxe</material>
+        <material>iron sword</material>
+      </any>
+    </repair-tools>
+  </items>
+  <zones>
+    <zone modify="never">
+      <region>
+        <sphere origin="-231,25,289" radius="10" />
+      </region>
+    </zone>
+    <zone modify="never">
+      <region>
+        <sphere origin="-231,25,289" radius="10" />
+      </region>
+    </zone>
+  </zones>
+  <objectives>
+    <monuments materials="obsidian">
+      <monuments owner="green">
+        <monument name="Center">
+          <region>
+            <block>-244, 26, 108</block>
+          </region>
+        </monument>
+      </monuments>
+      <monuments owner="red">
+        <monument name="Center">
+          <region>
+            <block>-244, 26, 265</block>
+          </region>
+        </monument>
+      </monuments>
+    </monuments>
+  </objectives>
+  <teams>
+    <team id="red" color="red" min="5" max="35" max-overfill="43">Red Team</team>
+    <team id="green" color="green" min="5" max="35" max-overfill="43">Green Team</team>
+  </teams>
+  <loadouts>
+    <loadout id="default">
+      <item slot="0" material="iron sword" />
+      <item slot="1" material="bow">
+        <enchantments>
+          <enchantment level="1">arrow_infinite</enchantment>
+        </enchantments>
+      </item>
+      <item slot="2" material="diamond pickaxe">
+        <enchantments>
+          <enchantment level="1">dig_speed</enchantment>
+        </enchantments>
+      </item>
+      <item slot="3" material="gold axe">
+        <enchantments>
+          <enchantment level="2">dig_speed</enchantment>
+        </enchantments>
+      </item>
+      <item slot="4" material="bread" amount="64" name="§cStale Bread" />
+      <item slot="5" material="golden apple" amount="3" name="§bGolden Apple" />
+      <item slot="6" material="glass" amount="64" />
+      <item slot="7" material="log" amount="64" />
+      <item slot="27" material="arrow" />
+      <chestplate material="chainmail chestplate" />
+      <helmet team-color="true" material="leather helmet" />
+      <boots material="chainmail boots" />
+      <leggings material="chainmail leggings" />
+      <effect duration="100" level="4">damage resistance</effect>
+    </loadout>
+  </loadouts>
+</map>

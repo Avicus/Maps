@@ -1,0 +1,274 @@
+<?xml version="1.0"?>
+<map name="Monthand5CP" spec="1.0.0" version="1.0.0">
+  <include src="defaults.xml"/>
+  <include src="Shared/reward-one-gap.xml"/>
+  <authors>
+    <author uuid="8de835a6916a4fcf9b25239dda454411"/> <!--  Passively  -->
+    <author uuid="b50fa15b67fe4b528105e2cf21ced66d"/> <!-- PosteGamer -->
+  </authors>
+  <teams>
+    <team color="green" id="green" max="8" min="1">{colors.green}</team>
+    <team color="orange" id="orange" max="8" min="1">{colors.orange}</team>
+  </teams>
+  <spawns>
+    <spawn>
+      <regions>
+        <point yaw="90">-7.5, 31, 72.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="green">
+      <regions>
+        <cuboid max="0, 7, -4" min="2, 7, -6" yaw="0"/>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="orange">
+      <regions>
+        <cuboid max="-15, 7, 149" min="-17, 7, 151" yaw="180"/>
+      </regions>
+    </spawn>
+  </spawns>
+  <loadouts>
+    <loadout id="default">
+      <item material="stone sword" slot="0" unbreakable="true"/>
+      <item material="bow" slot="1" unbreakable="true"/>
+      <item amount="1" material="golden apple" slot="3"/>
+      <item amount="16" material="golden carrot" slot="8"/>
+      <item amount="16" material="arrow" slot="7"/>
+      <helmet material="chainmail helmet" unbreakable="true"/>
+      <chestplate material="leather chestplate" team-color="true" unbreakable="true"/>
+      <leggings material="iron leggings" unbreakable="true"/>
+      <boots material="leather boots" team-color="true" unbreakable="true"/>
+    </loadout>
+    <loadout id="four-arrow">
+      <item amount="4" material="arrow"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="four-arrow"/>
+    </rewards>
+  </kills>
+  <zones>
+    <zone modify="never" region="everywhere"/>
+  </zones>
+  <results>
+    <win scenario="objectives">
+      <check>
+        <time>12m</time>
+      </check>
+    </win>
+    <win scenario="team" team="green">
+      <check>
+        <all>
+          <objective team="green">green-2nd</objective>
+          <objective team="green">green-last</objective>
+          <objective team="green">mid</objective>
+          <objective team="green">orange-last</objective>
+          <objective team="green">orange-2nd</objective>
+        </all>
+      </check>
+    </win>
+    <win scenario="team" team="orange">
+      <check>
+        <all>
+          <objective team="orange">green-2nd</objective>
+          <objective team="orange">green-last</objective>
+          <objective team="orange">mid</objective>
+          <objective team="orange">orange-last</objective>
+          <objective team="orange">orange-2nd</objective>
+        </all>
+      </check>
+    </win>
+  </results>
+  <objectives>
+    <hill capture-time="5s" id="green-last" initial-owner="green" name="Green Last">
+      <capture>
+        <cuboid max="-11, 12, 25" min="-17, 6, 19"/>
+      </capture>
+      <progress>
+        <cuboid max="-18, 6, 18" min="-10, 12, 26"/>
+      </progress>
+      <capture-check>
+        <any>
+          <all>
+            <team>orange</team>
+            <objective team="orange">orange-last</objective>
+            <objective team="orange">orange-2nd</objective>
+            <objective team="orange">mid</objective>
+            <objective team="orange">green-2nd</objective>
+          </all>
+        </any>
+      </capture-check>
+    </hill>
+    <hill capture-time="5s" id="green-2nd" initial-owner="green" name="Green 2nd">
+      <capture>
+        <cuboid max="15, 13, 54" min="21, 10, 60"/>
+      </capture>
+      <progress>
+        <cuboid max="22, 9, 61" min="14, 15, 53"/>
+      </progress>
+      <capture-check>
+        <any>
+          <all>
+            <team>orange</team>
+            <objective team="orange">orange-2nd</objective>
+            <objective team="orange">orange-last</objective>
+            <objective team="orange">mid</objective>
+          </all>
+          <all>
+            <team>green</team>
+            <objective team="green">green-last</objective>
+          </all>
+        </any>
+      </capture-check>
+    </hill>
+    <hill capture-time="5s" id="mid" name="Mid">
+      <capture>
+        <cuboid max="-4, 9, 76" min="-11, 4, 69"/>
+      </capture>
+      <progress>
+        <cuboid max="-4, 9, 76" min="-11, 4, 69"/>
+      </progress>
+      <capture-check>
+        <any>
+          <all>
+            <team>green</team>
+            <objective team="green">green-last</objective>
+            <objective team="green">green-2nd</objective>
+          </all>
+          <all>
+            <team>orange</team>
+            <objective team="orange">orange-last</objective>
+            <objective team="orange">orange-2nd</objective>
+          </all>
+        </any>
+      </capture-check>
+    </hill>
+    <hill capture-time="5s" id="orange-2nd" initial-owner="orange" name="Orange 2nd ">
+      <capture>
+        <cuboid max="-30, 13, 91" min="-35, 10, 85"/>
+      </capture>
+      <progress>
+        <cuboid max="-29, 15, 92" min="-37, 9, 84"/>
+      </progress>
+      <capture-check>
+        <any>
+          <all>
+            <team>green</team>
+            <objective team="green">green-2nd</objective>
+            <objective team="green">green-last</objective>
+            <objective team="green">mid</objective>
+          </all>
+          <all>
+            <team>orange</team>
+            <objective team="orange">orange-last</objective>
+          </all>
+        </any>
+      </capture-check>
+    </hill>
+    <hill capture-time="5s" id="orange-last" initial-owner="orange" name="Orange Last ">
+      <capture>
+        <cuboid max="-4, 11, 126" min="2, 7, 120"/>
+      </capture>
+      <progress>
+        <cuboid max="3, 12, 119" min="-5, 6, 127"/>
+      </progress>
+      <capture-check>
+        <any>
+          <all>
+            <team>green</team>
+            <objective team="green">green-last</objective>
+            <objective team="green">green-2nd</objective>
+            <objective team="green">mid</objective>
+            <objective team="green">orange-2nd</objective>
+          </all>
+        </any>
+      </capture-check>
+    </hill>
+  </objectives>
+  <items>
+    <remove-drops>
+      <any>
+        <material>stone sword</material>
+        <material>bow</material>
+        <material>golden carrot</material>
+        <material>arrow</material>
+        <material>chainmail helmet</material>
+        <material>leather chestplate</material>
+        <material>iron leggings</material>
+        <material>leather boots</material>
+      </any>
+    </remove-drops>
+  </items>
+  <world>
+    <storm>false</storm>
+    <weather check="always"/>
+    <gamerules>
+      <doDaylightCycle>false</doDaylightCycle>
+    </gamerules>
+  </world>
+  <executors>
+    <executor check="orange-mid" id="tele-orange-mid">
+      <teleport-player>
+        <to>
+          <point>-1, 7, 112</point>
+        </to>
+      </teleport-player>
+    </executor>
+    <executor check="green-mid" id="tele-green-mid">
+      <teleport-player>
+        <to>
+          <point>-13, 7, 33</point>
+        </to>
+      </teleport-player>
+    </executor>
+    <executor check="ora-2nd" id="tele-orange-2nd">
+      <teleport-player>
+        <to>
+          <point>-14, 4, 91</point>
+        </to>
+      </teleport-player>
+    </executor>
+    <executor check="gre-2nd" id="tele-green-2nd">
+      <teleport-player>
+        <to>
+          <point>-1, 4, 53</point>
+        </to>
+      </teleport-player>
+    </executor>
+  </executors>
+  <checks>
+    <all id="orange-mid">
+      <objective team="orange">mid</objective>
+      <objective team="orange">orange-2nd</objective>
+      <objective team="orange">orange-last</objective>
+      <team>orange</team>
+    </all>
+    <all id="green-mid">
+      <objective team="green">mid</objective>
+      <objective team="green">green-2nd</objective>
+      <objective team="green">green-last</objective>
+      <team>green</team>
+    </all>
+    <all id="gre-2nd">
+      <objective team="green">orange-2nd</objective>
+      <objective team="green">mid</objective>
+      <objective team="green">green-2nd</objective>
+      <objective team="green">green-last</objective>
+      <team>green</team>
+    </all>
+    <all id="ora-2nd">
+      <objective team="orange">purple-2nd</objective>
+      <objective team="orange">mid</objective>
+      <objective team="orange">orange-2nd</objective>
+      <objective team="orange">orange-last</objective>
+      <team>orange</team>
+    </all>
+  </checks>
+  <triggers>
+    <trigger execute="tele-orange-mid" on="player-spawn"/>
+    <trigger execute="tele-orange-2nd" on="player-spawn"/>
+    <trigger execute="tele-green-mid" on="player-spawn"/>
+    <trigger execute="tele-green-2nd" on="player-spawn"/>
+  </triggers>
+</map>

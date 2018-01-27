@@ -1,0 +1,167 @@
+<?xml version="1.0"?>
+<map name="Rendezvous CTW" version="1.1.0" spec="1.0.0">
+    <include src="defaults.xml"/>
+    <authors>
+        <author uuid="44df6b20168f4389b7ac434518207c2f"/> <!-- ParaPenguin -->
+        <author uuid="d9b4ffbc11d0453aa93f82dc59fca4b6"/> <!-- hugWulf -->
+        <author uuid="0b8f95fa0f404f289fd0b8e243bb6800"/> <!-- Fouled -->
+    </authors>
+    <teams>
+        <team id="green" color="green" min="1" max="20">{colors.green}</team>
+        <team id="blue" color="blue" min="1" max="20">{colors.blue}</team>
+    </teams>
+    <spawns respawn-delay="5s" auto-respawn="false" respawn-freeze="true">
+        <!-- Spectator spawn -->
+        <spawn>
+            <regions>
+                <point yaw="180">-235.5, 38, 56.5</point>
+            </regions>
+        </spawn>
+        <!-- Team spawns -->
+        <spawn team="green" loadout="default" yaw="-90">
+            <regions>
+                <point yaw="-90">-333.5, 12, -11.5</point>
+            </regions>
+        </spawn>
+        <spawn team="blue" loadout="default" yaw="90">
+            <regions>
+                <point yaw="90">-137.5, 12, -11.5</point>
+            </regions>
+        </spawn>
+    </spawns>
+    <world>
+        <gamerules>
+            <doDaylightCycle>true</doDaylightCycle>
+        </gamerules>
+    </world>
+    <regions>
+        <subtract id="void-outer"> <!-- All blocks of void minus the mid region -->
+            <void/>
+            <cuboid min="-283, 0, 22" max="-189, 36, -46"/>
+        </subtract>
+        <above id="height-limit" y="36"/>
+    </regions>
+    <loadouts>
+        <loadout id="default">
+            <effect duration="5s">damage resistance</effect>
+            <helmet material="leather helmet" team-color="true"/>
+            <item slot="0" material="iron sword"/>
+            <item slot="1" material="bow">
+                <enchantment>arrow infinite</enchantment>
+            </item>
+            <item slot="2" material="diamond pickaxe">
+                <enchantment level="3">durability</enchantment>
+            </item>
+            <item slot="3" material="golden apple" amount="3"/>
+            <item slot="4" material="log" amount="64"/>
+            <item slot="5" material="glass" amount="32"/>
+            <item slot="7" material="cooked beef" amount="32"/>
+            <item slot="27" material="arrow" amount="1"/>
+        </loadout>
+    </loadouts>
+    <zones>
+        <zone modify="never">
+            <region>
+                <cuboid min="-324, 7, -17" max="-342, 17, -5"/>
+            </region>
+            <message>{errors.spawn-restricted}</message>
+        </zone>
+        <zone modify="never">
+            <region>
+                <cuboid min="-146, 7, -5" max="-128, 17, -17"/>
+            </region>
+            <message>{errors.spawn-restricted}</message>
+        </zone>
+        <zone modify="never">
+            <region>
+                <cuboid min="-68, 0, 12" max="-52, 36, 22"/> <!-- Room is Wool Orange -->
+                <cuboid min="-68, 0, -46" max="-52, 36, -36"/> <!-- Room is Wool Yellow -->
+                <cuboid min="-404, 0, 22" max="-420, 36, 12"/> <!-- Room is Wool Cyan -->
+                <cuboid min="-404, 0, -36" max="-420, 36, -46"/> <!-- Room is Wool Purple -->
+            </region>
+        </zone>
+        <!-- green woolrooms -->
+        <zone modify="always">
+            <enter>
+                <team>blue</team>
+            </enter>
+            <region>
+                <cuboid min="-404, 0, 22" max="-420, 36, 12"/>
+                <cuboid min="-404, 0, -36" max="-420, 36, -46"/>
+            </region>
+            <message>{errors.enemy-base}</message>
+        </zone>
+        <!-- blue woolrooms -->
+        <zone modify="always">
+            <enter>
+                <team>green</team>
+            </enter>
+            <region>
+                <cuboid min="-68, 0, 12" max="-52, 36, 22"/>
+                <cuboid min="-68, 0, -46" max="-52, 36, -36"/>
+            </region>
+            <message>{errors.enemy-base}</message>
+        </zone>
+        <zone modify="never" region="void-outer">
+            <message>{errors.outside-map}</message>
+        </zone>
+        <zone modify="never" region="height-limit">
+            <message>{errors.height-limit}</message>
+        </zone>
+    </zones>
+    <objectives>
+        <wools team="green" pickup="false">
+            <wool color="orange">
+                <source>
+                    <cuboid min="-54, 7, 17" max="-54, 7, 17"/>
+                </source>
+                <destination>
+                    <block>-354, 8, -11</block>
+                </destination>
+            </wool>
+            <wool color="yellow">
+                <source>
+                    <cuboid min="-54, 7, -41" max="-54, 7, -41"/>
+                </source>
+                <destination>
+                    <block>-354, 8, -13</block>
+                </destination>
+            </wool>
+        </wools>
+        <wools team="blue" pickup="false">
+            <wool color="cyan">
+                <source>
+                    <cuboid min="-418, 7, 17" max="-418, 7, 17"/>
+                </source>
+                <destination>
+                    <block>-118, 8, -11</block>
+                </destination>
+            </wool>
+            <wool color="purple">
+                <source>
+                    <cuboid min="-418, 7, -41" max="-418, 7, -41"/>
+                </source>
+                <destination>
+                    <block>-118, 8, -13</block>
+                </destination>
+            </wool>
+        </wools>
+    </objectives>
+    <items>
+        <remove-drops>
+            <any>
+                <material>leather helmet</material>
+                <material>arrow</material>
+                <material>stained clay</material>
+            </any>
+        </remove-drops>
+        <repair-tools>
+            <any>
+                <material>iron sword</material>
+                <material>bow</material>
+                <material>diamond pickaxe</material>
+                <material>iron axe</material>
+            </any>
+        </repair-tools>
+    </items>
+</map>

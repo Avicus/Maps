@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<map name="Frozen Urbex" spec="1.0.6" version="1.3.2">
+  <include src="defaults.xml"/>
+  <include src="Shared/reward-one-gap.xml"/>
+  <include src="Shared/tutorials/dtm.xml"/>
+  <gametype>dtm</gametype>
+  <authors>
+    <author uuid="3cce00809faa48f982cf64410305822a"/> <!-- EDNAS -->
+    <author uuid="c2a4c847653e482ab62ed7f8b64330cb"/> <!-- Alm -->
+    <author uuid="4c43f9c223ec4949bfc621672a50f63b"/> <!-- or8 -->
+  </authors>
+  <tutorial>
+    <step countdown="5s" freeze="false" location="-55, 83, 86" pitch="24" yaw="31">
+      <chat>
+        <line>^r • {tutorial.generic.team-spawns}</line>
+      </chat>
+    </step>
+    <step countdown="4s" location="-111, 85, 71" pitch="-3" yaw="30">
+      <chat>
+        <line>^r • {tutorial.dtm.monument-area}</line>
+      </chat>
+    </step>
+    <step countdown="4s" location="-111, 85, 71" pitch="-3" yaw="30">
+      <chat>
+        <line>^r • {tutorial.dtm.monument-objective}</line>
+      </chat>
+    </step>
+  </tutorial>
+  <teams>
+    <team color="red" id="red" max="30" min="1">{colors.red}</team>
+    <team color="blue" id="blue" max="30" min="1">{colors.blue}</team>
+  </teams>
+  <spawns>
+    <!-- Spectator Spawn -->
+    <spawn loadout="obss">
+      <regions>
+        <point yaw="90">-35,124,-24</point>
+      </regions>
+    </spawn>
+    <!-- Team Spawn -->
+    <spawn loadout="default" team="red" yaw="180">
+      <regions>
+        <point>-59,81,91</point>
+        <cuboid max="-60,96,90" min="-58,96,97"/>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="blue" yaw="0">
+      <regions>
+        <point>-59,81,-91</point>
+        <cuboid max="-60,96,-90" min="-58,96,-97"/>
+      </regions>
+    </spawn>
+  </spawns>
+  <objectives>
+    <monuments materials="obsidian">
+      <monuments owner="red">
+        <monument name="{directions.left} Monument">
+          <region>
+            <join>
+              <block>-1,88,79</block>
+              <block>-1,89,79</block>
+            </join>
+          </region>
+        </monument>
+        <monument name="{directions.right} Monument">
+          <region>
+            <join>
+              <block>-117,88,79</block>
+              <block>-117,89,79</block>
+            </join>
+          </region>
+        </monument>
+      </monuments>
+      <monuments owner="blue">
+        <monument name="{directions.left} Monument">
+          <region>
+            <join>
+              <block>-117,88,-79</block>
+              <block>-117,89,-79</block>
+            </join>
+          </region>
+        </monument>
+        <monument name="{directions.right} Monument">
+          <region>
+            <join>
+              <block>-1,88,-79</block>
+              <block>-1,89,-79</block>
+            </join>
+          </region>
+        </monument>
+      </monuments>
+    </monuments>
+  </objectives>
+  <loadouts>
+    <loadout id="obss">
+      <effect>night vision</effect>
+    </loadout>
+    <loadout id="default">
+      <effect>water breathing</effect>
+      <helmet material="iron helmet" team-color="true">
+        <enchantments>
+          <enchantment level="1">water worker</enchantment>
+        </enchantments>
+      </helmet>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="leather leggings" team-color="true"/>
+      <boots material="iron boots">
+        <enchantments>
+          <enchantment level="3">depth strider</enchantment>
+        </enchantments>
+      </boots>
+      <item material="iron sword" slot="0"/>
+      <item material="bow" slot="1"/>
+      <item material="diamond pickaxe" slot="2"/>
+      <item material="iron axe" slot="3"/>
+      <item amount="2" material="golden apple" slot="4"/>
+      <item amount="48" damage="1" material="log" slot="5"/>
+      <item amount="16" material="sponge" slot="6"/>
+      <item amount="64" material="bread" slot="8"/>
+      <item amount="48" material="arrow" slot="28"/>
+    </loadout>
+    <loadout id="kill-reward">
+      <item material="golden apple"/>
+      <item amount="6" material="arrow"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="kill-reward"/>
+    </rewards>
+  </kills>
+  <regions>
+    <above id="height-limit" y="128"/>
+  </regions>
+  <zones>
+    <zone modify="never" region="height-limit">
+      <message>{errors.height-limit}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid max="-49,104,88" min="-74,72,103"/>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid max="-49,104,-88" min="-74,72,-103"/>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+  </zones>
+  <world>
+    <storm>false</storm>
+    <weather check="always"/>
+  </world>
+  <items>
+    <remove-drops>
+      <any>
+        <material>golden apple</material>
+        <material>bread</material>
+        <material>iron axe</material>
+        <material>iron helmet</material>
+        <material>leather chestplate</material>
+        <material>leather leggings</material>
+        <material>iron boots</material>
+        <material>arrow</material>
+        <material>obsidian</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>iron sword</material>
+        <material>bow</material>
+        <material>diamond pickaxe</material>
+        <material>iron axe</material>
+      </any>
+    </repair-tools>
+  </items>
+</map>

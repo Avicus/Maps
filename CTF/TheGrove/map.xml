@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<map name="The Grove" spec="1.0.4" version="1.0.0">
+  <include src="defaults.xml"/>
+  <include src="Shared/reward-one-gap.xml"/>
+  <include src="Shared/conquest-shop.xml"/>
+  <authors>
+    <author uuid="3143b9d9cea7465f97fc8de59fbbb3a4"/>  <!-- DiamondAx -->
+    <author uuid="912951969cd24963b7ecafd1a110edbe"/>  <!-- pbat -->
+  </authors>
+  <teams>
+    <load-group id="teams.red-blue" max="8" min="1"/>
+  </teams>
+  <spawns>
+    <spawn>
+      <regions>
+        <point yaw="0">0, 39, -10</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="blue">
+      <regions>
+        <point yaw="45">37, 19, 12</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="red">
+      <regions>
+        <point yaw="-135">-37, 19, 86</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <objectives>
+    <flag carrying-delay="1" carrying-points="1" post="flag-post" recover-time="0"
+      respawn-delay="10s"/>
+    <scores limit="150">
+      <score team="blue"/>
+      <score team="red"/>
+    </scores>
+  </objectives>
+  <results>
+    <win scenario="objectives">
+      <check>
+        <time>7m</time>
+      </check>
+    </win>
+  </results>
+  <loadouts>
+    <loadout id="default">
+      <effect amplifier="1">night vision</effect>
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="chainmail leggings"/>
+      <boots material="leather boots" team-color="true"/>
+      <item slot="0" material="stone sword" unbreakable="true" />
+      <item slot="1" material="bow" unbreakable="true">
+        <enchantments>
+          <enchantment level="1">arrow infinite</enchantment>
+        </enchantments>
+      </item>
+      <item slot="2" material="golden apple"/>
+      <item slot="7" material="cooked beef"/>
+      <item slot="27" material="arrow"/>
+    </loadout>
+  </loadouts>
+  <damage>
+    <disable>
+      <damage>fall</damage>
+    </disable>
+  </damage>
+  <zones>
+    <load-group id="no-build"/>
+    <zone id="flag-post">
+      <region>
+          <block>0, 23, 49</block>
+      </region>
+      <post yaw="180"/>
+    </zone>
+    <zone velocity="0,1.25,0">
+      <region>
+        <cuboid max="28, 21, 50" min="30, 21, 48"/>
+      </region>
+    </zone>
+    <zone velocity="0,1.25,0">
+      <region>
+        <cuboid max="-28, 21, 48" min="-30, 21, 50"/>
+      </region>
+    </zone>
+  </zones>
+</map>

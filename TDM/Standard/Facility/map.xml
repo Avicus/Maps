@@ -1,0 +1,170 @@
+<?xml version="1.0"?>
+<map name="Facility" spec="1.0.5" version="1.0.0">
+  <include src="defaults.xml"/>
+  <include src="Shared/tutorials/tdm.xml"/>
+  <authors>
+    <author uuid="e8d1ad63-bd9e-4d0e-9a6c-27f2b047d924"/> <!-- Mikeg542 -->
+    <author contributor="true" uuid="8807d876-40f9-470f-9fcf-3eb3d146b983"/> <!-- Skippy_Irongut -->
+    <author contributor="true" uuid="e1e9e6af-f826-44ce-b1e2-5efb4e5c5d9e"/> <!-- Zemphon -->
+    <author contributor="true" uuid="2ca8072f-74be-4798-85b8-bbce03aa91af"/> <!-- Tywnis -->
+    <author contributor="true" uuid="06078e7e-6a7b-4d31-8f74-853072b182bb"/> <!-- xXFracXx -->
+  </authors>
+  <gametype>score</gametype>
+  <tutorial>
+     <step countdown="4s" freeze="false" location="107, 9, 112" pitch="45" yaw="180">
+        <chat>
+            <line>^8This map is a ^a^lTeam Death Match ^8(TDM) map</line>
+            <line>^8The objective is to get the most points within 7 minutes.</line>
+        </chat>
+     </step>
+     <step countdown="4s" freeze="false" location="-110, 7, 160" pitch="0" yaw="-135">
+        <chat>
+            <line>^8This is where you spawn when the match starts, you die or you get into a scorebox.</line>
+            <line>^8You can use diamonds that spawn in the map to buy items from the villager!</line>
+        </chat>
+     </step>
+     <step countdown="4s" freeze="false" location="-107, 9, 112" pitch="45" yaw="180">
+        <chat>
+            <line>^8The spawner in the centre of the map gives ^bDiamonds ^r.</line>
+            <line>^8You can not use the diamonds to craft armor or weapons, but you can use them to buy items in your spawn.</line>
+	    <line>^8There are also arrow spawners in the two rooms on either side in case you run out.</line>
+        </chat>
+     </step>
+     <step countdown="4s" freeze="false" location="-136, 8, 135" yaw="0" pitch="0">
+        <chat>
+            <line>^8There are 2 scoreboxes on either side of each teams spawn. Getting into one earns you 2 points.</line>
+            <line>^8After entering a scorebox successfully, you will be teleported back to your spawn.</line>
+        </chat>
+     </step>
+  </tutorial>
+  <teams>
+    <load-group id="teams.red-blue" max="16" min="1"/>
+  </teams>
+  <spawns>
+    <spawn yaw="-90" loadout="all">
+      <regions>
+        <circle center="-77, 15, 99" radius="2"/>
+      </regions>
+    </spawn>
+    <spawn loadout="default" region="red-spawn" team="red" yaw="90"/>
+    <spawn loadout="default" region="blue-spawn" team="blue" yaw="-90"/>
+  </spawns>
+  <regions>
+    <point id="red-spawn">-101, 4, 41</point>
+    <point id="blue-spawn">-113, 4, 157</point>
+  </regions>
+  <objectives>
+    <scores kills="1">
+      <score team="blue"/>
+      <score team="red"/>
+    </scores>
+  </objectives>
+  <results>
+    <win scenario="objectives">
+      <check>
+        <time>7m</time>
+      </check>
+    </win>
+  </results>
+  <loadouts>
+    <loadout id="all">
+      <effect>night vision</effect>
+    </loadout>
+    <loadout id="default" parent="all">
+      <effect duration="5s">damage resistance</effect>
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="chainmail leggings"/>
+      <boots material="leather boots" team-color="true">
+	  <enchantments>
+              <enchantment level="2">protection_fall</enchantment>
+          <enchantments>
+      </boots>
+      <item material="stone sword" slot="0"/>
+      <item material="bow" slot="1"/>
+      <item amount="12" material="arrow" slot="8"/>
+      <item amount="32" material="cooked beef" slot="7"/>
+    </loadout>
+    <loadout id="k">
+      <item material="golden apple"/>
+      <item amount="4" material="arrow"/>
+      <item material="diamond"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="k"/>
+    </rewards>
+  </kills>
+  <items>
+    <remove-drops>
+      <any>
+        <material>stone sword</material>
+        <material>bow</material>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>chainmail leggings</material>
+        <material>leather boots</material>
+        <material>cooked beef</material>
+        <material>arrow</material>
+        <material>golden apple</material>
+      </any>
+    </remove-drops>
+  </items>
+  <zones>
+    <load-group id="no-build"/>
+    <!-- Red Scorebox Left -->
+    <zone>
+      <region>
+        <cuboid max="-140,8,147" min="-135,12,148"/>
+      </region>
+      <enter>
+        <team>red</team>
+      </enter>
+      <scorebox points="2"/>
+      <portal destination="red-spawn" yaw="90"/>
+      <message>{errors.wrong-scorebox}</message>
+    </zone>
+    <!-- Red Scorebox Right -->
+    <zone>
+      <region>
+        <cuboid max="-74, 8, 147" min="-79, 12, 148"/>
+      </region>
+      <enter>
+        <team>red</team>
+      </enter>
+      <scorebox points="2"/>
+      <portal destination="red-spawn" yaw="90"/>
+      <message>{errors.wrong-scorebox}</message>
+    </zone>
+    <!-- Blue Scorebox Left -->
+    <zone>
+      <region>
+        <cuboid max="-74, 8, 52" min="-79, 12, 50"/>
+      </region>
+      <enter>
+        <team>blue</team>
+      </enter>
+      <scorebox points="2"/>
+      <portal destination="blue-spawn" yaw="-90"/>
+      <message>{errors.wrong-scorebox}</message>
+    </zone>
+    <!-- Blue Scorebox Right -->
+    <zone>
+      <region>
+        <cuboid max="-135, 8, 52" min="-140, 12, 50"/>
+      </region>
+      <enter>
+        <team>blue</team>
+      </enter>
+      <scorebox points="2"/>
+      <portal destination="blue-spawn" yaw="-90"/>
+      <message>{errors.wrong-scorebox}</message>
+    </zone>
+  </zones>
+  <world>
+    <gamerules>
+      <doDaylightCycle>false</doDaylightCycle>
+    </gamerules>
+  </world>
+</map>

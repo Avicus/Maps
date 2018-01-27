@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="Toy Fortress" version="1.0.0" spec="1.0.0">
+    <include src="defaults.xml"/>
+    <authors>
+        <author uuid="42b105207c51425292d98b65df108b12"/> <!-- Piez -->
+    </authors>
+    <teams>
+        <team id="blue" color="blue" min="2" max="16">{colors.blue}</team>
+        <team id="red" color="red" min="2" max="16">{colors.red}</team>
+    </teams>
+    <spawns>
+        <!-- Spectator spawn -->
+        <spawn>
+            <regions>
+                <point yaw="90">-127.6, 93, 80</point>
+            </regions>
+        </spawn>
+        <!-- Team spawns -->
+        <spawn team="blue" loadout="default-blue" yaw="180">
+            <regions>
+                <point yaw="180">-205, 86, 159.5</point>
+            </regions>
+        </spawn>
+        <spawn team="red" loadout="default-red" yaw="0">
+            <regions>
+                <point yaw="0">-206, 86, -1.5</point>
+            </regions>
+        </spawn>
+    </spawns>
+    <objectives>
+        <monuments materials="obsidian">
+            <monuments owner="blue">
+                <monument name="{directions.left}">
+                    <region>
+                        <join>
+                            <block>-167, 107, 156</block>
+                            <block>-167, 108, 156</block>
+                        </join>
+                    </region>
+                </monument>
+                <monument name="{directions.right}">
+                    <region>
+                        <join>
+                            <block>-245, 107, 157</block>
+                            <block>-245, 108, 157</block>
+                        </join>
+                    </region>
+                </monument>
+            </monuments>
+            <monuments owner="red">
+                <monument name="{directions.left}">
+                    <region>
+                        <join>
+                            <block>-245, 107, 1</block>
+                            <block>-245, 108, 1</block>
+                        </join>
+                    </region>
+                </monument>
+                <monument name="{directions.right}">
+                    <region>
+                        <join>
+                            <block>-167, 107, 0</block>
+                            <block>-167, 108, 0</block>
+                        </join>
+                    </region>
+                </monument>
+            </monuments>
+        </monuments>
+    </objectives>
+    <loadouts>
+        <loadout id="default-blue">
+            <helmet material="leather helmet" team-color="true"/>
+            <chestplate material="leather chestplate" team-color="true"/>
+            <leggings material="leather leggings" team-color="true"/>
+            <boots material="leather boots" team-color="true"/>
+            <item slot="0" material="iron sword"/>
+            <item slot="1" material="bow">
+                <enchantment>arrow infinite</enchantment>
+            </item>
+            <item slot="2" material="diamond pickaxe">
+                <enchantment level="1">dig speed</enchantment>
+            </item>
+            <item slot="3" material="golden apple" amount="2"/>
+            <item slot="5" material="log" amount="48"/>
+            <item slot="6" material="stained glass" damage="11" amount="64"/>
+            <item slot="8" material="cooked fish" amount="32"/>
+            <item slot="9" material="arrow" amount="1"/>
+        </loadout>
+        <loadout id="default-red">
+            <helmet material="leather helmet" team-color="true"/>
+            <chestplate material="leather chestplate" team-color="true"/>
+            <leggings material="leather leggings" team-color="true"/>
+            <boots material="leather boots" team-color="true"/>
+            <item slot="0" material="iron sword"/>
+            <item slot="1" material="bow">
+                <enchantment>arrow infinite</enchantment>
+            </item>
+            <item slot="2" material="diamond pickaxe">
+                <enchantment level="1">dig speed</enchantment>
+            </item>
+            <item slot="3" material="golden apple" amount="2"/>
+            <item slot="5" material="log" amount="48"/>
+            <item slot="6" material="stained glass" damage="14" amount="64"/>
+            <item slot="8" material="cooked fish" amount="32"/>
+            <item slot="9" material="arrow" amount="1"/>
+        </loadout>
+        <loadout id="kill-reward">
+            <item material="golden apple"/>
+        </loadout>
+    </loadouts>
+    <kills>
+        <rewards>
+            <reward loadout="kill-reward"/>
+        </rewards>
+    </kills>
+    <zones>
+        <zone modify="never">
+            <region>
+                <invert>
+                    <cuboid min="-143, 130, 163" max="-269, 83, -6"/>
+                </invert>
+            </region>
+            <message>{errors.outside-map}</message>
+        </zone>
+        <zone modify="never">
+            <region>
+                <join>
+                    <cuboid min="-199, 84, 163" max="-212, 90, 153"/>
+                    <cuboid min="-209, 85, 153" max="-202, 95, 145"/>
+                </join>
+            </region>
+            <enter>
+                <team>blue</team>
+            </enter>
+            <message>{errors.spawn-restricted}</message>
+        </zone>
+        <zone modify="never">
+            <region>
+                <join>
+                    <cuboid min="-213, 84, -6" max="-200, 90, 4"/>
+                    <cuboid min="-210, 85, 4" max="-203, 95, 12"/>
+                </join>
+            </region>
+            <enter>
+                <team>red</team>
+            </enter>
+            <message>{errors.spawn-restricted}</message>
+        </zone>
+    </zones>
+    <world>
+        <storm>false</storm>
+        <weather check="always"/>
+    </world>
+    <items>
+        <remove-drops>
+            <any>
+                <material>leather helmet</material>
+                <material>leather chestplate</material>
+                <material>leather leggings</material>
+                <material>leather boots</material>
+                <material>cooked fish</material>
+                <material>golden apple</material>
+            </any>
+        </remove-drops>
+        <repair-tools>
+            <any>
+                <material>iron sword</material>
+                <material>bow</material>
+                <material>diamond pickaxe</material>
+            </any>
+        </repair-tools>
+    </items>
+</map>

@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<map name="Snowex 1" spec="1.0.0" version="1.1.0">
+  <include src="defaults.xml"/>
+  <gametype>dtm</gametype>
+  <include src="Shared/reward-one-gap.xml"/>
+  <include src="Shared/tutorials/dtm.xml"/>
+  <authors>
+    <author uuid="44df6b20168f4389b7ac434518207c2f"/> <!-- ParaPenguin -->
+  </authors>
+  <tutorial>
+    <step countdown="5s" freeze="false" location="126, 20, -744" pitch="39.5" yaw="-91">
+      <chat>
+        <line>^r • {tutorial.generic.team-spawns}</line>
+      </chat>
+    </step>
+    <step countdown="4s" location="170, 23, -755" pitch="52.7" yaw="-90.7">
+      <chat>
+        <line>^r • {tutorial.dtm.monument-area}</line>
+        <line>^r • {tutorial.dtm.monument-objective}</line>
+      </chat>
+    </step>
+  </tutorial>
+  <teams>
+    <team color="lime" id="lime" max="18" min="1">{colors.lime}</team>
+    <team color="cyan" id="cyan" max="18" min="1">{colors.cyan}</team>
+  </teams>
+  <spawns>
+    <spawn yaw="0">
+      <regions>
+        <circle center="82, 37, -809" radius="1"/>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="lime" yaw="-90">
+      <regions>
+        <circle center="35, 20, -743" radius="2"/>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="cyan" yaw="90">
+      <regions>
+        <circle center="129, 20, -743" radius="2"/>
+      </regions>
+    </spawn>
+  </spawns>
+  <objectives>
+    <monuments materials="obsidian">
+      <monuments owner="lime">
+        <monument name="{directions.left}">
+          <region>
+            <block>-12, 23, -733</block>
+          </region>
+        </monument>
+        <monument name="{directions.right}">
+          <region>
+            <block>-12, 23, -755</block>
+          </region>
+        </monument>
+      </monuments>
+      <monuments owner="cyan">
+        <monument name="{directions.left}">
+          <region>
+            <block>176, 23, -755</block>
+          </region>
+        </monument>
+        <monument name="{directions.right}">
+          <region>
+            <block>176, 23, -733</block>
+          </region>
+        </monument>
+      </monuments>
+    </monuments>
+  </objectives>
+  <loadouts>
+    <loadout id="default">
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="leather leggings" team-color="true"/>
+      <boots material="leather boots" team-color="true"/>
+      <item material="stone sword" slot="0"/>
+      <item material="bow" slot="1">
+        <enchantment>arrow infinite</enchantment>
+      </item>
+      <item material="diamond pickaxe" slot="2"/>
+      <item amount="2" material="golden apple" slot="3"/>
+      <item amount="32" material="cooked beef" slot="4"/>
+      <item amount="32" damage="1" material="glass" slot="5"/>
+      <item amount="64" material="sandstone" slot="6"/>
+      <item amount="64" material="log" slot="7"/>
+      <item amount="64" material="arrow" slot="28"/>
+    </loadout>
+  </loadouts>
+  <zones>
+    <zone modify="never">
+      <region>
+        <invert>
+          <cuboid max="183, 0, -726" min="-19, 38, -762"/>
+        </invert>
+      </region>
+      <message>{errors.outside-map}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cylinder base="35, 19, -744" height="6" radius="8"/>
+      </region>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cylinder base="129, 19, -744" height="6" radius="8"/>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+  </zones>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>leather leggings</material>
+        <material>leather boots</material>
+        <material>glass</material>
+        <material>sandstone</material>
+        <material>log</material>
+        <material>arrow</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>stone sword</material>
+        <material>bow</material>
+        <material>diamond pickaxe</material>
+      </any>
+    </repair-tools>
+  </items>
+</map>

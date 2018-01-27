@@ -1,0 +1,127 @@
+<map description="Every second is critical on this timely map!" name="Hourglass" spec="1.0.0"
+  version="1.0.0">
+  <include src="defaults.xml"/>
+  <authors>
+    <!-- pineapple203 -->
+    <author role="Main author of the map" uuid="c8b886b2661e4bcd85adce659eeb29d1"/>
+    <!-- spiderman493 -->
+    <author role="General assistance" uuid="8aa2fb048c084ae6a1d0fc3e27a61921"/>
+  </authors>
+  <teams>
+    <load-group id="teams.lime-cyan" max="20" min="1"/>
+  </teams>
+  <spawns>
+    <spawn>
+      <regions>
+        <!-- Apparently circles are better spawn identifiers? - Keenan -->
+        <circle center="-85, 44, 8" radius="3" yaw="-90"/>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="lime" yaw="0">
+      <regions>
+        <!-- Apparently circles are better spawn identifiers? - Keenan -->
+        <circle center="8, 8, -41" radius="1"/>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="cyan" yaw="180">
+      <regions>
+        <!-- Apparently circles are better spawn identifiers? - Keenan -->
+        <circle center="8, 8, 57" radius="1"/>
+      </regions>
+    </spawn>
+  </spawns>
+  <zones>
+    <!-- Lime spawn -->
+    <zone modify="never">
+      <region>
+        <cuboid max="-13, 17, -46" min="3, 0, -36"/>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <!-- Cyan spawn -->
+    <zone modify="never">
+      <region>
+        <cuboid max="3, 17, 62" min="13, 0, 52"/>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <!-- Map border -->
+    <zone modify="never">
+      <region>
+        <invert>
+          <cuboid max="-47, 50, -124" min="59, 0, 145"/>
+        </invert>
+      </region>
+      <message>{errors.outside-map}</message>
+    </zone>
+  </zones>
+  <objectives>
+    <monuments materials="obsidian">
+      <monuments owner="lime">
+        <monument name="{directions.left}">
+          <region>
+            <block>-13, 10, -113</block>
+          </region>
+        </monument>
+        <monument name="{directions.right}">
+          <region>
+            <block>29, 10, -113</block>
+          </region>
+        </monument>
+      </monuments>
+      <monuments owner="cyan">
+        <monument name="{directions.left}">
+          <region>
+            <block>29, 10, 129</block>
+          </region>
+        </monument>
+        <monument name="{directions.right}">
+          <region>
+            <block>-13, 10, 129</block>
+          </region>
+        </monument>
+      </monuments>
+    </monuments>
+  </objectives>
+  <loadouts>
+    <loadout id="default">
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="gold leggings"/>
+      <item material="stone sword" slot="0"/>
+      <item material="bow" slot="1">
+        <enchantment>arrow infinite</enchantment>
+      </item>
+      <item material="diamond pickaxe" slot="2">
+        <enchantment>durability</enchantment>
+      </item>
+      <item amount="3" material="golden apple" slot="3"/>
+      <item amount="32" material="carrot" slot="4"/>
+      <item amount="32" material="stone" slot="5"/>
+      <item amount="32" material="glass" slot="6"/>
+      <item amount="64" material="log" slot="7"/>
+      <item amount="32" material="bread" slot="8"/>
+      <item material="arrow" slot="28"/>
+    </loadout>
+    <loadout id="kill-reward">
+      <item material="golden apple"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="kill-reward"/>
+    </rewards>
+  </kills>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather chestplate</material>
+        <material>gold leggings</material>
+        <material>stone sword</material>
+        <material>diamond pickaxe</material>
+        <material>bow</material>
+        <material>golden apple</material>
+        <material>arrow</material>
+      </any>
+    </remove-drops>
+  </items>
+</map>

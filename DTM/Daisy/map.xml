@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="Daisy" spec="1.0.0" version="1.1.0">
+  <include src="Shared/tutorials/dtm.xml"/>
+  <include src="defaults.xml"/>
+  <gametype>dtm</gametype>
+  <include src="Shared/reward-one-gap.xml"/>
+  <authors>
+    <author uuid="50a34639abb34cf1b182204756c49f49"/>  <!-- Cuish -->
+  </authors>
+  <tutorial>
+    <step countdown="5s" freeze="false" location="4,81,158" pitch="0" yaw="0">
+      <chat>
+        <line>^r • {tutorial.generic.team-spawns}</line>
+      </chat>
+    </step>
+    <step countdown="4s" location="24,83,161" pitch="10" yaw="-45">
+      <chat>
+        <line>^r • {tutorial.dtm.monument-area}</line>
+      </chat>
+    </step>
+    <step countdown="5s" location="-20,82,161" pitch="0" yaw="0">
+      <chat>
+        <line>^r • {tutorial.dtm.monument-objective}</line>
+      </chat>
+    </step>
+  </tutorial>
+  <teams>
+    <team color="orange" id="orange" max="20" min="1">{colors.orange}</team>
+    <team color="lime" id="lime" max="20" min="1">{colors.lime}</team>
+  </teams>
+  <spawns>
+    <spawn yaw="90">
+      <regions>
+        <circle center="41, 128, 85" radius="1"/>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="lime" yaw="0">
+      <regions>
+        <circle center="4, 81, 5" radius="1"/>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="orange" yaw="180">
+      <regions>
+        <circle center="4, 81, 165" radius="1"/>
+      </regions>
+    </spawn>
+  </spawns>
+  <objectives>
+    <monuments materials="obsidian">
+      <monuments owner="lime">
+        <monument name="{directions.right}">
+          <region>
+            <block>-20, 84, 5</block>
+          </region>
+        </monument>
+        <monument name="{directions.left}">
+          <region>
+            <block>28, 84, 5</block>
+          </region>
+        </monument>
+      </monuments>
+      <monuments owner="orange">
+        <monument name="{directions.right}">
+          <region>
+            <block>-20, 84, 165</block>
+          </region>
+        </monument>
+        <monument name="{directions.left}">
+          <region>
+            <block>28, 84, 165</block>
+          </region>
+        </monument>
+      </monuments>
+    </monuments>
+  </objectives>
+  <loadouts>
+    <loadout id="default">
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="iron chestplate" team-color="false"/>
+      <leggings material="iron leggings" team-color="false"/>
+      <boots material="leather boots" team-color="true"/>
+      <item material="iron sword" slot="0"/>
+      <item material="bow" slot="1"/>
+      <item material="diamond pickaxe" slot="2"/>
+      <item material="stone axe" slot="3"/>
+      <item amount="1" material="golden apple" slot="4"/>
+      <item amount="64" material="glass" slot="5"/>
+      <item amount="32" material="log" slot="6"/>
+      <item amount="64" material="cooked beef" slot="7"/>
+      <item amount="1" material="LAPIS_BLOCK" slot="27"/>
+      <item amount="64" material="arrow" slot="28"/>
+    </loadout>
+    <loadout id="kill-reward">
+      <item amount="3" material="exp_bottle"/>
+      <item material="golden apple"/>
+    </loadout>
+  </loadouts>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>log</material>
+        <material>leather boots</material>
+        <material>cooked beef</material>
+        <material>glass</material>
+        <material>iron chestplate</material>
+        <material>iron leggings</material>
+        <material>leather boots</material>
+        <material>LAPIS_BLOCK</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>stone sword</material>
+        <material>stone axe</material>
+        <material>bow</material>
+        <material>diamond pickaxe</material>
+        <material>wood pickaxe</material>
+      </any>
+    </repair-tools>
+  </items>
+  <zones>
+    <zone modify="never">
+      <region>
+        <cuboid max="-7, 99, 0" min="16, 71, 25"/>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid max="-7, 71, 145" min="16, 99, 170"/>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid max="10,100,186" min="17,0,171"/>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid max="-2,100,186" min="-8,0,171"/>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid max="-2,100,-16" min="-8,0,-1"/>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid max="15,100,-1" min="10,0,-16"/>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid max="27, 82, 141" min="27, 82, 141"/>
+      </region>
+      <message>{errors.cannot-break-enchanting}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid max="-19, 82, 141" min="-19, 82, 141"/>
+      </region>
+      <message>{errors.cannot-break-enchanting}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid max="-19, 82, 29" min="-19, 82, 29"/>
+      </region>
+      <message>{errors.cannot-break-enchanting}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid max="27, 82, 29" min="27, 82, 29"/>
+      </region>
+      <message>{errors.cannot-break-enchanting}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid max="-1000, 250, -1000" min="1000, 95, 1000"/>
+      </region>
+      <message>{errors.outside-map}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid max="2, 82, 152" min="6, 86, 155"/>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid max="2, 81, 152" min="6, 86, 155"/>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid max="5, 81, 19" min="3, 86, 14"/>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+  </zones>
+  <kills>
+    <rewards>
+      <reward loadout="kill-reward"/>
+    </rewards>
+  </kills>
+</map>

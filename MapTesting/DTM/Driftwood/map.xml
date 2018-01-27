@@ -1,0 +1,147 @@
+<map name="Driftwood" spec="1.0.0" version="1.1.0">
+  <include src="defaults.xml"/>
+  <include src="Shared/reward-one-gap.xml"/>
+  <authors>
+    <author uuid="63b88dff-c6b4-4e08-bd17-aae089b12e95"/>
+    <!--   Riilo   -->
+    <author uuid="2fc285de-015e-4173-ac6a-04b388e496a5"/>
+    <!--   KomodoLord1   -->
+  </authors>
+  <teams>
+    <team color="lime" id="lime" max="18" min="1">{colors.lime}</team>
+    <team color="purple" id="purple" max="18" min="1">{colors.purple}</team>
+  </teams>
+  <spawns>
+    <!--   Spectator spawn   -->
+    <spawn>
+      <regions>
+        <point yaw="-90">21.5, 127, 116.5</point>
+      </regions>
+    </spawn>
+    <!--   Team spawns   -->
+    <spawn loadout="default" team="lime" yaw="0">
+      <regions>
+        <point yaw="0">72.5, 77, -5.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="purple" yaw="-180">
+      <regions>
+        <point yaw="-180">72.5, 77, 238.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <world>
+    <gamerules>
+      <doDaylightCycle>false</doDaylightCycle>
+    </gamerules>
+  </world>
+  <objectives>
+    <monuments materials="obsidian">
+      <monuments owner="lime">
+        <monument name="{directions.left}">
+          <region>
+            <join>
+              <block>32, 90, 53</block>
+              <block>32, 91, 53</block>
+            </join>
+          </region>
+        </monument>
+        <monument name="{directions.right}">
+          <region>
+            <join>
+              <block>112, 90, 53</block>
+              <block>112, 91, 53</block>
+            </join>
+          </region>
+        </monument>
+      </monuments>
+      <monuments owner="purple">
+        <monument name="{directions.left}">
+          <region>
+            <join>
+              <block>112, 90, 179</block>
+              <block>112, 91, 179</block>
+            </join>
+          </region>
+        </monument>
+        <monument name="{directions.right}">
+          <region>
+            <join>
+              <block>32, 90, 179</block>
+              <block>32, 91, 179</block>
+            </join>
+          </region>
+        </monument>
+      </monuments>
+    </monuments>
+  </objectives>
+  <loadouts>
+    <loadout id="default">
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="leather leggings" team-color="true"/>
+      <boots material="leather boots" team-color="true"/>
+      <item material="stone sword" slot="0"/>
+      <item material="bow" slot="1">
+        <enchantment>arrow infinite</enchantment>
+      </item>
+      <item material="diamond pickaxe" slot="2"/>
+      <item amount="2" material="golden apple" slot="3"/>
+      <item amount="64" material="log" slot="4"/>
+      <item amount="32" material="cooked fish" slot="7"/>
+      <item amount="16" material="hay block" slot="8"/>
+      <item amount="1" material="arrow" slot="27"/>
+    </loadout>
+  </loadouts>
+  <regions>
+    <subtract id="void-outer">
+      <!--    Parts where people can build    -->
+      <void/>
+      <join>
+        <cuboid max="126,120,216" min="14,58,16"/>
+      </join>
+    </subtract>
+  </regions>
+  <zones>
+    <zone modify="never">
+      <region>
+        <above y="120"/>
+      </region>
+      <message>{errors.height-limit}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid max="64,72,-10" min="80,120,15"/>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid max="80,72,242" min="64,120,217"/>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+  </zones>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>leather leggings</material>
+        <material>leather boots</material>
+        <material>hay block</material>
+        <material>log</material>
+        <material>arrow</material>
+        <material>cooked fish</material>
+        <material>golden apple</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>iron sword</material>
+        <material>bow</material>
+        <material>diamond pickaxe</material>
+      </any>
+    </repair-tools>
+  </items>
+</map>

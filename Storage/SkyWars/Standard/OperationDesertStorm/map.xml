@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map genre="sky wars" name="Operation: Desert Storm" spec="1.0.0" version="1.0.0">
+  <include src="defaults.xml"/>
+  <include src="Shared/skywars.xml"/>
+  <authors>
+    <author uuid="d9b4ffbc11d0453aa93f82dc59fca4b6"/>  <!-- Wulfcaspice -->
+    <author uuid="3cce00809faa48f982cf64410305822a"/>  <!-- ProfessorUtonium -->
+  </authors>
+  <ffa max="8" max-overfill="8" min="2"/>
+  <objectives>
+    <last-competitor-standing/>
+  </objectives>
+  <results>
+    <win scenario="objectives">
+      <check>
+        <time>7m</time>
+      </check>
+    </win>
+  </results>
+  <compasses>
+    <compass target="enemy"/>
+  </compasses>
+  <spawns>
+    <spawn team="spectators" yaw="0">
+      <regions>
+        <block>-27, 43, 28</block>
+      </regions>
+    </spawn>
+    <spawn loadout="default" look="-27, 24, -25" mode="safe">
+      <regions>
+        <block>-54, 28, 1</block>
+        <block>-27, 28, 16</block>
+        <block>0, 28, 1</block>
+        <block>14, 28, -25</block>
+        <block>0, 28, -52</block>
+        <block>-27, 28, -67</block>
+        <block>-54, 28, -52</block>
+        <block>-69, 28, -25</block>
+      </regions>
+    </spawn>
+  </spawns>
+  <elimination lives="1"/>
+  <loadouts>
+    <loadout id="default">
+      <helmet material="leather helmet" team-color="true"/>
+      <item material="wood sword" slot="0"/>
+      <item amount="4" material="cooked chicken" slot="7"/>
+      <item material="compass" slot="8"/>
+    </loadout>
+  </loadouts>
+  <remove-drops>
+    <any>
+      <material>compass</material>
+    </any>
+  </remove-drops>
+</map>

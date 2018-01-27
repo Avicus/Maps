@@ -1,0 +1,345 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<map name="Icing On The Cake" spec="1.0.4" version="1.0.0">
+  <include src="defaults.xml"/>
+  <include src="Shared/tutorials/ctw.xml"/>
+  <tutorial>
+    <step countdown="5s" freeze="true" location="0,11,-131" pitch="-10" yaw="-180">
+      <chat>
+        <line>^r • {tutorial.generic.team-spawns}</line>
+      </chat>
+    </step>
+    <step countdown="5s" freeze="true" location="-19,15,-147" pitch="0" yaw="-90">
+      <chat>
+        <line>^r • {tutorial.ctw.wool-area}</line>
+      </chat>
+    </step>
+    <step countdown="5s" freeze="true" location="-4,15,-147" pitch="40" yaw="-90">
+      <chat>
+        <line>^r • {tutorial.ctw.wool-chest}</line>
+      </chat>
+    </step>
+    <step countdown="5s" freeze="true" location="0,11,-132" pitch="0" yaw="-90">
+      <chat>
+        <line>^r • {tutorial.ctw.wool-monument}</line>
+      </chat>
+    </step>
+  </tutorial>
+  <authors>
+    <author uuid="ae5c1e91745b4a6fa33711484ede6957"/> <!-- Clijmart -->
+    <author uuid="50a34639abb34cf1b182204756c49f49"/> <!-- Sam -->
+    <author uuid="3ec3ad7c563c45fbaedfdd32066a2e19"/> <!-- mepii -->
+  </authors>
+  <gametype>ctw</gametype>
+  <teams>
+    <team color="yellow" id="yellow" max="24" min="1">{colors.yellow}</team>
+    <team color="blue" id="blue" max="24" min="1">{colors.blue}</team>
+  </teams>
+  <spawns>
+    <!-- Spectator spawn -->
+    <spawn>
+      <regions>
+        <point yaw="-90">-72.5, 45, 0.5</point>
+      </regions>
+    </spawn>
+    <!-- Team spawns -->
+    <spawn loadout="default-yellow" team="yellow" yaw="180">
+      <regions>
+        <point yaw="180">0.5, 46, 151.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default-blue" team="blue" yaw="0">
+      <regions>
+        <point yaw="0">0.5, 46, -150.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <objectives>
+    <wools>
+      <wools pickup="false" team="yellow">
+        <wool color="light blue">
+          <source>
+            <join>
+              <block>-3, 14, -149</block>
+              <block>-3, 14, -148</block>
+            </join>
+          </source>
+          <destination>
+            <block>-3, 12, 132</block>
+          </destination>
+        </wool>
+        <wool color="blue">
+          <source>
+            <join>
+              <block>3, 14, -149</block>
+              <block>3, 14, -148</block>
+            </join>
+          </source>
+          <destination>
+            <block>3, 12, 132</block>
+          </destination>
+        </wool>
+      </wools>
+      <wools pickup="false" team="blue">
+        <wool color="yellow">
+          <source>
+            <join>
+              <block>-3, 14, 149</block>
+              <block>-3, 14, 148</block>
+            </join>
+          </source>
+          <destination>
+            <block>-3, 12, -132</block>
+          </destination>
+        </wool>
+        <wool color="orange">
+          <source>
+            <join>
+              <block>3, 14, 149</block>
+              <block>3, 14, 148</block>
+            </join>
+          </source>
+          <destination>
+            <block>3, 12, -132</block>
+          </destination>
+        </wool>
+      </wools>
+    </wools>
+  </objectives>
+  <loadouts>
+    <loadout id="default-yellow">
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="leather leggings" team-color="true"/>
+      <boots material="leather boots" team-color="true"/>
+      <item material="iron sword" slot="0"/>
+      <item material="bow" slot="1"/>
+      <item material="diamond pickaxe" slot="2"/>
+      <item material="iron axe" slot="3"/>
+      <item amount="64" damage="4" material="stained glass" slot="4"/>
+      <item amount="32" material="sandstone" slot="5"/>
+      <item amount="16" material="log" slot="6"/>
+      <item amount="32" material="cooked fish" slot="7"/>
+      <item amount="3" material="golden apple" slot="8"/>
+      <item amount="32" material="arrow" slot="9"/>
+    </loadout>
+    <loadout id="default-blue">
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="leather leggings" team-color="true"/>
+      <boots material="leather boots" team-color="true"/>
+      <item material="iron sword" slot="0"/>
+      <item material="bow" slot="1"/>
+      <item material="diamond pickaxe" slot="2"/>
+      <item material="iron axe" slot="3"/>
+      <item amount="64" damage="3" material="stained glass" slot="4"/>
+      <item amount="32" material="sandstone" slot="5"/>
+      <item amount="16" material="log" slot="6"/>
+      <item amount="32" material="cooked fish" slot="7"/>
+      <item amount="3" material="golden apple" slot="8"/>
+      <item amount="32" material="arrow" slot="9"/>
+    </loadout>
+    <loadout id="kill-reward">
+      <item material="golden apple"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="kill-reward"/>
+    </rewards>
+  </kills>
+  <damage>
+    <disable>
+      <all>
+        <damage>fall</damage>
+        <inside>
+          <region>
+            <join>
+              <cuboid max="2, 15, 149" min="-2, 18, 153"/>
+              <cuboid max="2, 15, -149" min="-2, 18, -153"/>
+            </join>
+          </region>
+        </inside>
+      </all>
+    </disable>
+  </damage>
+  <zones>
+    <zone modify="never">
+      <region>
+        <above y="31"/>
+      </region>
+      <message>{errors.height-limit}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <subtract>
+          <void/>
+          <cuboid max="-62, 30, 13" min="-38, 0, 42"/>
+          <cuboid max="62, 30, 13" min="38, 0, 42"/>
+          <cuboid max="-62, 30, -13" min="-38, 0, -42"/>
+          <cuboid max="62, 30, -13" min="38, 0, -42"/>
+          <cuboid max="26, 30, 26" min="-26, 0, -26"/>
+          <block>-3, 12, 132</block>
+          <block>3, 12, 132</block>
+          <block>-3, 12, -132</block>
+          <block>3, 12, -132</block>
+          <cuboid max="63,0,-13" min="37,0,13"/>
+          <cuboid max="-63,0,-13" min="-37,0,13"/>
+          <join> <!-- + - -->
+            <cuboid max="18,31,-139" min="29,7,-137"/>
+            <cuboid max="17,31,-141" min="29,7,-140"/>
+            <cuboid max="15,31,-142" min="29,7,-142"/>
+            <cuboid max="14,31,-144" min="29,7,-143"/>
+            <cuboid max="14,31,-146" min="28,7,-145"/>
+            <cuboid max="14,31,-148" min="27,7,-147"/>
+            <cuboid max="14,31,-149" min="26,7,-149"/>
+            <cuboid max="14,31,-150" min="25,7,-150"/>
+            <cuboid max="14,31,-151" min="24,7,-151"/>
+            <cuboid max="14,31,-152" min="23,7,-152"/>
+            <cuboid max="14,31,-153" min="21,7,-153"/>
+            <cuboid max="14,31,-154" min="19,7,-154"/>
+            <cuboid max="30,31,-135" min="18,2,-136"/>
+            <cuboid max="37,31,-43" min="37,0,-56"/>
+            <cuboid max="63,31,-43" min="63,0,-56"/>
+            <cuboid max="38,0,-42" min="62,0,-42"/>
+          </join>
+          <join> <!-- + + -->
+            <cuboid max="18,31,139" min="29,7,137"/>
+            <cuboid max="17,31,141" min="29,7,140"/>
+            <cuboid max="15,31,142" min="29,7,142"/>
+            <cuboid max="14,31,144" min="29,7,143"/>
+            <cuboid max="14,31,146" min="28,7,145"/>
+            <cuboid max="14,31,148" min="27,7,147"/>
+            <cuboid max="14,31,149" min="26,7,149"/>
+            <cuboid max="14,31,150" min="25,7,150"/>
+            <cuboid max="14,31,151" min="24,7,151"/>
+            <cuboid max="14,31,152" min="23,7,152"/>
+            <cuboid max="14,31,153" min="21,7,153"/>
+            <cuboid max="14,31,154" min="19,7,154"/>
+            <cuboid max="30,31,135" min="18,2,136"/>
+            <cuboid max="37,31,43" min="37,0,56"/>
+            <cuboid max="63,31,43" min="63,0,56"/>
+            <cuboid max="38,0,42" min="62,0,42"/>
+          </join>
+          <join> <!-- - + -->
+            <cuboid max="-18,31,139" min="-29,7,137"/>
+            <cuboid max="-17,31,141" min="-29,7,140"/>
+            <cuboid max="-15,31,142" min="-29,7,142"/>
+            <cuboid max="-14,31,144" min="-29,7,143"/>
+            <cuboid max="-14,31,146" min="-28,7,145"/>
+            <cuboid max="-14,31,148" min="-27,7,147"/>
+            <cuboid max="-14,31,149" min="-26,7,149"/>
+            <cuboid max="-14,31,150" min="-25,7,150"/>
+            <cuboid max="-14,31,151" min="-24,7,151"/>
+            <cuboid max="-14,31,152" min="-23,7,152"/>
+            <cuboid max="-14,31,153" min="-21,7,153"/>
+            <cuboid max="-14,31,154" min="-19,7,154"/>
+            <cuboid max="-30,31,135" min="-18,2,136"/>
+            <cuboid max="-37,31,43" min="-37,0,56"/>
+            <cuboid max="-63,31,43" min="-63,0,56"/>
+            <cuboid max="-38,0,42" min="-62,0,42"/>
+          </join>
+          <join> <!-- - - -->
+            <cuboid max="-18,31,-139" min="-29,7,-137"/>
+            <cuboid max="-17,31,-141" min="-29,7,-140"/>
+            <cuboid max="-15,31,-142" min="-29,7,-142"/>
+            <cuboid max="-14,31,-144" min="-29,7,-143"/>
+            <cuboid max="-14,31,-146" min="-28,7,-145"/>
+            <cuboid max="-14,31,-148" min="-27,7,-147"/>
+            <cuboid max="-14,31,-149" min="-26,7,-149"/>
+            <cuboid max="-14,31,-150" min="-25,7,-150"/>
+            <cuboid max="-14,31,-151" min="-24,7,-151"/>
+            <cuboid max="-14,31,-152" min="-23,7,-152"/>
+            <cuboid max="-14,31,-153" min="-21,7,-153"/>
+            <cuboid max="-14,31,-154" min="-19,7,-154"/>
+            <cuboid max="-30,31,-135" min="-18,2,-136"/>
+            <cuboid max="-37,31,-43" min="-37,0,-56"/>
+            <cuboid max="-63,31,-43" min="-63,0,-56"/>
+            <cuboid max="-38,0,-42" min="-62,0,-42"/>
+          </join>
+        </subtract>
+      </region>
+      <message>{errors.outside-map}</message>
+    </zone>
+    <!-- Yellow Spawn -->
+    <zone modify="never">
+      <region>
+        <subtract>
+          <cuboid max="-10, 30, 142" min="10, 0, 119"/>
+          <block>3, 12, 132</block>
+          <block>-3, 12, 132</block>
+        </subtract>
+        <cuboid max="2, 14, 149" min="-2, 30, 153"/>
+        <cuboid max="2, 14, 143" min="-2, 19, 154"/>
+        <cuboid max="-10, 30, 158" min="10, 24, 143"/>
+      </region>
+      <enter>
+        <team>yellow</team>
+      </enter>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <!-- Blue Spawn -->
+    <zone modify="never">
+      <region>
+        <subtract>
+          <cuboid max="-10, 30, -142" min="10, 0, -119"/>
+          <block>3, 12, -132</block>
+          <block>-3, 12, -132</block>
+        </subtract>
+        <cuboid max="2, 14, -149" min="-2, 30, -153"/>
+        <cuboid max="2, 14, -143" min="-2, 19, -154"/>
+        <cuboid max="-10, 30, -158" min="10, 24, -143"/>
+      </region>
+      <enter>
+        <team>blue</team>
+      </enter>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <!-- Yellow Wool Rooms -->
+    <zone modify="never">
+      <region>
+        <cuboid max="2, 24, 154" min="13, 8, 143"/>
+        <cuboid max="-2, 24, 154" min="-13, 8, 143"/>
+      </region>
+      <enter>
+        <team>blue</team>
+      </enter>
+      <message>{errors.own-wool-room}</message>
+    </zone>
+    <!-- Blue Wool Rooms -->
+    <zone modify="never">
+      <region>
+        <cuboid max="2, 24, -154" min="13, 8, -143"/>
+        <cuboid max="-2, 24, -154" min="-13, 8, -143"/>
+      </region>
+      <enter>
+        <team>yellow</team>
+      </enter>
+      <message>{errors.own-wool-room}</message>
+    </zone>
+  </zones>
+  <world>
+    <storm>false</storm>
+    <weather check="always"/>
+  </world>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>leather leggings</material>
+        <material>leather boots</material>
+        <material>cooked fish</material>
+        <material>golden apple</material>
+        <material>string</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>iron sword</material>
+        <material>bow</material>
+        <material>diamond pickaxe</material>
+        <material>iron axe</material>
+      </any>
+    </repair-tools>
+  </items>
+</map>

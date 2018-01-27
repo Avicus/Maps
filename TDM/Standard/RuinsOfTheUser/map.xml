@@ -1,0 +1,156 @@
+<map description="Be the team with the most points after 12 minutes." name="Ruins Of The User"
+  spec="1.0.0"
+  version="1.0.1">
+  <include src="defaults.xml"/>
+  <include src="Shared/reward-one-gap.xml"/>
+  <include src="Shared/conquest-shop.xml"/>
+  <authors>
+    <author uuid="fbc05e3b2acf427eb59879a0742d1a72"/>
+    <!-- Jiloker -->
+    <author uuid="a201086047354de0b9f31130961ea955"/>
+    <!-- Flaan -->
+    <author uuid="0e56116560bf49e6aa383db002ad7d08"/>
+    <!-- AbusiveUser -->
+  </authors>
+  <teams>
+    <team color="green" id="green" max="15" min="1">{colors.green}</team>
+    <team color="orange" id="orange" max="15" min="1">{colors.orange}</team>
+  </teams>
+  <!-- No Score Limit -->
+  <objectives>
+    <scores kills="1">
+      <score team="orange"/>
+      <score team="green"/>
+    </scores>
+  </objectives>
+  <gametype>score</gametype>
+  <results>
+    <win scenario="objectives">
+      <check>
+        <time>7m</time>
+      </check>
+    </win>
+  </results>
+  <spawns>
+    <spawn>
+      <regions>
+        <point yaw="-0">844, 75, 522</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="orange">
+      <regions>
+        <point yaw="90">879.5, 57, 561.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="green">
+      <regions>
+        <point yaw="-90">809.5, 57, 561.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <regions>
+    <join id="orange-base">
+      <cuboid max="874, 65, 554" min="883, 53, 568"/>
+    </join>
+    <join id="green-base">
+      <cuboid max="814, 65, 568" min="805, 53, 554"/>
+    </join>
+  </regions>
+  <loadouts>
+    <loadout id="default">
+      <effect duration="3s">damage resistance</effect>
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="leather leggings" team-color="true"/>
+      <boots material="leather boots" team-color="true"/>
+      <item material="stone sword" slot="0"/>
+      <item material="bow" slot="1"/>
+      <item amount="32" material="arrow" slot="2"/>
+      <item material="golden apple" slot="6"/>
+      <item amount="32" material="cooked beef" slot="7"/>
+    </loadout>
+  </loadouts>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>leather leggings</material>
+        <material>leather boots</material>
+        <material>cooked beef</material>
+        <material>arrow</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>stone sword</material>
+        <material>bow</material>
+      </any>
+    </repair-tools>
+  </items>
+  <zones>
+    <!-- Disable Build -->
+    <load-group id="no-build"/>
+    <!-- Green Scorebox -->
+    <zone>
+      <region>
+        <cuboid max="869, 61, 540" min="870, 58, 539"/>
+        <cuboid max="869, 61, 582" min="870, 58, 583"/>
+        <cuboid max="871, 60, 580" min="871, 59, 584"/>
+        <cuboid max="871, 60, 584" min="867, 59, 584"/>
+        <cuboid max="871, 60, 538" min="867, 59, 538"/>
+        <cuboid max="871, 59, 538" min="871, 60, 542"/>
+      </region>
+      <enter>
+        <team>green</team>
+      </enter>
+      <scorebox points="2"/>
+      <portal yaw="-90">
+        <destination>
+          <point>809, 57, 561</point>
+        </destination>
+      </portal>
+      <message>{errors.wrong-scorebox}</message>
+    </zone>
+    <!-- Orange Scorebox -->
+    <zone>
+      <region>
+        <cuboid max="818, 61, 583" min="819, 58, 582"/>
+        <cuboid max="818, 61, 540" min="818, 58, 539"/>
+        <cuboid max="817, 60, 542" min="817, 59, 538"/>
+        <cuboid max="817, 60, 538" min="821, 59, 538"/>
+        <cuboid max="817, 60, 584" min="821, 59, 584"/>
+        <cuboid max="817, 59, 584" min="817, 60, 580"/>
+      </region>
+      <enter>
+        <team>orange</team>
+      </enter>
+      <scorebox points="2"/>
+      <portal yaw="-90">
+        <destination>
+          <point>879, 57, 561</point>
+        </destination>
+      </portal>
+      <message>{errors.wrong-scorebox}</message>
+    </zone>
+    <!-- Orange Base -->
+    <zone modify="never" region="orange-base">
+      <enter>
+        <team>orange</team>
+      </enter>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <!-- Green Base -->
+    <zone modify="never" region="green-base">
+      <enter>
+        <team>green</team>
+      </enter>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+  </zones>
+  <world>
+    <gamerules>
+      <doDaylightCycle>false</doDaylightCycle>
+    </gamerules>
+  </world>
+</map>

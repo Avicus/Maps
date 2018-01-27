@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map genre="arcade" name="Audax" spec="1.0.0" version="1.0.0">
+  <include src="defaults.xml"/>
+  <authors>
+    <author uuid="d9b4ffbc11d0453aa93f82dc59fca4b6"/> <!-- Wulfcaspice -->
+  </authors>
+  <teams>
+    <team color="yellow" id="yellow" max="10" max-overfill="12" min="1">{colors.yellow}</team>
+    <team color="cyan" id="cyan" max="10" max-overfill="12" min="1">{colors.cyan}</team>
+  </teams>
+  <channels global-chat="false" team-chat="true"/>
+  <objectives>
+    <last-team-standing team="yellow"/>
+    <last-team-standing team="cyan"/>
+  </objectives>
+  <results>
+    <win scenario="objectives">
+      <check>
+        <time>5m</time>
+      </check>
+    </win>
+  </results>
+  <spawns>
+    <spawn yaw="90">
+      <regions>
+        <cuboid max="10, 27, -758" min="10, 27, -758"/>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="yellow" yaw="0">
+      <regions>
+        <cuboid max="26, 23, -795" min="26, 23, -795"/>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="cyan" yaw="180">
+      <regions>
+        <cuboid max="29, 29, -730" min="29, 28, -730"/>
+      </regions>
+    </spawn>
+  </spawns>
+  <zones>
+    <!-- Boundary -->
+    <zone modify="never">
+      <region>
+        <cuboid max="62, 37, -805" min="0, 9, -721"/>
+      </region>
+    </zone>
+  </zones>
+  <loadouts>
+    <loadout id="default">
+      <effect duration="300s">invisibility</effect>
+      <item material="wood sword" slot="0"/>
+      <item material="bow" slot="1"/>
+      <item material="fishing rod" slot="2"/>
+      <item material="golden apple" slot="3"/>
+      <item amount="2" material="exp bottle" slot="4"/>
+      <item amount="4" material="arrow" slot="5"/>
+      <item amount="16" material="cooked beef" slot="7"/>
+    </loadout>
+  </loadouts>
+  <world>
+    <gamerules>
+      <doDaylightCycle>false</doDaylightCycle>
+    </gamerules>
+  </world>
+  <elimination lives="1"/>
+  <items>
+    <remove-drops>
+      <any>
+        <material>arrow</material>
+        <material>cooked beef</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>wood sword</material>
+        <material>bow</material>
+        <material>fishing rod</material>
+      </any>
+    </repair-tools>
+  </items>
+</map>

@@ -1,0 +1,148 @@
+﻿<?xml version="1.0"?>
+<map name="U-Bahn" spec="1.0.4" version="1.0.0">
+  <include src="Shared/tutorials/koth.xml"/>
+  <include src="defaults.xml"/>
+  <include src="Shared/reward-one-gap.xml"/>
+  <include src="Shared/conquest-shop.xml"/>
+  <authors>
+    <author uuid="135737b87f2b4f90aa37ec395c7c6a9b"/>  <!-- ApolloIsFunky -->
+    <author uuid="bf3319534f9243ee8abc7544b8234936"/>  <!-- Spidercell -->
+  </authors>
+  <gametype>hill</gametype>
+  <teams>
+    <team color="yellow" id="yellow" max="18" min="1">{colors.yellow}</team>
+    <team color="red" id="red" max="18" min="1">{colors.red}</team>
+  </teams>
+  <tutorial>
+    <step countdown="5s" freeze="true" location="84.5, 8, -6.5" pitch="25" yaw="-46">
+      <chat>
+        <line>^r • {tutorial.generic.team-spawns}</line>
+      </chat>
+    </step>
+    <step countdown="4s" freeze="true" location="54.5, 23, -56.5" pitch="57" yaw="-47">
+      <chat>
+        <line>^r • {tutorial.koth.hill-area}</line>
+      </chat>
+    </step>
+  </tutorial>
+  <spawns>
+    <spawn team="spectators" yaw="-90">
+      <regions>
+        <circle center="45, 31, -48" radius="1"/>
+      </regions>
+    </spawn>
+    <spawn loadout="default" respawn-delay="5s" respawn-freeze="true" team="red">
+      <regions>
+        <cuboid look="45, 6, -48" max="83, 7, -102" min="84, 6, -101"/>
+        <cuboid look="45, 6, -48" max="97, 6, -88" min="98, 7, -87"/>
+        <cuboid look="45, 6, -48" max="-7, 6, -87" min="-8, 7, -88"/>
+        <cuboid look="45, 6, -48" max="6, 6, -101" min="7, 7, -102"/>
+      </regions>
+    </spawn>
+    <spawn loadout="default" respawn-delay="5s" respawn-freeze="true" team="yellow">
+      <regions>
+        <cuboid look="45, 6, -48" max="83, 7, 6" min="84, 6, 5"/>
+        <cuboid look="45, 6, -48" max="97, 6, -9" min="98, 7, -8"/>
+        <cuboid look="45, 6, -48" max="6, 7, 6" min="7, 6, 5"/>
+        <cuboid look="45, 6, -48" max="-7, 6, -8" min="-8, 7, -9"/>
+      </regions>
+    </spawn>
+  </spawns>
+  <objectives>
+    <hill capture-time="12s" earn-points="always" name="{directions.left}" points="1">
+      <capture>
+        <cylinder base="23, 5, -70" height="2" radius="5"/>
+      </capture>
+      <progress>
+        <cylinder base="23, 2, -70" height="8" radius="5"/>
+      </progress>
+    </hill>
+    <hill capture-time="12s" earn-points="always" name="{directions.center}" points="1">
+      <capture>
+        <cylinder base="45, 5, -48" height="2" radius="5"/>
+      </capture>
+      <progress>
+        <cylinder base="45, 5, -48" height="8" radius="5"/>
+      </progress>
+    </hill>
+    <hill capture-time="12s" earn-points="always" name="{directions.right}" points="1">
+      <capture>
+        <cylinder base="67, 5, -26" height="2" radius="5"/>
+      </capture>
+      <progress>
+        <cylinder base="67, 2, -26" height="8" radius="5"/>
+      </progress>
+    </hill>
+    <scores limit="750">
+      <score id="yellowscore" team="yellow"/>
+      <score id="redscore" team="red"/>
+    </scores>
+  </objectives>
+  <results>
+    <win scenario="team" team="red">
+      <check>
+        <any>
+          <objective team="red">redscore</objective>
+        </any>
+      </check>
+    </win>
+    <win scenario="team" team="yellow">
+      <check>
+        <any>
+          <objective team="yellow">yellowscore</objective>
+        </any>
+      </check>
+    </win>
+  </results>
+  <loadouts>
+    <loadout id="default">
+      <effect duration="5s">damage resistance</effect>
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="chainmail leggings"/>
+      <boots material="leather boots" team-color="true"/>
+      <item material="iron sword" slot="0"/>
+      <item material="bow" slot="1"/>
+      <item amount="1" material="golden apple" slot="2"/>
+      <item amount="16" material="cooked beef" slot="7"/>
+      <item amount="8" material="arrow" slot="27"/>
+    </loadout>
+    <loadout id="four-arrows">
+      <item amount="4" material="arrow"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="four-arrows"/>
+    </rewards>
+  </kills>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>chainmail leggings</material>
+        <material>leather boots</material>
+        <material>cooked beef</material>
+        <material>arrow</material>
+        <material>iron sword</material>
+        <material>golden apple</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>iron sword</material>
+        <material>bow</material>
+      </any>
+    </repair-tools>
+  </items>
+  <zones>
+    <load-group id="no-build"/>
+  </zones>
+  <world>
+    <gamerules>
+      <doDaylightCycle>true</doDaylightCycle>
+      <doTileDrops>false</doTileDrops>
+    </gamerules>
+  </world>
+</map>

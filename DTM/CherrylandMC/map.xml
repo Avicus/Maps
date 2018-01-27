@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map spec="1.0.5" name="CherrylandMC" version="2.1.1" genre="nebula">
+  <gametype>dtm</gametype>
+  <authors>
+    <author uuid="bf331953-4f92-43ee-8abc-7544b8234936" />
+    <author uuid="916c8d6f-12d3-4a23-8553-d3ddcfcd248c" />
+  </authors>
+  <spawns>
+    <spawn>
+      <regions>
+        <point yaw="-90">-39.5, 52.0, -0.5</point>
+      </regions>
+    </spawn>
+    <spawn team="red" loadout="default">
+      <regions>
+        <point pitch="0">19.5, 12.0, -80.5</point>
+      </regions>
+    </spawn>
+    <spawn team="blue" loadout="default">
+      <regions>
+        <point yaw="180">19.5, 12.0, 87.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>iron leggings</material>
+        <material>leather boots</material>
+        <material>log</material>
+        <material>cooked beef</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>iron sword</material>
+        <material>bow</material>
+        <material>diamond pickaxe</material>
+      </any>
+    </repair-tools>
+  </items>
+  <zones>
+    <zone region="red-area">
+      <!--TODO: Translate from legacy.-->
+      <message>§cYou may not edit red team's spawn!</message>
+      <modify>
+        <never />
+      </modify>
+    </zone>
+    <zone region="blue-area">
+      <!--TODO: Translate from legacy.-->
+      <message>§cYou may not edit blue team's spawn!</message>
+      <modify>
+        <never />
+      </modify>
+    </zone>
+    <zone region="chest-1">
+      <!--TODO: Translate from legacy.-->
+      <message>§cYou may not physically edit the TNT chests.</message>
+      <modify>
+        <never />
+      </modify>
+    </zone>
+    <zone region="chest-2">
+      <!--TODO: Translate from legacy.-->
+      <message>§cYou may not physically edit the TNT chests.</message>
+      <modify>
+        <never />
+      </modify>
+    </zone>
+    <zone region="chest-3">
+      <!--TODO: Translate from legacy.-->
+      <message>§cYou may not physically edit the TNT chests.</message>
+      <modify>
+        <never />
+      </modify>
+    </zone>
+    <zone region="chest-4">
+      <!--TODO: Translate from legacy.-->
+      <message>§cYou may not physically edit the TNT chests.</message>
+      <modify>
+        <never />
+      </modify>
+    </zone>
+    <zone region="chest-5">
+      <!--TODO: Translate from legacy.-->
+      <message>§cYou may not physically edit the TNT chests.</message>
+      <modify>
+        <never />
+      </modify>
+    </zone>
+    <zone region="chest-6">
+      <!--TODO: Translate from legacy.-->
+      <message>§cYou may not physically edit the TNT chests.</message>
+      <modify>
+        <never />
+      </modify>
+    </zone>
+    <zone region="chest-7">
+      <!--TODO: Translate from legacy.-->
+      <message>§cYou may not physically edit the TNT chests.</message>
+      <modify>
+        <never />
+      </modify>
+    </zone>
+    <zone region="chest-8">
+      <!--TODO: Translate from legacy.-->
+      <message>§cYou may not physically edit the TNT chests.</message>
+      <modify>
+        <never />
+      </modify>
+    </zone>
+    <zone region="chest-9">
+      <!--TODO: Translate from legacy.-->
+      <message>§cYou may not physically edit the TNT chests.</message>
+      <modify>
+        <never />
+      </modify>
+    </zone>
+    <zone region="chest-10">
+      <!--TODO: Translate from legacy.-->
+      <message>§cYou may not physically edit the TNT chests.</message>
+      <modify>
+        <never />
+      </modify>
+    </zone>
+    <zone region="chest-11">
+      <!--TODO: Translate from legacy.-->
+      <message>§cYou may not physically edit the TNT chests.</message>
+      <modify>
+        <never />
+      </modify>
+    </zone>
+    <zone region="chest-12">
+      <!--TODO: Translate from legacy.-->
+      <message>§cYou may not physically edit the TNT chests.</message>
+      <modify>
+        <never />
+      </modify>
+    </zone>
+    <zone region="chest-13">
+      <!--TODO: Translate from legacy.-->
+      <message>§cYou may not physically edit the TNT chests.</message>
+      <modify>
+        <never />
+      </modify>
+    </zone>
+    <zone region="chest-14">
+      <!--TODO: Translate from legacy.-->
+      <message>§cYou may not physically edit the TNT chests.</message>
+      <modify>
+        <never />
+      </modify>
+    </zone>
+    <zone region="chest-15">
+      <!--TODO: Translate from legacy.-->
+      <message>§cYou may not physically edit the TNT chests.</message>
+      <modify>
+        <never />
+      </modify>
+    </zone>
+    <zone region="chest-16">
+      <!--TODO: Translate from legacy.-->
+      <message>§cYou may not physically edit the TNT chests.</message>
+      <modify>
+        <never />
+      </modify>
+    </zone>
+    <zone region="chest-17">
+      <!--TODO: Translate from legacy.-->
+      <message>§cYou may not physically edit the TNT chests.</message>
+      <modify>
+        <never />
+      </modify>
+    </zone>
+  </zones>
+  <regions>
+    <cuboid min="12, 1, -86" max="27, 1, -86" id="red-area" />
+    <cuboid min="11, 1, 77" max="11, 1, 92" id="blue-area" />
+    <cuboid min="1, 23, -13" max="1, 23, -13" id="chest-1" />
+    <cuboid min="36, 23, -13" max="36, 23, -13" id="chest-2" />
+    <cuboid min="24, 9, -13" max="24, 9, -13" id="chest-3" />
+    <cuboid min="14, 9, -13" max="14, 9, -13" id="chest-4" />
+    <cuboid min="11, 9, -6" max="11, 9, -6" id="chest-5" />
+    <cuboid min="9, 9, -6" max="9, 9, -6" id="chest-6" />
+    <cuboid min="27, 9, -6" max="27, 9, -6" id="chest-7" />
+    <cuboid min="29, 9, -6" max="29, 9, -6" id="chest-8" />
+    <cuboid min="29, 9, 12" max="29, 9, 12" id="chest-9" />
+    <cuboid min="27, 9, 12" max="27, 9, 12" id="chest-10" />
+    <cuboid min="9, 9, 12" max="9, 9, 12" id="chest-11" />
+    <cuboid min="11, 9, 12" max="11, 9, 12" id="chest-12" />
+    <cuboid min="14, 9, 19" max="14, 9, 19" id="chest-13" />
+    <cuboid min="27, 9, -6" max="27, 9, -6" id="chest-14" />
+    <cuboid min="24, 9, 19" max="24, 9, 19" id="chest-15" />
+    <cuboid min="36, 23, 19" max="36, 23, 19" id="chest-16" />
+    <cuboid min="1, 23, 19" max="1, 23, 19" id="chest-17" />
+  </regions>
+  <objectives>
+    <monuments materials="obsidian">
+      <monuments owner="blue">
+        <monument name="Left">
+          <region>
+            <block>41, 27, 107</block>
+          </region>
+        </monument>
+        <monument name="Right">
+          <region>
+            <block>-3, 27, 107</block>
+          </region>
+        </monument>
+      </monuments>
+      <monuments owner="red">
+        <monument name="Left">
+          <region>
+            <block>-3, 27, -101</block>
+          </region>
+        </monument>
+        <monument name="Right">
+          <region>
+            <block>41, 27, -101</block>
+          </region>
+        </monument>
+      </monuments>
+    </monuments>
+  </objectives>
+  <teams>
+    <team id="red" color="red" min="1" max="15" max-overfill="18">Cherries</team>
+    <team id="blue" color="blue" min="1" max="15" max-overfill="18">Blueberries</team>
+  </teams>
+  <loadouts>
+    <loadout id="default">
+      <item slot="0" material="iron sword" />
+      <item slot="1" material="bow" />
+      <item slot="2" material="diamond pickaxe" />
+      <item slot="3" material="golden apple" amount="3" />
+      <item slot="4" material="log" amount="64" />
+      <item slot="7" material="cooked beef" amount="12" />
+      <item slot="27" material="arrow" amount="24" />
+      <chestplate team-color="true" material="leather_chestplate" />
+      <helmet team-color="true" material="leather_helmet" />
+      <boots team-color="true" material="leather_boots" />
+      <leggings material="iron_leggings" />
+      <effect duration="100" level="4">damage resistance</effect>
+    </loadout>
+  </loadouts>
+</map>

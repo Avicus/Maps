@@ -1,0 +1,135 @@
+<?xml version="1.0"?>
+<map name="Tartarus" spec="1.0.3" version="1.0.0">
+  <include src="defaults.xml"/>
+  <include src="Shared/reward-one-gap.xml"/>
+  <authors>
+    <author uuid="883055fb316542919ded7f279ff5381f"/>  <!-- Turboh -->
+  </authors>
+  <teams>
+    <team color="green" id="green" max="22" min="1">{colors.green}</team>
+    <team color="red" id="red" max="22" min="1">{colors.red}</team>
+  </teams>
+  <spawns>
+    <spawn loadout="all" yaw="-180">
+      <regions>
+        <point yaw="90">58, 167, -169</point>
+      </regions>
+    </spawn>
+    <spawn loadout="kitgreen" team="green">
+      <regions>
+        <point yaw="180">-20.5, 119, -27.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="kitred" team="red">
+      <regions>
+        <point yaw="0">-20.5, 118, -309.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <loadouts>
+    <loadout id="all">
+      <effect duration="10000s">night vision</effect>
+    </loadout>
+    <loadout id="kitpr" parent="all">
+      <effect duration="5s">damage resistance</effect>
+      <item material="iron sword" slot="0"/>
+      <item material="bow" slot="1">
+        <enchantment level="1">arrow infinite</enchantment>
+      </item>
+      <item material="diamond pickaxe" slot="2">
+        <enchantment level="1">dig speed</enchantment>
+      </item>
+      <item material="golden apple" slot="3"/>
+      <item amount="32" material="cooked beef" slot="4"/>
+      <item amount="64" material="log" slot="6"/>
+      <item amount="6" material="exp_bottle" slot="7"/>
+      <item amount="2" material="lapis block" slot="8"/>
+      <item amount="1" material="arrow" slot="28"/>
+      <helmet material="leather helmet" team-color="true" unbreakable="true"/>
+      <chestplate material="leather chestplate" team-color="true" unbreakable="true"/>
+      <leggings material="gold leggings" unbreakable="true"/>
+      <boots material="leather boots" team-color="true" unbreakable="true"/>
+    </loadout>
+    <loadout id="kitred" parent="kitpr">
+      <item amount="32" damage="14" material="stained glass" slot="5"/>
+    </loadout>
+    <loadout id="kitgreen" parent="kitpr">
+      <item amount="32" damage="13" material="stained glass" slot="5"/>
+    </loadout>
+  </loadouts>
+  <objectives>
+    <monuments materials="obsidian">
+      <monuments owner="red">
+        <monument name="{directions.right}">
+          <region>
+            <block>26, 122, -280</block>
+          </region>
+        </monument>
+        <monument name="{directions.left}">
+          <region>
+            <block>-68, 122, -280</block>
+          </region>
+        </monument>
+      </monuments>
+      <monuments owner="green">
+        <monument name="{directions.right}">
+          <region>
+            <block>-68, 122, -58</block>
+          </region>
+        </monument>
+        <monument name="{directions.left}">
+          <region>
+            <block>26, 122, -58</block>
+          </region>
+        </monument>
+      </monuments>
+    </monuments>
+  </objectives>
+  <zones>
+    <zone modify="never">
+      <region>
+        <invert>
+          <cuboid max="-73, 256, -20" min="31, 0, -318"/>
+        </invert>
+      </region>
+      <message>{errors.outside-map}</message>
+    </zone>
+    <zone modify="never" region="redspawn">
+      <message>{errors.cannot-build}</message>
+    </zone>
+    <zone modify="never" region="greenspawn">
+      <message>{errors.cannot-build}</message>
+    </zone>
+    <zone modify="never" region="height-limit">
+      <message>{errors.height-limit}</message>
+    </zone>
+  </zones>
+  <regions>
+    <above id="height-limit" y="158"/>
+    <cuboid id="redspawn" max="-29, 256, -318" min="-13, 0, -272"/>
+    <cuboid id="greenspawn" max="-13, 256, -20" min="-29, 0, -66"/>
+  </regions>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>gold leggings</material>
+        <material>leather boots</material>
+        <material>cooked beef</material>
+        <material>golden apple</material>
+        <material>arrow</material>
+        <material>wood</material>
+        <material>stained glass:14</material>
+        <material>stained glass:13</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>iron sword</material>
+        <material>diamond pickaxe</material>
+        <material>bow</material>
+      </any>
+    </repair-tools>
+  </items>
+</map>

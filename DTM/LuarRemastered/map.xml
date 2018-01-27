@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<map name="Luar Remastered" spec="1.0.0" version="1.1.0">
+  <include src="defaults.xml"/>
+  <gametype>dtm</gametype>
+  <include src="Shared/tutorials/dtm.xml"/>
+  <authors>
+    <author uuid="3893a242cc17447e9b1c774fc8941af8"/> <!-- G_SKIPPY -->
+    <author uuid="0b8f95fa0f404f289fd0b8e243bb6800"/> <!-- Fouled -->
+    <author uuid="c29bef37d8e242a9b74604f2df78f374"/> <!-- Legoche -->
+  </authors>
+  <tutorial>
+    <step countdown="5s" freeze="false" location="22, 35, -735" pitch="89.1" yaw="-0.9">
+      <chat>
+        <line>^r • {tutorial.generic.team-spawns}</line>
+      </chat>
+    </step>
+    <step countdown="4s" location="69, 34, -692" pitch="-22.6" yaw="-0.2">
+      <chat>
+        <line>^r • {tutorial.dtm.monument-area}</line>
+        <line>^r • {tutorial.dtm.monument-objective}</line>
+      </chat>
+    </step>
+  </tutorial>
+  <teams>
+    <team color="purple" id="purple" max="18" min="1">{colors.purple}</team>
+    <team color="yellow" id="yellow" max="18" min="1">{colors.yellow}</team>
+  </teams>
+  <spawns>
+    <!-- Spectator spawn -->
+    <spawn>
+      <regions>
+        <circle center="-57, 83, -827" radius="3" yaw="-90"/>
+      </regions>
+    </spawn>
+    <!-- Team spawns -->
+    <spawn loadout="default" team="purple" yaw="0">
+      <regions>
+        <circle center="22, 32, -920" radius="2"/>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="yellow" yaw="180">
+      <regions>
+        <circle center="22, 32, -734" radius="2"/>
+      </regions>
+    </spawn>
+  </spawns>
+  <objectives>
+    <monuments materials="obsidian">
+      <monuments owner="purple">
+        <monument name="{directions.left}">
+          <region>
+            <block>-25, 37, -968</block>
+          </region>
+        </monument>
+        <monument name="{directions.right}">
+          <region>
+            <block>69, 37, -968</block>
+          </region>
+        </monument>
+      </monuments>
+      <monuments owner="yellow">
+        <monument name="{directions.left}">
+          <region>
+            <block>69, 37, -688</block>
+          </region>
+        </monument>
+        <monument name="{directions.right}">
+          <region>
+            <block>-25, 37, -688</block>
+          </region>
+        </monument>
+      </monuments>
+    </monuments>
+  </objectives>
+  <loadouts>
+    <loadout id="default">
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="leather leggings" team-color="true"/>
+      <boots material="leather boots" team-color="true"/>
+      <item material="iron sword" slot="0"/>
+      <item material="bow" slot="1">
+        <enchantment>arrow infinite</enchantment>
+      </item>
+      <item material="diamond pickaxe" slot="2">
+        <enchantment level="1">dig speed</enchantment>
+        <enchantment level="2">durability</enchantment>
+      </item>
+      <item material="stone axe" slot="3">
+        <enchantment level="3">durability</enchantment>
+      </item>
+      <item amount="2" material="golden apple" slot="4"/>
+      <item amount="8" material="cooked beef" slot="5"/>
+      <item amount="32" material="stone" slot="6"/>
+      <item amount="32" material="glass" slot="7"/>
+      <item amount="64" material="log" slot="8"/>
+      <item amount="1" material="arrow" slot="28"/>
+    </loadout>
+    <loadout id="kill-reward">
+      <item material="golden apple"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="kill-reward"/>
+    </rewards>
+  </kills>
+  <zones>
+    <zone modify="never">
+      <region>
+        <invert>
+          <cuboid max="-32, 54, -975" min="76, 0, -681"/>
+        </invert>
+      </region>
+      <message>{errors.outside-map}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid max="-51, 85, -821" min="-65, 77, -835"/>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cylinder base="22, 31, -921" height="15" radius="12"/>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cylinder base="22,31,-735" height="15" radius="12"/>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+  </zones>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>leather leggings</material>
+        <material>leather boots</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>iron sword</material>
+        <material>bow</material>
+        <material>diamond pickaxe</material>
+        <material>stone axe</material>
+      </any>
+    </repair-tools>
+  </items>
+</map>

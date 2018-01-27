@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map genre="elimination" name="Warriors UHC" spec="1.0.5" version="1.0.0">
+  <include src="defaults.xml"/>
+  <authors>
+    <author uuid="1c898c77b0cc474a8ce4b5521f2b18e7"/> <!-- Prodigy4532 -->
+    <author uuid="039e7a97925f4943bfd23c79573af2cd"/> <!-- Dyeh -->
+    <author uuid="d357d2243219415a9cb4452e08e0b643"/> <!-- Phopz -->
+  </authors>
+  <gametype>elimination</gametype>
+  <teams>
+    <load-group id="teams.red-blue" max="8" min="1"/>
+  </teams>
+  <spawns auto-respawn="true" respawn-delay="0s" respawn-freeze="true">
+    <spawn loadout="observerskit">
+      <regions>
+        <point yaw="180">2.5, 130, -0.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="kit" team="red">
+      <regions>
+        <point yaw="-45">-15.5, 111, -18.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="kit" team="blue">
+      <regions>
+        <point yaw="135">20.5, 111, 17.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <zones>
+    <zone modify="never">
+      <region>
+        <invert>
+          <cuboid max="-12, 110, -15" min="16, 105, 13"/> <!-- pvp zone -->
+        </invert>
+      </region>
+    </zone>
+  </zones>
+  <regions>
+    <join id="spawnsba">
+      <cuboid max="-15, 113, -20" min="-17, 109, -18"/> <!-- red tube -->
+      <cuboid max="19, 113, 18" min="21, 109, 16"/> <!-- blue tube -->
+    </join>
+  </regions>
+  <executors>
+    <executor id="spawnb" check="always">
+      <replace-block find="stained glass:8" replace="air" region="spawnsba"/>
+    </executor>
+  </executors>
+  <triggers>
+    <trigger on="match-start" execute="spawnb"/>
+  </triggers>
+  <objectives>
+    <last-team-standing team="red"/>
+    <last-team-standing team="blue"/>
+  </objectives>
+  <elimination lives="1"/>
+  <results>
+    <win scenario="objectives">
+      <check>
+        <time>5m</time>
+      </check>
+    </win>
+  </results>
+  <loadouts>
+    <loadout id="observerskit">
+      <effect duration="10000s">night vision</effect>
+      <effect duration="10000s">saturation</effect>
+    </loadout>
+    <loadout id="kit" parent="observerskit">
+      <item material="diamond sword" slot="0">
+        <enchantments>
+          <enchantment level="3">damage all</enchantment>
+        </enchantments>
+      </item>
+      <item material="fishing rod" slot="1"/>
+      <item material="bow" slot="2">
+        <enchantments>
+          <enchantment level="3">arrow damage</enchantment>
+        </enchantments>
+      </item>
+      <item material="water bucket" slot="3"/>
+      <item amount="9" material="golden apple" slot="4"/>
+      <item material="diamond pickaxe" slot="5"/>
+      <item material="diamond axe" slot="6"/>
+      <item amount="64" material="wood" slot="7"/>
+      <item amount="64" material="cobblestone" slot="8"/>
+      <item amount="64" material="arrow" slot="9"/>
+      <item material="water bucket" slot="10"/>
+      <item material="lava bucket" slot="11"/>
+      <item material="lava bucket" slot="12"/>
+      <helmet material="diamond helmet">
+        <enchantments>
+          <enchantment level="2">protection projectile</enchantment>
+          <enchantment level="3">durability</enchantment>
+        </enchantments>
+      </helmet>
+      <chestplate material="diamond chestplate">
+        <enchantments>
+          <enchantment level="2">protection environmental</enchantment>
+          <enchantment level="3">durability</enchantment>
+        </enchantments>
+      </chestplate>
+      <leggings material="diamond leggings">
+        <enchantments>
+          <enchantment level="2">protection projectile</enchantment>
+          <enchantment level="3">durability</enchantment>
+        </enchantments>
+      </leggings>
+      <boots material="diamond boots">
+        <enchantments>
+          <enchantment level="2">protection environmental</enchantment>
+          <enchantment level="3">durability</enchantment>
+        </enchantments>
+      </boots>
+    </loadout>
+  </loadouts>
+  <items>
+    <remove-drops>
+      <any>
+        <material>arrow</material>
+        <material>fishing rod</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>diamond sword</material>
+        <material>diamond pickaxe</material>
+        <material>diamond axe</material>
+        <material>diamond helmet</material>
+        <material>diamond chestplate</material>
+        <material>diamond leggings</material>
+        <material>diamond boots</material>
+        <material>bow</material>
+      </any>
+    </repair-tools>
+  </items>
+</map>

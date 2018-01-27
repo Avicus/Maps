@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="Oasis" spec="1.0.0" version="1.1.0">
+  <include src="defaults.xml"/>
+  <authors>
+    <author uuid="075b5514-293a-4bd5-bcef-367e687d3556"/> <!-- KojaCola -->
+  </authors>
+  <teams>
+    <team color="green" id="green" max="25" min="1">{colors.green}</team>
+    <team color="orange" id="orange" max="25" min="1">{colors.orange}</team>
+  </teams>
+  <spawns>
+    <spawn yaw="-90">
+      <regions>
+        <circle center="-65, 128, 87" radius="1"/>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="green" yaw="180">
+      <regions>
+        <circle center="-6, 94, 43" radius="1"/>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="orange" yaw="0">
+      <regions>
+        <circle center="-6, 94, 156" radius="2"/>
+      </regions>
+    </spawn>
+  </spawns>
+  <objectives>
+    <monuments destroyable="true" materials="emerald block">
+      <monuments owner="green">
+        <monument name="{directions.right}">
+          <region>
+            <cuboid max="21, 108, 32" min="23, 103, 30"/>
+          </region>
+        </monument>
+        <monument name="{directions.left}">
+          <region>
+            <cuboid max="-35, 108, 32" min="-37, 103, 30"/>
+          </region>
+        </monument>
+      </monuments>
+      <monuments owner="orange">
+        <monument name="{directions.right}">
+          <region>
+            <cuboid max="-37,103,167" min="-35,108,169"/>
+          </region>
+        </monument>
+        <monument name="{directions.left}">
+          <region>
+            <cuboid max="21,109,167" min="23,103,169"/>
+          </region>
+        </monument>
+      </monuments>
+    </monuments>
+  </objectives>
+  <loadouts>
+    <loadout id="default">
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <item material="iron sword" slot="0"/>
+      <item material="bow" slot="1">
+        <enchantment>arrow infinite</enchantment>
+      </item>
+      <item material="diamond pickaxe" slot="2">
+        <enchantment level="3">durability</enchantment>
+      </item>
+      <item amount="3" material="golden apple" slot="3"/>
+      <item amount="32" material="cooked beef" slot="4"/>
+      <item amount="64" material="glass" slot="5"/>
+      <item amount="64" material="log" slot="6"/>
+      <item amount="64" material="smooth brick" slot="7"/>
+      <item amount="1" material="arrow" slot="10"/>
+    </loadout>
+    <loadout id="kill-reward">
+      <item material="golden apple"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="kill-reward"/>
+    </rewards>
+  </kills>
+  <zones>
+    <zone modify="never">
+      <region>
+        <cuboid max="-9,105,27" min="-5,90,46"/>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid max="-9,105,172" min="-5,90,155"/>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+  </zones>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>log</material>
+        <material>arrow</material>
+        <material>cooked beef</material>
+        <material>glass</material>
+        <material>smooth brick</material>
+        <material>stone</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>iron sword</material>
+        <material>bow</material>
+        <material>diamond pickaxe</material>
+      </any>
+    </repair-tools>
+  </items>
+</map>

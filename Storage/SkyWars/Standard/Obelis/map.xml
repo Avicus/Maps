@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map genre="sky wars" name="Obelis" spec="1.0.0" version="1.0.0">
+  <include src="defaults.xml"/>
+  <include src="Shared/skywars.xml"/>
+  <authors>
+    <author uuid="0e56116560bf49e6aa383db002ad7d08"/>  <!-- AbusiveUser -->
+    <author uuid="99522edd5edf40658861f7e280b7ff09"/> <!-- Bloodoh -->
+  </authors>
+  <ffa max="8" max-overfill="8" min="2"/>
+  <objectives>
+    <last-competitor-standing/>
+  </objectives>
+  <results>
+    <win scenario="objectives">
+      <check>
+        <time>8m</time>
+      </check>
+    </win>
+  </results>
+  <compasses>
+    <compass target="enemy"/>
+  </compasses>
+  <spawns>
+    <spawn team="spectators" yaw="90">
+      <regions>
+        <block>201, 64, 257</block>
+      </regions>
+    </spawn>
+    <spawn loadout="default" look="-45, 31, 46" mode="safe">
+      <regions>
+        <block>117, 50, 259</block>
+        <block>140, 50, 315</block>
+        <block>198, 50, 343</block>
+        <block>259, 50, 319</block>
+        <block>283, 50, 261</block>
+        <block>261, 50, 205</block>
+        <block>201, 51, 175</block>
+        <block>141, 50, 203</block>
+      </regions>
+    </spawn>
+  </spawns>
+  <elimination lives="1"/>
+  <loadouts>
+    <loadout id="default">
+      <helmet material="leather helmet" team-color="true"/>
+      <item material="wood sword" slot="0"/>
+      <item amount="4" material="cooked beef" slot="7"/>
+      <item material="compass" slot="8"/>
+    </loadout>
+  </loadouts>
+  <remove-drops>
+    <any>
+      <material>compass</material>
+    </any>
+  </remove-drops>
+</map>

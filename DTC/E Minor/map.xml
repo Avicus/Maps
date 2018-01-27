@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="E Minor" spec="1.0.3" version="1.0.1">
+  <include src="defaults.xml"/>
+  <include src="Shared/phases-dtc.xml"/>
+  <authors>
+    <author uuid="bf331953-4f92-43ee-8abc-7544b8234936"/>
+    <!-- ViceWatercolour -->
+    <author contributor="true" uuid="47b15675-a048-4e8f-863a-0cbf86ba22dc"/>
+    <!-- profbananaslug -->
+  </authors>
+  <teams>
+    <team color="red" id="red" max="25" min="1">{colors.red}</team>
+    <team color="green" id="green" max="25" min="1">{colors.green}</team>
+  </teams>
+  <gametype>dtc</gametype>
+  <spawns>
+    <spawn team="spectators">
+      <regions>
+        <point yaw="90">48,35,-64</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="red">
+      <regions>
+        <point yaw="0">0,23,-128</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="green">
+      <regions>
+        <point yaw="180">0,23,0</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <objectives>
+    <leakables destroyable="true" first-phase="gold" materials="obsidian">
+      <leakables owner="red">
+        <leakable leak-distance="3" name="Core" repairable="true">
+          <region>
+            <cuboid max="2,25,-97" min="-2,18,-101"/>
+          </region>
+        </leakable>
+      </leakables>
+      <leakables owner="green">
+        <leakable leak-distance="3" name="Core" repairable="true">
+          <region>
+            <cuboid max="2,25,-27" min="-2,18,-31"/>
+          </region>
+        </leakable>
+      </leakables>
+    </leakables>
+  </objectives>
+  <loadouts>
+    <loadout id="default">
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="iron leggings" team-color="true"/>
+      <boots material="leather boots" team-color="true"/>
+      <item amount="1" material="iron sword" slot="0"/>
+      <item amount="1" material="bow" slot="1"/>
+      <item amount="1" material="diamond pickaxe" slot="2">
+        <enchantments>
+          <enchantment level="1">dig speed</enchantment>
+        </enchantments>
+      </item>
+      <item amount="1" material="stone axe" slot="3"/>
+      <item amount="1" material="golden apple" slot="4"/>
+      <item amount="32" material="log" slot="5"/>
+      <item amount="64" material="glass" slot="6"/>
+      <item amount="16" material="cooked beef" slot="8"/>
+      <item amount="64" material="arrow" slot="27"/>
+      <item amount="64" material="arrow" slot="28"/>
+    </loadout>
+    <loadout id="kill-reward">
+      <item material="golden apple"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="kill-reward"/>
+    </rewards>
+  </kills>
+  <zones>
+    <zone modify="never">
+      <region>
+        <invert>
+          <cuboid id="playable" max="40,53,15" min="-40,12,-143"/>
+        </invert>
+      </region>
+      <message>{errors.outside-map}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid id="redspawnzone" max="3,255,-125" min="-3,0,-131"/>
+      </region>
+      <enter>
+        <team>red</team>
+      </enter>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid id="greenspawnzone" max="3,255,3" min="-3,0,-3"/>
+      </region>
+      <enter>
+        <team>green</team>
+      </enter>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+  </zones>
+  <gamerules>
+    <doDaylightCycle>false</doDaylightCycle>
+  </gamerules>
+  <items>
+    <remove-drops>
+      <any>
+        <material>iron sword</material>
+        <material>bow</material>
+        <material>diamond pickaxe</material>
+        <material>cooked beef</material>
+        <material>stone axe</material>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>iron leggings</material>
+        <material>leather boots</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>iron sword</material>
+        <material>bow</material>
+        <material>diamond pickaxe</material>
+        <material>shears</material>
+        <material>stone axe</material>
+      </any>
+    </repair-tools>
+  </items>
+</map>

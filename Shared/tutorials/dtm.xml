@@ -1,0 +1,16 @@
+﻿<!-- Base tutorial that should be included by all DTM maps. -->
+<map>
+  <include src="Shared/tutorials/main.xml"/>
+  <tutorial>
+    <prefix countdown="4s">
+      <title stay="3s" subtitle="^a^l{tutorial.dtm.title}"/>
+      <chat>
+        <line>^a^m--------------^f ^l{tutorial.dtm.title} ^a^m--------------</line>
+        <line>^r • {tutorial.dtm.desc1}</line>
+        <line>^r • {tutorial.dtm.desc2}</line>
+        <line>^r • {tutorial.dtm.desc3}</line>
+        <line>^a^m------------------------------------------</line>
+      </chat>
+    </prefix>
+  </tutorial>
+</map>

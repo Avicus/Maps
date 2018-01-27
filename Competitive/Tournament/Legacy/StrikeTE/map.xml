@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="Strike TE" spec="1.0.0" version="1.1.0">
+  <include src="defaults.xml"/>
+  <authors>
+    <author uuid="54964b606ce749229a4c2b981d8c2ed7"/> <!-- Spoookeh -->
+  </authors>
+  <teams>
+    <team color="orange" id="orange" max="8" max-overfill="8" min="1">{colors.orange}</team>
+    <team color="purple" id="purple" max="8" max-overfill="8" min="1">{colors.purple}</team>
+  </teams>
+  <spawns>
+    <spawn yaw="-90">
+      <regions>
+        <circle center="-105, 141, 7" radius="2"/>
+      </regions>
+    </spawn>
+    <spawn loadout="default" region="orange-spawn" team="orange" yaw="90"/>
+    <spawn loadout="default" region="purple-spawn" team="purple" yaw="-90"/>
+  </spawns>
+  <objectives>
+    <scores kills="1" limit="100">
+      <score team="orange"/>
+      <score team="purple"/>
+    </scores>
+  </objectives>
+  <results>
+    <win scenario="objectives">
+      <check>
+        <time>12m</time>
+      </check>
+    </win>
+  </results>
+  <regions>
+    <circle center="-50, 114, -2" id="orange-spawn" radius="1"/>
+    <circle center="-163, 114, 19" id="purple-spawn" radius="1"/>
+  </regions>
+  <loadouts>
+    <loadout id="default">
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="chainmail chestplate"/>
+      <leggings material="leather leggings" team-color="true"/>
+      <boots material="leather boots" team-color="true"/>
+      <item material="stone sword" slot="0"/>
+      <item material="bow" slot="1"/>
+      <item amount="16" material="cooked beef" slot="3"/>
+      <item material="golden apple" slot="4"/>
+      <item amount="16" material="arrow" slot="28"/>
+      <effect amplifier="3" duration="5s">damage resistance</effect>
+    </loadout>
+    <loadout id="kill-reward">
+      <item material="golden apple"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="kill-reward"/>
+    </rewards>
+  </kills>
+  <zones>
+    <!-- Disable Build -->
+    <load-group id="no-build"/>
+    <!-- Orange Scorebox -->
+    <zone>
+      <region>
+        <cuboid max="-156, 120, 4" min="-155, 122, 8"/>
+      </region>
+      <enter>
+        <team>orange</team>
+      </enter>
+      <scorebox points="2"/>
+      <portal destination="orange-spawn" yaw="90"/>
+      <message>{errors.wrong-scorebox}</message>
+    </zone>
+    <!-- Purple Scorebox -->
+    <zone>
+      <region>
+        <cuboid max="-59, 120, 12" min="-60, 122, 8"/>
+      </region>
+      <enter>
+        <team>purple</team>
+      </enter>
+      <scorebox points="2"/>
+      <portal destination="purple-spawn" yaw="-90"/>
+      <message>{errors.wrong-scorebox}</message>
+    </zone>
+  </zones>
+  <!-- No Fall Damage Regions -->
+  <damage>
+    <disable>
+      <all>
+        <damage>fall</damage>
+        <inside>
+          <region>
+            <join>
+              <cuboid max="14, 157, 68" min="17, 154, 71"/>
+              <cuboid max="-12, 157, -50" min="-15, 154, -53"/>
+            </join>
+          </region>
+        </inside>
+      </all>
+    </disable>
+  </damage>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>leather leggings</material>
+        <material>leather boots</material>
+        <material>cooked beef</material>
+        <material>arrow</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>stone sword</material>
+        <material>chainmail chestplate</material>
+        <material>bow</material>
+      </any>
+    </repair-tools>
+  </items>
+  <world>
+    <gamerules>
+      <doDaylightCycle>true</doDaylightCycle>
+    </gamerules>
+  </world>
+</map>

@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="SquaredNature" spec="1.0.0" version="1.0.1">
+  <include src="defaults.xml"/>
+  <gametype>dtm</gametype>
+  <authors>
+    <author uuid="ae5c1e91745b4a6fa33711484ede6957"/> <!-- Clijmart -->
+    <author uuid="3ec3ad7c563c45fbaedfdd32066a2e19"/> <!-- mepii -->
+    <author uuid="7890a2e584c84965be02ba85175b4cba"/> <!-- MilkyWayRules -->
+  </authors>
+  <tutorial>
+    <step countdown="5s" freeze="false" location="-78, 100, -76" pitch="35.1" yaw="91.4">
+      <chat>
+        <line>^r • {tutorial.generic.team-spawns}</line>
+      </chat>
+    </step>
+    <step countdown="5s" freeze="false" location="-12, 102, -76" pitch="-10.1" yaw="-90">
+      <chat>
+        <line>^r • {tutorial.dtm.monument-area}</line>
+        <line>^r • {tutorial.dtm.monument-objective}</line>
+      </chat>
+    </step>
+  </tutorial>
+  <teams>
+    <team color="yellow" id="yellow" max="24" min="1">{colors.yellow}</team>
+    <team color="red" id="red" max="24" min="1">{colors.red}</team>
+  </teams>
+  <spawns>
+    <!-- Spectator spawn -->
+    <spawn>
+      <regions>
+        <point yaw="-90">0.5, 177, 0.5</point>
+      </regions>
+    </spawn>
+    <!-- Team spawns -->
+    <spawn loadout="default" team="red" yaw="-45">
+      <regions>
+        <point yaw="-45">-83.5, 99, -77.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="yellow" yaw="135">
+      <regions>
+        <point yaw="135">83.5, 99, 77.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <objectives>
+    <monuments materials="obsidian">
+      <monuments owner="red">
+        <monument name="{directions.right}">
+          <region>
+            <block>-9, 104, -77</block>
+          </region>
+        </monument>
+        <monument name="{directions.left}">
+          <region>
+            <block>-83, 100, -11</block>
+          </region>
+        </monument>
+      </monuments>
+    </monuments>
+    <monuments materials="obsidian">
+      <monuments owner="yellow">
+        <monument name="{directions.right}">
+          <region>
+            <block>9, 104, 77</block>
+          </region>
+        </monument>
+        <monument name="{directions.left}">
+          <region>
+            <block>83, 100, 11</block>
+          </region>
+        </monument>
+      </monuments>
+    </monuments>
+  </objectives>
+  <loadouts>
+    <loadout id="default">
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="leather leggings" team-color="true"/>
+      <boots material="leather boots" team-color="true"/>
+      <item material="iron sword" slot="0"/>
+      <item material="bow" slot="1">
+        <enchantment>arrow infinite</enchantment>
+      </item>
+      <item material="diamond pickaxe" slot="2">
+        <enchantment level="1">dig speed</enchantment>
+      </item>
+      <item amount="2" material="golden apple" slot="3"/>
+      <item amount="32" material="log" slot="5"/>
+      <item amount="32" material="cooked fish" slot="7"/>
+      <item amount="1" material="arrow" slot="28"/>
+    </loadout>
+    <loadout id="red-loadout" parent="default">
+      <item amount="32" damage="14" material="stained glass" slot="4"/>
+    </loadout>
+    <loadout id="yellow-loadout" parent="default">
+      <item amount="32" damage="4" material="stained glass" slot="4"/>
+    </loadout>
+    <loadout id="kill-reward">
+      <item material="golden apple"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="kill-reward"/>
+    </rewards>
+  </kills>
+  <zones>
+    <zone modify="never">
+      <region>
+        <invert>
+          <cuboid max="-88, 190, -82" min="88, 92, 82"/>
+        </invert>
+      </region>
+      <message>{errors.outside-map}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid max="-87, 105, -81" min="-79, 97, -73"/>
+      </region>
+      <enter>
+        <team>red</team>
+      </enter>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid max="87, 105, 81" min="79, 97, 73"/>
+      </region>
+      <enter>
+        <team>yellow</team>
+      </enter>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+  </zones>
+  <world>
+    <storm>false</storm>
+    <weather check="always"/>
+  </world>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>leather leggings</material>
+        <material>leather boots</material>
+        <material>cooked fish</material>
+        <material>golden apple</material>
+        <material>arrow</material>
+        <material>log</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>iron sword</material>
+        <material>bow</material>
+        <material>diamond pickaxe</material>
+      </any>
+    </repair-tools>
+  </items>
+</map>

@@ -1,0 +1,439 @@
+<?xml version="1.0"?>
+<map name="Revolution" spec="1.0.4" version="1.0.4">
+  <include src="defaults.xml"/>
+  <include src="Shared/tutorials/ctw.xml"/>
+  <authors>
+    <author uuid="bf3319534f9243ee8abc7544b8234936"/> <!-- Vice -->
+  </authors>
+  <gametype>ctw</gametype>
+  <tutorial>
+    <step countdown="5s" freeze="false" location="-1339, 12, -329" pitch="9" yaw="-135">
+      <chat>
+        <line>^r^l • {tutorial.generic.team-spawns}</line>
+      </chat>
+    </step>
+    <step countdown="6s" location="-1352, 10, -336" pitch="0" yaw="-180">
+      <chat>
+        <line>^r^lThere are four teams, you must capture all of the enemy wools to win the match.
+        </line>
+      </chat>
+    </step>
+    <step countdown="6s" location="-1387, 5, -249" pitch="24" yaw="-162">
+      <chat>
+        <line>^r^lThe cobwebs represent where you are able to build.</line>
+        <line>^r^lYou may only build within the cobwebs, or in the middle.</line>
+      </chat>
+    </step>
+  </tutorial>
+  <teams>
+    <load-group id="teams.red-blue" max="8" min="1"/>
+    <team color="lime" id="lime" max="8" min="1">{colors.lime}</team>
+    <team color="yellow" id="yellow" max="8" min="1">{colors.yellow}</team>
+  </teams>
+  <spawns>
+    <spawn team="spectators">
+      <regions>
+        <point yaw="-45">-1383, 15, -285</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" respawn-delay="5s" respawn-freeze="true" team="red" yaw="90">
+      <regions>
+        <point yaw="-45">-1435, 9, -272</point>
+        <point yaw="-135">-1435, 9, -233</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" respawn-delay="5s" respawn-freeze="true" team="blue" yaw="90">
+      <regions>
+        <point yaw="135">-1332, 9, -170</point>
+        <point yaw="-135">-1372, 9, -170</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" respawn-delay="5s" respawn-freeze="true" team="lime" yaw="90">
+      <regions>
+        <point yaw="45">-1332, 9, -336</point>
+        <point yaw="-45">-1372, 9, -336</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" respawn-delay="5s" respawn-freeze="true" team="yellow" yaw="-90">
+      <regions>
+        <point yaw="45">-1269, 9, -273</point>
+        <point yaw="135">-1269, 9, -233</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <world>
+    <gamerules>
+      <doDaylightCycle>false</doDaylightCycle>
+    </gamerules>
+  </world>
+  <regions>
+    <subtract id="void-outer"> <!-- All blocks of void minus the mid region -->
+      <void/>
+      <cuboid max="-1382,0,-255" min="-1390,23,-251"/>
+      <cuboid max="-1362,0,-251" min="-1371,23,-255"/>
+      <cuboid max="-1354,0,-272" min="-1350,23,-263"/>
+      <cuboid max="-1349,0,-283" min="-1355,23,-291"/>
+      <cuboid max="-1322,0,-250" min="-1314,23,-256"/>
+      <cuboid max="-1333,0,-255" min="-1342,23,-251"/>
+      <cuboid max="-1349,0,-215" min="-1355,23,-223"/>
+      <cuboid max="-1350,0,-243" min="-1354,23,-234"/>
+      <cylinder base="-1368,0,-269" height="23" radius="6"/>
+      <cylinder base="-1336,0,-269" height="23" radius="6"/>
+      <cylinder base="-1336,0,-237" height="23" radius="6"/>
+      <cylinder base="-1368,0,-237" height="23" radius="6"/>
+    </subtract>
+    <above id="height-limit" y="23"/>
+    <join id="red-woolchests">
+      <block>-1457, 8, -253</block>
+    </join>
+    <join id="blue-woolchests">
+      <block>-1352, 8, -148</block>
+    </join>
+    <join id="lime-woolchests">
+      <block>-1352, 8, -358</block>
+    </join>
+    <join id="yellow-woolchests">
+      <block>-1247, 8, -253</block>
+    </join>
+    <join id="mid-chest">
+      <block>-1352,2,-253</block>
+    </join>
+    <point id="king-spawn">-1351.5,2,-252.5</point>
+    <cuboid id="the-room" max="-1354,4,-251" min="-1350,1,-255"/>
+  </regions>
+  <loadouts>
+    <loadout id="default">
+      <effect duration="5s">damage resistance</effect>
+      <helmet material="iron helmet"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="iron leggings" team-color="true"/>
+      <boots material="leather boots" team-color="true"/>
+      <item material="stone sword" slot="0"/>
+      <item material="bow" slot="1">
+        <enchantments>
+          <enchantment>arrow infinite</enchantment>
+        </enchantments>
+      </item>
+      <item material="diamond pickaxe" slot="2">
+        <enchantments>
+          <enchantment level="3">durability</enchantment>
+        </enchantments>
+      </item>
+      <item material="iron axe" slot="3"/>
+      <item amount="16" material="golden carrot" slot="4"/>
+      <item material="golden apple" slot="5"/>
+      <item amount="32" material="wood" slot="6"/>
+      <item amount="16" material="stained glass" slot="7" team-color="true"/>
+      <item amount="1" material="arrow" slot="27"/>
+    </loadout>
+    <loadout id="kill-reward">
+      <item material="golden apple"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="kill-reward"/>
+    </rewards>
+  </kills>
+  <items>
+    <remove-drops>
+      <any>
+        <material>iron helmet</material>
+        <material>leather chestplate</material>
+        <material>iron leggings</material>
+        <material>leather boots</material>
+        <material>arrow</material>
+        <material>golden carrot</material>
+        <material>glass</material>
+        <material>log</material>
+        <material>gold sword</material>
+        <material>wool</material>
+        <material>string</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>stone sword</material>
+        <material>iron axe</material>
+        <material>diamond pickaxe</material>
+        <material>bow</material>
+      </any>
+    </repair-tools>
+  </items>
+  <executors>
+    <executor check="always" id="remove-mid-chest">
+      <replace-block find="chest" region="mid-chest" replace="air"/>
+    </executor>
+  </executors>
+  <triggers>
+    <trigger execute="remove-mid-chest" on="match-start"/>
+  </triggers>
+  <zones>
+    <zone modify="never">
+      <region>
+        <subtract>
+          <void/>
+          <join>
+            <cylinder base="-1352,0,-253" height="23" radius="29"/>
+            <cuboid max="-1321,23,-249" min="-1315,0,-257"/>
+            <cuboid max="-1356,23,-222" min="-1348,0,-216"/>
+            <cuboid max="-1383,23,-257" min="-1389,0,-249"/>
+            <cuboid max="-1348,23,-284" min="-1356,0,-290"/>
+            <block>-1441,11,-252</block>
+            <block>-1441,11,-254</block>
+            <block>-1441,11,-253</block>
+            <block>-1263,11,-252</block>
+            <block>-1263,11,-254</block>
+            <block>-1263,11,-253</block>
+            <block>-1352,11,-342</block>
+            <block>-1353,11,-342</block>
+            <block>-1351,11,-342</block>
+            <block>-1351,11,-164</block>
+            <block>-1352,11,-164</block>
+            <block>-1353,11,-164</block>
+          </join>
+        </subtract>
+      </region>
+      <message>{errors.outside-map}</message>
+    </zone>
+    <zone modify="never" region="height-limit">
+      <message>{errors.outside-map}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <subtract>
+          <join>
+            <cuboid max="-1263,14,-251" min="-1269,9,-255"/>
+            <cuboid max="-1354,14,-164" min="-1350,9,-170"/>
+            <cuboid max="-1441,15,-255" min="-1435,9,-251"/>
+            <cuboid max="-1350,15,-342" min="-1354,9,-336"/>
+          </join>
+          <join>
+            <block>-1441,11,-252</block>
+            <block>-1441,11,-254</block>
+            <block>-1441,11,-253</block>
+            <block>-1263,11,-252</block>
+            <block>-1263,11,-254</block>
+            <block>-1263,11,-253</block>
+            <block>-1352,11,-342</block>
+            <block>-1353,11,-342</block>
+            <block>-1351,11,-342</block>
+            <block>-1351,11,-164</block>
+            <block>-1352,11,-164</block>
+            <block>-1353,11,-164</block>
+          </join>
+        </subtract>
+      </region>
+      <message>You may not edit the wool monument area.</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cylinder base="-1435,0,-272" height="23" radius="6"/>
+        <cylinder base="-1435,0,-233" height="23" radius="6"/>
+        <cylinder base="-1332,0,-170" height="23" radius="6"/>
+        <cylinder base="-1372,0,-170" height="23" radius="6"/>
+        <cylinder base="-1332,0,-336" height="23" radius="6"/>
+        <cylinder base="-1372,0,-336" height="23" radius="6"/>
+        <cylinder base="-1269,0,-273" height="23" radius="6"/>
+        <cylinder base="-1269,0,-233" height="23" radius="6"/>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <!-- BLUE WOOL -->
+    <zone modify="never">
+      <enter>
+        <not>
+          <team>blue</team>
+        </not>
+      </enter>
+      <region>
+        <cylinder base="-1352,0,-148" height="23" radius="7"/>
+      </region>
+      <message>{errors.own-wool-room}</message>
+    </zone>
+    <!-- RED WOOL -->
+    <zone modify="never">
+      <enter>
+        <not>
+          <team>red</team>
+        </not>
+      </enter>
+      <region>
+        <cylinder base="-1457,0,-253" height="23" radius="7"/>
+      </region>
+      <message>{errors.own-wool-room}</message>
+    </zone>
+    <!-- LIME WOOL -->
+    <zone modify="never">
+      <enter>
+        <not>
+          <team>lime</team>
+        </not>
+      </enter>
+      <region>
+        <cylinder base="-1352,0,-358" height="23" radius="7"/>
+      </region>
+      <message>{errors.own-wool-room}</message>
+    </zone>
+    <!-- YELLOW WOOL -->
+    <zone modify="never">
+      <enter>
+        <not>
+          <team>yellow</team>
+        </not>
+      </enter>
+      <region>
+        <cylinder base="-1247,0,-253" height="23" radius="7"/>
+      </region>
+      <message>{errors.own-wool-room}</message>
+    </zone>
+  </zones>
+  <world>
+    <storm>false</storm>
+    <weather check="always"/>
+  </world>
+  <objectives>
+    <wools pickup="false" team="lime">
+      <wool color="blue" id="blue-lime">
+        <source>
+          <block>-1352, 8, -148</block>
+        </source>
+        <destination>
+          <block>-1352,11,-342</block>
+        </destination>
+      </wool>
+      <wool color="yellow" id="yellow-lime">
+        <source>
+          <block>-1247, 8, -253</block>
+        </source>
+        <destination>
+          <block>-1351,11,-342</block>
+        </destination>
+      </wool>
+      <wool color="red" id="red-lime">
+        <source>
+          <block>-1457, 8, -253</block>
+        </source>
+        <destination>
+          <block>-1353,11,-342</block>
+        </destination>
+      </wool>
+    </wools>
+    <wools pickup="false" team="blue">
+      <wool color="lime" id="lime-blue">
+        <source>
+          <block>-1352, 8, -358</block>
+        </source>
+        <destination>
+          <block>-1351,11,-164</block>
+        </destination>
+      </wool>
+      <wool color="yellow" id="yellow-blue">
+        <source>
+          <block>-1247, 8, -253</block>
+        </source>
+        <destination>
+          <block>-1353,11,-164</block>
+        </destination>
+      </wool>
+      <wool color="red" id="red-blue">
+        <source>
+          <block>-1457, 8, -253</block>
+        </source>
+        <destination>
+          <block>-1352,11,-164</block>
+        </destination>
+      </wool>
+    </wools>
+    <wools pickup="false" team="yellow">
+      <wool color="blue" id="blue-yellow">
+        <source>
+          <block>-1352, 8, -148</block>
+        </source>
+        <destination>
+          <block>-1263,11,-253</block>
+        </destination>
+      </wool>
+      <wool color="lime" id="lime-yellow">
+        <source>
+          <block>-1352, 8, -358</block>
+        </source>
+        <destination>
+          <block>-1263,11,-254</block>
+        </destination>
+      </wool>
+      <wool color="red" id="red-yellow">
+        <source>
+          <block>-1457, 8, -253</block>
+        </source>
+        <destination>
+          <block>-1263,11,-252</block>
+        </destination>
+      </wool>
+    </wools>
+    <wools pickup="false" team="red">
+      <wool color="blue" id="blue-red">
+        <source>
+          <block>-1352, 8, -148</block>
+        </source>
+        <destination>
+          <block>-1441,11,-253</block>
+        </destination>
+      </wool>
+      <wool color="yellow" id="yellow-red">
+        <source>
+          <block>-1247, 8, -253</block>
+        </source>
+        <destination>
+          <block>-1441,11,-254</block>
+        </destination>
+      </wool>
+      <wool color="lime" id="lime-red">
+        <source>
+          <block>-1352, 8, -358</block>
+        </source>
+        <destination>
+          <block>-1441,11,-252</block>
+        </destination>
+      </wool>
+    </wools>
+  </objectives>
+  <results>
+    <win scenario="team" team="yellow">
+      <check>
+        <all>
+          <objective>blue-yellow</objective>
+          <objective>lime-yellow</objective>
+          <objective>red-yellow</objective>
+        </all>
+      </check>
+    </win>
+    <win scenario="team" team="blue">
+      <check>
+        <all>
+          <objective>yellow-blue</objective>
+          <objective>lime-blue</objective>
+          <objective>red-blue</objective>
+        </all>
+      </check>
+    </win>
+    <win scenario="team" team="red">
+      <check>
+        <all>
+          <objective>yellow-red</objective>
+          <objective>lime-red</objective>
+          <objective>blue-red</objective>
+        </all>
+      </check>
+    </win>
+    <win scenario="team" team="lime">
+      <check>
+        <all>
+          <objective>yellow-lime</objective>
+          <objective>blue-lime</objective>
+          <objective>red-lime</objective>
+        </all>
+      </check>
+    </win>
+  </results>
+</map>

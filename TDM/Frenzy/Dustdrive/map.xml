@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="Dustdrive" spec="1.0.0" version="1.1.0">
+  <include src="defaults.xml"/>
+  <authors>
+    <author uuid="bf3319534f9243ee8abc7544b8234936"/> <!-- Spidercell -->
+    <author uuid="0b8f95fa0f404f289fd0b8e243bb6800"/> <!-- Fouled -->
+    <author uuid="ba601988d27b4349ae154b0a1424bfa8"/> <!-- joelmce -->
+    <author uuid="3cce00809faa48f982cf64410305822a"/> <!-- Sethskye -->
+    <author uuid="c2a4c847653e482ab62ed7f8b64330cb"/> <!-- ALM -->
+  </authors>
+  <compasses>
+    <compass target="enemy"/>
+  </compasses>
+  <teams>
+    <load-group id="teams.red-blue" max="16" min="1"/>
+  </teams>
+  <zones>
+    <zones>
+      <zone modify="never" region="everywhere"/>
+    </zones>
+  </zones>
+  <objectives>
+    <last-team-standing team="blue"/>
+    <last-team-standing team="red"/>
+  </objectives>
+  <elimination lives="1"/>
+  <results>
+    <win scenario="objectives">
+      <check>
+        <time>5m</time>
+      </check>
+    </win>
+  </results>
+  <spawns>
+    <!-- Spectator spawn -->
+    <spawn>
+      <regions>
+        <point yaw="90">33, 44, 0</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="blue">
+      <regions>
+        <point yaw="0">0, 25, -36</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="red">
+      <regions>
+        <point yaw="180">0, 25, 37</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <loadouts>
+    <loadout id="default">
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="chainmail leggings"/>
+      <boots material="leather boots" team-color="true"/>
+      <item material="wood sword" slot="0"/>
+      <item material="bow" slot="1"/>
+      <item amount="16" material="bread" slot="2"/>
+      <item material="compass" slot="3"/>
+      <item amount="16" material="arrow" slot="8"/>
+    </loadout>
+    <loadout id="one-golden-apple">
+      <item material="golden apple"/>
+    </loadout>
+  </loadouts>
+  <executors>
+    <perform-on-group check="always" group="red" id="xtra-life">
+      <execute>
+        <modify-lives amount="1"/>
+      </execute>
+    </perform-on-group>
+    <perform-on-group check="always" group="blue" id="xtra-life">
+      <execute>
+        <modify-lives amount="1"/>
+      </execute>
+    </perform-on-group>
+  </executors>
+  <triggers>
+    <trigger execute="xtra-life" on="player-death"/>
+  </triggers>
+  <kills>
+    <rewards>
+      <reward loadout="one-golden-apple"/>
+    </rewards>
+  </kills>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>leather leggings</material>
+        <material>leather boots</material>
+        <material>compass</material>
+        <material>bread</material>
+        <material>arrow</material>
+        <material>golden apple</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>wood sword</material>
+        <material>bow</material>
+      </any>
+    </repair-tools>
+  </items>
+</map>

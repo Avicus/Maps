@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="Zao" spec="1.0.0" version="1.1.0">
+  <include src="defaults.xml"/>
+  <include src="Shared/conquest-shop.xml"/>
+  <authors>
+    <author uuid="da98a2f1673c4cecb547e0a342abfde4"/> <!-- Evocal -->
+  </authors>
+  <teams>
+    <team color="purple" id="purple" max="25" min="1">{colors.purple}</team>
+    <team color="yellow" id="yellow" max="25" min="1">{colors.yellow}</team>
+  </teams>
+  <gametype>score</gametype>
+  <objectives>
+    <scores kills="1">
+      <score team="purple"/>
+      <score team="yellow"/>
+    </scores>
+  </objectives>
+  <results>
+    <win scenario="objectives">
+      <check>
+        <time>7m</time>
+      </check>
+    </win>
+  </results>
+  <spawns>
+    <!-- Spectator spawn -->
+    <spawn>
+      <regions>
+        <point yaw="180">137.5, 61, -634.5</point>
+      </regions>
+    </spawn>
+    <!-- Team spawns -->
+    <spawn loadout="default" team="purple" yaw="90">
+      <regions>
+        <point yaw="90">252.5, 21, -797.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="yellow" yaw="-90">
+      <regions>
+        <point yaw="-90">23.5, 21, -797.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <zones>
+    <zone modify="never">
+      <enter>
+        <team>purple</team>
+      </enter>
+      <region>
+        <sphere origin="23, 20, -798" radius="15"/>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never">
+      <enter>
+        <team>yellow</team>
+      </enter>
+      <region>
+        <sphere origin="252, 20, -798" radius="15"/>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+  </zones>
+  <loadouts>
+    <loadout id="default">
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="leather leggings" team-color="true"/>
+      <boots material="leather boots" team-color="true"/>
+      <item material="iron sword" slot="0">
+        <enchantment level="127">damage all</enchantment>
+      </item>
+      <item material="bow" slot="1">
+        <enchantment level="127">arrow damage</enchantment>
+      </item>
+      <item material="golden apple" slot="2"/>
+      <item material="diamond pickaxe" slot="3"/>
+      <item amount="16" material="bread" slot="4"/>
+      <item amount="64" material="sandstone" slot="5"/>
+      <item material="iron axe" slot="6"/>
+      <item amount="1" material="arrow" slot="28"/>
+    </loadout>
+    <loadout id="kill-reward">
+      <item amount="1" material="golden apple"/>
+      <item amount="1" material="arrow"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="kill-reward"/>
+    </rewards>
+  </kills>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>leather leggings</material>
+        <material>leather boots</material>
+        <material>bread</material>
+        <material>sandstone</material>
+        <material>golden apple</material>
+        <material>arrow</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>iron sword</material>
+        <material>bow</material>
+        <material>iron axe</material>
+        <material>diamond pickaxe</material>
+      </any>
+    </repair-tools>
+  </items>
+</map>

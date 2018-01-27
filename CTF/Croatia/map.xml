@@ -1,0 +1,151 @@
+<map name="Croatia" spec="1.0.6" version="1.0.0">
+	<include src="defaults.xml"/>
+	<include src="Shared/reward-one-gap.xml"/>
+        <include src="Shared/conquest-shop.xml"/>
+
+	<authors>
+		<author uuid="63b88dff-c6b4-4e08-bd17-aae089b12e95"/>
+		<!--   Rilo   -->
+	</authors>
+	<teams>
+		<team id="red" color="red" min="1" max="10">{colors.red}</team>
+		<team id="blue" color="blue" min="1" max="10">{colors.blue}</team>
+	</teams>
+	<spawns>
+		<!--   Spectator spawn   -->
+		<spawn>
+			<regions>
+				<point yaw="0">-80.5,78,-55.5</point>
+			</regions>
+		</spawn>
+		<!--   Team spawns   -->
+		<spawn loadout="all" team="red">
+			<regions>
+				<point yaw="-90">-161.5,63,0.5</point>
+			</regions>
+		</spawn>
+		<spawn loadout="all" team="blue">
+			<regions>
+				<point yaw="90">0.5,63,0.5</point>
+			</regions>
+		</spawn>
+	</spawns>
+	<zones>
+		<!--   Disable Build   -->
+		<load-group id="no-build"/>
+		<!--   Posts (The Flag)   -->
+		<zone id="red-post">
+			<region>
+				<block>-133.5,68,0.5</block>
+			</region>
+			<post yaw="-90"/>
+		</zone>
+		<zone id="blue-post">
+			<region>
+				<block>-27.5,68,0.5</block>
+			</region>
+			<post yaw="90"/>
+		</zone>
+		<!--   Nets (where they capture it)   -->
+		<zone>
+			<region>
+				<cuboid max="-122,60,1" min="-124,64,-1"/>
+			</region>
+			<net points="1">
+				<capture-check>
+					<team>red</team>
+				</capture-check>
+			</net>
+		</zone>
+		<zone>
+			<region>
+				<cuboid max="-40,60,-1" min="-38,64,1"/>
+			</region>
+			<net points="1">
+				<capture-check>
+					<team>blue</team>
+				</capture-check>
+			</net>
+		</zone>
+		<!--   red spawn   -->
+		<zone modify="always">
+			<enter>
+				<team>red</team>
+			</enter>
+			<region>
+				<cuboid max="-153,57,-4" min="-163,68,4"/>
+			</region>
+			<message>{errors.enemy-base}</message>
+		</zone>
+		<!--   blue spawn   -->
+		<zone modify="always">
+			<enter>
+				<team>blue</team>
+			</enter>
+			<region>
+				<cuboid max="-9,57,4" min="1,68,-4"/>
+			</region>
+			<message>{errors.enemy-base}</message>
+		</zone>
+	</zones>
+	<loadouts>
+		<loadout id="all">
+			<effect duration="5s">damage resistance</effect>
+			<item material="iron sword" slot="0"/>
+			<item material="bow" slot="1"/>
+			<item amount="1" material="golden apple" slot="2"/>
+			<item amount="32" material="cooked beef" slot="3"/>
+			<item amount="16" material="arrow" slot="8"/>
+			<helmet material="leather helmet" team-color="true"/>
+			<chestplate material="leather chestplate" team-color="true"/>
+			<leggings material="iron leggings" team-color="true"/>
+			<boots material="iron boots" team-color="true"/>
+		</loadout>
+		<loadout id="reward-kill">
+			<effect amplifier="1" duration="5s">speed</effect>
+			<item amount="5" material="arrow"/>
+			<item amount="1" material="golden apple"/>
+		</loadout>
+	</loadouts>
+	<kills>
+		<rewards>
+			<reward loadout="reward-kill"/>
+		</rewards>
+	</kills>
+	<items>
+		<remove-drops>
+			<any>
+				<material>leather helmet</material>
+				<material>leather chestplate</material>
+				<material>iron leggings</material>
+				<material>iron boots</material>
+				<material>cooked beef</material>
+				<material>golden apple</material>
+				<material>arrow</material>
+			</any>
+		</remove-drops>
+		<repair-tools>
+			<any>
+				<material>iron sword</material>
+				<material>bow</material>
+			</any>
+		</repair-tools>
+	</items>
+	<results>
+		<win scenario="objectives">
+			<check>
+				<any>
+					<time>7m</time>
+				</any>
+			</check>
+		</win>
+	</results>
+	<objectives>
+		<scores limit="100">
+			<score team="red"/>
+			<score team="blue"/>
+		</scores>
+		<flag color="red" owner="red" post="red-post"/>
+		<flag color="blue" owner="blue" post="blue-post"/>
+	</objectives>
+</map>

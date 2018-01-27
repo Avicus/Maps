@@ -1,0 +1,224 @@
+﻿<?xml version="1.0"?>
+<map description="Capture all the points to win!" name="Nuclear 5CP" spec="1.0.4" version="1.0.0">
+  <include src="defaults.xml"/>
+  <include src="Shared/tutorials/koth.xml"/>
+  <include src="Shared/conquest-shop.xml"/>
+  <authors>
+    <author uuid="7dcb1605a6414f6f99efea04278b6f7c"/> <!-- lgmatias -->
+    <author uuid="54964b606ce749229a4c2b981d8c2ed7"/> <!-- Spoookeh -->
+    <author uuid="f4eae547b4d8434898447e444e31b389"/> <!-- Tomqss -->
+    <author uuid="d9b4ffbc11d0453aa93f82dc59fca4b6"/> <!-- Squiddard -->
+  </authors>
+  <teams>
+    <load-group id="teams.red-blue" max="25" min="1"/>
+  </teams>
+  <tutorial>
+    <step countdown="4s" freeze="true" location="-29.5, 12, -169.5" pitch="40" yaw="70">
+      <chat>
+        <line>^r • {tutorial.generic.team-spawns}</line>
+      </chat>
+    </step>
+    <step countdown="4s" freeze="true" location="-19.5, 17, -115.5" pitch="45" yaw="-170">
+      <chat>
+        <line>^r • {tutorial.koth.hill-area}</line>
+      </chat>
+    </step>
+  </tutorial>
+  <spawns>
+    <spawn>
+      <regions>
+        <point yaw="180">-13.5, 54, -92.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="spawnkit" team="red">
+      <regions>
+        <point yaw="90">8.5, 10, -17.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="spawnkit" team="blue">
+      <regions>
+        <point yaw="-90">-35.5, 10, -167.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <loadouts>
+    <loadout id="spawnkit">
+      <item material="stone sword" slot="0" unbreakable="true"/>
+      <item material="bow" slot="1" unbreakable="true"/>
+      <item amount="2" material="golden apple" slot="3"/>
+      <item amount="16" material="cooked beef" slot="7"/>
+      <item amount="16" material="arrow" slot="27"/>
+      <helmet material="leather helmet" team-color="true" unbreakable="true"/>
+      <chestplate material="leather chestplate" team-color="true" unbreakable="true"/>
+      <leggings material="chainmail leggings" unbreakable="true"/>
+      <boots material="leather boots" team-color="true" unbreakable="true"/>
+    </loadout>
+    <loadout id="kill-reward">
+      <item material="golden apple"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="kill-reward"/>
+    </rewards>
+  </kills>
+  <zones>
+    <load-group id="no-build"/>
+  </zones>
+  <results>
+    <win scenario="objectives">
+      <check>
+        <time>10m</time>
+      </check>
+    </win>
+    <win scenario="team" team="red">
+      <check>
+        <all>
+          <objective team="red">red-2nd</objective>
+          <objective team="red">red-last</objective>
+          <objective team="red">mid</objective>
+          <objective team="red">blue-last</objective>
+          <objective team="red">blue-2nd</objective>
+        </all>
+      </check>
+    </win>
+    <win scenario="team" team="blue">
+      <check>
+        <all>
+          <objective team="blue">red-2nd</objective>
+          <objective team="blue">red-last</objective>
+          <objective team="blue">mid</objective>
+          <objective team="blue">blue-last</objective>
+          <objective team="blue">blue-2nd</objective>
+        </all>
+      </check>
+    </win>
+  </results>
+  <objectives>
+    <hill capture-time="5s" id="red-last" initial-owner="red" name="Red Last">
+      <capture>
+        <cuboid max="7, 13, -56" min="0, 7, -49"/>
+      </capture>
+      <progress>
+        <cuboid max="7, 13, -56" min="0, 7, -49"/>
+      </progress>
+      <capture-check>
+        <any>
+          <all>
+            <team>blue</team>
+            <objective team="blue">blue-last</objective>
+            <objective team="blue">blue-2nd</objective>
+            <objective team="blue">mid</objective>
+            <objective team="blue">red-2nd</objective>
+          </all>
+        </any>
+      </capture-check>
+    </hill>
+    <hill capture-time="5s" id="red-2nd" initial-owner="red" name="Red 2nd">
+      <capture>
+        <cuboid max="-27, 7, -57" min="-21, 2, -63"/>
+      </capture>
+      <progress>
+        <cuboid max="-27, 7, -57" min="-21, 2, -63"/>
+      </progress>
+      <capture-check>
+        <any>
+          <all>
+            <team>blue</team>
+            <objective team="blue">blue-2nd</objective>
+            <objective team="blue">blue-last</objective>
+            <objective team="blue">mid</objective>
+          </all>
+          <all>
+            <team>red</team>
+            <objective team="red">red-last</objective>
+          </all>
+        </any>
+      </capture-check>
+    </hill>
+    <hill capture-time="5s" id="mid" name="Mid">
+      <capture>
+        <cuboid max="-9, 6, -97" min="-18, 1, -88"/>
+      </capture>
+      <progress>
+        <cuboid max="-9, 6, -97" min="-18, 1, -88"/>
+      </progress>
+      <capture-check>
+        <any>
+          <all>
+            <team>red</team>
+            <objective team="red">red-last</objective>
+            <objective team="red">red-2nd</objective>
+          </all>
+          <all>
+            <team>blue</team>
+            <objective team="blue">blue-last</objective>
+            <objective team="blue">blue-2nd</objective>
+          </all>
+        </any>
+      </capture-check>
+    </hill>
+    <hill capture-time="5s" id="blue-2nd" initial-owner="blue" name="Blue 2nd ">
+      <capture>
+        <cuboid max="-0, 7, -122" min="-6, 1, -128"/>
+      </capture>
+      <progress>
+        <cuboid max="-0, 7, -122" min="-6, 1, -128"/>
+      </progress>
+      <capture-check>
+        <any>
+          <all>
+            <team>red</team>
+            <objective team="red">red-2nd</objective>
+            <objective team="red">red-last</objective>
+            <objective team="red">mid</objective>
+          </all>
+          <all>
+            <team>blue</team>
+            <objective team="blue">blue-last</objective>
+          </all>
+        </any>
+      </capture-check>
+    </hill>
+    <hill capture-time="5s" id="blue-last" initial-owner="blue" name="Blue Last ">
+      <capture>
+        <cuboid max="-27, 13, -136" min="-34, 7, -129"/>
+      </capture>
+      <progress>
+        <cuboid max="-27, 13, -136" min="-34, 7, -129"/>
+      </progress>
+      <capture-check>
+        <any>
+          <all>
+            <team>red</team>
+            <objective team="red">red-last</objective>
+            <objective team="red">red-2nd</objective>
+            <objective team="red">mid</objective>
+            <objective team="red">blue-2nd</objective>
+          </all>
+        </any>
+      </capture-check>
+    </hill>
+  </objectives>
+  <items>
+    <remove-drops>
+      <any>
+        <material>stone sword</material>
+        <material>bow</material>
+        <material>cooked beef</material>
+        <material>arrow</material>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>chainmail leggings</material>
+        <material>leather boots</material>
+      </any>
+    </remove-drops>
+  </items>
+  <world>
+    <storm>false</storm>
+    <weather check="always"/>
+    <gamerules>
+      <doDaylightCycle>false</doDaylightCycle>
+    </gamerules>
+  </world>
+</map>

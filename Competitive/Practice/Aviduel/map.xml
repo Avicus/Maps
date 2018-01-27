@@ -1,0 +1,121 @@
+<?xml version="1.0"?>
+<map name="Aviduel" spec="1.0.5" version="1.0.0">
+  <include src="defaults.xml"/>
+  <authors>
+    <author uuid="1c898c77b0cc474a8ce4b5521f2b18e7"/> <!-- Prodigy4532 -->
+    <author uuid="8de835a6916a4fcf9b25239dda454411"/> <!-- Passively -->
+  </authors>
+  <teams>
+    <load-group id="teams.red-blue" max="12" min="1"/>
+  </teams>
+  <spawns>
+    <spawn loadout="all-teams">
+      <regions>
+        <point yaw="90">-860, 43, 525</point>
+      </regions>
+    </spawn>
+    <spawn loadout="tnt-kit" team="red">
+      <regions>
+        <point yaw="90">-860.5, 36, 525.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="tnt-kit" team="blue">
+      <regions>
+        <point yaw="-90">-910, 36, 525.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <objectives>
+    <last-team-standing team="red"/>
+    <last-team-standing team="blue"/>
+  </objectives>
+  <elimination lives="1"/>
+  <results>
+    <win scenario="objectives">
+      <check>
+        <time>5m</time>
+      </check>
+    </win>
+  </results>
+  <zones>
+    <zone modify="never">
+      <region>
+        <invert>
+          <cuboid max="-856, 6, 530" min="-866, 15, 520"/> <!-- red plataform -->
+          <cuboid max="-916, 0, 530" min="-906, 15, 520"/> <!-- blue plataform -->
+        </invert>
+      </region>
+    </zone>
+  </zones>
+  <regions>
+    <join id="drop">
+      <cuboid max="-866, 34, 520" min="-856, 34, 530"/>
+      <cuboid max="-916, 34, 520" min="-906, 34, 530"/>
+    </join>
+  </regions>
+  <executors>
+    <executor check="always" id="drop-ex">
+      <execution-group>
+        <replace-block find="stained glass:8" region="drop" replace="air"/>
+        <replace-block find="stained glass:15" region="drop" replace="air"/>
+      </execution-group>
+    </executor>
+  </executors>
+  <triggers>
+    <trigger execute="drop-ex" on="match-start"/>
+  </triggers>
+  <loadouts>
+    <loadout id="all-teams">
+      <effect duration="10000s">night vision</effect>
+      <effect duration="10000s">saturation</effect>
+    </loadout>
+    <loadout id="tnt-kit" parent="all-teams">
+      <!-- fall -->
+      <effect amplifier="5" duration="20s">damage resistance</effect>
+      <effect amplifier="5" duration="20s">heal</effect>
+      <!-- armor -->
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="leather leggings" team-color="true"/>
+      <boots material="leather boots" team-color="true"/>
+      <!-- no hotbarkit -->
+      <item amount="64" material="tnt" slot="9"/>
+      <item amount="64" material="tnt" slot="18"/>
+      <item amount="64" material="tnt" slot="27"/>
+      <item amount="64" material="tnt" slot="10"/>
+      <item amount="64" material="tnt" slot="19"/>
+      <item amount="64" material="tnt" slot="28"/>
+      <item amount="64" material="tnt" slot="11"/>
+      <item amount="64" material="tnt" slot="20"/>
+      <item amount="64" material="tnt" slot="29"/>
+      <item amount="64" material="smooth brick" slot="12"/>
+      <item amount="64" material="smooth brick" slot="21"/>
+      <item amount="64" material="smooth brick" slot="30"/>
+      <item amount="16" material="trap door" slot="13"/>
+      <item amount="32" material="ladder" slot="22"/>
+      <item amount="5" material="workbench" slot="31"/>
+      <item amount="16" material="piston base" slot="14"/>
+      <item amount="16" material="lever" slot="23"/>
+      <item amount="16" material="stone plate" slot="32"/>
+      <item material="water bucket" slot="15"/>
+      <item material="water bucket" slot="24"/>
+      <item material="water bucket" slot="33"/>
+      <item amount="16" material="diode" slot="16"/>
+      <item amount="16" material="redstone torch on" slot="25"/>
+      <item amount="24" material="redstone block" slot="34"/>
+      <item amount="64" material="tnt" slot="17"/>
+      <item amount="64" material="tnt" slot="26"/>
+      <item amount="64" material="tnt" slot="35"/>
+      <!-- hotbar -->
+      <item material="diamond pickaxe" slot="0"/>
+      <item amount="16" material="dispenser" slot="1"/>
+      <item amount="32" material="step" slot="2"/>
+      <item amount="64" material="smooth brick" slot="3"/>
+      <item amount="64" material="nether fence" slot="4"/>
+      <item amount="16" material="stone button" slot="5"/>
+      <item material="water bucket" slot="6"/>
+      <item amount="64" material="redstone" slot="7"/>
+      <item amount="64" material="tnt" slot="8"/>
+    </loadout>
+  </loadouts>
+</map>

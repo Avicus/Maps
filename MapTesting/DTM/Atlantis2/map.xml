@@ -1,0 +1,141 @@
+<?xml version="1.1"?>
+<map name="Atlantis 2" spec="1.0.0" version="1.1.0">
+  <include src="defaults.xml"/>
+  <authors>
+    <author uuid="50a34639-abb3-4cf1-b182-204756c49f49"/> <!-- Sam -->
+    <author uuid="ae5c1e91-745b-4a6f-a337-11484ede6957"/> <!-- Clijmart -->
+  </authors>
+  <teams>
+    <load-group id="teams.green-blue" max="22" min="1"/>
+  </teams>
+  <spawns>
+    <spawn>
+      <regions>
+        <point yaw="0">0.5, 60, 0.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="green">
+      <regions>
+        <point yaw="-90">-108.5, 5, 0.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="blue">
+      <regions>
+        <point yaw="90">108.5, 5, 0.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <objectives>
+    <monuments materials="obsidian">
+      <monuments owner="blue">
+        <monument name="{directions.left}">
+          <region>
+            <block>70, 9, -53</block>
+          </region>
+        </monument>
+        <monument name="{directions.right}">
+          <region>
+            <block>70, 9, 53</block>
+          </region>
+        </monument>
+      </monuments>
+      <monuments owner="green">
+        <monument name="{directions.left}">
+          <region>
+            <block>-70, 9, 53</block>
+          </region>
+        </monument>
+        <monument name="{directions.right}">
+          <region>
+            <block>-70, 9, -53</block>
+          </region>
+        </monument>
+      </monuments>
+    </monuments>
+    <monuments materials="emerald block">
+      <monuments owner="blue">
+        <monument name="{directions.center}">
+          <region>
+            <cuboid max="61, 16, 2" min="61, 7, -2"/>
+          </region>
+        </monument>
+      </monuments>
+      <monuments owner="green">
+        <monument name="{directions.center}">
+          <region>
+            <cuboid max="-61, 16, 2" min="-61, 7, -2"/>
+          </region>
+        </monument>
+      </monuments>
+    </monuments>
+  </objectives>
+  <zones>
+    <zone modify="never">
+      <region>
+        <cuboid max="91, 16, -8" min="116, 0, 8"/>
+      </region>
+      <enter>
+        <team>blue</team>
+      </enter>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid max="-91, 16, -8" min="-116, 0, 8"/>
+      </region>
+      <enter>
+        <team>green</team>
+      </enter>
+    </zone>
+    <zone modify="never">
+      <region>
+        <invert>
+          <cuboid max="90, 40, 65" min="-90, 0, -65"/>
+        </invert>
+      </region>
+      <message>{errors.outside-map}</message>
+    </zone>
+  </zones>
+  <loadouts>
+    <loadout id="default">
+      <item material="iron sword" slot="0"/>
+      <item material="bow" slot="1">
+        <enchantment level="1">arrow infinite</enchantment>
+      </item>
+      <item material="diamond pickaxe" slot="2">
+        <enchantment level="1">dig speed</enchantment>
+      </item>
+      <item amount="2" material="golden apple" slot="3"/>
+      <item amount="32" material="cooked fish" slot="4"/>
+      <item amount="64" material="prismarine" slot="5"/>
+      <item amount="48" material="log" slot="6"/>
+      <item amount="1" material="arrow" slot="28"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <boots material="leather boots" team-color="true"/>
+    </loadout>
+    <loadout id="kill-reward">
+      <item material="golden apple"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="kill-reward"/>
+    </rewards>
+  </kills>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather chestplate</material>
+        <material>leather boots</material>
+        <material>cooked fish</material>
+        <material>arrow</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>iron sword</material>
+        <material>bow</material>
+        <material>diamond pickaxe</material>
+      </any>
+    </repair-tools>
+  </items>
+</map>

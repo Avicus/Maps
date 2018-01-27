@@ -1,0 +1,127 @@
+<!-- Standard set of kits uses for all DTM maps with kits. -->
+<map>
+  <kits>
+    <kit default="true" description="{kits.warrior-description}" loadout="warrior"
+      name="{kits.warrior}">
+      <icon material="iron sword"/>
+    </kit>
+    <kit description="{kits.builder-description}" loadout="builder" name="{kits.builder}">
+      <icon material="log"/>
+    </kit>
+    <kit description="{kits.cannoner-description}" loadout="cannoner" name="{kits.cannoner}">
+      <icon material="tnt"/>
+    </kit>
+  </kits>
+  <world>
+    <difficulty>easy</difficulty>
+    <gamerules>
+      <doTileDrops>false</doTileDrops>
+    </gamerules>
+  </world>
+  <loadouts>
+    <loadout id="warrior">
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="chainmail chestplate"/>
+      <leggings material="gold leggings"/>
+      <boots material="leather boots" team-color="true"/>
+      <effect amplifier="10" duration="10s">damage resistance</effect>
+      <item material="iron sword" slot="0" unbreakable="true"/>
+      <item material="bow" slot="1" unbreakable="true">
+        <enchantments>
+          <enchantment level="1">arrow infinite</enchantment>
+        </enchantments>
+      </item>
+      <item material="stone pickaxe" slot="2"/>
+      <item amount="32" material="cooked beef" slot="3"/>
+      <item material="golden apple" slot="4"/>
+      <item amount="16" material="wood" slot="5"/>
+      <item amount="8" material="glass" slot="6"/>
+      <item amount="32" material="arrow" slot="27"/>
+      <kit-menu slot="8"/>
+    </loadout>
+    <loadout id="builder">
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="leather leggings" team-color="true"/>
+      <effect amplifier="10" duration="10s">damage resistance</effect>
+      <item material="wood sword" slot="0" unbreakable="true"/>
+      <item amount="16" material="snow ball" slot="1"/>
+      <item material="diamond pickaxe" slot="2"/>
+      <item material="iron axe" slot="3"/>
+      <item amount="32" material="cooked beef" slot="4"/>
+      <item amount="64" material="log" slot="5"/>
+      <item amount="64" material="glass" slot="6"/>
+      <item amount="64" material="log" slot="23"/>
+      <item amount="64" material="glass" slot="24"/>
+      <item amount="64" material="log" slot="32"/>
+      <kit-menu slot="8"/>
+    </loadout>
+    <loadout id="cannoner">
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="iron chestplate"/>
+      <leggings material="chainmail leggings"/>
+      <boots material="leather boots" team-color="true"/>
+      <effect amplifier="10" duration="10s">damage resistance</effect>
+      <item material="stone sword" slot="0" unbreakable="true"/>
+      <item material="bow" slot="1" unbreakable="true"/>
+      <item material="iron pickaxe" slot="2" unbreakable="true">
+        <enchantments>
+          <enchantment level="2">dig speed</enchantment>
+        </enchantments>
+      </item>
+      <item amount="32" material="cooked beef" slot="3"/>
+      <item material="golden apple" slot="4"/>
+      <item amount="64" material="stone" slot="5"/>
+      <item amount="64" material="tnt" slot="6"/>
+      <item amount="32" material="redstone" slot="7"/>
+      <item amount="64" material="tnt" slot="33"/>
+      <item amount="3" material="dispenser" slot="16"/>
+      <item amount="32" material="wood button" slot="24"/>
+      <item amount="32" material="fence" slot="25"/>
+      <item amount="32" material="arrow" slot="27"/>
+      <item amount="16" material="ladder" slot="34"/>
+      <item material="water bucket" slot="35"/>
+      <kit-menu slot="8"/>
+    </loadout>
+  </loadouts>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather chestplate</material>
+        <material>chainmail chestplate</material>
+        <material>iron chestplate</material>
+        <material>leather leggings</material>
+        <material>chainmail leggings</material>
+        <material>leather boots</material>
+        <material>bow</material>
+        <material>arrow</material>
+        <material>cooked beef</material>
+        <material>wood sword</material>
+        <material>stone sword</material>
+        <material>iron sword</material>
+        <material>gold leggings</material>
+        <material>rotten flesh</material>
+        <material>iron axe</material>
+        <material>ender pearl</material>
+        <material>wood axe</material>
+        <material>leather helmet</material>
+        <material>glass</material>
+        <material>wood</material>
+        <material>stone pickaxe</material>
+        <material>blaze rod</material>
+        <material>golden apple</material>
+        <material>diamond pickaxe</material>
+        <material>snow ball</material>
+        <material>log</material>
+        <material>iron pickaxe</material>
+        <material>fence</material>
+        <material>tnt</material>
+        <material>stone</material>
+        <material>water bucket</material>
+        <material>ladder</material>
+        <material>redstone</material>
+        <material>dispenser</material>
+        <material>wood button</material>
+      </any>
+    </remove-drops>
+  </items>
+</map>

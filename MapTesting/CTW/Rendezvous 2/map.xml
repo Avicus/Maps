@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="Rendezvous 2" spec="1.0.4" version="1.0.3">
+  <include src="defaults.xml"/>
+  <include src="Shared/reward-one-gap.xml"/>
+  <include src="Shared/tutorials/ctw.xml"/>
+  <authors>
+    <author uuid="44df6b20168f4389b7ac434518207c2f"/> <!-- ParaPenguin -->
+  </authors>
+  <gametype>ctw</gametype>
+  <teams>
+    <load-group id="teams.red-blue" max="20" min="1"/>
+  </teams>
+  <spawns>
+    <spawn>
+      <regions>
+        <point yaw="-90">-50.5, 52, -772.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="blue">
+      <regions>
+        <point yaw="0">23.5, 61, -903.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="red">
+      <regions>
+        <point yaw="180">23.5, 61, -641.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <world>
+    <gamerules>
+      <doDaylightCycle>false</doDaylightCycle>
+    </gamerules>
+  </world>
+  <loadouts>
+    <loadout id="default">
+      <effect amplifier="10" duration="15s">damage resistance</effect>
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="leather leggings" team-color="true"/>
+      <boots material="leather boots" team-color="true"/>
+      <item material="stone sword" slot="0"/>
+      <item material="bow" slot="1"/>
+      <item material="iron pickaxe" slot="2">
+        <enchantments>
+          <enchantment level="2">dig speed</enchantment>
+        </enchantments>
+      </item>
+      <item material="iron axe" slot="3"/>
+      <item amount="48" damage="2" material="log" slot="4"/>
+      <item amount="64" material="glass" slot="5"/>
+      <item amount="32" material="golden carrot" slot="6"/>
+      <item material="golden apple" slot="7"/>
+      <item amount="64" material="arrow" slot="28"/>
+    </loadout>
+    <loadout id="reward-get">
+      <item amount="64" material="arrow"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="reward-get"/>
+    </rewards>
+  </kills>
+  <results>
+    <win scenario="objectives">
+      <check>
+        <time>120m</time>
+      </check>
+    </win>
+  </results>
+  <objectives>
+    <wools team="red">
+      <wool color="pink">
+        <source>
+          <block>83,45,-658</block>
+        </source>
+        <destination>
+          <block>21,56,-658</block>
+        </destination>
+      </wool>
+      <wool color="pink">
+        <source>
+          <block>-37,45,-658</block>
+        </source>
+        <destination>
+          <block>25,56,-658</block>
+        </destination>
+      </wool>
+    </wools>
+    <wools team="blue">
+      <wool color="cyan">
+        <source>
+          <block>-37,45,-888</block>
+        </source>
+        <destination>
+          <block>21,56,-658</block>
+        </destination>
+      </wool>
+      <wool color="orange">
+        <source>
+          <block>-83,45,-888</block>
+        </source>
+        <destination>
+          <block>25,56,-658</block>
+        </destination>
+      </wool>
+    </wools>
+  </objectives>
+  <zones>
+    <zone modify="never">
+      <region>
+        <join>
+          <sphere origin="-37,45,-888" radius="1"/>
+          <sphere origin="23,45,-948" radius="1"/>
+          <sphere origin="83,45,-888" radius="1"/>
+          <sphere origin="83,45,-658" radius="1"/>
+          <sphere origin="-23,45,-498" radius="1"/>
+          <sphere origin="-37,45,-658" radius="1"/>
+        </join>
+      </region>
+      <message>{errors.cannot-build}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <join>
+          <cylinder base="80, 45, -888" radius="9" height="16"/>
+          <cylinder base="34, 45, -888" radius="9" height="16"/>
+        </join>
+      </region>
+      <enter>
+        <team>blue</team>
+      </enter>
+      <message>{errors.own-wool-room}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <join>
+          <cylinder base="-34, 45, -658" radius="9" height="16"/>
+          <cylinder base="-80, 45, -658" radius="9" height="16"/>
+        </join>
+      </region>
+      <enter>
+        <team>red</team>
+      </enter>
+      <message>{errors.own-wool-room}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <join>
+          <cylinder base="23, 54, -658" radius="4" height="4"/>
+          <cylinder base="23, 54, -888" radius="4" height="4"/>
+        </join>
+      </region>
+      <message>{errors.cannot-build}</message>
+    </zone>
+    <zone>
+      <region>
+        <join>
+          <cylinder base="23, 54, -888" radius="20" height="6"/>
+          <cylinder base="23, 54, -658" radius="20" height="6"/>
+          <cylinder base="23, 60, -903" radius="3" height="6"/>
+          <cylinder base="23, 60, -641" radius="3" height="6"/>
+          <cuboid max="19, 63, -906" min="27, 60, -896"/>
+          <cuboid max="19, 63, -639" min="27, 60, -649"/>
+        </join>
+      </region>
+    </zone>
+  </zones>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>leather leggings</material>
+        <material>leather boots</material>
+        <material>golden carrot</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>stone sword</material>
+        <material>bow</material>
+        <material>iron pickaxe</material>
+        <material>iron axe</material>
+      </any>
+    </repair-tools>
+  </items>
+</map>

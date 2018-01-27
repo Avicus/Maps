@@ -1,0 +1,162 @@
+﻿<?xml version="1.0"?>
+<map description="A dark, snowy landscape with two monuments." name="Winter in the Dust Devils" spec="1.0.0"
+  version="1.0.0">
+  <include src="defaults.xml"/>
+  <include src="Shared/tutorials/dtm.xml"/>
+  <gametype>dtm</gametype>
+  <include src="Shared/reward-one-gap.xml"/>
+  <authors>
+    <author uuid="23b7218dfd0943ef98ea4f2918428fb5"/> <!-- Bumblebeetle13 -->
+  </authors>
+  <teams>
+    <team color="red" id="red" max="25" min="1">{colors.red}</team>
+    <team color="orange" id="orange" max="25" min="1">{colors.orange}</team>
+  </teams>
+  <tutorial>
+    <step countdown="5s" freeze="false" location="11,72,92" pitch="0" yaw="0">
+      <chat>
+        <line>^r • {tutorial.generic.team-spawns}</line>
+      </chat>
+    </step>
+    <step countdown="4s" location="14,73,110" pitch="10" yaw="55">
+      <chat>
+        <line>^r • {tutorial.dtm.monument-area}</line>
+      </chat>
+    </step>
+    <step countdown="4s" location="14,73,110" pitch="10" yaw="55">
+      <chat>
+        <line>^r • {tutorial.dtm.monument-objective}</line>
+      </chat>
+    </step>
+  </tutorial>
+  <spawns>
+    <spawn yaw="90">
+      <regions>
+        <block>138, 123, 1</block>
+      </regions>
+    </spawn>
+    <spawn id="orange" loadout="default" team="orange" yaw="-180">
+      <regions>
+        <point>11, 72, 103</point>
+      </regions>
+    </spawn>
+    <spawn id="red" loadout="default" team="red" yaw="0">
+      <regions>
+        <point>-3, 76,-88</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <objectives>
+    <monuments first-phase="coal" materials="obsidian">
+      <monuments owner="orange">
+        <monument name="{directions.back}">
+          <region>
+            <block>11, 74, 112</block>
+          </region>
+        </monument>
+      </monuments>
+      <monuments owner="red">
+        <monument name="{directions.back}">
+          <region>
+            <block>-4, 78, -98</block>
+          </region>
+        </monument>
+      </monuments>
+    </monuments>
+  </objectives>
+  <zones>
+    <zone modify="never">
+      <region>
+        <sphere origin="-3, 75, -73" radius="4"/>
+      </region>
+      <enter>
+        <team>red</team>
+      </enter>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <sphere origin="11, 71, 88" radius="4"/>
+      </region>
+      <enter>
+        <team>orange</team>
+      </enter>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    // Orange Spawn
+    <zone modify="never">
+      <region>
+        <cuboid max="16, 69, 105" min="6, 76, 90"/>
+      </region>
+      <message>{errors.cannot-build}</message>
+    </zone>
+    // Red Spawn
+    <zone modify="never">
+      <region>
+        <cuboid max="-9, 73, -91" min="1, 80, -77"/>
+      </region>
+      <message>{errors.cannot-build}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <above y="202"/>
+      </region>
+      <message>{errors.height-limit}</message>
+    </zone>
+  </zones>
+  <items>
+    <repair-tools>
+      <any>
+        <material>iron sword</material>
+        <material>bow</material>
+        <material>diamond pickaxe</material>
+      </any>
+    </repair-tools>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>leather leggings</material>
+        <material>leather boots</material>
+        <material>sandstone</material>
+        <material>arrow</material>
+        <material>glass</material>
+        <material>cooked beef</material>
+      </any>
+    </remove-drops>
+  </items>
+  <loadouts>
+    <loadout id="default">
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="leather leggings" team-color="true"/>
+      <boots material="leather boots" team-color="true"/>
+      <effect duration="8s">damage resistance</effect>
+      <item material="iron sword" slot="0" unbreakable="true"/>
+      <item material="bow" slot="1" unbreakable="true">
+        <enchantment>arrow infinite</enchantment>
+      </item>
+      <item material="diamond pickaxe" slot="2" unbreakable="true"/>
+      <item amount="32" material="log" slot="3"/>
+      <item amount="64" material="glass" slot="4"/>
+      <item amount="64" material="sandstone" slot="5"/>
+      <item amount="2" material="golden apple" slot="6"/>
+      <item amount="16" material="cooked beef" slot="7"/>
+      <item material="arrow" slot="27"/>
+    </loadout>
+  </loadouts>
+  <phases countdown-message="{phases.transition}" fail-message="{phases.monument.fail}">
+    <phase delay="95m" id="coal" pass-phase="gold" success-message="^7--- ^8COAL BLOCK MODE ^7---">
+      ^8Coal ^7Monument Mode
+      <materials>
+        <material find="obsidian" replace="coal block"/>
+      </materials>
+    </phase>
+    <phase delay="55m" id="gold" success-message="^7--- ^eGOLD BLOCK MODE ^7---">
+      ^eGold ^7Monument Mode
+      <materials>
+        <material find="coal block" replace="gold block"/>
+      </materials>
+    </phase>
+  </phases>
+</map>

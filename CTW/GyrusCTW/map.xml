@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="Gyrus CTW" spec="1.0.5" version="1.0.0">
+  <include src="defaults.xml"/>
+  <include src="Shared/tutorials/ctw.xml"/>
+  <gametype>ctw</gametype>
+  <authors>
+    <author uuid="1154d26dfa5d4c429a38aa3506d6ac7e"/> <!-- Stuarts -->
+  </authors>
+  <teams>
+    <team id="red" color="red" min="1" max="15">{colors.red}</team>
+    <team id="yellow" color="yellow" min="1" max="15">{colors.yellow}</team>
+    <team id="green" color="green" min="1" max="15">{colors.green}</team>
+    <team id="blue" color="blue" min="1" max="15">{colors.blue}</team>
+  </teams>
+  <spawns>
+    <!-- Spectator spawn -->
+    <spawn yaw="-180">
+      <region>
+        <cuboid max="-1228, 96, 293" min="-1228, 96, 294"/>
+      </region>
+    </spawn>
+    <!-- Team spawns -->
+    <spawn loadout="red-main" team="red" yaw="93">
+      <regions>
+        <point>-1091, 71, 352</point>
+      </regions>
+    </spawn>
+    <spawn loadout="blue-main" team="blue" yaw="179">
+      <regions>
+        <point>-1171, 71, 431</point>
+      </regions>
+    </spawn>
+    <spawn loadout="green-main" team="green" yaw="0">
+      <regions>
+        <point>-1171, 71, 273</point>
+      </regions>
+    </spawn>
+    <spawn loadout="yellow-main" team="yellow" yaw="-90">
+      <regions>
+        <point>-1250, 71, 352</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <loadouts>
+    <loadout id="main">
+      <item material="iron sword" slot="0"/>
+      <item material="bow" slot="1">
+        <enchantments>
+          <enchantment>arrow infinite</enchantment>
+        </enchantments>
+      </item>
+      <item material="iron pickaxe" slot="4"/>
+      <item amount="24" material="log" slot="6"/>
+      <item amount="4" material="golden apple" slot="2"/>
+      <item amount="1" material="stone axe" slot="3"/>
+      <item amount="1" material="iron spade" slot="5"/>
+      <item amount="16" material="sandstone" slot="7"/>
+      <item amount="8" material="cooked beef" slot="8"/>
+      <item amount="1" material="arrow" slot="28"/>
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="iron leggings"/>
+      <boots material="leather boots" team-color="true"/>
+    </loadout>
+    <loadout id="red-main" parent="main">
+      <item amount="16" damage="14" material="stained glass" slot="25"/>
+    </loadout>
+    <loadout id="green-main" parent="main">
+      <item amount="16" damage="13" material="stained glass" slot="25"/>
+    </loadout>
+    <loadout id="blue-main" parent="main">
+      <item amount="16" damage="11" material="stained glass" slot="25"/>
+    </loadout>
+    <loadout id="yellow-main" parent="main">
+      <item amount="16" damage="4" material="stained glass" slot="25"/>
+    </loadout>
+  </loadouts>
+  <regions>
+    <join id="main-map">
+      <cuboid max="-1305, oo, 488" min="-1023, 0, 210"/>
+    </join>
+    <join id="red-wool-room">
+      <cuboid id="red-wool" max="-1057, oo, 375" min="-1041, 0, 391"/>
+    </join>
+    <join id="blue-wool-room">
+      <cuboid id="blue-wool" max="-1194, oo, 466" min="-1210, 0, 482"/>
+    </join>
+    <join id="yellow-wool-room">
+      <cuboid id="yellow-wool" max="-1285, oo, 329" min="-1301, 0, 313"/>
+    </join>
+    <join id="green-wool-room">
+      <cuboid id="green-wool" max="-1148, oo, 238" min="-1131, 0, 222"/>
+    </join>
+    <join id="red-wool-location">
+      <block>-1049, 65, 384</block>
+    </join>
+    <join id="blue-wool-location">
+      <block>-1203, 65, 474</block>
+    </join>
+    <join id="yellow-wool-location">
+      <block>-1293, 65, 320</block>
+    </join>
+    <join id="green-wool-location">
+      <block>-1139, 65, 230</block>
+    </join>
+    <above id="height-limit" y="160"/>
+  </regions>
+  <checks>
+    <team id="only-red">red</team>
+    <team id="only-green">green</team>
+    <team id="only-blue">blue</team>
+    <team id="only-yellow">yellow</team>
+  </checks>
+  <zones>
+    <zone modify="never">
+      <region>
+        <invert>
+          <region id="main-map"/>
+        </invert>
+      </region>
+      <message>{errors.outside-map}</message>
+    </zone>
+    <!-- Red Spawn -->
+    <zone enter="only-red">
+      <region>
+        <subtract>
+          <cuboid max="-1066, oo, 345" min="-1100, 62, 359"/>
+          <block>-1088, 72, 354</block>
+          <block>-1090, 72, 348</block>
+          <block>-1094, 72, 356</block>
+        </subtract>
+      </region>
+      <modify>
+        <material>iron block</material>
+      </modify>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <!-- Green Spawn -->
+    <zone enter="only-green">
+      <region>
+        <subtract>
+          <cuboid max="-1178, oo, 247" min="-1164, 62, 281"/>
+          <block>-1175, 72, 271</block>
+          <block>-1169, 72, 269</block>
+          <block>-1167, 72, 275</block>
+        </subtract>
+      </region>
+      <modify>
+        <material>iron block</material>
+      </modify>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <!-- Blue Spawn -->
+    <zone enter="only-blue">
+      <region>
+        <subtract>
+          <cuboid max="-1164, oo, 457" min="-1178, 62, 423"/>
+          <block>-1175, 72, 429</block>
+          <block>-1173, 72, 435</block>
+          <block>-1167, 72, 433</block>
+        </subtract>
+      </region>
+      <modify>
+        <material>iron block</material>
+      </modify>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <!-- Yellow Spawn -->
+    <zone enter="only-yellow">
+      <region>
+        <subtract>
+          <cuboid max="-1276, oo, 359" min="-1242, 62, 345"/>
+          <block>-1248, 72, 348</block>
+          <block>-1254, 72, 350</block>
+          <block>-1252, 72, 356</block>
+        </subtract>
+      </region>
+      <modify>
+        <material>iron block</material>
+      </modify>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never" region="red-wool-room">
+     <enter>
+       <any>
+         <team>blue</team>
+         <team>yellow</team>
+         <team>green</team>
+       </any>
+     </enter>
+   </zone>
+   <zone modify="never" region="blue-wool-room">
+     <enter>
+       <any>
+         <team>red</team>
+         <team>yellow</team>
+         <team>green</team>
+       </any>
+     </enter>
+   </zone>
+   <zone modify="never" region="yellow-wool-room">
+     <enter>
+       <any>
+         <team>red</team>
+         <team>blue</team>
+         <team>green</team>
+       </any>
+     </enter>
+   </zone>
+   <zone modify="never" region="green-wool-room">
+     <enter>
+       <any>
+         <team>red</team>
+         <team>blue</team>
+         <team>yellow</team>
+       </any>
+     </enter>
+   </zone>
+  </zones>
+  <objectives>
+    <wools>
+      <wools pickup="false" team="red">
+        <wool color="blue">
+          <destination>
+            <join>
+              <block>-1094, 72, 356</block>
+            </join>
+          </destination>
+          <source>
+            <region id="blue-wool-location"/>
+          </source>
+        </wool>
+        <wool color="yellow">
+          <destination>
+            <join>
+              <block>-1088, 72, 354</block>
+            </join>
+          </destination>
+          <source>
+            <region id="yellow-wool-location"/>
+          </source>
+        </wool>
+        <wool color="green">
+          <destination>
+            <join>
+              <block>-1090, 72, 348</block>
+            </join>
+            </destination>
+            <source>
+              <region id="green-wool-location"/>
+            </source>
+        </wool>
+      </wools>
+      <wools pickup="false" team="blue">
+        <wool color="red">
+          <destination>
+            <join>
+              <block>-1167, 72, 433</block>
+            </join>
+          </destination>
+          <source>
+            <region id="red-wool-location"/>
+          </source>
+        </wool>
+        <wool color="yellow">
+          <destination>
+            <join>
+              <block>-1175, 72, 429</block>
+            </join>
+          </destination>
+          <source>
+            <region id="yellow-wool-location"/>
+          </source>
+        </wool>
+        <wool color="green">
+          <destination>
+            <join>
+              <block>-1173, 72, 435</block>
+            </join>
+            </destination>
+            <source>
+              <region id="green-wool-location"/>
+            </source>
+        </wool>
+      </wools>
+      <wools pickup="false" team="yellow">
+        <wool color="red">
+          <destination>
+            <join>
+              <block>-1254, 72, 350</block>
+            </join>
+          </destination>
+          <source>
+            <region id="red-wool-location"/>
+          </source>
+        </wool>
+        <wool color="blue">
+          <destination>
+            <join>
+              <block>-1252, 72, 356</block>
+            </join>
+          </destination>
+          <source>
+            <region id="blue-wool-location"/>
+          </source>
+        </wool>
+        <wool color="green">
+          <destination>
+            <join>
+              <block>-1248, 72, 348</block>
+            </join>
+            </destination>
+            <source>
+              <region id="green-wool-location"/>
+            </source>
+        </wool>
+      </wools>
+      <wools>
+        <wools pickup="false" team="green">
+          <wool color="red">
+          <destination>
+            <join>
+              <block>-1167, 72, 275</block>
+            </join>
+          </destination>
+          <source>
+            <region id="red-wool-location"/>
+          </source>
+        </wool>
+        <wool color="blue">
+          <destination>
+            <join>
+              <block>-1169, 72, 269</block>
+            </join>
+          </destination>
+          <source>
+            <region id="blue-wool-location"/>
+          </source>
+        </wool>
+        <wool color="yellow">
+          <destination>
+            <join>
+              <block>-1175, 72, 271</block>
+            </join>
+          </destination>
+          <source>
+            <region id="yellow-wool-location"/>
+          </source>
+        </wool>
+        </wools>
+      </wools>
+    </wools>
+  </objectives>
+  <world>
+    <storm>false</storm>
+    <weather check="always"/>
+  </world>
+  <items>
+    <remove-drops>
+      <any>
+        <material>log</material>
+        <material>wood</material>
+        <material>stained glass:4</material>
+        <material>stained glass:13</material>
+        <material>stained glass:14</material>
+        <material>stained glass:11</material>
+        <material>string</material>
+        <material>cooked beef</material>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>iron leggings</material>
+        <material>leather boots</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>iron sword</material>
+        <material>bow</material>
+        <material>diamond pickaxe</material>
+      </any>
+    </repair-tools>
+  </items>
+  <tutorial>
+    <step countdown="5s" freeze="true" location="-1139.1, 86.9, 270" pitch="133" yaw="43">
+      <chat>
+        <line>^r • {tutorial.generic.team-spawns}</line>
+      </chat>
+    </step>
+    <step countdown="5s" freeze="true" location="-1050.7, 73, 381.300" pitch="-46" yaw="48">
+      <chat>
+        <line>^r • {tutorial.ctw.wool-chest}</line>
+      </chat>
+    </step>
+    <step countdown="5s" freeze="true" location="-1095.6, 71, 352" pitch="-89" yaw="10">
+      <chat>
+        <line>^r • {tutorial.ctw.wool-monument}</line>
+      </chat>
+    </step>
+  </tutorial>
+</map>

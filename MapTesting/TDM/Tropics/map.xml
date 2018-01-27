@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="Tropics" spec="1.0.0" version="1.0.0">
+  <include src="defaults.xml"/>
+  <authors>
+    <author uuid="f876b863-1ccd-4ae2-acad-8a09e2209e81"/>
+    <!-- _DISTRACTION_ -->
+    <author uuid="5951eb64-d04b-4917-967e-57551860ed34"/>
+    <!-- xXBatManXx -->
+    <author uuid="99b8a2a4-cb22-4ba1-a683-7cd90a02aac5"/>
+    <!-- Junr -->
+  </authors>
+  <teams>
+    <team color="red" id="red" max="18" min="1">Vulcans</team>
+    <team color="orange" id="orange" max="18" min="1">Towners</team>
+  </teams>
+  <zones>
+    <zones>
+      <zone modify="never" region="everywhere"/>
+    </zones>
+  </zones>
+  <objectives>
+    <last-team-standing team="red"/>
+    <last-team-standing team="orange"/>
+  </objectives>
+  <elimination lives="3"/>
+  <results>
+    <win scenario="objectives">
+      <check>
+        <time>5m</time>
+      </check>
+    </win>
+  </results>
+  <spawns>
+    <!-- Spectator spawn -->
+    <spawn>
+      <regions>
+        <point yaw="180">14,42,9</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="red">
+      <regions>
+        <circle center="170,9,0" look="0,14,0" radius="1"/>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="orange">
+      <regions>
+        <circle center="-164,13,-14" look="-165,14,-9" radius="1"/>
+      </regions>
+    </spawn>
+  </spawns>
+  <shops>
+    <shop id="conquest-shop" name="Conquest Shop" open-check="always">
+      <point-config>
+        <player-kill>1</player-kill>
+        <flag-pickup>2</flag-pickup>
+        <flag-capture>5</flag-capture>
+        <monument-destroy>5</monument-destroy>
+      </point-config>
+      <items>
+        <item check="always" name="Instant Health I" prestige="0" price="2">
+          <description>
+            <line>Heal yourself instantly with this potion!</line>
+          </description>
+          <stack damage="8261" material="potion"/>
+        </item>
+        <item check="always" name="Instant Health II" prestige="0" price="4">
+          <description>
+            <line>Heal yourself instantly (x2) with this potion!</line>
+          </description>
+          <stack damage="8229" material="potion"/>
+        </item>
+        <item check="always" name="Instant Health II Splash" prestige="0" price="8">
+          <description>
+            <line>Heal yourself and your friends instantly with this splash potion!</line>
+          </description>
+          <stack damage="16421" material="potion"/>
+        </item>
+        <item check="always" name="Regeneration I" prestige="0" price="10">
+          <description>
+            <line>Conquer the enemy with 43 seconds of regeneration!</line>
+          </description>
+          <stack damage="8193" material="potion"/>
+        </item>
+        <item check="always" name="Speed I" prestige="0" price="15">
+          <description>
+            <line>Stealth is an important aspect of conquering the enemy. Obtain three minutes of pure speed!</line>
+          </description>
+          <stack damage="8194" material="potion"/>
+        </item>
+        <item check="always" name="Jump Boost II" prestige="0" price="15">
+          <description>
+            <line>Drink a liquid form of moon boots and reach for the sky!</line>
+          </description>
+          <stack damage="8235" material="potion"/>
+        </item>
+      </items>
+    </shop>
+  </shops>
+  <loadouts>
+    <loadout id="default">
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="chainmail leggings"/>
+      <boots material="leather boots" team-color="true">
+        <enchantment level="3">depth_strider</enchantment>
+      </boots>
+      <item material="stone sword" slot="0"/>
+      <item material="bow" slot="1">
+        <enchantment>arrow_infinite</enchantment>
+      </item>
+      <item amount="64" material="bread" slot="2"/>
+      <item amount="1" material="arrow" slot="27"/>
+      <shop-opener shop-id="conquest-shop" slot="8"/>
+    </loadout>
+    <loadout id="one-golden-apple">
+      <item material="golden apple"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="one-golden-apple"/>
+    </rewards>
+  </kills>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>leather leggings</material>
+        <material>leather boots</material>
+        <material>bread</material>
+        <material>golden apple</material>
+        <material>arrow</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>wood sword</material>
+        <material>bow</material>
+      </any>
+    </repair-tools>
+  </items>
+</map>

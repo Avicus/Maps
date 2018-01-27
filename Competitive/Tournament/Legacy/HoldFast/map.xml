@@ -1,0 +1,258 @@
+<?xml version="1.0"?>
+<map name="Hold Fast" spec="1.0.0" version="1.0.0">
+  <include src="defaults.xml"/>
+  <include src="Shared/reward-one-gap.xml"/>
+  <authors>
+    <author uuid="0b8f95fa0f404f289fd0b8e243bb6800"/> <!-- Fouled -->
+  </authors>
+  <contributors>
+    <contributor uuid="c29bef37d8e242a9b74604f2df78f374"/> <!-- Legoche -->
+  </contributors>
+  <teams>
+    <team color="cyan" id="cyan" max="8" max-overfill="8" min="1">{colors.cyan}</team>
+    <team color="purple" id="purple" max="8" max-overfill="8" min="1">{colors.purple}</team>
+  </teams>
+  <spawns>
+    <!-- Spectator spawn -->
+    <spawn>
+      <regions>
+        <point yaw="-90">-65.5, 49, 0.5</point>
+      </regions>
+    </spawn>
+    <!-- Team spawns -->
+    <spawn loadout="default" respawn-delay="7s" respawn-freeze="true" team="cyan" yaw="180">
+      <regions>
+        <point yaw="180">-14.5, 9, 70.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" respawn-delay="7s" respawn-freeze="true" team="purple" yaw="0">
+      <regions>
+        <point yaw="0">-14.5, 9, -69.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <regions>
+    <subtract id="void-outer"> <!-- Void Regions -->
+      <void/>
+      <cuboid max="-11, 18, 44" min="-19, 0, 51"/>
+      <cuboid max="7, 18, 34" min="-1, 0, 41"/>
+      <cuboid max="-37, 18, 29" min="-29, 0, 42"/>
+      <cuboid max="17, 18, 22" min="25, 0, 47"/>
+      <cuboid max="-40, 18, -10" min="-32, 0, 10"/>
+      <cuboid max="7, 18, -26" min="-1, 0, 26"/>
+      <cuboid max="-9, 18, -14" min="-2, 0, -14"/>
+      <cuboid max="-24, 18, 26" min="-19, 0, 34"/>
+      <cuboid max="-19, 18, -34" min="-24, 0, -26"/>
+      <cuboid max="-19, 18, -44" min="-11, 0, -51"/>
+      <cuboid max="-1, 18, -34" min="7, 0, -41"/>
+      <cuboid max="-1, 18, 25" min="-11, 0, 34"/>
+      <cuboid max="-1, 18, -25" min="-11, 0, -34"/>
+      <cuboid max="17, 18, -22" min="25, 0, -47"/>
+      <cuboid max="-37, 18, -29" min="-29, 0, -42"/>
+      <cuboid max="-10, 18, -9" min="-10, 0, 9"/>
+      <cuboid max="-11, 18, 8" min="-11, 0, -8"/>
+      <cuboid max="-12, 18, -6" min="-12, 0, 6"/>
+      <cuboid max="5, 18, -47" min="17, 0, -53"/>
+      <cuboid max="5, 18, 53" min="17, 0, 47"/>
+      <cuboid max="17, 18, 6" min="9, 0, 14"/>
+      <cuboid max="17, 18, -6" min="9, 0, -14"/>
+      <cuboid max="18, 18, -1" min="24, 0, 2"/>
+    </subtract>
+    <above id="height-limit" y="18"/>
+  </regions>
+  <zones>
+    <zone modify="never">
+      <region>
+        <subtract><!-- All of the blocks minus the monument (cyan) -->
+          <cuboid max="-11, 18, 76" min="-19, 0, 60"/>
+          <block>-16, 12, 73</block>
+          <block>-14, 12, 73</block>
+        </subtract>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <subtract> <!-- All of the blocks minus the monument (purple) -->
+          <cuboid max="-11, 18, -76" min="-19, 0, -60"/>
+          <block>-14, 12, -73</block>
+          <block>-16, 12, -73</block>
+        </subtract>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid max="17, 6, 66" min="25, 0, 66"/>
+      </region>
+      <message>{errors.cannot-build}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid max="-47, 11, 49" min="-47, 0, 57"/>
+      </region>
+      <message>{errors.cannot-build}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid max="25, 6, -66" min="17, 0, -66"/>
+      </region>
+      <message>{errors.cannot-build}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid max="-47, 11, -57" min="-47, 0, -49"/>
+      </region>
+      <message>{errors.cannot-build}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid max="0, 6, 0" min="0, 6, 0"/>
+      </region>
+      <message>{errors.cannot-build}</message>
+    </zone>
+    <!-- cyans woolroom -->
+    <zone modify="always">
+      <enter>
+        <team>cyan</team>
+      </enter>
+      <modify>
+        <team>cyan</team>
+      </modify>
+      <region>
+        <cuboid max="25, 18, -74" min="17, 0, -67"/> <!-- Room is Wool Red -->
+        <cuboid max="-54, 18, -57" min="-48, 0, -49"/> <!-- Room is Wool Lime -->
+      </region>
+      <message>{errors.enemy-base}</message>
+    </zone>
+    <!-- purple woolrooms -->
+    <zone modify="always">
+      <enter>
+        <team>purple</team>
+      </enter>
+      <modify>
+        <team>purple</team>
+      </modify>
+      <region>
+        <cuboid max="17, 18, 74" min="25, 0, 67"/> <!-- Room is Wool Orange -->
+        <cuboid max="-54, 18, 49" min="-48, 0, 57"/> <!-- Room is Wool Yellow -->
+      </region>
+      <message>{errors.enemy-base}</message>
+    </zone>
+    <zone modify="never" region="void-outer">
+      <message>{errors.cannot-build}</message>
+    </zone>
+    <zone modify="never" region="height-limit">
+      <message>{errors.height-limit}</message>
+    </zone>
+  </zones>
+  <loadouts>
+    <loadout id="default">
+      <effect duration="5s">damage resistance</effect>
+      <helmet material="leather helmet" team-color="true">
+        <enchantment level="1">protection environmental</enchantment>
+      </helmet>
+      <chestplate material="leather chestplate" team-color="true">
+        <enchantment level="1">protection environmental</enchantment>
+      </chestplate>
+      <leggings material="leather leggings" team-color="true">
+        <enchantment level="1">protection environmental</enchantment>
+      </leggings>
+      <boots material="leather boots" team-color="true">
+        <enchantment level="1">protection environmental</enchantment>
+      </boots>
+      <item material="iron sword" slot="0"/>
+      <item material="bow" slot="1"/>
+      <item material="diamond pickaxe" slot="2">
+        <enchantment level="1">durability</enchantment>
+      </item>
+      <item material="diamond axe" slot="3">
+        <enchantment level="1">durability</enchantment>
+      </item>
+      <item amount="2" material="golden apple" slot="4"/>
+      <item amount="28" material="wood" slot="6"/>
+      <item amount="16" material="glass" slot="7"/>
+      <item amount="32" material="cooked beef" slot="8"/>
+      <item amount="32" material="arrow" slot="27"/>
+    </loadout>
+    <loadout id="kill-reward">
+      <item material="golden apple"/>
+      <item amount="8" material="arrow"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="kill-reward"/>
+    </rewards>
+  </kills>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>leather leggings</material>
+        <material>leather boots</material>
+        <material>glass</material>
+        <material>cooked beef</material>
+        <material>golden apple</material>
+        <material>arrow</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>iron sword</material>
+        <material>bow</material>
+        <material>diamond pickaxe</material>
+        <material>diamond axe</material>
+      </any>
+    </repair-tools>
+  </items>
+  <gamerules>
+    <doDaylightCycle>false</doDaylightCycle>
+  </gamerules>
+  <results>
+    <win scenario="objectives">
+      <check>
+        <time>45m</time>
+      </check>
+    </win>
+  </results>
+  <objectives>
+    <wools pickup="false" team="cyan">
+      <wool color="red">
+        <source>
+          <block>21, 1, -73</block>
+        </source>
+        <destination>
+          <block>-14, 12, 73</block>
+        </destination>
+      </wool>
+      <wool color="lime">
+        <source>
+          <block>-53, 11, -53</block>
+        </source>
+        <destination>
+          <block>-16, 12, 73</block>
+        </destination>
+      </wool>
+    </wools>
+    <wools pickup="false" team="purple">
+      <wool color="orange">
+        <source>
+          <block>21, 1, 73</block>
+        </source>
+        <destination>
+          <block>-14, 12, -73</block>
+        </destination>
+      </wool>
+      <wool color="yellow">
+        <source>
+          <block>-53, 11, 53</block>
+        </source>
+        <destination>
+          <block>-16, 12, -73</block>
+        </destination>
+      </wool>
+    </wools>
+  </objectives>
+</map>

@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="Race" spec="1.0.5" version="1.0.2">
+  <include src="defaults.xml"/>
+  <include src="Shared/tutorials/ctw.xml"/>
+  <gametype>ctw</gametype>
+  <tutorial>
+    <step countdown="5s" freeze="true" location="-3.5,24,165.5" pitch="0" yaw="0">
+      <chat>
+        <line>^r • {tutorial.generic.team-spawns}</line>
+      </chat>
+    </step>
+    <step countdown="5s" freeze="true" location="36.3,26.5,203.7" pitch="2" yaw="130">
+      <chat>
+        <line>^r • {tutorial.ctw.wool-area}</line>
+      </chat>
+    </step>
+    <step countdown="5s" freeze="true" location="46,22,201.5" pitch="48" yaw="55">
+      <chat>
+        <line>^r • {tutorial.ctw.wool-chest}</line>
+      </chat>
+    </step>
+    <step countdown="5s" freeze="true" location="-4.6,20,189.4" pitch="0" yaw="0">
+      <chat>
+        <line>^r • {tutorial.ctw.wool-monument}</line>
+      </chat>
+    </step>
+  </tutorial>
+  <authors>
+    <author uuid="282f4bab54bb4e2a83459583c8d533ce"/>
+    <!--  EDJM9  -->
+  </authors>
+  <contributors>
+    <contributor uuid="bee1fadc3ff844c99258e08d3fa03fff"/>
+    <!-- Seuthy -->
+  </contributors>
+  <teams>
+    <team color="red" id="red" max="16" min="1">Red</team>
+    <team color="blue" id="blue" max="16" min="1">Blue</team>
+  </teams>
+  <spawns>
+    <!--  Spectator spawn  -->
+    <spawn>
+      <regions>
+        <point yaw="90">74.5,52,31.5</point>
+      </regions>
+    </spawn>
+    <!--  Team spawns  -->
+    <spawn loadout="default" team="red" yaw="0">
+      <regions>
+        <point yaw="0">-3.5,23,-112.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="blue" yaw="-180">
+      <regions>
+        <point yaw="-180">-3.5,23,175.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <world>
+    <gamerules>
+      <doDaylightCycle>false</doDaylightCycle>
+    </gamerules>
+  </world>
+  <regions>
+    <join id="mid-islands">
+      <cuboid max="-13, oo, 40" min="53, 0, 22"/> <!--  big  -->
+      <cuboid max="-13, oo, -26" min="53, 0, -44"/> <!--  red-big  -->
+      <cuboid max="53, oo, 88" min="-13, 0, 106"/> <!--  blue-big  -->
+      <!--  blue-islands  -->
+      <cuboid max="5, oo, 54" min="-13, 0, 74"/>
+      <cuboid max="35, oo, 54" min="53, 0, 74"/>
+      <!--  red-islands  -->
+      <cuboid max="-13, oo, 8" min="5, 0, -12"/>
+      <cuboid max="53, oo, 8" min="35, 0, -12"/>
+      <!--  blue-wool-islands  -->
+      <cuboid max="53, oo, 162" min="35, 0, 204"/> <!--  wool-main  -->
+      <cuboid max="53, oo, 120" min="35, 0, 148"/> <!--  wool-seccond  -->
+      <!--  red-wool-islands  -->
+      <cuboid max="35, oo, -100" min="53, 0, -142"/> <!--  wool-main  -->
+      <cuboid max="35, oo, -58" min="53, 0, -86"/> <!--  wool-seccond  -->
+    </join>
+    <join id="glass-noex">
+      <!--  red  -->
+      <cuboid max="34, oo, -115" min="6, 0, -111"/>
+      <cuboid max="35, oo, -87" min="53, 0, -99"/>
+      <cuboid max="6, oo, -78" min="34, 0, -82"/>
+      <cuboid max="53, oo, -45" min="35, 0, -57"/>
+      <cuboid max="-13, oo, -57" min="5, 0, -45"/>
+      <!--  blue  -->
+      <cuboid max="34, oo, 171" min="6, 0, 175"/>
+      <cuboid max="53, oo, 149" min="35, 0, 161"/>
+      <cuboid max="6, oo, 139" min="34, 0, 143"/>
+      <cuboid max="5, oo, 107" min="-13, 0, 119"/>
+      <cuboid max="53, oo, 119" min="35, 0, 107"/>
+      <!--  all-mid-glasses  -->
+      <cuboid max="53, oo, 75" min="35, 0, 87"/>
+      <cuboid max="5, oo, 75" min="-13, 0, 87"/>
+      <cuboid max="5, oo, 41" min="-13, 0, 53"/>
+      <cuboid max="53, oo, 41" min="35, 0, 53"/>
+      <cuboid max="53, oo, 9" min="35, 0, 21"/>
+      <cuboid max="5, oo, 9" min="-13, 0, 21"/>
+      <cuboid max="5, oo, -25" min="-13, 0, -13"/>
+      <cuboid max="53, oo, -25" min="35, 0, -13"/>
+      <cuboid max="6, oo, 0" min="34, 0, -4"/>
+      <cuboid max="6, oo, 66" min="34, 0, 62"/>
+    </join>
+    <join id="glass-ex">
+      <!--  red  -->
+      <cuboid max="34, 10, -115" min="6, 10, -111"/>
+      <cuboid max="35, 10, -87" min="53, 10, -99"/>
+      <cuboid max="6, 10, -78" min="34, 10, -82"/>
+      <cuboid max="53, 10, -45" min="35, 10, -57"/>
+      <cuboid max="-13, 10, -57" min="5, 10, -45"/>
+      <!--  blue  -->
+      <cuboid max="34, 10, 171" min="6, 10, 175"/>
+      <cuboid max="53, 10, 149" min="35, 10, 161"/>
+      <cuboid max="6, 10, 139" min="34, 10, 143"/>
+      <cuboid max="5, 10, 107" min="-13, 10, 119"/>
+      <cuboid max="53, 10, 119" min="35, 10, 107"/>
+      <!--  all-mid-glasses  -->
+      <cuboid max="53, 10, 75" min="35, 10, 87"/>
+      <cuboid max="5, 10, 75" min="-13, 10, 87"/>
+      <cuboid max="5, 10, 41" min="-13, 10, 53"/>
+      <cuboid max="53, 10, 41" min="35, 10, 53"/>
+      <cuboid max="53, 10, 9" min="35, 10, 21"/>
+      <cuboid max="5, 10, 9" min="-13, 10, 21"/>
+      <cuboid max="5, 10, -25" min="-13, 10, -13"/>
+      <cuboid max="53, 10, -25" min="35, 10, -13"/>
+      <cuboid max="6, 10, 0" min="34, 10, -4"/>
+      <cuboid max="6, 10, 66" min="34, 10, 62"/>
+    </join>
+    <join id="spawn-islands">
+      <cuboid max="-13, oo, 120" min="5, 0, 194"/>
+      <cuboid max="5, oo, -58" min="-13, 0, -132"/>
+    </join>
+    <join id="spawn-tubes">
+      <cuboid max="-8, oo, 146" min="0, 0, 181"/>
+      <cuboid max="0, oo, -84" min="-8, 0, -119"/>
+    </join>
+    <cuboid id="blue-wool-room" max="35, oo, 204" min="53, 0, 184"/>
+    <cuboid id="red-wool-room" max="53, oo, -142" min="35, 0, -122"/>
+    <cuboid id="blue-island" max="-13, oo, 120" min="5, 0, 194"/>
+    <cuboid id="red-island" max="5, oo, -58" min="-13, 0, -132"/>
+    <above id="height-limit" y="50"/>
+  </regions>
+  <checks>
+    <team id="only-red">red</team>
+    <team id="only-blue">blue</team>
+  </checks>
+  <zones>
+    <zone modify="never" water-rule="no-flow">
+      <region>
+        <invert>
+          <region id="mid-islands"/>
+          <region id="glass-noex"/>
+          <region id="spawn-islands"/>
+        </invert>
+      </region>
+      <message>{errors.outside-map}</message>
+    </zone>
+    <zone enter="only-red" modify="only-red">
+      <region>
+        <subtract>
+          <region id="red-island"/>
+          <point>-5, 20, 193</point>
+        </subtract>
+      </region>
+    </zone>
+    <zone enter="only-blue" modify="only-blue">
+      <region>
+        <subtract>
+          <region id="blue-island"/>
+          <point>-3, 20, -131</point>
+        </subtract>
+      </region>
+    </zone>
+    <zone enter="only-red" modify="only-red" region="blue-wool-room"/>
+    <zone enter="only-blue" modify="only-blue" region="red-wool-room"/>
+    <zone modify="never" region="spawn-tubes"/>
+    <zone modify="never" region="height-limit">
+      <message format="warning">{errors.height-limit}</message>
+    </zone>
+  </zones>
+  <loadouts>
+    <loadout id="default">
+      <effect duration="5s">damage resistance</effect>
+      <item material="stone sword" slot="0"/>
+      <item material="bow" slot="1"/>
+      <item material="iron pickaxe" slot="2">
+        <enchantments>
+          <enchantment level="2">dig speed</enchantment>
+        </enchantments>
+      </item>
+      <item material="iron axe" slot="3"/>
+      <item material="golden apple" slot="4"/>
+      <item amount="32" material="cooked beef" slot="5"/>
+      <item amount="64" damage="1" material="wood" slot="6"/>
+      <item amount="32" material="glass" slot="7"/>
+      <item amount="16" material="smooth brick" slot="8"/>
+      <item amount="48" material="arrow" slot="10"/>
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="chainmail leggings"/>
+      <boots material="leather boots" team-color="true"/>
+    </loadout>
+    <loadout id="kill-reward">
+      <item material="golden apple"/>
+      <item amount="4" material="arrow"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="kill-reward"/>
+    </rewards>
+  </kills>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>chainmail leggings</material>
+        <material>leather boots</material>
+        <material>iron pickaxe</material>
+        <material>stone sword</material>
+        <material>bow</material>
+        <material>iron axe</material>
+        <material>golden apple</material>
+        <material>arrow</material>
+        <material>wool</material>
+        <material>cooked beef</material>
+      </any>
+    </remove-drops>
+  </items>
+  <objectives>
+    <wools>
+      <wools refill="true" team="blue">
+        <wool color="red">
+          <source>
+            <block>44,21,-140</block>
+          </source>
+          <destination>
+            <block>-5,20,193</block>
+          </destination>
+        </wool>
+        <wools refill="true" team="red">
+          <wool color="blue">
+            <source>
+              <block>44,21,202</block>
+            </source>
+            <destination>
+              <block>-3,20,-131</block>
+            </destination>
+          </wool>
+        </wools>
+      </wools>
+    </wools>
+  </objectives>
+  <executors>
+    <executor check="always" id="glass-remover">
+      <replace-block
+        find="stained glass"
+        region="glass-ex"
+        replace="air"/>
+    </executor>
+  </executors>
+  <triggers>
+    <trigger execute="glass-remover" on="match-start"/>
+  </triggers>
+</map>

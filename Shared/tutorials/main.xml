@@ -1,0 +1,21 @@
+﻿<!-- File that contains the default beginning and ending map tutorial phases. -->
+<map>
+  <tutorial>
+    <prefix countdown="6s">
+      <title stay="3s" subtitle="^a^l{tutorial.map-tutorial}"/>
+      <chat>
+        <line>^a^m--------------^f ^l{tutorial.map-tutorial} ^a^m--------------</line>
+        <line>^r • {tutorial.you-are-spectating}</line>
+        <line>^r • {tutorial.how-to-back}</line>
+        <line>^r • {tutorial.how-to-exit}</line>
+        <line>^a^m------------------------------------------</line>
+      </chat>
+    </prefix>
+    <suffix countdown="3s" freeze="false">
+      <title stay="2s" subtitle="^f^lThe tutorial has ended."/>
+      <chat>
+        <line>^a^m---------^f ^l{tutorial.map-tutorial-over} ^a^m---------</line>
+      </chat>
+    </suffix>
+  </tutorial>
+</map>

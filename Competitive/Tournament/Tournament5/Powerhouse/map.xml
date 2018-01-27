@@ -1,0 +1,377 @@
+<?xml version="1.0"?>
+<map name="Powerhouse" spec="1.0.3" version="1.0.0">
+  <include src="defaults.xml"/>
+  <include src="Shared/reward-one-gap.xml"/>
+  <authors>
+    <author uuid="0b8f95fa0f404f289fd0b8e243bb6800"/>  <!-- Fouled -->
+  </authors>
+  <contributors>
+    <contributor uuid="c2a4c847653e482ab62ed7f8b64330cb"/>  <!-- ALM -->
+  </contributors>
+  <teams>
+    <team color="blue" id="blue" max="8" max-overfill="8" min="1">{colors.blue}</team>
+    <team color="purple" id="purple" max="8" max-overfill="8" min="1">{colors.purple}</team>
+  </teams>
+  <spawns auto-respawn="true" respawn-delay="5s">
+    <spawn team="spectators" yaw="0">
+      <regions>
+        <point yaw="0">-25.5, 40, 4.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" respawn-delay="5s" respawn-freeze="true" team="blue" yaw="90">
+      <regions>
+        <point yaw="90">59.5, 9, 44.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" respawn-delay="5s" respawn-freeze="true" team="purple" yaw="-90">
+      <regions>
+        <point yaw="-90">-110.5, 9, 60.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <loadouts>
+    <loadout id="default">
+      <effect duration="5s">damage resistance</effect>
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="iron leggings" team-color="true"/>
+      <boots material="leather boots" team-color="true">
+        <enchantments>
+          <enchantment level="1" type="PROTECTION_FALL">PROTECTION_FALL</enchantment>
+        </enchantments>
+      </boots>
+      <item material="iron sword" slot="0"/>
+      <item material="bow" slot="1"/>
+      <item amount="2" material="golden apple" slot="2"/>
+      <item amount="16" material="cooked beef" slot="7"/>
+      <item amount="16" material="arrow" slot="8"/>
+    </loadout>
+    <loadout id="four-arrows">
+      <item amount="4" material="arrow"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="four-arrows"/>
+    </rewards>
+  </kills>
+  <damage>
+    <disable>
+      <all>
+        <damage>fall</damage>
+        <inside>
+          <region>
+            <join>
+              <cuboid max="-22, 13, 83" min="-24, 29, 85"/>
+              <cuboid max="-30, 13, 21" min="-28, 29, 19"/>
+            </join>
+          </region>
+        </inside>
+      </all>
+    </disable>
+  </damage>
+  <zones>
+    <zone modify="never" region="everywhere"/>
+    <zone modify="always">
+      <enter>
+        <team>purple</team>
+      </enter>
+      <region>
+        <join>
+          <cuboid max="-46, 13, 54" min="-50, 10, 53"/>
+          <cuboid max="-24, 17, 82" min="-22, 14, 83"/>
+        </join>
+      </region>
+      <message>{errors.enemy-base}</message>
+    </zone>
+    <zone modify="always">
+      <enter>
+        <team>blue</team>
+      </enter>
+      <region>
+        <join>
+          <cuboid max="-6, 13, 50" min="-2, 10, 51"/>
+          <cuboid max="-28, 17, 22" min="-30, 14, 21"/>
+        </join>
+      </region>
+      <message>{errors.enemy-base}</message>
+    </zone>
+  </zones>
+  <results>
+    <win scenario="objectives">
+      <check>
+        <time>12m</time>
+      </check>
+    </win>
+    <win scenario="team" team="blue">
+      <check>
+        <all>
+          <objective team="blue">blue-2nd</objective>
+          <objective team="blue">blue-last</objective>
+          <objective team="blue">mid</objective>
+          <objective team="blue">purple-last</objective>
+          <objective team="blue">purple-2nd</objective>
+        </all>
+      </check>
+    </win>
+    <win scenario="team" team="purple">
+      <check>
+        <all>
+          <objective team="purple">blue-2nd</objective>
+          <objective team="purple">blue-last</objective>
+          <objective team="purple">mid</objective>
+          <objective team="purple">purple-last</objective>
+          <objective team="purple">purple-2nd</objective>
+        </all>
+      </check>
+    </win>
+  </results>
+  <objectives>
+    <hill capture-time="5s" id="blue-last" initial-owner="blue" name="Blue Last">
+      <capture>
+        <cuboid max="-4, 13, 26" min="0, 11, 30"/>
+      </capture>
+      <progress>
+        <cuboid max="-4, 11, 26" min="0, 11, 30"/>
+      </progress>
+      <capture-check>
+        <any>
+          <all>
+            <team>purple</team>
+            <objective team="purple">purple-last</objective>
+            <objective team="purple">purple-2nd</objective>
+            <objective team="purple">mid</objective>
+            <objective team="purple">blue-2nd</objective>
+          </all>
+          <all>
+            <team>blue</team>
+          </all>
+        </any>
+      </capture-check>
+    </hill>
+    <hill capture-time="5s" id="blue-2nd" initial-owner="blue" name="Blue 2nd">
+      <capture>
+        <join>
+          <cuboid max="22, 18, 69" min="21, 16, 75"/>
+          <cuboid max="27, 18, 70" min="21, 16, 69"/>
+          <cuboid max="26, 18, 75" min="27, 16, 69"/>
+          <cuboid max="21, 18, 74" min="27, 16, 75"/>
+        </join>
+      </capture>
+      <progress>
+        <cuboid max="27, 16, 69" min="21, 16, 75"/>
+      </progress>
+      <capture-check>
+        <any>
+          <all>
+            <team>purple</team>
+            <objective team="purple">purple-2nd</objective>
+            <objective team="purple">purple-last</objective>
+            <objective team="purple">mid</objective>
+          </all>
+          <all>
+            <team>blue</team>
+            <objective team="blue">blue-last</objective>
+          </all>
+        </any>
+      </capture-check>
+    </hill>
+    <hill capture-time="5s" id="mid" name="Mid">
+      <capture>
+        <cuboid max="-29, 12, 49" min="-23, 9, 55"/>
+      </capture>
+      <progress>
+        <join>
+          <cuboid max="-23, 10, 49" min="-23, 9, 55"/>
+          <cuboid max="-29, 10, 55" min="-23, 9, 55"/>
+          <cuboid max="-29, 10, 49" min="-29, 9, 55"/>
+          <cuboid max="-23, 10, 49" min="-29, 9, 49"/>
+          <cuboid max="-22, 9, 52" min="-21, 0, 52"/>
+          <cuboid max="-26, 9, 57" min="-26, 9, 56"/>
+          <cuboid max="-30, 9, 52" min="-31, 9, 52"/>
+          <cuboid max="-26, 9, 48" min="-26, 9, 47"/>
+          <cuboid max="-26, 10, 52" min="-26, 10, 52"/>
+        </join>
+      </progress>
+      <capture-check>
+        <any>
+          <all>
+            <team>blue</team>
+            <objective team="blue">blue-last</objective>
+            <objective team="blue">blue-2nd</objective>
+          </all>
+          <all>
+            <team>purple</team>
+            <objective team="purple">purple-last</objective>
+            <objective team="purple">purple-2nd</objective>
+          </all>
+        </any>
+      </capture-check>
+    </hill>
+    <hill capture-time="5s" id="purple-2nd" initial-owner="purple" name="Purple 2nd ">
+      <capture>
+        <join>
+          <cuboid max="-74, 18, 35" min="-73, 16, 29"/>
+          <cuboid max="-79, 18, 34" min="-73, 16, 35"/>
+          <cuboid max="-78, 18, 29" min="-79, 16, 35"/>
+          <cuboid max="-73, 18, 30" min="-79, 16, 29"/>
+        </join>
+      </capture>
+      <progress>
+        <cuboid max="-79, 16, 35" min="-73, 16, 29"/>
+      </progress>
+      <capture-check>
+        <any>
+          <all>
+            <team>blue</team>
+            <objective team="blue">blue-2nd</objective>
+            <objective team="blue">blue-last</objective>
+            <objective team="blue">mid</objective>
+          </all>
+          <all>
+            <team>purple</team>
+            <objective team="purple">purple-last</objective>
+          </all>
+        </any>
+      </capture-check>
+    </hill>
+    <hill capture-time="5s" id="purple-last" initial-owner="purple" name="Purple Last ">
+      <capture>
+        <cuboid max="-48, 13, 78" min="-52, 11, 74"/>
+      </capture>
+      <progress>
+        <cuboid max="-48, 11, 78" min="-52, 11, 74"/>
+      </progress>
+      <capture-check>
+        <any>
+          <all>
+            <team>blue</team>
+            <objective team="blue">blue-last</objective>
+            <objective team="blue">blue-2nd</objective>
+            <objective team="blue">mid</objective>
+            <objective team="blue">purple-2nd</objective>
+          </all>
+          <all>
+            <team>purple</team>
+          </all>
+        </any>
+      </capture-check>
+    </hill>
+  </objectives>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>iron leggings</material>
+        <material>leather boots</material>
+        <material>cooked beef</material>
+        <material>golden apple</material>
+        <material>arrow</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>iron sword</material>
+        <material>bow</material>
+      </any>
+    </repair-tools>
+  </items>
+  <world>
+    <storm>false</storm>
+    <weather check="always"/>
+    <gamerules>
+      <doDaylightCycle>false</doDaylightCycle>
+    </gamerules>
+  </world>
+  <executors>
+    <executor check="pur-2nd" id="tele-purple-2nd">
+      <teleport-player yaw="180">
+        <to>
+          <point>-22.5, 27, 85.5</point>
+        </to>
+      </teleport-player>
+    </executor>
+    <executor check="blu-2nd" id="tele-blue-2nd">
+      <teleport-player yaw="0">
+        <to>
+          <point>-28.5, 27, 19.5</point>
+        </to>
+      </teleport-player>
+    </executor>
+    <executor check="purple-mid" id="tele-purple-mid">
+      <teleport-player yaw="0">
+        <to>
+          <point>-47.5, 8, 46.5</point>
+        </to>
+      </teleport-player>
+    </executor>
+    <executor check="blue-mid" id="tele-blue-mid">
+      <teleport-player yaw="180">
+        <to>
+          <point>-3.5, 8, 58.5</point>
+        </to>
+      </teleport-player>
+    </executor>
+    <executor check="purple-home" id="tele-purple-home">
+      <teleport-player yaw="-90">
+        <to>
+          <point>-90.5, 9, 60.5</point>
+        </to>
+      </teleport-player>
+    </executor>
+    <executor check="blue-home" id="tele-blue-home">
+      <teleport-player yaw="90">
+        <to>
+          <point>39.5, 9, 44.5</point>
+        </to>
+      </teleport-player>
+    </executor>
+  </executors>
+  <checks>
+    <all id="purple-home">
+      <objective team="purple">purple-2nd</objective>
+      <objective team="purple">purple-last</objective>
+      <team>purple</team>
+    </all>
+    <all id="blue-home">
+      <objective team="blue">blue-2nd</objective>
+      <objective team="blue">blue-last</objective>
+      <team>blue</team>
+    </all>
+    <all id="purple-mid">
+      <objective team="purple">mid</objective>
+      <objective team="purple">purple-2nd</objective>
+      <objective team="purple">purple-last</objective>
+      <team>purple</team>
+    </all>
+    <all id="blue-mid">
+      <objective team="blue">mid</objective>
+      <objective team="blue">blue-2nd</objective>
+      <objective team="blue">blue-last</objective>
+      <team>blue</team>
+    </all>
+    <all id="blu-2nd">
+      <objective team="blue">purple-2nd</objective>
+      <objective team="blue">mid</objective>
+      <objective team="blue">blue-2nd</objective>
+      <objective team="blue">blue-last</objective>
+      <team>blue</team>
+    </all>
+    <all id="pur-2nd">
+      <objective team="purple">blue-2nd</objective>
+      <objective team="purple">mid</objective>
+      <objective team="purple">purple-2nd</objective>
+      <objective team="purple">purple-last</objective>
+      <team>purple</team>
+    </all>
+  </checks>
+  <triggers>
+    <trigger execute="tele-purple-home" on="player-spawn"/>
+    <trigger execute="tele-purple-mid" on="player-spawn"/>
+    <trigger execute="tele-purple-2nd" on="player-spawn"/>
+    <trigger execute="tele-blue-home" on="player-spawn"/>
+    <trigger execute="tele-blue-mid" on="player-spawn"/>
+    <trigger execute="tele-blue-2nd" on="player-spawn"/>
+  </triggers>
+</map>

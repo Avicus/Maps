@@ -1,0 +1,1697 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<map name="Maisosen Remastered" spec="1.0.4" version="1.3.0">
+  <include src="defaults.xml"/>
+  <authors>
+    <author uuid="47b15675a0484e8f863a0cbf86ba22dc"/>
+    <!--  profbananaslug  -->
+    <author uuid="3cce00809faa48f982cf64410305822a"/>
+    <!--  EDNAS  -->
+    <author uuid="c2a4c847653e482ab62ed7f8b64330cb"/>
+    <!--  Alm  -->
+    <author uuid="bf3319534f9243ee8abc7544b8234936"/>
+    <!-- guy -->
+  </authors>
+  <gametype>dtm</gametype>
+  <include src="Shared/tutorials/dtm.xml"/>
+  <tutorial>
+    <step countdown="3s" freeze="true" location="138, 91, -295" pitch="50" yaw="0">
+      <chat>
+        <line>^r^l {tutorial.destroy-the-monument}</line>
+      </chat>
+    </step>
+    <step countdown="4s" location="230, 79, -224" pitch="45" yaw="162">
+      <chat>
+        <line>^r^l {tutorial.dtm.monument-area}</line>
+      </chat>
+    </step>
+    <step countdown="4s" location="52, 71, -286" pitch="4" yaw="-90">
+      <chat>
+        <line>^r^l {tutorial.dtm.collect-emeralds-dtm}</line>
+      </chat>
+    </step>
+    <step countdown="4s" location="51, 121, -766" pitch="90" yaw="0">
+      <chat>
+        <line>^r^l {tutorial.dtm.rare-location}</line>
+      </chat>
+    </step>
+  </tutorial>
+  <broadcasts>
+    <broadcast format="alert" interval="3m">{broadcasts.potion-teleport}</broadcast>
+  </broadcasts>
+  <teams>
+    <team color="blue" id="blue" max="25" min="1">{colors.blue}</team>
+    <team color="red" id="red" max="25" min="1">{colors.red}</team>
+  </teams>
+  <spawns>
+    <spawn team="spectators">
+      <regions>
+        <point>140,89,-357</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="red" yaw="90">
+      <regions>
+        <point>237,71,-291</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="blue" yaw="-90">
+      <regions>
+        <point>39,71,-291</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <items>
+    <remove-drops>
+      <any>
+        <material>stone sword</material>
+        <material>iron pickaxe</material>
+        <material>bow</material>
+        <material>shears</material>
+        <material>leather boots</material>
+        <material>leather leggings</material>
+        <material>gold chestplate</material>
+        <material>leather helmet</material>
+        <material>diamond helmet</material>
+        <material>diamond chestplate</material>
+        <material>diamond leggings</material>
+        <material>diamond boots</material>
+        <material>diamond pickaxe</material>
+        <material>cooked beef</material>
+        <material>arrow</material>
+        <material>glass bottle</material>
+        <material>iron axe</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>stone sword</material>
+        <material>iron pickaxe</material>
+        <material>bow</material>
+        <material>shears</material>
+      </any>
+    </repair-tools>
+  </items>
+  <objectives>
+    <monuments materials="obsidian">
+      <monuments owner="blue">
+        <monument name="{directions.left}">
+          <region>
+            <join>
+              <block>46,76,-227</block>
+              <block>46,75,-227</block>
+              <block>46,77,-227</block>
+              <block>46,76,-228</block>
+              <block>47,76,-227</block>
+              <block>46,76,-226</block>
+              <block>45,76,-227</block>
+            </join>
+          </region>
+        </monument>
+        <monument name="{directions.right}">
+          <region>
+            <join>
+              <block>46,76,-354</block>
+              <block>46,75,-354</block>
+              <block>46,77,-354</block>
+              <block>46,76,-355</block>
+              <block>47,76,-354</block>
+              <block>46,76,-353</block>
+              <block>45,76,-354</block>
+            </join>
+          </region>
+        </monument>
+      </monuments>
+      <monuments owner="red">
+        <monument name="{directions.left}">
+          <region>
+            <join>
+              <block>230,76,-355</block>
+              <block>230,75,-355</block>
+              <block>230,77,-355</block>
+              <block>230,76,-356</block>
+              <block>229,76,-355</block>
+              <block>231,76,-355</block>
+              <block>230,76,-354</block>
+            </join>
+          </region>
+        </monument>
+        <monument name="{directions.right}">
+          <region>
+            <join>
+              <block>230,76,-228</block>
+              <block>230,75,-228</block>
+              <block>230,77,-228</block>
+              <block>229,76,-228</block>
+              <block>230,76,-229</block>
+              <block>231,76,-228</block>
+              <block>230,76,-227</block>
+            </join>
+          </region>
+        </monument>
+      </monuments>
+    </monuments>
+  </objectives>
+  <checks>
+    <random id="oneitem">100</random>
+    <item damage="8225" id="redstone-torch" material="potion"/>
+    <item damage="8270" id="nether-star" material="potion"/>
+    <item damage="8226" id="firework-star" material="potion"/>
+    <item damage="8233" id="magma-cream" material="potion"/>
+  </checks>
+  <regions>
+    <point id="quintp">51,118,-810</point>
+    <point id="dojotp">-376,97,-847</point>
+    <point id="susatp">356,115,330</point>
+    <point id="ladtp">-537,65,-324</point>
+    <point id="portdest">138, 70, -290</point>
+  </regions>
+  <zones>
+    <zone>
+      <region>
+        <join>
+          <cuboid id="quintusport" max="52,120,-766" min="50,117,-768"/>
+          <cuboid id="dojoport" max="-387,102,-812" min="-385,99,-810"/>
+          <cuboid id="susaport" max="397, 89, 388" min="401,87,384"/>
+          <cuboid id="ladport" max="-537,104,-304" min="-539,101,-306"/>
+        </join>
+      </region>
+      <portal>
+        <destination>
+          <point>138, 69, -290</point>
+        </destination>
+      </portal>
+      <triggers enter="give-items"/>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid id="midisland" max="140,69,-289" min="136,57,-293"/>
+        <cuboid id="midisland2" max="140,69,-277" min="136,57,-273"/>
+        <cuboid id="midisland3" max="140,69,-305" min="136,57,-309"/>
+      </region>
+    </zone>
+    <zone modify="never">
+      <region>
+        <invert>
+          <cuboid id="playable" max="253,109,-210" min="31,49,-376"/>
+          <subtract>
+            <cuboid id="redprot" max="246,85,-278" min="207,60,-304"/>
+            <cuboid id="blueprot" max="69,82,-278" min="30,60,-304"/>
+          </subtract>
+        </invert>
+      </region>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid id="redprot" max="246,85,-278" min="207,60,-304"/>
+      </region>
+      <enter>
+        <team>red</team>
+      </enter>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid id="blueprot" max="69,82,-278" min="30,60,-304"/>
+      </region>
+      <enter>
+        <team>blue</team>
+      </enter>
+    </zone>
+  </zones>
+  <triggers>
+    <trigger execute="player-tp" on="item-consume"/>
+  </triggers>
+  <executors>
+    <executor check="always" id="send-alert">
+      <send-message location="chat">^l[WARNING] ^6^lA ^4^lRARE ^6^litem has been obtained!
+      </send-message>
+    </executor>
+    <executor check="always" id="player-tp">
+      <execution-group>
+        <teleport-player check="redstone-torch" to="quintp"/>
+        <teleport-player check="nether-star" to="dojotp"/>
+        <apply-loadout check="always" loadout="effect-clear"/>
+        <teleport-player check="firework-star" to="ladtp"/>
+        <teleport-player check="magma-cream" to="susatp"/>
+      </execution-group>
+    </executor>
+    <executor check="always" id="give-items">
+      <execution-group>
+        <apply-loadout check="oneitem" loadout="randomizer"/>
+        <summon-entity region="portdest" type="lightning"/>
+        <perform-on-everyone execute="send-alert"/> <!-- fuck localization -->
+      </execution-group>
+    </executor>
+  </executors>
+  <loadouts>
+    <loadout id="default">
+      <item material="stone sword" slot="0"/>
+      <item material="bow" slot="1"/>
+      <item material="diamond pickaxe" slot="2"/>
+      <item amount="1" material="iron axe" slot="3"/>
+      <item amount="64" material="glass" slot="4"/>
+      <item amount="64" material="arrow" slot="19"/>
+      <item amount="32" material="log" slot="5"/>
+      <item amount="1" material="golden apple" slot="7"/>
+      <item amount="64" material="cooked beef" slot="6"/>
+      <item amount="64" material="arrow" slot="28"/>
+      <boots material="leather boots" team-color="true"/>
+      <leggings material="leather leggings" team-color="true"/>
+      <chestplate material="gold chestplate"/>
+      <helmet material="leather helmet" team-color="true"/>
+    </loadout>
+    <loadout force="true" id="effect-clear">
+      <effect amplifier="3" duration="0s">invisibility</effect>
+      <effect amplifier="3" duration="0s">increase_damage</effect>
+      <effect amplifier="3" duration="0s">regeneration</effect>
+      <effect amplifier="3" duration="0s">speed</effect>
+    </loadout>
+    <loadout id="randomizer" max="1" min="1">
+      <randomizer max="1" min="1">
+        <items max="1" min="1">
+          <item material="diamond helmet" name="^e^lThe King's Helmet">
+            <enchantments>
+              <enchantment level="4">protection environmental</enchantment>
+              <enchantment level="3">durability</enchantment>
+              <enchantment level="3">thorns</enchantment>
+            </enchantments>
+            <lore>
+              <line>King of the Ladder!</line>
+            </lore>
+          </item>
+          <item material="diamond chestplate" name="^1The Flat Chestplate">
+            <enchantments>
+              <enchantment level="2">protection environmental</enchantment>
+              <enchantment level="3">durability</enchantment>
+            </enchantments>
+            <lore>
+              <line>Flat</line>
+            </lore>
+          </item>
+          <item material="diamond spade" name="^2^lThe Spade of Truth">
+            <enchantments>
+              <enchantment level="3">damage all</enchantment>
+            </enchantments>
+            <lore>
+              <line>Spade of Truth?</line>
+            </lore>
+          </item>
+          <item material="diamond helmet" name="^0Thick Skull">
+            <enchantments>
+              <enchantment level="5">protection environmental</enchantment>
+            </enchantments>
+            <lore>
+              <line>Hard as rock!</line>
+            </lore>
+          </item>
+          <item material="ender pearl" name="^2Fly Hacker">
+            <lore>
+              <line>You fly now</line>
+            </lore>
+          </item>
+          <item material="diamond boots" name="^2Angel Boots">
+            <enchantments>
+              <enchantment level="300">protection fall</enchantment>
+            </enchantments>
+            <lore>
+              <line>You'll gracefully land on both feet!</line>
+            </lore>
+          </item>
+          <item material="diamond boots" name="^9Walluar Gear">
+            <enchantments>
+              <enchantment level="4">protection environmental</enchantment>
+              <enchantment level="3">durability</enchantment>
+            </enchantments>
+            <lore>
+              <line>Relatable</line>
+            </lore>
+          </item>
+          <item material="diamond pickaxe" name="^lThe Dojo Master's Pickaxe">
+            <enchantments>
+              <enchantment level="3">dig speed</enchantment>
+              <enchantment level="3">durability</enchantment>
+              <enchantment level="2">knockback</enchantment>
+            </enchantments>
+            <lore>
+              <line>Found in one of the 200 Dojo Maps!</line>
+            </lore>
+          </item>
+          <item material="web" name="^lSweet Slopes">
+            <enchantments>
+              <enchantment level="3">damage arthropods</enchantment>
+            </enchantments>
+            <lore>
+              <line>v</line>
+              <line>e</line>
+              <line>r</line>
+              <line>t</line>
+              <line>i</line>
+              <line>c</line>
+              <line>a</line>
+              <line>l</line>
+              <line>i</line>
+              <line>t</line>
+              <line>y</line>
+            </lore>
+          </item>
+          <item material="wood hoe" name="^9Diamond Hoe">
+            <enchantments>
+              <enchantment level="5">damage all</enchantment>
+              <enchantment level="3">durability</enchantment>
+            </enchantments>
+            <lore>
+              <line>Trust me! It's definitely a diamond hoe</line>
+            </lore>
+          </item>
+          <item material="bow" name="^3Castle Adventure">
+            <enchantments>
+              <enchantment level="1">arrow damage</enchantment>
+              <enchantment level="2">arrow knockback</enchantment>
+            </enchantments>
+            <lore>
+              <line>A.K.A - Bow Spammer's Land!</line>
+            </lore>
+          </item>
+          <item material="diamond leggings" name="^4^lFouled's Hot Legs">
+            <enchantments>
+              <enchantment level="2">fire aspect</enchantment>
+              <enchantment level="4">protection fire</enchantment>
+            </enchantments>
+            <lore>
+              <line>lit</line>
+            </lore>
+          </item>
+          <item material="bow" name="^lBow of Bowspam">
+            <enchantments>
+              <enchantment level="2">arrow damage</enchantment>
+              <enchantment level="2">arrow knockback</enchantment>
+              <enchantment level="2">knockback</enchantment>
+              <enchantment level="2">fire aspect</enchantment>
+            </enchantments>
+            <lore>
+              <line>Perfected over decades in the</line>
+              <line>hidden Brotherhood of Bowspammers</line>
+              <line>monastery in the Swiss Alps.</line>
+            </lore>
+          </item>
+          <item material="gold axe" name="^m^lNot-A-Diamond Axe">
+            <enchantments>
+              <enchantment level="5">dig speed</enchantment>
+              <enchantment level="3">durability</enchantment>
+            </enchantments>
+            <lore>
+              <line>It's definitely not a diamond axe.</line>
+            </lore>
+          </item>
+          <item material="book" name="^lMLA formatted book">
+            <enchantments>
+              <enchantment level="3">luck</enchantment>
+              <enchantment level="300">durability</enchantment>
+              <enchantment level="3">lure</enchantment>
+            </enchantments>
+            <lore>
+              <line>You'll never break this</line>
+            </lore>
+          </item>
+          <item material="diamond spade" name="^b^lSpanky Spade">
+            <enchantments>
+              <enchantment level="12">dig speed</enchantment>
+              <enchantment level="5">knockback</enchantment>
+            </enchantments>
+            <lore>
+              <line>The OG Destroyer of</line>
+              <line>friendships since 2013</line>
+            </lore>
+          </item>
+          <item material="diamond pickaxe" name="^2Cave Destroyer">
+            <enchantments>
+              <enchantment level="5">dig speed</enchantment>
+            </enchantments>
+            <lore>
+              <line>ProfessorUtonium has destroyed Cave</line>
+              <line>(can you tell that he also made this map?)</line>
+            </lore>
+          </item>
+          <item material="obsidian" name="^2Cave">
+            <enchantments>
+              <enchantment level="500">durability</enchantment>
+            </enchantments>
+            <lore>
+              <line>ProfessorUtonium has destroyed Cave</line>
+              <line>(can you tell that he also made this map?)</line>
+            </lore>
+          </item>
+          <item material="paper" name="^7^lSURPRISE KEYLOGGER!">
+            <enchantments>
+              <enchantment level="1">arrow infinite</enchantment>
+            </enchantments>
+            <lore>
+              <line>The Dojo 5: The Revenge of the</line>
+              <line>Surprise keyloggers in your face!</line>
+            </lore>
+          </item>
+          <item damage="16428" material="potion" name="^dDr. Ya-Ya's Prescription">
+            <enchantments>
+              <enchantment level="2">fire aspect</enchantment>
+            </enchantments>
+            <lore>
+              <line>Death is the only medicine that</line>
+              <line>cures EVERY disease!</line>
+            </lore>
+          </item>
+          <item damage="8" material="ink sack" name="^7The CloudFlare">
+            <enchantments>
+              <enchantment level="4">protection environmental</enchantment>
+            </enchantments>
+            <lore>
+              <line>Avicus Websites are down again</line>
+            </lore>
+          </item>
+          <item damage="1" material="cooked fish" name="^cTS Developer">
+            <enchantments>
+              <enchantment level="32767">dig speed</enchantment>
+            </enchantments>
+            <lore>
+              <line>Teamspeak Developers? What is this? 2016?</line>
+            </lore>
+          </item>
+          <item material="obsidian" name="^0Monument Insurance">
+            <enchantments>
+              <enchantment level="3">loot bonus mobs</enchantment>
+            </enchantments>
+            <lore>
+              <line>You might also want to consider</line>
+              <line>life insurance ;)</line>
+            </lore>
+          </item>
+          <item material="bow" name="^8Kashike's Cat Blaster" projectile="cat">
+            <lore>
+              <line>Shoot out cats! They may not hurt</line>
+              <line>but they are definitely cute!</line>
+            </lore>
+          </item>
+          <item material="stick" name="^cDevelopment Wand">
+            <enchantments>
+              <enchantment level="10">knockback</enchantment>
+            </enchantments>
+            <lore>
+              <line>The Dojo 3: The Legend of the Development Wand</line>
+            </lore>
+          </item>
+          <item damage="1" material="coal" name="^0Real Coal">
+            <enchantments>
+              <enchantment level="2">fire aspect</enchantment>
+              <enchantment level="2">knockback</enchantment>
+            </enchantments>
+            <lore>
+              <line>I am the real coal!</line>
+            </lore>
+          </item>
+          <item material="bow" name="^2Mortician Bow" projectile="zombie">
+            <lore>
+              <line>Congratulations on picking the worst kit possible</line>
+            </lore>
+          </item>
+          <item material="gold ingot" name="^e^lGolden Knockback">
+            <enchantments>
+              <enchantment level="5">knockback</enchantment>
+            </enchantments>
+            <lore>
+              <line>A.K.A - Avicus Knockback!</line>
+            </lore>
+          </item>
+          <item material="diamond chestplate" name="^9Walluar Gear">
+            <enchantments>
+              <enchantment level="4">protection environmental</enchantment>
+              <enchantment level="3">durability</enchantment>
+            </enchantments>
+            <lore>
+              <line>The Original OP Gear</line>
+            </lore>
+          </item>
+          <item material="diamond leggings" name="^9Walluar Gear">
+            <enchantments>
+              <enchantment level="4">protection environmental</enchantment>
+              <enchantment level="3">durability</enchantment>
+            </enchantments>
+            <lore>
+              <line>The Original OP Gear</line>
+            </lore>
+          </item>
+          <item material="diamond axe" name="^5^lOriginal Lumberjack Axe">
+            <enchantments>
+              <enchantment level="3">damage all</enchantment>
+            </enchantments>
+            <lore>
+              <line>Don't nerf the Lumberjack Kit!</line>
+            </lore>
+          </item>
+          <item material="bow" name="^4^lBow of Infinity">
+            <enchantments>
+              <enchantment level="3">arrow damage</enchantment>
+              <enchantment level="1">arrow infinite</enchantment>
+            </enchantments>
+            <lore>
+              <line>Infinity Bow? What is this? MCZone?</line>
+            </lore>
+          </item>
+          <item material="slime block" name="^aBounce MANIA!">
+            <enchantments>
+              <enchantment level="4">protection fall</enchantment>
+            </enchantments>
+            <lore>
+              <line>/sn bounce</line>
+            </lore>
+          </item>
+          <item material="diamond sword" name="^5The Executioner">
+            <enchantments>
+              <enchantment level="14">fire aspect</enchantment>
+              <enchantment level="14">protection fall</enchantment>
+            </enchantments>
+            <lore>
+              <line>The Executioner is something that is available</line>
+              <line>but nobody knows how to use!</line>
+            </lore>
+          </item>
+          <item material="diamond sword" name="^6The Sword of Maisosen">
+            <enchantments>
+              <enchantment level="2">fire aspect</enchantment>
+              <enchantment level="2">knockback</enchantment>
+            </enchantments>
+            <lore>
+              <line>The Original Sword of Maisosen</line>
+            </lore>
+          </item>
+          <item material="diamond sword" name="^lExcalibur">
+            <enchantments>
+              <enchantment level="3">damage all</enchantment>
+              <enchantment level="2">fire aspect</enchantment>
+            </enchantments>
+            <lore>
+              <line>The False God Weapon</line>
+            </lore>
+          </item>
+          <item material="paper" name="^f^lYML">
+            <enchantments>
+              <enchantment level="1">dig speed</enchantment>
+              <enchantment level="1">protection environmental</enchantment>
+              <enchantment level="1">protection fire</enchantment>
+              <enchantment level="1">silk touch</enchantment>
+              <enchantment level="1">protection fall</enchantment>
+              <enchantment level="4">protection explosions</enchantment>
+              <enchantment level="1">loot bonus blocks</enchantment>
+              <enchantment level="1">protection projectile</enchantment>
+              <enchantment level="1">oxygen</enchantment>
+              <enchantment level="1">water worker</enchantment>
+              <enchantment level="1">thorns</enchantment>
+              <enchantment level="1">damage all</enchantment>
+              <enchantment level="1">arrow damage</enchantment>
+              <enchantment level="1">damage undead</enchantment>
+              <enchantment level="1">arrow knockback</enchantment>
+              <enchantment level="1">damage arthropods</enchantment>
+              <enchantment level="1">arrow fire</enchantment>
+              <enchantment level="1">arrow infinite</enchantment>
+              <enchantment level="1">knockback</enchantment>
+              <enchantment level="1">fire aspect</enchantment>
+              <enchantment level="1">loot bonus mobs</enchantment>
+              <enchantment level="1">luck</enchantment>
+              <enchantment level="1">lure</enchantment>
+            </enchantments>
+            <lore>
+              <line>map.yml</line>
+            </lore>
+          </item>
+          <item damage="1" material="golden apple" name="^7^lYou are now Hacking!">
+            <lore>
+              <line>Congratulations on being falsely banned!</line>
+            </lore>
+          </item>
+          <item material="watch" name="The Master Clock">
+            <enchantments>
+              <enchantment level="4">durability</enchantment>
+            </enchantments>
+            <lore>
+              <line>It's time for Popeyes!</line>
+              <line>Or should I get KFC?</line>
+            </lore>
+          </item>
+          <item material="anvil" name="^mHeavy but Feather Falling?">
+            <enchantments>
+              <enchantment level="4">protection fall</enchantment>
+            </enchantments>
+            <lore>
+              <line>If it's heavy, why does it have feather falling?</line>
+            </lore>
+          </item>
+          <item material="diamond" name="^mLeather">
+            <enchantments>
+              <enchantment level="10">damage all</enchantment>
+              <enchantment level="10">protection fall</enchantment>
+              <enchantment level="10">luck</enchantment>
+              <enchantment level="10">lure</enchantment>
+            </enchantments>
+            <lore>
+              <line>Just trust me. It's leather!</line>
+            </lore>
+          </item>
+          <item material="fishing rod" name="^9Fishing Spam">
+            <enchantments>
+              <enchantment level="10">knockback</enchantment>
+            </enchantments>
+            <lore>
+              <line>Revenge of the Survival Games!</line>
+            </lore>
+          </item>
+          <item material="flint and steel" name="^0Survival Games">
+            <enchantments>
+              <enchantment level="2">fire aspect</enchantment>
+            </enchantments>
+            <lore>
+              <line>The Memories... The TERRIBLE Memories...</line>
+            </lore>
+          </item>
+          <item material="book" name="^5^lJunior Mod Applications">
+            <enchantments>
+              <enchantment level="6">damage all</enchantment>
+              <enchantment level="3">knockback</enchantment>
+            </enchantments>
+            <lore>
+              <line>Everyone has been denied</line>
+            </lore>
+          </item>
+          <item material="diamond helmet" name="^d^lPosighdun's Amazing Hair">
+            <enchantments>
+              <enchantment level="10">oxygen</enchantment>
+              <enchantment level="10">water worker</enchantment>
+            </enchantments>
+            <lore>
+              <line>Just look at his hair! It's Amazing!</line>
+            </lore>
+          </item>
+          <item material="explosive minecart" name="^lYOU DON'T UNDERSTAND">
+            <enchantments>
+              <enchantment level="5">knockback</enchantment>
+            </enchantments>
+            <lore>
+              <line>YOU DON'T UNDERSTAND</line>
+            </lore>
+          </item>
+          <item material="cake" name="^6^lPieZ">
+            <enchantments>
+              <enchantment level="4">arrow damage</enchantment>
+            </enchantments>
+            <lore>
+              <line>Praise lord PieZ</line>
+            </lore>
+          </item>
+          <item material="apple" name="^4^lMonsieur's Apple">
+            <enchantments>
+              <enchantment level="4">luck</enchantment>
+            </enchantments>
+            <lore>
+              <line>RIP OCN</line>
+            </lore>
+          </item>
+          <item material="compass" name="^5^lBroken Walls Player Tracker">
+            <enchantments>
+              <enchantment level="3">lure</enchantment>
+            </enchantments>
+            <lore>
+              <line>When will this ever be fixed?</line>
+            </lore>
+          </item>
+          <item material="ghast tear" name="^b^lRaindrop">
+            <enchantments>
+              <enchantment level="5">damage undead</enchantment>
+            </enchantments>
+            <lore>
+              <line>+1</line>
+            </lore>
+          </item>
+          <item amount="16" material="snow ball" name="^lFriends!">
+            <lore>
+              <line>Need Friends?</line>
+            </lore>
+          </item>
+          <item material="gold hoe" name="^lAuto's Tool">
+            <enchantments>
+              <enchantment level="3">water worker</enchantment>
+            </enchantments>
+            <lore>
+              <line>If you get what I mean :^)</line>
+            </lore>
+          </item>
+          <item material="stone button" name="^lscrim05 offline">
+            <enchantments>
+              <enchantment level="5">arrow damage</enchantment>
+              <enchantment level="3">loot bonus blocks</enchantment>
+            </enchantments>
+            <lore>
+              <line>Hey Austin? Can you open scrim05?</line>
+            </lore>
+          </item>
+          <item material="paper" name="^lVIP club pass">
+            <enchantments>
+              <enchantment level="3">loot bonus blocks</enchantment>
+            </enchantments>
+            <lore>
+              <line>Grants you exclusive access</line>
+              <line>to the VIP club at your team's</line>
+              <line>spawn!</line>
+            </lore>
+          </item>
+          <item amount="1" material="boat" name="^1^lBOATZZZZZZZZZZZZZZZZZZZZZ">
+            <enchantments>
+              <enchantment level="5">knockback</enchantment>
+            </enchantments>
+          </item>
+          <item amount="1" damage="16422" material="potion" name="^7^lGRENADE">
+            <effects>
+              <effect amplifier="39" duration="2">harm</effect>
+            </effects>
+            <lore>
+              <line>IT BURNS</line>
+            </lore>
+          </item>
+          <item amount="1" color="pink" material="leather leggings" name="^3^lALM's Leggings">
+            <enchantments>
+              <enchantment level="5">thorns</enchantment>
+            </enchantments>
+          </item>
+          <item amount="1" damage="2" material="anvil" name="^3^lRegular Anvil"/>
+          <item amount="1" damage="3" material="stained clay" name="^5Toy Fortress">
+            <enchantments>
+              <enchantment level="2">fire aspect</enchantment>
+            </enchantments>
+            <lore>
+              <line>- PieZ</line>
+            </lore>
+          </item>
+          <item amount="1" material="bone" name="^lIvory Sword">
+            <enchantments>
+              <enchantment level="5">damage all</enchantment>
+            </enchantments>
+            <lore>
+              <line>Made from the finest rhinos on Fissura.</line>
+            </lore>
+          </item>
+          <item amount="1" material="jukebox" name="^3^lSony Walkman">
+            <enchantments>
+              <enchantment level="5">damage all</enchantment>
+            </enchantments>
+            <lore>
+              <line>^3^lit's impossible to use!</line>
+            </lore>
+          </item>
+          <item amount="1" material="dead bush" name="^4Pokey Thing">
+            <enchantments>
+              <enchantment level="8">damage all</enchantment>
+            </enchantments>
+            <lore>
+              <line>Found near a local Trevecca.</line>
+            </lore>
+          </item>
+          <item amount="1" damage="1" material="sand" name="^c^lRed Sand Wars">
+            <enchantments>
+              <enchantment level="200">protection environmental</enchantment>
+            </enchantments>
+            <lore>
+              <line>^5^lWHEN WILL THIS EXIST</line>
+            </lore>
+          </item>
+          <item amount="1" material="gold chestplate" name="^5^lThe Gods's Chestplate">
+            <enchantments>
+              <enchantment level="5">protection environmental</enchantment>
+            </enchantments>
+          </item>
+          <item amount="1" material="skull item" name="^7^lHalloween Costume">
+            <enchantments>
+              <enchantment level="4">protection environmental</enchantment>
+              <enchantment level="4">protection projectile</enchantment>
+            </enchantments>
+            <lore>
+              <line>Goes great with bowspam!</line>
+            </lore>
+          </item>
+          <item amount="1" material="bow" name="^3^lCreeper Bow" projectile="creeper">
+            <lore>
+              <line>Shoot explosive creepers at will!</line>
+            </lore>
+          </item>
+          <item amount="1" material="beacon" name="^f^lBeacon of ^e^lLight">
+            <enchantments>
+              <enchantment level="5">fire aspect</enchantment>
+              <enchantment level="2">knockback</enchantment>
+            </enchantments>
+            <lore>
+              <line>^e^lLight the path</line>
+              <line>^3^lby following the Power</line>
+              <line>^3^lof the ^c^lBeacon</line>
+            </lore>
+          </item>
+          <item amount="1" damage="10" material="stained clay"
+            name="^6^lLast Clay Block of Powerhouse">
+            <enchantments>
+              <enchantment level="7">knockback</enchantment>
+            </enchantments>
+            <lore>
+              <line>terrible map</line>
+            </lore>
+          </item>
+          <item amount="1" damage="16385" material="potion" name="^7^lIllegal Drugs">
+            <effects>
+              <effect amplifier="4" duration="200">speed</effect>
+              <effect amplifier="1" duration="200">increase damage</effect>
+              <effect amplifier="0" duration="200">confusion</effect>
+              <effect amplifier="4" duration="200">hunger</effect>
+            </effects>
+            <lore>
+              <line>don't get caught with this bro</line>
+            </lore>
+          </item>
+          <item amount="1" material="blaze rod" name="^4^lHot Rod">
+            <enchantments>
+              <enchantment level="2">fire aspect</enchantment>
+            </enchantments>
+            <lore>
+              <line>^4^lPretty Hot if i do say so myself!</line>
+            </lore>
+          </item>
+          <item amount="1" material="water bucket" name="^9^lSUPER COOL MLG WATER BUCKET PLACE!"/>
+          <item amount="1" material="gold leggings" name="^5^lThe God's Leggings">
+            <enchantments>
+              <enchantment level="5">protection environmental</enchantment>
+            </enchantments>
+          </item>
+          <item amount="1" material="emerald block" name="^a^l5 Killstreak"/>
+          <item amount="1" material="paper" name="^f^lXML">
+            <enchantments>
+              <enchantment level="8">damage all</enchantment>
+              <enchantment level="1">knockback</enchantment>
+            </enchantments>
+          </item>
+          <item amount="1" material="carrot stick" name="^6^lprofbananaslug's ^f^llunch">
+            <enchantments>
+              <enchantment level="3">knockback</enchantment>
+            </enchantments>
+            <lore>
+              <line>He eats the fishing rod, too...</line>
+            </lore>
+          </item>
+          <item amount="1" damage="16393" material="potion" name="First Aid">
+            <effects>
+              <effect amplifier="10" duration="200">heal</effect>
+            </effects>
+          </item>
+          <item amount="1" material="armor stand" name="^lDevon's Skeleton">
+            <enchantments>
+              <enchantment level="10">protection environmental</enchantment>
+            </enchantments>
+            <lore>
+              <line>Is this why he's always so wooden?</line>
+            </lore>
+          </item>
+          <item amount="1" material="slime ball" name="^a^lBounce Mania Junior"/>
+          <item amount="1" material="iron sword" name="^a^lAtdit's ^f^lfork">
+            <enchantments>
+              <enchantment level="3">damage all</enchantment>
+            </enchantments>
+            <lore>
+              <line>Need it for eating all those porkies!</line>
+            </lore>
+          </item>
+          <item amount="1" material="eye of ender" name="^d^lEw gross, somebody's eye...">
+            <lore>
+              <line>Delicious.</line>
+            </lore>
+          </item>
+          <item amount="1" material="wood sword" name="^4^lThe God's Weapon">
+            <enchantments>
+              <enchantment level="10">damage all</enchantment>
+            </enchantments>
+          </item>
+          <item amount="1" material="clay brick" name="^c^lHard Brick">
+            <enchantments>
+              <enchantment level="5">damage all</enchantment>
+            </enchantments>
+          </item>
+          <item amount="1" material="tnt" name="^c^lSome Explosive Device"/>
+          <item amount="1" material="record 10" name="^a^lALM's Soundboard">
+            <lore>
+              <line>*insert car crash noise*</line>
+            </lore>
+          </item>
+          <item amount="1" material="exp bottle" name="^b^lSparkly ^a^lThing">
+            <lore>
+              <line>Probably has drugs in it...</line>
+            </lore>
+          </item>
+          <item amount="1" material="rabbit hide" name="^e^lTaxidermied Bugs Bunny">
+            <lore>
+              <line>Yum...</line>
+            </lore>
+          </item>
+          <item amount="1" material="sponge" name="^e^lSpongebob">
+            <enchantments>
+              <enchantment level="5">damage all</enchantment>
+              <enchantment level="10">knockback</enchantment>
+              <enchantment level="20">oxygen</enchantment>
+              <enchantment level="20">water worker</enchantment>
+            </enchantments>
+            <lore>
+              <line>^e^lSquarepants</line>
+            </lore>
+          </item>
+          <item amount="1" damage="32" material="potion" name="^rNasty Potion">
+            <lore>
+              <line>Sewage mixed with Gill's vomit.</line>
+            </lore>
+          </item>
+          <item amount="1" damage="16387" material="potion" name="Bounce Mania Simulator 2017">
+            <effects>
+              <effect amplifier="20" duration="600">jump</effect>
+            </effects>
+          </item>
+          <item amount="1" material="gold nugget" name="^e^lCredit">
+            <enchantments>
+              <enchantment level="4">damage all</enchantment>
+            </enchantments>
+            <lore>
+              <line>^e^lDING</line>
+            </lore>
+          </item>
+          <item amount="1" material="stick" name="^7^lThe ^4^lTRUE ^7^lDevelopment Wand">
+            <enchantments>
+              <enchantment level="5">protection environmental</enchantment>
+              <enchantment level="5">dig speed</enchantment>
+              <enchantment level="5">protection fire</enchantment>
+              <enchantment level="5">silk touch</enchantment>
+              <enchantment level="5">protection fall</enchantment>
+              <enchantment level="5">durability</enchantment>
+              <enchantment level="5">protection explosions</enchantment>
+              <enchantment level="5">loot bonus blocks</enchantment>
+              <enchantment level="5">protection projectile</enchantment>
+              <enchantment level="5">oxygen</enchantment>
+              <enchantment level="5">water worker</enchantment>
+              <enchantment level="5">thorns</enchantment>
+              <enchantment level="5">damage all</enchantment>
+              <enchantment level="5">arrow damage</enchantment>
+              <enchantment level="5">damage undead</enchantment>
+              <enchantment level="5">arrow knockback</enchantment>
+              <enchantment level="5">damage arthropods</enchantment>
+              <enchantment level="5">arrow fire</enchantment>
+              <enchantment level="5">knockback</enchantment>
+              <enchantment level="5">arrow infinite</enchantment>
+              <enchantment level="5">fire aspect</enchantment>
+              <enchantment level="5">loot bonus mobs</enchantment>
+              <enchantment level="5">luck</enchantment>
+              <enchantment level="5">lure</enchantment>
+            </enchantments>
+          </item>
+          <item amount="1" damage="8225" material="potion" name="^5^lROUND ^3^lTWO"/>
+          <item amount="1" material="bow" name="^2^lAvicus Knockback" slot="1">
+            <enchantments>
+              <enchantment level="4">arrow knockback</enchantment>
+            </enchantments>
+          </item>
+          <item amount="1" material="ender chest" name="^2^lPersonal Storage Unit"/>
+          <item amount="1" material="diamond sword" name="^2^lQuintus Origins" slot="2">
+            <enchantments>
+              <enchantment level="2">knockback</enchantment>
+            </enchantments>
+          </item>
+          <item amount="1" damage="2" material="long grass" name="^a^lFlaming Fern">
+            <enchantments>
+              <enchantment level="2">fire aspect</enchantment>
+            </enchantments>
+          </item>
+          <item amount="1" material="lapis block" name="^1^lPRAISE LORD LAPIS COW GOD">
+            <enchantments>
+              <enchantment level="5">damage all</enchantment>
+            </enchantments>
+          </item>
+          <item amount="1" material="iron chestplate" name="^3^lThe Titan's Chestplate">
+            <enchantments>
+              <enchantment level="4">protection environmental</enchantment>
+            </enchantments>
+          </item>
+          <item amount="1" material="lava bucket" name="^c^lNever add this to Nebula"/>
+          <item amount="1" material="bow" name="^3^lEnder Bow" projectile="enderbow">
+            <lore>
+              <line>^2^lBest Map!</line>
+            </lore>
+          </item>
+          <item amount="1" material="iron helmet" name="^3^lThe Titan's Helmet">
+            <enchantments>
+              <enchantment level="4">protection environmental</enchantment>
+            </enchantments>
+          </item>
+          <item amount="1" material="iron leggings" name="^3^lThe Titan's Leggings">
+            <enchantments>
+              <enchantment level="4">protection environmental</enchantment>
+            </enchantments>
+          </item>
+          <item amount="1" material="iron boots" name="^3^lThe Titan's Boots">
+            <enchantments>
+              <enchantment level="4">protection environmental</enchantment>
+            </enchantments>
+          </item>
+          <item amount="1" material="gold helmet" name="^5^lThe Gods's Helmet">
+            <enchantments>
+              <enchantment level="5">protection environmental</enchantment>
+            </enchantments>
+          </item>
+          <item amount="1" material="diamond block" name="^5^lStolen from Halcyon">
+            <lore>
+              <line>So that's where all the diamonds went!</line>
+            </lore>
+          </item>
+          <item amount="1" material="gold boots" name="^5^lThe Gods's Boots">
+            <enchantments>
+              <enchantment level="5">protection environmental</enchantment>
+            </enchantments>
+          </item>
+          <item amount="1" material="bucket" name="^c^lBucket">
+            <lore>
+              <line>Big enough to fit everyone who plays on Avicus</line>
+            </lore>
+          </item>
+          <item amount="1" material="bow" name="^3^lExplosive Bow" projectile="tnt">
+            <lore>
+              <line>Shoot out TNT like on Salvo!</line>
+            </lore>
+          </item>
+          <item amount="1" material="chainmail helmet" name="^c^lthe most boring helmet ever">
+            <enchantments>
+              <enchantment level="10">damage undead</enchantment>
+              <enchantment level="10">loot bonus blocks</enchantment>
+              <enchantment level="10">oxygen</enchantment>
+              <enchantment level="10">luck</enchantment>
+              <enchantment level="10">lure</enchantment>
+            </enchantments>
+          </item>
+          <item amount="1" material="chainmail chestplate"
+            name="^c^lthe most boring chestplate ever">
+            <enchantments>
+              <enchantment level="10">damage undead</enchantment>
+              <enchantment level="10">loot bonus blocks</enchantment>
+              <enchantment level="10">luck</enchantment>
+              <enchantment level="10">oxygen</enchantment>
+              <enchantment level="10">lure</enchantment>
+            </enchantments>
+          </item>
+          <item amount="1" material="chainmail leggings" name="^c^lthe most boring leggings ever">
+            <enchantments>
+              <enchantment level="10">damage undead</enchantment>
+              <enchantment level="10">loot bonus blocks</enchantment>
+              <enchantment level="10">oxygen</enchantment>
+              <enchantment level="10">luck</enchantment>
+              <enchantment level="10">lure</enchantment>
+            </enchantments>
+          </item>
+          <item amount="1" material="chainmail boots" name="^c^lthe most boring boots ever">
+            <enchantments>
+              <enchantment level="10">damage undead</enchantment>
+              <enchantment level="10">loot bonus blocks</enchantment>
+              <enchantment level="10">luck</enchantment>
+              <enchantment level="10">oxygen</enchantment>
+              <enchantment level="10">lure</enchantment>
+            </enchantments>
+          </item>
+          <item amount="1" material="nether brick item" name="^c^lHard ^6^lNether ^c^lBrick">
+            <enchantments>
+              <enchantment level="7">damage all</enchantment>
+            </enchantments>
+          </item>
+          <item amount="1" material="redstone block" name="^c^lTNT should never be used on Avicus"/>
+          <item amount="1" damage="8201" material="potion" name="^c^lAn Actual Potion"/>
+          <item amount="1" material="hopper" name="^2^lDevon's Upside Down ^5^lWitch Hat">
+            <enchantments>
+              <enchantment level="9">protection fire</enchantment>
+            </enchantments>
+            <lore>
+              <line>If you see this, tag dev_revs in Discord and say "LOL ur stream sux XD".</line>
+            </lore>
+          </item>
+          <item amount="1" material="activator rail" name="^3^lprofbananaslug's Toy Train Track">
+            <enchantments>
+              <enchantment level="8">arrow knockback</enchantment>
+            </enchantments>
+            <lore>
+              <line>If you see this, tag profbananaslug in Discord and say "LOL ur xml sux XD".
+              </line>
+            </lore>
+          </item>
+          <item amount="1" material="explosive minecart" name="^r^lIron and Dynamite">
+            <enchantments>
+              <enchantment level="100">protection explosions</enchantment>
+            </enchantments>
+            <lore>
+              <line>/report ALM Dev Abuse</line>
+            </lore>
+          </item>
+          <item amount="1" material="feather" name="^f^lAIRSTRIKE ^4^lINBOUND">
+            <enchantments>
+              <enchantment level="1">arrow infinite</enchantment>
+            </enchantments>
+            <lore>
+              <line>§c§lAIRSTRIKE INBOUND</line>
+            </lore>
+          </item>
+          <item amount="1" material="leather helmet" name="^5^lTryhard Helmet">
+            <enchantments>
+              <enchantment level="8">protection environmental</enchantment>
+            </enchantments>
+            <lore>
+              <line>§fOne of the many</line>
+              <line>§fitems used by tryhards</line>
+            </lore>
+          </item>
+          <item amount="1" material="leather chestplate" name="^5^lTryhard Chestplate">
+            <enchantments>
+              <enchantment level="8">protection environmental</enchantment>
+            </enchantments>
+            <lore>
+              <line>§fOne of the many</line>
+              <line>§fitems used by tryhards</line>
+            </lore>
+          </item>
+          <item amount="1" material="leather leggings" name="^5^lTryhard Leggings">
+            <enchantments>
+              <enchantment level="8">protection environmental</enchantment>
+            </enchantments>
+            <lore>
+              <line>§fOne of the many</line>
+              <line>§fitems used by tryhards</line>
+            </lore>
+          </item>
+          <item amount="1" material="leather boots" name="^5^lTryhard Boots">
+            <enchantments>
+              <enchantment level="8">protection environmental</enchantment>
+            </enchantments>
+            <lore>
+              <line>§fOne of the many</line>
+              <line>§fitems used by tryhards</line>
+            </lore>
+          </item>
+          <item amount="1" material="bow" name="^c^lAIRSTRIKE BLASTER" projectile="chicken">
+            <lore>
+              <line>§f§lShoot §c§LAIRSTRIKES</line>
+            </lore>
+          </item>
+          <item amount="1" material="gold pickaxe" name="^e^lBroken Pickaxe">
+            <enchantments>
+              <enchantment level="10">dig speed</enchantment>
+              <enchantment level="10">durability</enchantment>
+            </enchantments>
+          </item>
+          <item amount="1" material="flower pot item" name="^c^lK_R_Cord's ^a^lMortal Enemy">
+            <enchantments>
+              <enchantment level="10">knockback</enchantment>
+            </enchantments>
+            <lore>
+              <line>If you ever see this, tag K_R_Cord in Discord and say "LOL ur map sux XD".
+              </line>
+            </lore>
+          </item>
+          <item amount="1" damage="3" material="raw fish" name="^b^lClijmart's Fish">
+            <enchantments>
+              <enchantment level="2">thorns</enchantment>
+            </enchantments>
+            <lore>
+              <line>If you see this, tag Clijmart in discord and say "LOL ur fish sux XD".</line>
+            </lore>
+          </item>
+          <item amount="1" material="web" name="^c^lSweet Slopes 2">
+            <enchantments>
+              <enchantment level="10">knockback</enchantment>
+            </enchantments>
+          </item>
+          <item amount="1" material="nether star" name="^c^lJapanese Throwing Thingy">
+            <enchantments>
+              <enchantment level="5">damage all</enchantment>
+            </enchantments>
+            <lore>
+              <line>we may never know what it is</line>
+            </lore>
+          </item>
+          <item amount="1" material="minecart" name="^1^lMinecartZZZZZZZZZZZZZZZZ">
+            <enchantments>
+              <enchantment level="3">knockback</enchantment>
+            </enchantments>
+          </item>
+          <item amount="1" material="bow" name="^3^lFriend Shooter" projectile="friends">
+            <lore>
+              <line>§lShoot Friends...</line>
+            </lore>
+          </item>
+          <item amount="1" material="red sandstone stairs" name="^r^e^lInsanity">
+            <enchantments>
+              <enchantment level="10">thorns</enchantment>
+            </enchantments>
+            <lore>
+              <line>It's not bad.</line>
+            </lore>
+          </item>
+          <item amount="1" material="wood axe" name="^6^lWand">
+            <enchantments>
+              <enchantment level="5">damage all</enchantment>
+            </enchantments>
+          </item>
+          <item amount="1" damage="3" material="skull item" name="^r^lSteve's Head">
+            <enchantments>
+              <enchantment level="10">damage all</enchantment>
+            </enchantments>
+            <lore>
+              <line>Literally the most boring item ever.</line>
+            </lore>
+          </item>
+          <item amount="1" material="bow" name="^m^o^l^6 Frenzy Bow" slot="0">
+            <enchantments>
+              <enchantment level="3">arrow damage</enchantment>
+              <enchantment level="1">arrow knockback</enchantment>
+              <enchantment level="1">arrow fire</enchantment>
+              <enchantment level="2">knockback</enchantment>
+              <enchantment level="1">fire aspect</enchantment>
+            </enchantments>
+            <lore>
+              <line>§2§lR I P F R E N Z Y</line>
+            </lore>
+          </item>
+          <item amount="1" material="bow" name="^b^l" slot="1">
+            <enchantments>
+              <enchantment level="5">arrow damage</enchantment>
+            </enchantments>
+            <lore>
+              <line>§4§lNobody knows what it is</line>
+            </lore>
+          </item>
+          <item amount="1" material="bow" name="^4^lReverse God Bow" slot="2">
+            <enchantments>
+              <enchantment level="5">damage all</enchantment>
+              <enchantment level="5">damage undead</enchantment>
+              <enchantment level="5">damage arthropods</enchantment>
+              <enchantment level="3">durability</enchantment>
+              <enchantment level="2">knockback</enchantment>
+              <enchantment level="2">fire aspect</enchantment>
+              <enchantment level="3">loot bonus mobs</enchantment>
+            </enchantments>
+            <lore>
+              <line>§2§lPretty Godly!</line>
+            </lore>
+          </item>
+          <item amount="1" material="bow" name="^4^lThe God Bow" slot="3">
+            <enchantments>
+              <enchantment level="3">arrow damage</enchantment>
+              <enchantment level="3">damage all</enchantment>
+              <enchantment level="5">arrow knockback</enchantment>
+              <enchantment level="10">damage undead</enchantment>
+              <enchantment level="1">arrow fire</enchantment>
+              <enchantment level="100">durability</enchantment>
+              <enchantment level="10">knockback</enchantment>
+            </enchantments>
+          </item>
+          <item amount="1" material="diamond pickaxe" name="^f^lThe ^4^lTRUE ^f^lCave Destroyer"
+            slot="4">
+            <enchantments>
+              <enchantment level="6">damage all</enchantment>
+            </enchantments>
+            <lore>
+              <line>§c§lOnly One Existed</line>
+            </lore>
+          </item>
+          <item amount="1" material="diamond spade" name="^f^lThe ^4^lTRUE ^f^lSpanky Spade"
+            slot="5">
+            <enchantments>
+              <enchantment level="6">damage all</enchantment>
+            </enchantments>
+            <lore>
+              <line>§f§lOnly one existed</line>
+            </lore>
+          </item>
+          <item amount="1" material="diamond sword" name="^4^lReverse God Sword" slot="6">
+            <enchantments>
+              <enchantment level="5">arrow damage</enchantment>
+              <enchantment level="2">arrow knockback</enchantment>
+              <enchantment level="3">durability</enchantment>
+              <enchantment level="1">arrow fire</enchantment>
+              <enchantment level="1">arrow infinite</enchantment>
+            </enchantments>
+          </item>
+          <item amount="1" material="iron sword" name="^4^l The Titan's Weapon" slot="7">
+            <enchantments>
+              <enchantment level="5">damage all</enchantment>
+            </enchantments>
+            <lore>
+              <line>§f§lBe Careful</line>
+            </lore>
+          </item>
+          <item amount="1" material="paper" name="^8^lThe Social Media Team" slot="8">
+            <enchantments>
+              <enchantment level="100">dig speed</enchantment>
+              <enchantment level="100">damage undead</enchantment>
+              <enchantment level="100">water worker</enchantment>
+              <enchantment level="100">lure</enchantment>
+            </enchantments>
+            <lore>
+              <line>§1§lWe'll have you hooked!</line>
+            </lore>
+          </item>
+          <item amount="1" material="enchantment table" name="^3^lHope you got Levels and Lapis..."
+            slot="9"/>
+          <item amount="1" damage="1" material="red rose" name="^r^b^lDrooping Flower" slot="10">
+            <lore>
+              <line>§fIs it just me, or does this thing look like it's going to die in 5 minutes?
+              </line>
+            </lore>
+          </item>
+          <item amount="1" material="log 2" name="^c^lUgly Wood" slot="11">
+            <lore>
+              <line>§fDead on the outside, rotten on the inside...</line>
+            </lore>
+          </item>
+          <item amount="1" material="nether star" name="^1Avicus Point Shop" slot="12">
+            <enchantments>
+              <enchantment level="100">durability</enchantment>
+              <enchantment level="100">arrow infinite</enchantment>
+            </enchantments>
+            <lore>
+              <line>§6Gapples, Grenades, and Spades</line>
+            </lore>
+          </item>
+          <item amount="1" material="diamond helmet" name="^3^lRegular Diamond Helmet" slot="13"/>
+          <item amount="1" material="diamond chestplate" name="^3^lRegular Diamond Chestplate"
+            slot="14"/>
+          <item amount="1" material="diamond leggings" name="^3^lRegular Diamond Leggings"
+            slot="15"/>
+          <item amount="1" material="diamond boots" name="^3^lRegular Diamond Boots" slot="16"/>
+          <item amount="1" material="dead bush" name="^6REALLY Dead Bush" slot="17">
+            <enchantments>
+              <enchantment level="100">damage undead</enchantment>
+            </enchantments>
+            <lore>
+              <line>§e§oNot As Dead As Avicus</line>
+            </lore>
+          </item>
+          <item amount="1" material="ink sack" name="^f^lFlaming Sack" slot="18">
+            <enchantments>
+              <enchantment level="1">fire aspect</enchantment>
+            </enchantments>
+          </item>
+          <item amount="1" material="iron boots" name="^5^lBoots from ^e^lDaisy" slot="19">
+            <enchantments>
+              <enchantment level="2">protection environmental</enchantment>
+            </enchantments>
+          </item>
+          <item amount="1" material="iron leggings" name="^5^lLeggings from ^e^lDaisy" slot="20">
+            <enchantments>
+              <enchantment level="2">protection environmental</enchantment>
+            </enchantments>
+          </item>
+          <item amount="1" material="iron chestplate" name="^5^lChestplate from ^e^lDaisy"
+            slot="21">
+            <enchantments>
+              <enchantment level="2">protection environmental</enchantment>
+            </enchantments>
+          </item>
+          <item amount="1" material="iron helmet" name="^5^lHelmet from ^e^lDaisy" slot="22">
+            <enchantments>
+              <enchantment level="2">protection environmental</enchantment>
+            </enchantments>
+          </item>
+          <item amount="1" material="hopper" name="^6^lCONE" slot="23">
+            <enchantments>
+              <enchantment level="10">damage undead</enchantment>
+              <enchantment level="10">knockback</enchantment>
+            </enchantments>
+            <lore>
+              <line>§6§lAvoid the Cone!</line>
+            </lore>
+          </item>
+          <item amount="1" material="red sandstone stairs" name="^d^lShadowolf's ^f^lGaming Chair"
+            slot="24">
+            <lore>
+              <line>§c§lHe needed this to</line>
+              <line>§c§lbecome a part of the</line>
+              <line>§c§lMedia Team</line>
+            </lore>
+          </item>
+          <item amount="1" material="saddle" name="^6^lLokigh's Gaming Chair" slot="25">
+            <enchantments>
+              <enchantment level="5">damage all</enchantment>
+              <enchantment level="5">damage undead</enchantment>
+              <enchantment level="3">knockback</enchantment>
+            </enchantments>
+            <lore>
+              <line>§7Hacking X</line>
+            </lore>
+          </item>
+          <item amount="1" material="bread" name="^6^lSuper-Powered Bread" slot="26">
+            <lore>
+              <line>§7Delicious X</line>
+            </lore>
+          </item>
+          <item amount="1" material="wood spade" name="^aSpanky Spade v.1" slot="27">
+            <enchantments>
+              <enchantment level="100">durability</enchantment>
+              <enchantment level="3">knockback</enchantment>
+            </enchantments>
+          </item>
+          <item amount="1" material="ender pearl" name="^6^o^lYour Lucky Day" slot="28">
+            <lore>
+              <line>§5We stole this from Ender Hill</line>
+            </lore>
+          </item>
+          <item amount="1" material="red mushroom" name="^5^lD^6^le^5^lc^6^la^5^ly" slot="29">
+            <enchantments>
+              <enchantment level="7">damage all</enchantment>
+              <enchantment level="10">damage undead</enchantment>
+              <enchantment level="3">knockback</enchantment>
+            </enchantments>
+            <lore>
+              <line>§5N§6e§5e§6d§5s §6M§5o§6r§5e §6S§5h§6r§5o§6o§5m§5s</line>
+            </lore>
+          </item>
+          <item amount="1" material="stone button" name="^e^lMultiple Choice ^b^lQuestion"
+            slot="30">
+            <lore>
+              <line>§fWho is the owner of §bAvicus§f?</line>
+              <line>§eA) ALM</line>
+              <line>§eB) newcleus</line>
+              <line>§eC) professorutonium</line>
+              <line>§eD) keenanjt</line>
+              <line>§eE) shadowolfyt</line>
+            </lore>
+          </item>
+          <item amount="1" material="golden apple" name="^6^lYour UHC Dream" slot="31">
+            <lore>
+              <line>§bCyclops host more</line>
+            </lore>
+          </item>
+          <item amount="1" damage="6" material="ink sack" name="^3^lDisappointment" slot="32">
+            <lore>
+              <line>§3§lDisappointment</line>
+            </lore>
+          </item>
+          <item amount="1" material="gold leggings" name="^5^o^lUse Protection" slot="33">
+            <enchantments>
+              <enchantment level="100">protection projectile</enchantment>
+              <enchantment level="100">durability</enchantment>
+            </enchantments>
+            <lore>
+              <line>§4§oUse Protection</line>
+            </lore>
+          </item>
+          <item amount="1" damage="94" material="monster egg" name="^f^lDelivery from ^c^lJapan"
+            slot="34">
+            <enchantments>
+              <enchantment level="3">durability</enchantment>
+              <enchantment level="1">water worker</enchantment>
+            </enchantments>
+          </item>
+          <item amount="1" material="firework" name="^3^lEmergency ^4^LFLAIR" slot="35">
+            <enchantments>
+              <enchantment level="4">protection environmental</enchantment>
+            </enchantments>
+          </item>
+          <item amount="1" damage="15" material="banner" name="^5^lRETURN THE FLAG" slot="0">
+            <enchantments>
+              <enchantment level="10">knockback</enchantment>
+            </enchantments>
+            <lore>
+              <line>§c§lRUN BACK</line>
+            </lore>
+          </item>
+          <item amount="1" material="written book" slot="32">
+            <lore>
+              <line>Ingame color codes</line>
+            </lore>
+          </item>
+          <item amount="1" material="vine" name="^2V^ae^2n^ao^2m^ao^2u^as ^2T^aD^2M" slot="1">
+            <enchantments>
+              <enchantment level="6">damage all</enchantment>
+            </enchantments>
+            <lore>
+              <line>§2§lPING WARS</line>
+            </lore>
+          </item>
+          <item amount="1" material="fireball" name="^4^lO.,.O" slot="33">
+            <enchantments>
+              <enchantment level="10">fire aspect</enchantment>
+            </enchantments>
+            <lore>
+              <line>WATCH OUT! A GHAST</line>
+            </lore>
+          </item>
+          <item amount="1" material="stick" name="^f^lK_R_Cord's ^4^lWrath" slot="2">
+            <enchantments>
+              <enchantment level="10">damage all</enchantment>
+            </enchantments>
+            <lore>
+              <line>§f§lRUN AWAY</line>
+            </lore>
+          </item>
+          <item amount="1" material="firework charge" name="^2^lFirework StarZ" slot="34">
+            <enchantments>
+              <enchantment level="10">protection environmental</enchantment>
+              <enchantment level="10">protection fire</enchantment>
+              <enchantment level="10">protection explosions</enchantment>
+              <enchantment level="10">protection projectile</enchantment>
+            </enchantments>
+            <lore>
+              <line>§c§lif only it actually was</line>
+            </lore>
+          </item>
+          <item amount="1" material="book" name="^e^lEphesians 2:8-9" slot="3">
+            <enchantments>
+              <enchantment level="5">damage all</enchantment>
+              <enchantment level="5">protection environmental</enchantment>
+              <enchantment level="5">durability</enchantment>
+            </enchantments>
+            <lore>
+              <line>§e§oSolo Para Ti</line>
+            </lore>
+          </item>
+          <item amount="1" material="enchanted book" name="^o^3^oThe Sharp 5 Sharp 5 Book"
+            slot="35"/>
+          <item amount="1" material="record 4" name="^4^lCAR CRASH.............." slot="4">
+            <enchantments>
+              <enchantment level="5">knockback</enchantment>
+            </enchantments>
+            <lore>
+              <line>§lmy earsssss</line>
+            </lore>
+          </item>
+          <item amount="1" material="pumpkin" name="^6Haunted Hallows" slot="5">
+            <enchantments>
+              <enchantment level="10">protection environmental</enchantment>
+            </enchantments>
+            <lore>
+              <line>§6§oIs It Worth It?</line>
+            </lore>
+          </item>
+          <item amount="1" material="bone" name="^f^lBad Bone" slot="6">
+            <enchantments>
+              <enchantment level="6">knockback</enchantment>
+            </enchantments>
+          </item>
+          <item amount="1" material="snow"
+            name="^4A^2v^4i^2c^4u^2s ^4H^2o^4l^2i^4d^2a^4y ^2U^4p^2d^4a^2t^4e" slot="7">
+            <enchantments>
+              <enchantment level="10">protection environmental</enchantment>
+              <enchantment level="10">protection fire</enchantment>
+              <enchantment level="10">silk touch</enchantment>
+              <enchantment level="10">protection fall</enchantment>
+              <enchantment level="10">durability</enchantment>
+              <enchantment level="10">protection explosions</enchantment>
+              <enchantment level="10">loot bonus blocks</enchantment>
+              <enchantment level="10">protection projectile</enchantment>
+              <enchantment level="10">oxygen</enchantment>
+              <enchantment level="10">water worker</enchantment>
+              <enchantment level="10">arrow knockback</enchantment>
+              <enchantment level="10">damage undead</enchantment>
+              <enchantment level="10">damage arthropods</enchantment>
+              <enchantment level="10">arrow fire</enchantment>
+              <enchantment level="10">arrow infinite</enchantment>
+              <enchantment level="10">loot bonus mobs</enchantment>
+              <enchantment level="10">luck</enchantment>
+            </enchantments>
+            <lore>
+              <line>§o§2Red, §4Green, §fand lots of snow</line>
+              <line>§2Looks Cool, §4But Useless</line>
+            </lore>
+          </item>
+          <item amount="1" material="diamond barding" name="^3^lDiamond Chestplate" slot="8">
+            <enchantments>
+              <enchantment level="10">protection environmental</enchantment>
+            </enchantments>
+            <lore>
+              <line>§f§lSomething is wrong...</line>
+            </lore>
+          </item>
+          <item amount="1" material="record 11" name="^3^l Rilos Squeaky Voice" slot="27">
+            <enchantments>
+              <enchantment level="100">knockback</enchantment>
+            </enchantments>
+          </item>
+          <item amount="1" material="cobble wall" name="^3^lThe Wall that Tylk Couldn't Pass"
+            slot="28">
+            <enchantments>
+              <enchantment level="10">protection environmental</enchantment>
+            </enchantments>
+            <lore>
+              <line>§3§lIt's called commands</line>
+            </lore>
+          </item>
+          <item amount="1" damage="3" material="ink sack" name="^c^lCOCO" slot="29">
+            <enchantments>
+              <enchantment level="5">damage all</enchantment>
+              <enchantment level="17">knockback</enchantment>
+            </enchantments>
+          </item>
+          <item amount="1" material="tripwire hook" name="^l^aT^br^di^3p^6p^4y ^cH^1o^eo^9k"
+            slot="30">
+            <enchantments>
+              <enchantment level="3">damage all</enchantment>
+              <enchantment level="3">knockback</enchantment>
+              <enchantment level="3">arrow infinite</enchantment>
+            </enchantments>
+            <lore>
+              <line>§o§dtrippy...</line>
+            </lore>
+          </item>
+          <item amount="1" material="ender pearl" name="^9^oEnderman's Baby" slot="31">
+            <enchantments>
+              <enchantment level="4">damage all</enchantment>
+              <enchantment level="2">fire aspect</enchantment>
+              <enchantment level="5">knockback</enchantment>
+            </enchantments>
+          </item>
+        </items>
+      </randomizer>
+    </loadout>
+    <loadout id="emerald-">
+      <item amount="2" material="emerald"/>
+      <item amount="1" material="golden apple"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="emerald-"/>
+    </rewards>
+  </kills>
+  <projectiles>
+    <projectile cooldown="1s" id="cat" name="kitty" type="ocelot"/>
+    <projectile cooldown="1s" id="zombie" name="zombie" type="zombie"/>
+    <projectile cooldown="1s" id="enderbow" name="Ender Bow" type="ender pearl"/>
+    <projectile cooldown="1s" id="tnt" name="TNT Bow" type="primed tnt"/>
+    <projectile cooldown="1s" id="creeper" name="Creeper Bow" type="creeper"/>
+    <projectile cooldown="1s" id="grenade" name="Grenade" type="primed tnt"/>
+    <projectile cooldown="1s" id="friends" name="Friends Bow" type="snowman"/>
+    <projectile cooldown="1s" id="chicken" name="Airstrike Bow" type="chicken"/>
+  </projectiles>
+  <world>
+    <gamerules>
+      <doDaylightCycle>false</doDaylightCycle>
+      <doFireTick>false</doFireTick>
+    </gamerules>
+  </world>
+</map>

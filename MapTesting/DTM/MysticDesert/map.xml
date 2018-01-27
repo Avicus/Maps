@@ -1,0 +1,121 @@
+<?xml version="1.0"?>
+<map name="Mystic Desert" spec="1.0.5" version="1.0.5">
+  <include src="defaults.xml"/>
+  <teams>
+    <team color="dark gray" id="gray" max="7" min="1">Hunters</team>
+    <team color="orange" id="orange" max="15" min="1">Runners</team>
+  </teams>
+  <authors>
+    <author uuid="8de835a6916a4fcf9b25239dda454411"/> <!-- Passively -->
+  </authors>
+  <spawns>
+    <spawn>
+      <regions>
+        <point yaw="90">10.5, 47, -24.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="gray-kit" team="gray">
+      <regions>
+        <point yaw="90">-1.5, 32, -26.5</point>
+        <point yaw="90">-1.5, 31, -22.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="orange-kit" team="orange">
+      <regions>
+        <point yaw="90">-8.5, 10, -23.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <loadouts>
+    <loadout id="gray-kit">
+      <effect amplifier="4" duration="10000s">speed</effect>
+      <item material="bow" slot="0" unbreakable="true">
+        <enchantments>
+          <enchantment level="3">durability</enchantment>
+          <enchantment level="20">arrow damage</enchantment>
+          <enchantment>arrow infinite</enchantment>
+        </enchantments>
+      </item>
+      <item amount="16" material="cooked beef" slot="8"/>
+      <item amount="1" material="arrow" slot="7"/>
+      <helmet color="#191919" material="leather helmet" unbreakable="true"/>
+      <chestplate color="#191919" material="leather chestplate" unbreakable="true"/>
+      <leggings material="chainmail leggings" unbreakable="true"/>
+      <boots color="#191919" material="leather boots" unbreakable="true"/>
+    </loadout>
+    <loadout id="orange-kit">
+      <item amount="16" material="cooked beef" slot="8"/>
+      <helmet material="leather helmet" team-color="true" unbreakable="true">
+        <enchantments>
+          <enchantment level="1">protection environmental</enchantment>
+        </enchantments>
+      </helmet>
+      <chestplate material="leather chestplate" team-color="true" unbreakable="true">
+        <enchantments>
+          <enchantment level="1">protection environmental</enchantment>
+        </enchantments>
+      </chestplate>
+      <leggings material="chainmail leggings" unbreakable="true">
+        <enchantments>
+          <enchantment level="2">protection projectile</enchantment>
+        </enchantments>
+      </leggings>
+      <boots material="leather boots" team-color="true" unbreakable="true">
+        <enchantments>
+          <enchantment level="1">protection environmental</enchantment>
+        </enchantments>
+      </boots>
+    </loadout>
+  </loadouts>
+  <objectives>
+    <monuments destroyable="true" materials="sponge">
+      <monuments owner="gray">
+        <monument name="Principal Core">
+          <region>
+            <cuboid max="-358, 19, -21" min="-358, 19, -21"/>
+          </region>
+        </monument>
+      </monuments>
+    </monuments>
+    <last-team-standing team="gray"/>
+  </objectives>
+  <elimination lives="1"/>
+  <results>
+    <win scenario="objectives">
+      <check>
+        <time>5m</time>
+      </check>
+    </win>
+  </results>
+  <zones>
+    <zone modify="never">
+      <region>
+        <invert>
+          <cuboid max="-358, 19, -21" min="-358, 19, -21"/>
+        </invert>
+      </region>
+      <message>{errors.cannot-build-map}</message>
+    </zone>
+  </zones>
+  <world>
+    <storm>false</storm>
+    <weather check="always"/>
+    <gamerules>
+      <doDaylightCycle>false</doDaylightCycle>
+      <naturalRegeneration>false</naturalRegeneration>
+    </gamerules>
+  </world>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>chainmail leggings</material>
+        <material>leather boots</material>
+        <material>cooked beef</material>
+        <material>arrow</material>
+        <material>bow</material>
+      </any>
+    </remove-drops>
+  </items>
+</map>

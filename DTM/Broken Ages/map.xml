@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map spec="1.0.5" name="Broken Ages" version="1.0.0" genre="nebula">
+  <include src="defaults.xml"/>
+  <gametype>dtm</gametype>
+  <authors>
+    <author uuid="b5e242e2577c4e808bb7631d1412663a" />
+    <author uuid="ad57327ae606468cb18fc874fa816ae6" />
+  </authors>
+  <spawns>
+    <spawn>
+      <regions>
+        <point>116.5, 158.0, -96.5</point>
+      </regions>
+    </spawn>
+    <spawn team="blue" loadout="default">
+      <regions>
+        <point yaw="-90">38.5, 123.0, -29.5</point>
+      </regions>
+    </spawn>
+    <spawn team="red" loadout="default">
+      <regions>
+        <point yaw="90">195.5, 123.0, -26.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <results>
+    <win scenario="objectives">
+      <check>
+        <time>3600</time>
+      </check>
+    </win>
+  </results>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>leather leggings</material>
+        <material>leather boots</material>
+        <material>glass</material>
+        <material>stone</material>
+        <material>log</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>stone sword</material>
+        <material>bow</material>
+        <material>diamond pickaxe</material>
+      </any>
+    </repair-tools>
+  </items>
+  <zones>
+    <zone region="blue-spawn">
+      <message>You may not build in this team's spawn.</message>
+      <modify>
+        <never />
+      </modify>
+    </zone>
+    <zone region="red-spawn">
+      <message>You may not build in this team's spawn.</message>
+      <modify>
+        <never />
+      </modify>
+    </zone>
+  </zones>
+  <regions>
+    <cuboid min="33, 121, -40" max="48, 121, -20" id="blue-spawn" />
+    <cuboid min="185, 121, -37" max="200, 130, -17" id="red-spawn" />
+  </regions>
+  <objectives>
+    <monuments materials="obsidian">
+      <monuments owner="blue">
+        <monument name="Back">
+          <region>
+            <block>-6, 131, -30</block>
+          </region>
+        </monument>
+      </monuments>
+      <monuments owner="red">
+        <monument name="Back">
+          <region>
+            <block>239, 131, -27</block>
+          </region>
+        </monument>
+      </monuments>
+    </monuments>
+  </objectives>
+  <teams>
+    <team id="blue" color="blue" min="3" max="20" max-overfill="25">Blue Team</team>
+    <team id="red" color="red" min="3" max="20" max-overfill="25">Red Team</team>
+  </teams>
+  <loadouts>
+    <loadout id="default">
+      <item slot="0" material="stone sword" />
+      <item slot="1" material="bow" />
+      <item slot="2" material="diamond pickaxe" />
+      <item slot="3" material="golden apple" amount="2" />
+      <item slot="4" material="bread" amount="8" />
+      <item slot="5" material="log" amount="32" />
+      <item slot="6" material="stone" amount="64" />
+      <item slot="7" material="glass" amount="32" />
+      <item slot="28" material="arrow" amount="64" />
+      <item slot="29" material="stone spade" />
+      <chestplate team-color="true" material="leather chestplate" />
+      <helmet team-color="true" material="leather helmet" />
+      <boots team-color="true" material="leather boots" />
+      <leggings team-color="true" material="leather leggings" />
+      <effect duration="100" level="4">damage resistance</effect>
+    </loadout>
+  </loadouts>
+</map>

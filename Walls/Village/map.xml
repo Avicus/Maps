@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map genre="walls" name="Village" spec="1.0.5" version="1.2.0">
+  <include src="defaults.xml"/>
+  <include src="Shared/walls.xml"/>
+  <include src="Shared/tutorials/walls.xml"/>
+  <authors>
+    <author uuid="3893a242cc17447e9b1c774fc8941af8"/> <!-- G_SKIPPY -->
+  </authors>
+  <gametype>walls</gametype>
+  <teams>
+    <load-group id="teams.red-blue" max="15" min="1"/>
+    <team color="yellow" id="yellow" max="15" min="1">Yellow</team>
+    <team color="lime" id="lime" max="15" min="1">Lime</team>
+  </teams>
+  <walls end-time="30m" fall-time="10m">
+    <wall region="walls"/>
+  </walls>
+  <tutorial>
+    <step countdown="5s" freeze="true" location="-725,75-137" pitch="23" yaw="-55">
+      <chat>
+        <line>^r • {tutorial.generic.team-spawns}</line>
+      </chat>
+    </step>
+    <step countdown="5s" freeze="true" location="-766,130,-173" pitch="15" yaw="52">
+      <chat>
+        <line>^r • {tutorial.walls.wall-area}</line>
+      </chat>
+    </step>
+    <step countdown="5s" freeze="true" location="-795,87,-167" pitch="27" yaw="-169">
+      <chat>
+        <line>^r • {tutorial.walls.wall-mid-loot}</line>
+      </chat>
+    </step>
+  </tutorial>
+  <spawns>
+    <spawn yaw="0">
+      <regions>
+        <block>-793, 110, -172</block>
+      </regions>
+    </spawn>
+    <spawn team="blue" yaw="180">
+      <regions>
+        <block>-718, 73, -212</block>
+      </regions>
+    </spawn>
+    <spawn team="red" yaw="0">
+      <regions>
+        <block>-717, 73, -132</block>
+      </regions>
+    </spawn>
+    <spawn team="lime" yaw="0">
+      <regions>
+        <block>-868, 73, -212</block>
+      </regions>
+    </spawn>
+    <spawn team="yellow" yaw="0">
+      <regions>
+        <block>-868, 73, -132</block>
+      </regions>
+    </spawn>
+  </spawns>
+  <regions>
+    <join id="walls">
+      <cuboid max="-785, 134, -183" min="-785, 73, -243"/>
+      <cuboid max="-784, 134, -182" min="-724, 73, -182"/>
+      <cuboid max="-784, 134, -164" min="-724, 73, -164"/>
+      <cuboid max="-785, 134, -163" min="-785, 73, -103"/>
+      <cuboid max="-803, 134, -163" min="-803, 73, -103"/>
+      <cuboid max="-804, 134, -164" min="-864, 73, -164"/>
+      <cuboid max="-864, 134, -182" min="-804, 73, -182"/>
+      <cuboid max="-803, 134, -183" min="-803, 73, -243"/>
+    </join>
+  </regions>
+  <zones>
+    <zones>
+      <zone modify="never" region="walls"/>
+      <zone modify="never">
+        <region>
+          <invert>
+            <cuboid max="-724, 134, -103" min="-864, 0, -243"/>
+          </invert>
+        </region>
+        <message>{errors.outside-map}</message>
+      </zone>
+    </zones>
+    <zone enter="never" modify="never">
+      <region>
+        <cuboid max="-803,200,-101" min="-785,0,-102"/>
+        <cuboid max="-866,200,-182" min="-865,0,-164"/>
+        <cuboid max="-785,200,-245" min="-803,0,-244"/>
+        <cuboid max="-723,200,-182" min="-722,0,-164"/>
+      </region>
+    </zone>
+  </zones>
+</map>

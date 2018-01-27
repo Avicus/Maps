@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map spec="1.0.5" name="Radiation" version="1.0.0" genre="nebula">
+  <include src="defaults.xml"/>
+  <gametype>dtm</gametype>
+  <!--Legacy versions supported setting specific world time, we'll just lock it for now.-->
+  <world>
+    <gamerules>
+      <doDaylightCycle>false</doDaylightCycle>
+    </gamerules>
+  </world>
+  <authors>
+    <author uuid="9da4217e7c3141d1b82d53b0ecc981d0" />
+    <author uuid="14c22263a1b741439c12941b586e3a50" />
+    <author uuid="456c20d626d5470980b540bf9307bf4c" />
+  </authors>
+  <spawns>
+    <spawn>
+      <regions>
+        <point yaw="-90">-68.0, 141.0, 73.0</point>
+      </regions>
+    </spawn>
+    <spawn team="yellow" loadout="default">
+      <regions>
+        <point yaw="180">49.0, 29.0, 171.0</point>
+      </regions>
+    </spawn>
+    <spawn team="green" loadout="default">
+      <regions>
+        <point>49.0, 29.0, -29.0</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather_helmet</material>
+        <material>leather_chestplate</material>
+        <material>leather_leggings</material>
+        <material>leather_boots</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>stone sword</material>
+        <material>bow</material>
+        <material>diamond pickaxe</material>
+      </any>
+    </repair-tools>
+  </items>
+  <zones>
+    <zone modify="never">
+      <region>
+        <sphere origin="49,29,-29" radius="6"/>
+      </region>
+    </zone>
+    <zone modify="never">
+      <region>
+        <sphere origin="49,29,171" radius="6"/>
+      </region>
+    </zone>
+  </zones>
+  <objectives>
+    <monuments materials="obsidian">
+      <monuments owner="yellow">
+        <monument name="Left">
+          <region>
+            <block>103, 48, 142</block>
+          </region>
+        </monument>
+        <monument name="Right">
+          <region>
+            <block>-5, 48, 142</block>
+          </region>
+        </monument>
+      </monuments>
+      <monuments owner="green">
+        <monument name="Left">
+          <region>
+            <block>-5, 48, -1</block>
+          </region>
+        </monument>
+        <monument name="Right">
+          <region>
+            <block>103, 48, -1</block>
+          </region>
+        </monument>
+      </monuments>
+    </monuments>
+  </objectives>
+  <teams>
+    <team id="yellow" color="yellow" min="3" max="20" max-overfill="25">Yellow Team</team>
+    <team id="green" color="green" min="3" max="20" max-overfill="25">Green Team</team>
+  </teams>
+  <loadouts>
+    <loadout id="default">
+      <item slot="0" material="stone sword" />
+      <item slot="1" material="bow" />
+      <item slot="2" material="diamond pickaxe" />
+      <item slot="3" material="golden apple" amount="2" />
+      <item slot="4" material="cooked_beef" amount="8" />
+      <item slot="5" material="log" amount="64" />
+      <item slot="6" material="glass" amount="32" />
+      <item slot="7" material="stone" amount="32" />
+      <item slot="28" material="arrow" amount="36" />
+      <chestplate team-color="true" material="leather_chestplate" />
+      <helmet team-color="true" material="leather_helmet" />
+      <boots team-color="true" material="leather_boots" />
+      <leggings team-color="true" material="leather_leggings" />
+      <effect duration="100" level="4">damage resistance</effect>
+    </loadout>
+  </loadouts>
+</map>

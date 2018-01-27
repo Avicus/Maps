@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="Infernus" version="1.1.0" spec="1.0.0">
+    <include src="defaults.xml"/>
+    <authors>
+        <author uuid="9116d3fa14004adaaecd2eae1d73e383"/> <!-- Xuph -->
+        <author uuid="706eaabd35314470b6b0f7937f644e67"/> <!-- itaity -->
+    </authors>
+    <teams>
+        <team id="red" color="red" min="20" max="25">{colors.red}</team>
+        <team id="blue" color="blue" min="20" max="25">{colors.blue}</team>
+    </teams>
+    <spawns>
+        <spawn yaw="90">
+            <regions>
+                <circle center="64, 68, 16" radius="1"/>
+            </regions>
+        </spawn>
+        <spawn team="red" loadout="default" yaw="180">
+            <regions>
+                <circle center="10, 15, -66" radius="2"/>
+            </regions>
+        </spawn>
+        <spawn team="blue" loadout="default" yaw="180">
+            <regions>
+                <circle center="10, 15, 99" radius="2"/>
+            </regions>
+        </spawn>
+    </spawns>
+    <objectives>
+        <monuments materials="obsidian">
+            <monuments owner="red">
+                <monument name="{directions.left}">
+                    <region>
+                        <block>-23, 11, -33</block>
+                    </region>
+                </monument>
+                <monument name="{directions.right}">
+                    <region>
+                        <block>43, 11, -33</block>
+                    </region>
+                </monument>
+            </monuments>
+            <monuments owner="blue">
+                <monument name="{directions.left}">
+                    <region>
+                        <block>43, 11, 65</block>
+                    </region>
+                </monument>
+                <monument name="{directions.right}">
+                    <region>
+                        <block>-23, 11, 65</block>
+                    </region>
+                </monument>
+            </monuments>
+        </monuments>
+    </objectives>
+    <loadouts>
+        <loadout id="default">
+            <helmet team-color="true" material="leather helmet"/>
+            <item slot="0" material="stone sword"/>
+            <item slot="1" material="bow"/>
+            <item slot="2" material="diamond pickaxe">
+                <enchantment level="1">dig speed</enchantment>
+            </item>
+            <item slot="3" material="golden apple" amount="3"/>
+            <item slot="4" material="log" amount="16"/>
+            <item slot="5" material="ender stone" amount="64"/>
+            <item slot="6" material="glass" amount="32"/>
+            <item slot="7" material="golden carrot" amount="32"/>
+            <item slot="10" material="arrow" amount="64"/>
+            <item slot="11" material="lapis block" amount="1"/>
+        </loadout>
+    </loadouts>
+    <zones>
+        <zone modify="never">
+            <region>
+                <cylinder base="10, 6, -67" radius="4" height="17"/>
+            </region>
+            <message>{errors.spawn-restricted}</message>
+        </zone>
+        <zone modify="never">
+            <region>
+                <cylinder base="10, 6, 99" radius="4" height="17"/>
+            </region>
+            <message>{errors.spawn-restricted}</message>
+        </zone>
+        <zone modify="never">
+            <region>
+                <cuboid min="10, 8, -33" max="10, 8, -33"/>
+            </region>
+            <message>{You may not break this Enchantment Table!}</message>
+        </zone>
+        <zone modify="never">
+            <region>
+                <cuboid min="10, 8, 65" max="10, 8, 65"/>
+            </region>
+            <message>{You may not break this Enchantment Table!}</message>
+        </zone>
+    </zones>
+    <items>
+        <remove-drops>
+            <any>
+                <material>leather helmet</material>
+                <material>glass</material>
+                <material>ender stone</material>
+                <material>golden carrot</material>
+                <material>shears</material>
+            </any>
+        </remove-drops>
+        <repair-tools>
+            <any>
+                <material>stone sword</material>
+                <material>bow</material>
+                <material>diamond pickaxe</material>
+            </any>
+        </repair-tools>
+    </items>
+</map>

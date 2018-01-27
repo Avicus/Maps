@@ -1,0 +1,179 @@
+﻿<?xml version="1.0"?>
+<map name="The Dojo 7: The Birth of a New Age" spec="1.0.2" version="1.0.1">
+  <include src="defaults.xml"/>
+  <include src="Shared/phases-dtc.xml"/>
+  <authors>
+    <author uuid="3cce00809faa48f982cf64410305822a"/> <!-- EDNAS -->
+    <author uuid="c2a4c847653e482ab62ed7f8b64330cb"/> <!-- Alm -->
+    <author uuid="cad8013ab98a40679f0981b0734e0085"/> <!-- imryaan -->
+  </authors>
+  <teams>
+    <team color="orange" id="orange" max="100" min="1">{colors.orange}</team>
+    <team color="red" id="red" max="100" min="1">{colors.red}</team>
+  </teams>
+  <gametype>dtc</gametype>
+  <gametype>dtm</gametype>
+  <spawns>
+    <spawn>
+      <regions>
+        <point yaw="90">98, 142, 54</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="red">
+      <regions>
+        <point yaw="-180">0, 66, 154</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="orange">
+      <regions>
+        <point yaw="0">9, 66, -44</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <loadouts>
+    <loadout id="default">
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="gold chestplate"/>
+      <boots material="leather boots" team-color="true"/>
+      <item material="iron sword" slot="0"/>
+      <item material="bow" slot="1">
+        <enchantment>arrow infinite</enchantment>
+      </item>
+      <item material="diamond pickaxe" slot="2"/>
+      <item amount="3" material="golden apple" slot="3"/>
+      <item amount="64" material="log" slot="4"/>
+      <item amount="64" material="glass" slot="5"/>
+      <item amount="48" material="bread" slot="6"/>
+      <item amount="64" material="arrow" slot="28"/>
+    </loadout>
+    <loadout id="kill-reward">
+      <item material="golden apple"/>
+    </loadout>
+  </loadouts>
+  <objectives>
+    <leakables first-phase="gold" materials="obsidian">
+      <leakables owner="orange">
+        <leakable leak-distance="1" name="コア (Core)" repairable="true">
+          <region>
+            <cuboid max="-2, 92, 18" min="2, 86, 14"/>
+          </region>
+        </leakable>
+      </leakables>
+      <leakables owner="red">
+        <leakable leak-distance="1" name="コア (Core)" repairable="true">
+          <region>
+            <cuboid max="-2, 86, 92" min="2, 92, 96"/>
+          </region>
+        </leakable>
+      </leakables>
+    </leakables>
+    <monuments destroyable="true" materials="emerald block" repairable="true">
+      <monuments owner="red">
+        <monument name="Left">
+          <region>
+            <cuboid max="64, 92, 154" min="62, 86, 92"/>
+          </region>
+        </monument>
+      </monuments>
+    </monuments>
+    <monuments destroyable="true" materials="emerald block" repairable="true">
+      <monuments owner="red">
+        <monument name="Right">
+          <region>
+            <cuboid max="-64, 92, 152" min="-62, 86, 154"/>
+          </region>
+        </monument>
+      </monuments>
+    </monuments>
+    <monuments destroyable="true" materials="emerald block" repairable="true">
+      <monuments owner="orange">
+        <monument name="Left">
+          <region>
+            <cuboid max="-62, 92, -44" min="-64, 86, -42"/>
+          </region>
+        </monument>
+      </monuments>
+    </monuments>
+    <monuments destroyable="true" materials="emerald block" repairable="true">
+      <monuments owner="orange">
+        <monument name="Right">
+          <region>
+            <cuboid max="64, 92, -44" min="62, 86, -42"/>
+          </region>
+        </monument>
+      </monuments>
+    </monuments>
+  </objectives>
+  <world>
+    <storm>false</storm>
+    <weather check="always"/>
+  </world>
+  <kills>
+    <rewards>
+      <reward loadout="kill-reward"/>
+    </rewards>
+  </kills>
+  <zones>
+    <zone modify="never">
+      <region>
+        <cuboid max="-9, 101, -54" min="8, 66, -37"/>
+      </region>
+      <message>{errors.cannot-build}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid max="-9, 101, 147" min="8, 66, 163"/>
+      </region>
+      <message>{errors.cannot-build}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <above y="90"/>
+      </region>
+    </zone>
+  </zones>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>gold chestplate</material>
+        <material>leather boots</material>
+        <material>bread</material>
+        <material>golden apple</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>iron sword</material>
+        <material>bow</material>
+        <material>diamond pickaxe</material>
+      </any>
+    </repair-tools>
+  </items>
+  <executors>
+    <executor check="always" id="ender-dragon">
+      <execution-group>
+        <summon-entity name="Avicore Update" region="dragon-spawn" type="ender_dragon">
+          <effect amplifier="3" duration="10m">strength</effect>
+        </summon-entity>
+        <summon-entity name="Atlas Update" region="dragon-spawn" type="ender_dragon">
+          <effect amplifier="10" duration="10m">strength</effect>
+        </summon-entity>
+        <summon-entity name="Omega Update" region="dragon-spawn" type="ender_dragon">
+          <effect amplifier="10" duration="10m">strength</effect>
+        </summon-entity>
+        <summon-entity name="MCZone Update" region="dragon-spawn" type="ender_dragon">
+          <effect amplifier="10" duration="10m">strength</effect>
+        </summon-entity>
+      </execution-group>
+    </executor>
+  </executors>
+  <triggers>
+    <trigger execute="ender-dragon" on="match-start"/>
+  </triggers>
+  <regions>
+    <join id="dragon-spawn">
+      <cuboid max="0, 100, 55" min="0, 100, 55"/>
+    </join>
+  </regions>
+</map>

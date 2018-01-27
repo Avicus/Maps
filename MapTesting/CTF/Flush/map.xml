@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="Flush"
+  version="1.0.2"
+  spec="1.0.6">
+  <gametype>ctf</gametype>
+  <teams>
+    <team id="red" color="red" min="1" max="8">{colors.red}</team>
+    <team id="blue" color="blue" min="1" max="8">{colors.blue}</team>
+  </teams>
+  <authors>
+    <author uuid="2958ea4c3501404e88cc12e8632f68cc"/>
+    <author uuid="621b2aa84e5f4ed8bd360ae2f8952a06"/>
+    <author uuid="6bec5c3a49344b199aa8c7c569820f7d"/>
+  </authors>
+  <spawns>
+    <spawn>
+      <regions>
+        <point yaw="90">-16.5, 25, -73.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default"
+      respawn-delay="1s"
+      respawn-freeze="true"
+      team="red" yaw="90">
+      <regions>
+        <point>-20.5, 254, -105.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default"
+      respawn-delay="1s"
+      respawn-freeze="true"
+      team="blue" yaw="-90">
+      <regions>
+        <point>-56, 254, -42</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <loadouts>
+    <loadout id="default">
+      <effect duration="5s">damage resistance</effect>
+      <item material="iron sword" slot="0"/>
+    </loadout>
+  </loadouts>
+  <checks>
+    <team id="only-red">red</team>
+    <team id="only-blue">blue</team>
+  </checks>
+  <regions>
+    <cuboid id="blue-net-rg" max="-35, 9, -36" min="-37, 13, -38"/>
+    <cuboid id="red-net-rg" max="-42, 9, -112" min="-40, 13, -110"/>
+  </regions>
+  <zones>
+    <zones>
+      <load-group id="no-build"/>
+    </zones>
+    <zone id="red-post">
+      <region>
+        <block>-41, 10, -111</block>
+      </region>
+      <post yaw="-45"/>
+    </zone>
+    <zone id="blue-post">
+      <region>
+        <block>-36, 10, -37</block>
+      </region>
+      <post yaw="137"/>
+    </zone>
+    <!-- Nets -->
+    <zone region="blue-net-rg">
+      <net points="1" capture-check="only-red"/>
+    </zone>
+    <zone region="red-net-rg">
+      <net points="1" capture-check="only-blue"/>
+    </zone>
+  </zones>
+  <objectives>
+    <scores limit="3">
+      <score team="red"/>
+      <score team="blue"/>
+    </scores>
+    <flag color="blue" owner="blue" post="blue-post" recover-time="15s"/>
+    <flag color="red" owner="red" post="red-post" recover-time="15s"/>
+  </objectives>
+</map>

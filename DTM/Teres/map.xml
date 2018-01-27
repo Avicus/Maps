@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map spec="1.0.5" name="Teres" version="1.1.0" genre="nebula">
+  <gametype>dtm</gametype>
+  <authors>
+    <author uuid="06e0e173-4a93-4654-9769-fa7c216e353f" />
+    <author uuid="97fa0d2f-af67-474c-b8a1-e1a5ab7c1af1" />
+  </authors>
+  <spawns>
+    <spawn>
+      <regions>
+        <point yaw="90">111.5, 79.0, -798.52</point>
+      </regions>
+    </spawn>
+    <spawn team="yellow" loadout="default">
+      <regions>
+        <point>0.5, 61.0, -926.5</point>
+      </regions>
+    </spawn>
+    <spawn team="blue" loadout="default">
+      <regions>
+        <point yaw="180">0.5, 61.0, -678.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <results>
+    <win scenario="objectives">
+      <check>
+        <time>3600</time>
+      </check>
+    </win>
+  </results>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather chestplate</material>
+        <material>leather helmet</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>stone sword</material>
+        <material>bow</material>
+        <material>diamond pickaxe</material>
+      </any>
+    </repair-tools>
+  </items>
+  <zones>
+    <zone region="blue-spawn">
+      <!--TODO: Translate from legacy.-->
+      <message>§cYou may not build in the spawn area.</message>
+      <modify>
+        <never />
+      </modify>
+    </zone>
+    <!--TODO: Implement damage-->
+    <zone region="blue-spawn">
+      <!--TODO: Translate from legacy.-->
+      <message>§cYou may not enter blue team's spawn.</message>
+      <enter>
+        <not>
+          <team>yellow</team>
+        </not>
+      </enter>
+    </zone>
+    <zone region="yellow-spawn">
+      <!--TODO: Translate from legacy.-->
+      <message>§cYou may not build in the spawn area.</message>
+      <modify>
+        <never />
+      </modify>
+    </zone>
+    <!--TODO: Implement damage-->
+    <zone region="yellow-spawn">
+      <!--TODO: Translate from legacy.-->
+      <message>§cYou may not enter yellow team's spawn.</message>
+      <enter>
+        <not>
+          <team>blue</team>
+        </not>
+      </enter>
+    </zone>
+  </zones>
+  <regions>
+    <sphere radius="5" origin="0, 60, -927" id="blue-spawn" />
+    <sphere radius="5" origin="0, 60, -927" id="yellow-spawn" />
+  </regions>
+  <objectives>
+    <monuments materials="obsidian">
+      <monuments owner="blue">
+        <monument name="Left">
+          <region>
+            <block>7, 74, -709</block>
+          </region>
+        </monument>
+        <monument name="Right">
+          <region>
+            <block>-7, 74, -709</block>
+          </region>
+        </monument>
+        <monument name="Back">
+          <region>
+            <block>0, 90, -679</block>
+          </region>
+        </monument>
+      </monuments>
+      <monuments owner="yellow">
+        <monument name="Right">
+          <region>
+            <block>7, 74, -897</block>
+          </region>
+        </monument>
+        <monument name="Left">
+          <region>
+            <block>-7, 74, -897</block>
+          </region>
+        </monument>
+        <monument name="Back">
+          <region>
+            <block>0, 90, -927</block>
+          </region>
+        </monument>
+      </monuments>
+    </monuments>
+  </objectives>
+  <teams>
+    <team id="yellow" color="yellow" min="1" max="25" max-overfill="31">Celestia</team>
+    <team id="blue" color="blue" min="1" max="25" max-overfill="31">Luna</team>
+  </teams>
+  <loadouts>
+    <loadout id="default">
+      <item slot="0" material="stone sword" />
+      <item slot="1" material="bow" />
+      <item slot="2" material="diamond pickaxe" />
+      <item slot="3" material="golden apple" amount="3" name="§eGolden Apple" />
+      <item slot="4" material="bread" amount="16" />
+      <item slot="5" material="log" amount="16" />
+      <item slot="6" material="cobblestone" amount="32" />
+      <item slot="28" material="arrow" amount="64" />
+      <item slot="29" material="lapis block" />
+      <chestplate team-color="true" material="leather chestplate" />
+      <helmet team-color="true" material="leather helmet" />
+    </loadout>
+  </loadouts>
+</map>

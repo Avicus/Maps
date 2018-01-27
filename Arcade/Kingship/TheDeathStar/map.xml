@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="The Death Star" version="1.0.0" spec="1.0.0" genre="arcade">
+    <include src="defaults.xml"/>
+    <include src="Shared/reward-one-gap.xml"/>
+    <authors>
+        <author uuid="3cce00809faa48f982cf64410305822a" role="Wrote the XML and Map."/>
+    </authors>
+    <teams competitor="individual">
+        <team id="king" color="red" min="1" max="1" max-overfill="1">[!] Darth Vader</team>
+        <team id="players" color="cyan" min="2" max="14" max-overfill="14">Rebels</team>
+    </teams>
+    <channels team-chat="true" global-chat="false"/>
+    <kills>
+        <rewards>
+            <reward loadout="arrows"/>
+        </rewards>
+    </kills>
+    <spawns>
+        <spawn team="spectators" yaw="0">
+            <regions>
+                <point>120, 175, 177</point>
+            </regions>
+        </spawn>
+        <spawn team="king" yaw="0" loadout="king-loadout">
+            <regions>
+                <point>55, 143, 88</point>
+            </regions>
+        </spawn>
+        <spawn team="players" yaw="-90" loadout="players-loadout">
+            <regions>
+                <point>22, 114, 213</point>
+            </regions>
+        </spawn>
+    </spawns>
+    <loadouts>
+        <loadout id="king-loadout">
+            <player-head slot="103" uuid="f75a16ea1a8640ea9587ae04fdf3589d"/>
+            <chestplate material="diamond chestplate" unbreakable="true"/>
+            <leggings material="diamond leggings" unbreakable="true"/>
+            <boots material="diamond boots" unbreakable="true"/>
+            <effect amplifier="1" duration="8m">night vision</effect>
+            <effect duration="8s" amplifier="3">damage resistance</effect>
+            <effect amplifier="1">speed</effect>
+            <item slot="0" material="iron sword" unbreakable="true"/>
+            <item slot="1" material="bow" unbreakable="true"/>
+            <item slot="2" material="cooked beef" amount="16"/>
+            <item slot="3" material="potion" damage="16426" amount="4">
+                <effect amplifier="2" duration="3m">absorption</effect>
+            </item>
+            <item slot="4" material="potion" damage="16426" amount="4">
+                <effect amplifier="2" duration="3m">health_boost</effect>
+            </item>
+            <item slot="5" material="potion" damage="16426" amount="4">
+                <effect amplifier="1" duration="3m">damage_resistance</effect>
+            </item>
+            <item slot="6" material="golden apple"/>
+            <item slot="7" material="compass"/>
+            <item slot="27" material="arrow" amount="16"/>
+        </loadout>
+        <loadout id="players-loadout">
+            <helmet material="leather helmet" team-color="true" unbreakable="true"/>
+            <chestplate material="leather chestplate" unbreakable="true"/>
+            <boots material="leather boots" team-color="true" unbreakable="true"/>
+            <effect duration="8s" amplifier="3">damage resistance</effect>
+            <effect amplifier="1" duration="8m">night vision</effect>
+            <item slot="0" material="stone sword" unbreakable="true"/>
+            <item slot="1" material="bow" unbreakable="true"/>
+            <item slot="2" material="cooked beef" amount="16"/>
+            <item slot="3" material="arrow" amount="8"/>
+            <item slot="6" material="golden apple"/>
+            <item slot="7" material="compass"/>
+        </loadout>
+        <loadout id="arrows">
+            <item material="arrow" amount="3"/>
+        </loadout>
+    </loadouts>
+    <zones>
+        <zones>
+            <zone modify="never" region="everywhere"/>
+        </zones>
+    </zones>
+    <compasses>
+        <compass target="enemy"/>
+    </compasses>
+    <results>
+        <win scenario="objectives">
+            <check>
+                <time>5m</time>
+            </check>
+        </win>
+    </results>
+    <world>
+        <gamerules>
+            <doDaylightCycle>false</doDaylightCycle>
+            <doTileDrops>false</doTileDrops>
+        </gamerules>
+    </world>
+    <objectives>
+        <last-team-standing team="king"/>
+        <last-team-standing team="players"/>
+    </objectives>
+    <elimination/>
+</map>

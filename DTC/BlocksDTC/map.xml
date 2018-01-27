@@ -1,0 +1,145 @@
+<?xml version="1.0"?>
+<map name="Blocks DTC" spec="1.0.4" version="1.4.4">
+  <include src="defaults.xml"/>
+  <include src="Shared/phases-dtc.xml"/>
+  <gametype>dtc</gametype>
+  <authors>
+    <author uuid="060baa18285240d8afcbe61607c04be3"/> <!-- PepsiDog -->
+  </authors>
+  <teams>
+    <load-group id="teams.red-blue" max="20" min="1"/>
+  </teams>
+  <spawns>
+    <spawn>
+      <regions>
+        <cylinder base="17, 35, -18" height="2" radius="5" yaw="180"/>
+      </regions>
+    </spawn>
+    <spawn loadout="nope" team="red">
+      <regions>
+        <cuboid max="-89, 26, 72" min="-90, 26, 71" yaw="-90"/>
+      </regions>
+    </spawn>
+    <spawn loadout="nope" team="blue">
+      <regions>
+        <cuboid max="122, 26, 71" min="123, 26, 72" yaw="90"/>
+      </regions>
+    </spawn>
+  </spawns>
+  <loadouts>
+    <loadout id="nope">
+      <effect amplifier="5" duration="10">damage resistance</effect>
+      <effect amplifier="1" duration="8">increase damage</effect>
+    </loadout>
+    <loadout id="kill-reward">
+      <item material="golden apple"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="kill-reward"/>
+    </rewards>
+  </kills>
+  <objectives>
+    <leakables first-phase="gold" materials="obsidian">
+      <leakables owner="red">
+        <leakable leak-distance="13" name="Core">
+          <region>
+            <cuboid max="-59, 40, 70" min="-52, 46, 74"/>
+          </region>
+        </leakable>
+      </leakables>
+      <leakables owner="blue">
+        <leakable leak-distance="13" name="Core">
+          <region>
+            <cuboid max="92, 40, 70" min="86, 46, 74"/>
+          </region>
+        </leakable>
+      </leakables>
+    </leakables>
+  </objectives>
+  <regions>
+    <above id="height-limit" y="90"/>
+    <join id="chests">
+      <cuboid id="red-chest1" max="-79, 42, 83" min="-78, 47, 85"/>
+      <cuboid id="red-chest2" max="-79, 42, 78" min="-78, 47, 80"/>
+      <cuboid id="red-chest3" max="-79, 42, 71" min="-78, 44, 73"/>
+      <cuboid id="red-chest4" max="-79, 42, 64" min="-78, 47, 66"/>
+      <cuboid id="red-chest5" max="-79, 42, 59" min="-78, 47, 61"/>
+      <cuboid id="blue-chest1" max="112, 42, 61" min="113, 47, 59"/>
+      <cuboid id="blue-chest2" max="112, 42, 66" min="113, 47, 64"/>
+      <cuboid id="blue-chest3" max="112, 42, 73" min="113, 44, 71"/>
+      <cuboid id="blue-chest4" max="112, 42, 80" min="113, 47, 78"/>
+      <cuboid id="blue-chest5" max="112, 42, 85" min="113, 47, 83"/>
+    </join>
+    <join id="blue-storage">
+      <cuboid id="blue-storage-main" max="129, 32, 86" min="116, 24, 58"/>
+      <cuboid id="blue-storage-left" max="130, 30, 50" min="116, 24, 41"/>
+      <cuboid id="blue-storage-right" max="130, 30, 103" min="116, 24, 94"/>
+      <cuboid id="blue-storage-entrance" max="116, 31, 77" min="111, 23, 67"/>
+    </join>
+    <join id="red-storage">
+      <cuboid id="red-storage-main" max="-82, 32, 86" min="-95, 24, 58"/>
+      <cuboid id="red-storage-left" max="-82, 30, 103" min="-96, 24, 94"/>
+      <cuboid id="red-storage-right" max="-82, 30, 50" min="-96, 24, 41"/>
+      <cuboid id="red-storage-entrance" max="-82, 31, 67" min="-77, 23, 77"/>
+    </join>
+    <cuboid id="blue-spawn" max="129, 32, 86" min="116, 24, 58"/>
+    <cuboid id="red-spawn" max="-82, 32, 86" min="-95, 24, 58"/>
+  </regions>
+  <zones>
+    <zone modify="never" region="chests">
+      <message>You may not break the chests!</message>
+    </zone>
+    <zone modify="never" region="height-limit">
+      <message>{errors.height-limit} ^e(^a90^e)</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <invert>
+          <cuboid max="130, 256, 103" min="-97, 0, 40"/>
+        </invert>
+      </region>
+      <message>{errors.outside-map}</message>
+    </zone>
+    <zone modify="never" region="red-storage">
+      <message>{errors.enemy-base}</message>
+    </zone>
+    <zone modify="never" region="blue-storage">
+      <message>{errors.enemy-base}</message>
+    </zone>
+    <zone region="blue-spawn">
+      <enter>
+        <team>blue</team>
+      </enter>
+      <message>You may not enter the enemy spawn!</message>
+    </zone>
+    <zone region="red-spawn">
+      <enter>
+        <team>red</team>
+      </enter>
+      <message>You may not enter the enemy spawn!</message>
+    </zone>
+  </zones>
+  <items>
+    <remove-drops>
+      <any>
+        <material>wood</material>
+        <material>log</material>
+        <material>golden apple</material>
+        <material>arrow</material>
+        <material>leather chestplate</material>
+        <material>leather leggings</material>
+        <material>leather boots</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>diamond sword</material>
+        <material>iron sword</material>
+        <material>diamond pickaxe</material>
+        <material>bow</material>
+      </any>
+    </repair-tools>
+  </items>
+</map>

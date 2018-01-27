@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="Rocky Pastures" spec="1.0.0" version="1.0.0">
+  <include src="defaults.xml"/>
+  <authors>
+    <author uuid="99b8a2a4-cb22-4ba1-a683-7cd90a02aac5"/> <!-- Junr -->
+    <author uuid="4b50f555-29e0-4fd7-aef8-d20a157df16e"/> <!-- OldManTigerMask -->
+  </authors>
+  <gametype>lts</gametype>
+  <teams>
+    <team color="blue" id="blue" max="15" min="1">{colors.blue}</team>
+    <team color="lime" id="lime" max="15" min="1">{colors.lime}</team>
+  </teams>
+  <spawns>
+    <spawn> <!-- Obs -->
+      <regions>
+        <point yaw="-146">17.5, 6, -34.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="kit" team="lime"> <!-- Lime -->
+      <regions>
+        <point yaw="-90">-53.5, 5, -5.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="kit" team="blue"> <!-- Blue -->
+      <regions>
+        <point yaw="90">12.5, 5, -5.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <compasses>
+    <compass target="enemy"/>
+  </compasses>
+  <loadouts>
+    <loadout id="kit">
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="chainmail chestplate"/>
+      <leggings material="leather leggings" team-color="true"/>
+      <boots material="leather boots" team-color="true"/>
+      <item material="wood sword" slot="0"/>
+      <item material="bow" slot="1"/>
+      <item material="compass" slot="3"/>
+      <item amount="12" material="bread" slot="8"/>
+      <item amount="16" material="arrow" slot="28"/>
+    </loadout>
+    <loadout id="r"> <!-- Kill Reward -->
+      <item material="golden apple"/>
+      <item amount="2" material="arrow"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="r"/>
+    </rewards>
+  </kills>
+  <zones>
+    <zones>
+      <zone modify="never" region="everywhere"/>
+    </zones>
+  </zones>
+  <objectives>
+    <last-team-standing team="blue"/>
+    <last-team-standing team="lime"/>
+  </objectives>
+  <elimination lives="1"/>
+  <results>
+    <win scenario="objectives">
+      <check>
+        <time>10m</time>
+      </check>
+    </win>
+  </results>
+  <items>
+    <remove-drops>
+      <any>
+        <material>golden apple</material>
+        <material>leather helmet</material>
+        <material>chainmail chestplate</material>
+        <material>leather leggings</material>
+        <material>compass</material>
+        <material>leather boots</material>
+        <material>bread</material>
+        <material>arrow</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>wood sword</material>
+        <material>bow</material>
+      </any>
+    </repair-tools>
+  </items>
+</map>

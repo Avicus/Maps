@@ -1,0 +1,314 @@
+<?xml version="1.0"?>
+<map description="Capture the central hill and the enemy team's hill." name="Fossil5CP"
+  spec="1.0.0" version="1.0.0">
+  <include src="defaults.xml"/>
+  <include src="Shared/reward-one-gap.xml"/>
+  <authors>
+    <author uuid="0ce67602-7448-415f-813e-2fee1487a8b5"/> <!-- 4lextr -->
+  </authors>
+  <teams>
+    <team color="orange" id="orange" max="8" min="1">{colors.orange}</team>
+    <team color="purple" id="purple" max="8" min="1">{colors.purple}</team>
+  </teams>
+  <results>
+    <win scenario="objectives">
+      <check>
+        <time>12m</time>
+      </check>
+    </win>
+    <win scenario="team" team="orange">
+      <check>
+        <all>
+          <objective team="orange">mid</objective>
+          <objective team="orange">orange-2nd</objective>
+          <objective team="orange">orange-last</objective>
+          <objective team="orange">purple-2nd</objective>
+          <objective team="orange">purple-last</objective>
+        </all>
+      </check>
+    </win>
+    <win scenario="team" team="purple">
+      <check>
+        <all>
+          <objective team="purple">mid</objective>
+          <objective team="purple">orange-2nd</objective>
+          <objective team="purple">orange-last</objective>
+          <objective team="purple">purple-2nd</objective>
+          <objective team="purple">purple-last</objective>
+        </all>
+      </check>
+    </win>
+  </results>
+  <spawns>
+    <spawn yaw="-90">
+      <regions>
+        <cuboid max="13,173,10" min="8,174,5"/>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="orange" yaw="0">
+      <regions>
+        <point>10.5,148.5,67.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="purple" yaw="180">
+      <regions>
+        <point>10.5,148.5,-52.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <zones>
+    <zone modify="never" region="everywhere"/>
+    <zone enter="never">
+      <region>
+        <above y="50"/>
+      </region>
+      <message>{errors.outside-map}</message>
+    </zone>
+    <zone>
+      <region>
+        <cuboid max="10, 124, -53" min="10, 123, -53"/>
+      </region>
+      <enter>
+        <team>purple</team>
+      </enter>
+      <portal yaw="-55">
+        <destination>
+          <point>-11.5, 135, -38.5</point>
+        </destination>
+      </portal>
+    </zone>
+    <zone>
+      <region>
+        <cuboid max="10, 124, 67" min="10, 123, 67"/>
+      </region>
+      <enter>
+        <team>orange</team>
+      </enter>
+      <portal yaw="123">
+        <destination>
+          <point>32.5, 135, 53.5</point>
+        </destination>
+      </portal>
+    </zone>
+  </zones>
+  <regions>
+    <join id="spawn1">
+      <point id="spawn1">10.5, 148.5, 67.5</point>
+    </join>
+  </regions>
+  <objectives>
+    <hill capture-time="5s" id="orange-last" initial-owner="orange" name="Orange Last">
+      <capture>
+        <cuboid max="7,139,51" min="14,134,44"/>
+      </capture>
+      <progress>
+        <cuboid max="7,139,51" min="14,134,44"/>
+      </progress>
+      <capture-check>
+        <any>
+          <all>
+            <team>purple</team>
+            <objective team="purple">purple-last</objective>
+            <objective team="purple">purple-2nd</objective>
+            <objective team="purple">mid</objective>
+            <objective team="purple">orange-2nd</objective>
+          </all>
+        </any>
+      </capture-check>
+    </hill>
+    <hill capture-time="5s" id="orange-2nd" initial-owner="orange" name="Orange 2nd">
+      <capture>
+        <cuboid max="33,151,18" min="26,147,25"/>
+      </capture>
+      <progress>
+        <cuboid max="33,151,18" min="26,147,25"/>
+      </progress>
+      <capture-check>
+        <any>
+          <all>
+            <team>purple</team>
+            <objective team="purple">purple-2nd</objective>
+            <objective team="purple">purple-last</objective>
+            <objective team="purple">mid</objective>
+          </all>
+          <all>
+            <team>orange</team>
+            <objective team="orange">orange-last</objective>
+          </all>
+        </any>
+      </capture-check>
+    </hill>
+    <hill capture-time="5s" id="mid" name="Mid">
+      <capture>
+        <cuboid max="14,140,11" min="7,136,4"/>
+      </capture>
+      <progress>
+        <cuboid max="14,140,11" min="7,136,4"/>
+      </progress>
+      <capture-check>
+        <any>
+          <all>
+            <team>orange</team>
+            <objective team="orange">orange-last</objective>
+            <objective team="orange">orange-2nd</objective>
+          </all>
+          <all>
+            <team>purple</team>
+            <objective team="purple">purple-last</objective>
+            <objective team="purple">purple-2nd</objective>
+          </all>
+        </any>
+      </capture-check>
+    </hill>
+    <hill capture-time="5s" id="purple-2nd" initial-owner="purple" name="Purple 2nd ">
+      <capture>
+        <cuboid max="-12,151,-3" min="-5,147,-10"/>
+      </capture>
+      <progress>
+        <cuboid max="-12,151,-3" min="-5,147,-10"/>
+      </progress>
+      <capture-check>
+        <any>
+          <all>
+            <team>orange</team>
+            <objective team="orange">orange-2nd</objective>
+            <objective team="orange">orange-last</objective>
+            <objective team="orange">mid</objective>
+          </all>
+          <all>
+            <team>purple</team>
+            <objective team="purple">purple-last</objective>
+          </all>
+        </any>
+      </capture-check>
+    </hill>
+    <hill capture-time="5s" id="purple-last" initial-owner="purple" name="Purple Last ">
+      <capture>
+        <cuboid max="7,139,-29" min="14,135,-36"/>
+      </capture>
+      <progress>
+        <cuboid max="7,139,-29" min="14,135,-36"/>
+      </progress>
+      <capture-check>
+        <any>
+          <all>
+            <team>orange</team>
+            <objective team="orange">orange-last</objective>
+            <objective team="orange">orange-2nd</objective>
+            <objective team="orange">mid</objective>
+            <objective team="orange">purple-2nd</objective>
+          </all>
+        </any>
+      </capture-check>
+    </hill>
+  </objectives>
+  <loadouts>
+    <loadout id="default">
+      <effect duration="5s">damage resistance</effect>
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="leather leggings" team-color="true"/>
+      <boots material="leather boots" team-color="true"/>
+      <item material="stone sword" slot="0"/>
+      <item material="bow" slot="1"/>
+      <item material="golden apple" slot="2"/>
+      <item amount="32" material="cooked fish" slot="3"/>
+      <item amount="32" material="arrow" slot="8"/>
+    </loadout>
+    <loadout id="four-arrow">
+      <item amount="4" material="arrow"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="four-arrow"/>
+    </rewards>
+  </kills>
+  <items>
+    <remove-drops>
+      <any>
+        <material>stone sword</material>
+        <material>bow</material>
+        <material>diamond pickaxe</material>
+        <material>stone axe</material>
+        <material>arrow</material>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>leather leggings</material>
+        <material>leather boots</material>
+        <material>arrow</material>
+        <material>golden apple</material>
+        <material>cooked fish</material>
+      </any>
+    </remove-drops>
+  </items>
+  <world>
+    <gamerules>
+      <doDaylightCycle>false</doDaylightCycle>
+    </gamerules>
+  </world>
+  <executors>
+    <executor check="orange-mid" id="tele-orange-mid">
+      <teleport-player>
+        <to>
+          <point>-14, 139, 3</point>
+        </to>
+      </teleport-player>
+    </executor>
+    <executor check="purple-mid" id="tele-purple-mid">
+      <teleport-player>
+        <to>
+          <point>35, 139, 11</point>
+        </to>
+      </teleport-player>
+    </executor>
+    <executor check="ora-2nd" id="tele-orange-2nd">
+      <teleport-player>
+        <to>
+          <point>10, 131, -10</point>
+        </to>
+      </teleport-player>
+    </executor>
+    <executor check="pur-2nd" id="tele-purple-2nd">
+      <teleport-player>
+        <to>
+          <point>11, 131, 25</point>
+        </to>
+      </teleport-player>
+    </executor>
+  </executors>
+  <checks>
+    <all id="orange-mid">
+      <objective team="orange">mid</objective>
+      <objective team="orange">orange-2nd</objective>
+      <objective team="orange">orange-last</objective>
+      <team>orange</team>
+    </all>
+    <all id="purple-mid">
+      <objective team="purple">mid</objective>
+      <objective team="purple">purple-2nd</objective>
+      <objective team="purple">purple-last</objective>
+      <team>purple</team>
+    </all>
+    <all id="pur-2nd">
+      <objective team="purple">orange-2nd</objective>
+      <objective team="purple">mid</objective>
+      <objective team="purple">purple-2nd</objective>
+      <objective team="purple">purple-last</objective>
+      <team>purple</team>
+    </all>
+    <all id="ora-2nd">
+      <objective team="orange">purple-2nd</objective>
+      <objective team="orange">mid</objective>
+      <objective team="orange">orange-2nd</objective>
+      <objective team="orange">orange-last</objective>
+      <team>orange</team>
+    </all>
+  </checks>
+  <triggers>
+    <trigger execute="tele-orange-mid" on="player-spawn"/>
+    <trigger execute="tele-orange-2nd" on="player-spawn"/>
+    <trigger execute="tele-purple-mid" on="player-spawn"/>
+    <trigger execute="tele-purple-2nd" on="player-spawn"/>
+  </triggers>
+</map>

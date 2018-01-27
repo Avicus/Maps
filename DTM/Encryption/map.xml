@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<map spec="1.0.5" name="Encryption" version="1.0.0" genre="nebula">
+  <include src="defaults.xml"/>
+  <gametype>dtm</gametype>
+  <authors>
+    <author uuid="9da4217e7c3141d1b82d53b0ecc981d0" />
+  </authors>
+  <spawns>
+    <spawn>
+      <regions>
+        <point yaw="135">-129.5, 129.0, 312.5</point>
+      </regions>
+    </spawn>
+    <spawn team="red" loadout="default">
+      <regions>
+        <point yaw="-135">-243.5, 98.0, 337.5</point>
+      </regions>
+    </spawn>
+    <spawn team="blue" loadout="default">
+      <regions>
+        <point yaw="45">-101.5, 98.0, 193.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>leather leggings</material>
+        <material>leather boots</material>
+        <material>log:1</material>
+        <material>arrow</material>
+        <material>glass</material>
+        <material>bread</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>bow</material>
+        <material>diamond pickaxe</material>
+        <material>iron sword</material>
+      </any>
+    </repair-tools>
+  </items>
+  <zones>
+    <zone modify="never">
+      <region>
+        <sphere origin="-244, 97, 337" radius="10"/>
+      </region>
+    </zone>
+    <zone modify="never">
+      <region>
+        <sphere origin="-102, 97, 193" radius="10"/>
+      </region>
+    </zone>
+  </zones>
+  <objectives>
+    <monuments materials="obsidian">
+      <monuments owner="blue">
+        <monument name="Back">
+          <region>
+            <block>-69, 102, 160</block>
+          </region>
+        </monument>
+      </monuments>
+      <monuments owner="red">
+        <monument name="Back">
+          <region>
+            <block>-277, 102, 370</block>
+          </region>
+        </monument>
+      </monuments>
+    </monuments>
+  </objectives>
+  <teams>
+    <team id="red" color="red" min="1" max="35" max-overfill="45">Red Team</team>
+    <team id="blue" color="blue" min="1" max="35" max-overfill="45">Blue Team</team>
+  </teams>
+  <loadouts>
+    <loadout id="default">
+      <item slot="0" material="iron sword" />
+      <item slot="1" material="bow">
+        <enchantments>
+          <enchantment level="1">arrow_infinite</enchantment>
+        </enchantments>
+      </item>
+      <item slot="2" material="diamond pickaxe">
+        <enchantments>
+          <enchantment level="1">dig_speed</enchantment>
+        </enchantments>
+      </item>
+      <item slot="3" material="log" amount="32" damage="1" />
+      <item slot="4" material="glass" amount="64" />
+      <item slot="5" material="golden apple" amount="3"/>
+      <item slot="6" material="bread" amount="64"/>
+      <item slot="27" material="arrow" />
+      <chestplate team-color="true" material="leather chestplate" />
+      <helmet team-color="true" material="leather helmet" />
+      <boots team-color="true" material="leather boots" />
+      <leggings team-color="true" material="leather leggings" />
+      <effect duration="5" level="4">damage resistance</effect>
+    </loadout>
+  </loadouts>
+</map>

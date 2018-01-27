@@ -1,0 +1,13 @@
+<!--
+    Included in every map
+    This loads localization for maps.
+    DON'T DELETE THIS!
+-->
+<map>
+  <include src="Shared/locales/ar_SA.xml"/>
+  <include src="Shared/locales/de_DE.xml"/>
+  <include src="Shared/locales/en_US.xml"/>
+  <include src="Shared/locales/es_ES.xml"/>
+  <include src="Shared/locales/sv_SE.xml"/>
+  <include src="Shared/groups.xml"/>
+</map>

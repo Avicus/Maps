@@ -1,0 +1,80 @@
+<map name="Survival Of The Fittest" spec="1.0.2" version="1.0.0">
+	<include src="defaults.xml"/>
+	<authors>
+		<author uuid="f866f3863d9d493c8de887b493cab8be"/>
+		<!--  alexanderjoe  -->
+	</authors>
+	<teams>
+		<team color="red" id="red" max="25" min="1">{colors.red}</team>
+		<team color="blue" id="blue" max="25" min="1">{colors.blue}</team>
+	</teams>
+	<spawns>
+		<!--  Spectator spawn  -->
+		<spawn>
+			<regions>
+				<point yaw="0">-30.5,73,-812.5</point>
+			</regions>
+		</spawn>
+		<!--  Team spawns  -->
+		<spawn loadout="default" team="red">
+			<regions>
+				<point yaw="-90">218,71,161</point>
+			</regions>
+		</spawn>
+		<spawn loadout="default" team="blue">
+			<regions>
+				<point yaw="90">236,71,161</point>
+			</regions>
+		</spawn>
+	</spawns>
+	<objectives>
+		<monuments materials="obsidian">
+			<monuments owner="red">
+				<monument name="Unbreakable">
+					<region>
+						<block>221,73,161</block>
+					</region>
+				</monument>
+			</monuments>
+			<monuments owner="blue">
+				<monument name="Unbreakable">
+					<region>
+						<block>243,73,161</block>
+					</region>
+				</monument>
+			</monuments>
+		</monuments>
+	</objectives>
+	<loadouts>
+		<loadout id="default">
+			<helmet material="leather helmet" team-color="true"/>
+			<chestplate material="leather chestplate" team-color="true"/>
+			<leggings material="leather leggings" team-color="true"/>
+			<boots material="leather boots" team-color="true"/>
+			<item material="iron sword" slot="0"/>
+			<item material="bow" slot="1">
+				<enchantment>arrow infinite</enchantment>
+			</item>
+			<item material="diamond pickaxe" slot="2">
+				<enchantment>dig speed</enchantment>
+			</item>
+			<item amount="2" material="golden apple" slot="3"/>
+			<item amount="64" material="glass" slot="4"/>
+			<item amount="32" material="log" slot="5"/>
+			<item amount="16" material="cooked fish" slot="6"/>
+			<item material="arrow" slot="28"/>
+		</loadout>
+		<loadout id="kill-reward">
+			<item material="golden apple"/>
+		</loadout>
+	</loadouts>
+	<items>
+		<repair-tools>
+			<any>
+				<material>iron sword</material>
+				<material>bow</material>
+				<material>diamond pickaxe</material>
+			</any>
+		</repair-tools>
+	</items>
+</map>

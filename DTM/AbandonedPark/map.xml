@@ -1,0 +1,116 @@
+<?xml version="1.0"?>
+<map name="Abandoned Park" spec="1.0.0" version="1.0.0">
+  <include src="Shared/phases-dtm.xml"/>
+  <include src="defaults.xml"/>
+  <authors>
+    <author uuid="9da4217e7c3141d1b82d53b0ecc981d0"/> <!-- MerlinMaster -->
+  </authors>
+  <teams>
+    <load-group id="teams.red-blue" max="20" min="1"/>
+  </teams>
+  <spawns>
+    <spawn>
+      <regions>
+        <cuboid max="-65, 139, -229" min="-60, 138, -224"/>
+      </regions>
+    </spawn>
+    <spawn loadout="all" team="blue">
+      <regions>
+        <point yaw="-90">-160.5, 99, -150.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="all" team="red">
+      <regions>
+        <point yaw="90">43.5, 99, -150.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <loadouts>
+    <loadout id="all">
+      <item material="iron sword" slot="0"/>
+      <item material="bow" slot="1"/>
+      <item material="diamond pickaxe" slot="2"/>
+      <item amount="1" material="golden apple" slot="3"/>
+      <item amount="64" material="glass" slot="4"/>
+      <item amount="32" material="log" slot="5"/>
+      <item amount="32" material="cooked fish" slot="8"/>
+      <item amount="64" material="arrow" slot="28"/>
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="leather leggings" team-color="true"/>
+      <boots material="leather boots" team-color="true"/>
+    </loadout>
+    <loadout id="kill-reward">
+      <item material="golden apple"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="kill-reward"/>
+    </rewards>
+  </kills>
+  <objectives>
+    <monuments materials="obsidian">
+      <monuments owner="red">
+        <monument name="{directions.middle}">
+          <region>
+            <point>73, 101, -151</point>
+          </region>
+        </monument>
+      </monuments>
+      <monuments owner="blue">
+        <monument name="{directions.middle}">
+          <region>
+            <point>-191, 101, -151</point>
+          </region>
+        </monument>
+      </monuments>
+    </monuments>
+  </objectives>
+  <items>
+    <remove-drops>
+      <any>
+        <material>glass</material>
+        <material>log</material>
+        <material>wood</material>
+        <material>cooked fish</material>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>leather leggings</material>
+        <material>leather boots</material>
+        <material>arrow</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>iron sword</material>
+        <material>diamond pickaxe</material>
+        <material>bow</material>
+      </any>
+    </repair-tools>
+  </items>
+  <zones>
+    <zone modify="never">
+      <region>
+        <invert>
+          <cuboid max="-172, 256, -200" min="55, 1, -101"/>
+          <cuboid max="-199, 256, -143" min="-170, 1, -158"/>
+          <cuboid max="82, 256, -158" min="54, 1, 256"/>
+        </invert>
+      </region>
+      <message>{errors.outside-map}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cylinder base="-161, 97, -151" height="6" radius="8"/>
+      </region>
+      <message>{errors.enemy-base}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cylinder base="43, 97, -151" height="6" radius="8"/>
+      </region>
+      <message>{errors.enemy-base}</message>
+    </zone>
+  </zones>
+</map>

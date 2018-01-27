@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="Bleezle Borpanap: Zeegaloo Wurpnorp" version="1.0.0" spec="1.0.3">
+	<authors>
+		<author uuid="42b105207c51425292d98b65df108b12"/>
+		<!--  guy  -->
+		<author uuid="47b15675a0484e8f863a0cbf86ba22dc"/>
+		<!--DO NOT TRY TO UNDERSTAND BECAUSE YOU CANNOT -->
+	</authors>
+	<teams>
+		<team id="zoog" color="purple" min="2" max="16">Zoog</team>
+		<team id="blozzle" color="orange" min="2" max="16">Blozzle</team>
+	</teams>
+	<spawns>
+		<spawn>
+			<regions>
+				<point yaw="90">-127.6, 93, 80</point>
+			</regions>
+		</spawn>
+		<spawn team="zoog" loadout="default" yaw="180">
+				<regions>
+					<point yaw="180">-205, 86, 159.5</point>
+				</regions>
+			</spawn>
+		<spawn team="blozzle" loadout="default" yaw="0">
+				<regions>
+					<point yaw="0">-206, 86, -1.5</point>
+				</regions>
+			</spawn>
+	</spawns>
+	<objectives>
+		<monuments materials="obsidian">
+			<monuments owner="zoog">
+				<monument name="Gloof">
+					<region>
+						<join>
+							<block>-167, 107, 156</block>
+							<block>-167, 108, 156</block>
+						</join>
+					</region>
+				</monument>
+				<monument name="Joff">
+					<region>
+						<join>
+							<block>-245, 107, 157</block>
+							<block>-245, 108, 157</block>
+						</join>
+					</region>
+				</monument>
+			</monuments>
+			<monuments owner="blozzle">
+				<monument name="Gloof">
+					<region>
+						<join>
+							<block>-245, 107, 1</block>
+							<block>-245, 108, 1</block>
+						</join>
+					</region>
+				</monument>
+				<monument name="Joff">
+					<region>
+						<join>
+							<block>-167, 107, 0</block>
+							<block>-167, 108, 0</block>
+						</join>
+					</region>
+				</monument>
+			</monuments>
+		</monuments>
+	</objectives>
+	<loadouts>
+		<loadout id="default">
+			<item amount="1" name="Jupperjub" slot="0" material="bow" projectile="mooble"/>
+			<item amount="1" name="Jubbly Panoodlydoo" slot="1" material="iron sword"/>
+			<item amount="1" name="Danzi Neezlebub" slot="2" material="diamond pickaxe">
+				<enchantments>
+					<enchantment level="1">dig speed</enchantment>
+				</enchantments>
+			</item>
+			<item amount="2" name="Oozlezord" slot="3" material="golden apple"/>
+			<item amount="48" name="Wurblezoink" slot="6" material="log"/>
+			<item amount="64" damage="7" name="Jeebinubnub" slot="7" material="stained glass"/>
+			<item amount="32" name="Bloomfy" slot="8" material="bread"/>
+			<item amount="32" name="Woozle" slot="27" material="arrow"/>
+			<boots amount="1" name="Zargo Jumbly" team-color="true" material="leather boots"/>
+			<leggings amount="1" name="Zargo Yubberjub" team-color="true" material="leather leggings"/>
+			<chestplate amount="1" name="Zargo Wooblynax" team-color="true" material="leather chestplate"/>
+			<helmet amount="1" name="Zargo Bloomf" team-color="true" material="leather helmet"/>
+		</loadout>
+		<loadout id="kill-reward">
+			<item amount="1" name="Oozlezord" slot="3" material="golden apple"/>
+			<walk-speed action="multiply">1.1</walk-speed>
+		</loadout>
+		<loadout id="mooble-hit">
+			<effect duration="1s">blindness</effect>
+			<food-level action="subtract">4</food-level>
+		</loadout>
+	</loadouts>
+	<kills>
+		<rewards>
+			<reward loadout="kill-reward"/>
+		</rewards>
+	</kills>
+	<executors>
+		<executor id="remb" check="always">
+			<replace-block find="bedrock" replace="air" region="everywhere"/>
+		</executor>
+		<executor id="snow-dicks" check="always">
+			<execution-group>
+				<replace-block find="air" replace="snow block" region="imdumlol"/>
+				<replace-block find="air" replace="pumpkin" region="limy"/>
+				<send-message location="chat">^l^8[^6!^8] ^4ZEEBO ^8[^6!^8] ^4ZEEBO ^8[^6!^8] ^4ZEEBO ^8[^6!^8]</send-message>
+			</execution-group>
+		</executor>
+		<executor id="voidtp" check="sometimes">
+			<execution-group>
+				<teleport-player to="midtploc"/>
+				<send-message location="chat">[^2BLARZLE^f] ^7Ziffoo zim!</send-message>
+			</execution-group>
+		</executor>
+		<executor id="hooraytnt" check="always">
+			<execution-group>
+				<replace-block find="air" replace="tnt" region="midtnt"/>
+				<replace-block find="air" replace="redstone block" region="reds"/>
+			</execution-group>
+		</executor>
+		<executor id="tnt-loop"  check="always">
+			<loop stop="never" interval="5s" execute="hooraytnt"/>
+		</executor>
+		<executor id="snow-loop" check="always">
+			<loop stop="never" interval="4m" execute="snow-dicks"/>
+		</executor>
+	</executors>
+	<zones>
+		<zone modify="never">
+			<region>
+				<invert>
+				<cuboid min="-143, 130, 163" max="-269, 83, -6"/>
+				</invert>
+			</region>
+			<message>^8[^6ZEEBO!^f^8] ^cBoople zongiwax oofo parba.</message>
+		</zone>
+		<zone modify="never">
+			<region>
+				<join>
+					<cuboid min="-199, 84, 163" max="-212, 90, 153"/>
+					<cuboid min="-209, 85, 153" max="-202, 95, 145"/>
+				</join>
+			</region>
+			<enter>
+				<team>zoog</team>
+			</enter>
+			<message>^8[^6ZEEBO!^f^8] ^cZib zam nooz wapplejom.</message>
+		</zone>
+		<zone modify="never">
+			<region>
+				<join>
+					<cuboid min="-213, 84, -6" max="-200, 90, 4"/>
+					<cuboid min="-210, 85, 4" max="-203, 95, 12"/>
+				</join>
+			</region>
+			<enter>
+				<team>blozzle</team>
+			</enter>
+			<message>^8[^6ZEEBO!^f^8] ^cZib zam nooz wapplejom.</message>
+		</zone>
+		<zone icarus="2.0">
+			<region id="BOUNCE-MANIA"/>
+		</zone>
+		<zone>
+			<region id="now-heres-a-fancy-region-lads"/>
+			<triggers enter="voidtp"/>
+		</zone>
+	</zones>
+	<world>
+		<storm>false</storm>
+		<weather check="always"/>
+	</world>
+	<regions>
+		<subtract id="blozdec">
+			<cuboid min="-269,83,-6" max="-143,91,63" />
+			<cuboid min="-213,83,-6" max="-200,91,10" />
+		</subtract>
+		<subtract id="zoogdec">
+			<cuboid min="-269,83,94" max="-143,91,163" />
+			<cuboid min="-212,83,147" max="-199,91,163" />
+		</subtract>
+		<cuboid id="limy" min="-269,255,-6" max="-143,255,163" />
+		<join id="imdumlol">
+			<cuboid min="-269,254,-6" max="-143,254,163" />
+			<cuboid min="-269,253,-6" max="-143,253,163" />
+		</join>
+		<translate id="now-heres-a-fancy-region-lads" offset="0,-220,0">
+			<region id="imdumlol"/>
+		</translate>
+		<cuboid id="reds" min="-208,97,76" max="-203,97,81" />
+		<cuboid id="midtnt" min="-208,98,76" max="-203,98,81" />
+		<point id="midtploc">-206,104,78</point>
+		<join id="BOUNCE-MANIA">
+			<cuboid min="-174,83,18" max="-153,91,33" />
+			<cuboid min="-259,83,18" max="-238,91,33" />
+			<cuboid min="-259,83,124" max="-238,91,139" />
+			<cuboid min="-174,83,124" max="-153,91,139" />
+		</join>
+	</regions>
+	<items>
+		<remove-drops>
+			<any>
+				<material>leather helmet</material>
+				<material>leather chestplate</material>
+				<material>leather leggings</material>
+				<material>leather boots</material>
+				<material>cooked fish</material>
+				<material>golden apple</material>
+			</any>
+		</remove-drops>
+		<repair-tools>
+			<any>
+				<material>iron sword</material>
+				<material>bow</material>
+				<material>diamond pickaxe</material>
+			</any>
+		</repair-tools>
+	</items>
+	<!-- line 192 -->
+	<projectiles>
+		<projectile id="mooble" name="Mooble" type="egg" loadout="mooble-hit" velocity="1.2" damage="4"/>
+	</projectiles>
+	<triggers>
+		<trigger on="match-start" execute="remb"/>
+		<trigger on="match-start" execute="snow-loop"/>
+		<trigger on="match-start" execute="tnt-loop"/>
+	</triggers>
+	<decay>
+		<area region="blozdec" fall-delay="20s">
+			<phase delay="1s">stained clay:4</phase>
+			<phase delay="1s">stained clay:3</phase>
+			<phase delay="20s">stained clay:4</phase>
+			<phase delay="1s">stained clay:3</phase>
+			<phase delay="20s">stained clay:4</phase>
+			<phase delay="1s">stained clay:3</phase>
+			<phase delay="20s">stained clay:4</phase>
+			<phase delay="1s">stained clay:3</phase>
+			<phase delay="20s">stained clay:4</phase>
+			<phase delay="1s">stained clay:3</phase>
+			<phase delay="20s">stained clay:4</phase>
+			<phase delay="1s">stained clay:3</phase>
+			<phase delay="20s">stained clay:4</phase>
+			<phase delay="1s">stained clay:3</phase>
+		</area>
+		<area region="zoogdec" fall-delay="20s">
+			<phase delay="1s">stained clay:4</phase>
+			<phase delay="1s">stained clay:6</phase>
+			<phase delay="20s">stained clay:4</phase>
+			<phase delay="1s">stained clay:6</phase>
+			<phase delay="20s">stained clay:4</phase>
+			<phase delay="1s">stained clay:6</phase>
+			<phase delay="20s">stained clay:4</phase>
+			<phase delay="1s">stained clay:6</phase>
+			<phase delay="20s">stained clay:4</phase>
+			<phase delay="1s">stained clay:6</phase>
+			<phase delay="20s">stained clay:4</phase>
+			<phase delay="1s">stained clay:6</phase>
+			<phase delay="20s">stained clay:4</phase>
+			<phase delay="1s">stained clay:6</phase>
+		</area>
+	</decay>
+	<phases countdown-message="^6Wufflezoop bloponash zup ^6{0} ^6jubber {1}^6!" fail-message="^cZupple woog!">
+		<phase id="phasea" success-message="^c * * ^eZOOZLE ZAM ^c * *" delay="1m" pass-phase="phaseb">
+			^8Zoozle
+			<materials>
+				<material find="obsidian" replace="bedrock"/>
+			</materials>
+		</phase>
+		<phase id="phaseb" success-message="^c * * ^fBLIMPERJAB ZAM ^c * *" delay="1m" pass-phase="phasec">
+			^7Blimperjab
+			<materials>
+				<material find="bedrock" replace="obsidian"/>
+			</materials>
+		</phase>
+		<phase id="phasec" success-message="^c * * ^fWOOZLENORF ZAM!! ^c * *" delay="8m">
+			Woozlenorf!!
+			<materials>
+				<material find="obsidian" replace="stained clay:15"/>
+			</materials>
+		</phase>
+	</phases>
+</map>

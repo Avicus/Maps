@@ -1,0 +1,331 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<map name="Green's Farms" spec="1.0.4" version="1.0.1">
+  <include src="defaults.xml"/>
+  <include src="Shared/reward-one-gap.xml"/>
+  <include src="Shared/reward-seven-arrows.xml"/>
+  <include src="Shared/tutorials/ctw.xml"/>
+  <tutorial>
+    <step countdown="5s" freeze="true" location="-153,19,12" pitch="0" yaw="180">
+      <chat>
+        <line>^r • {tutorial.generic.team-spawns}</line>
+      </chat>
+    </step>
+    <step countdown="5s" freeze="true" location="-152,41,24" pitch="-30" yaw="180">
+      <chat>
+        <line>^r • {tutorial.ctw.wool-area}</line>
+      </chat>
+    </step>
+    <step countdown="5s" freeze="true" location="-152,46,4" pitch="50" yaw="180">
+      <chat>
+        <line>^r • {tutorial.ctw.wool-chest}</line>
+      </chat>
+    </step>
+    <step countdown="5s" freeze="true" location="-139,18,13" pitch="0" yaw="180">
+      <chat>
+        <line>^r • {tutorial.ctw.wool-monument}</line>
+      </chat>
+    </step>
+  </tutorial>
+  <authors>
+    <author uuid="f876b863-1ccd-4ae2-acad-8a09e2209e81"/>
+    <!--  _DISTRACTION_  -->
+    <author uuid="0b8f95fa-0f40-4f28-9fd0-b8e243bb6800"/>
+    <!--  Fouled  -->
+  </authors>
+  <gametype>ctw</gametype>
+  <teams>
+    <team color="yellow" id="yellow" max="32" min="1">{colors.yellow}</team>
+    <team color="blue" id="blue" max="32" min="1">{colors.blue}</team>
+  </teams>
+  <spawns>
+    <!-- Spectator spawn -->
+    <spawn yaw="180">
+      <regions>
+        <point>1.5,117,2.5</point>
+      </regions>
+    </spawn>
+    <!-- Team spawns -->
+    <spawn loadout="teams-default" pitch="90" team="yellow" yaw="-90">
+      <regions>
+        <point>-152.5,38.2,0.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="teams-default" pitch="90" team="blue" yaw="90">
+      <regions>
+        <point>153.5,38.2,0.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <objectives>
+    <wools>
+      <wools pickup="false" team="yellow">
+        <wool color="purple">
+          <source>
+            <join>
+              <block>153,45,-2</block>
+            </join>
+          </source>
+          <destination>
+            <block>-140,18,-9</block>
+          </destination>
+        </wool>
+        <wool color="cyan">
+          <source>
+            <join>
+              <block>153,45,2</block>
+            </join>
+          </source>
+          <destination>
+            <block>-140,18,9</block>
+          </destination>
+        </wool>
+      </wools>
+      <wools pickup="false" team="blue">
+        <wool color="orange">
+          <source>
+            <join>
+              <block>-153,45,-2</block>
+            </join>
+          </source>
+          <destination>
+            <block>140,18,-9</block>
+          </destination>
+        </wool>
+        <wool color="red">
+          <source>
+            <join>
+              <block>-153,45,2</block>
+            </join>
+          </source>
+          <destination>
+            <block>140,18,9</block>
+          </destination>
+        </wool>
+      </wools>
+    </wools>
+  </objectives>
+  <loadouts>
+    <loadout id="teams-default">
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="leather leggings" team-color="true"/>
+      <boots material="leather boots" team-color="true"/>
+      <item material="iron sword" slot="0"/>
+      <item material="bow" slot="1"/>
+      <item material="diamond pickaxe" slot="2"/>
+      <item material="iron axe" slot="3"/>
+      <item amount="32" material="glass" slot="4"/>
+      <item amount="24" material="log" slot="5"/>
+      <item amount="64" material="cooked fish" slot="6"/>
+      <item amount="2" material="golden apple" slot="7"/>
+      <item material="iron spade" slot="8"/>
+      <item amount="64" material="arrow" slot="27"/>
+    </loadout>
+    <loadout id="you-are-almost-dead">
+      <health action="set">1</health>
+    </loadout>
+  </loadouts>
+  <damage>
+    <disable>
+      <all>
+        <damage>fall</damage>
+        <inside>
+          <region>
+            <join>
+              <cuboid max="156,39,-3" min="150,16,3"/>
+              <cuboid max="-156,39,-3" min="-150,16,3"/>
+            </join>
+          </region>
+        </inside>
+      </all>
+    </disable>
+  </damage>
+  <executors>
+    <executor check="always" id="take-much-health">
+      <apply-loadout loadout="you-are-almost-dead"/>
+    </executor>
+  </executors>
+  <zones>
+    <zone>
+      <region>
+        <join>
+          <cuboid max="146,32,31" min="134,32,5"/>
+          <cuboid max="146,32,-31" min="134,32,-5"/>
+          <cuboid max="-146,32,31" min="-134,32,5"/>
+          <cuboid max="-146,32,-31" min="-134,32,-5"/>
+        </join>
+      </region>
+      <triggers enter="take-much-health"/>
+    </zone>
+    <zone modify="never">
+      <region>
+        <above y="64"/>
+      </region>
+      <message>{errors.height-limit}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <subtract>
+          <void ignored-blocks="water;stationary water"/>
+          <join>
+            <cuboid max="30,30,-6" min="-30,0,6"/>
+            <cuboid max="-68,38,20" min="68,6,32"/>
+            <cuboid max="-68,38,-20" min="68,6,-32"/>
+            <cuboid max="-95,38,7" min="-133,6,19"/>
+            <cuboid max="-95,38,-7" min="-133,6,-19"/>
+            <cuboid max="95,38,7" min="133,6,19"/>
+            <cuboid max="95,38,-7" min="133,6,-19"/>
+            <cuboid max="120,38,6" min="108,8,-6"/>
+            <cuboid max="-120,38,6" min="-108,8,-6"/>
+            <block>140,18,9</block>
+            <block>140,18,-9</block>
+            <block>-140,18,9</block>
+            <block>-140,18,-9</block>
+            <!-- + + wool lanes -->
+            <cuboid max="108,42,34" min="120,8,20"/>
+            <cuboid max="148,48,33" min="119,14,45"/>
+            <cuboid max="147,54,9" min="159,27,34"/>
+            <cuboid max="118,42,37" min="109,14,35"/>
+            <cuboid max="118,42,39" min="110,14,38"/>
+            <cuboid max="118,42,40" min="111,14,40"/>
+            <cuboid max="118,42,41" min="112,14,41"/>
+            <cuboid max="118,42,42" min="113,14,42"/>
+            <cuboid max="118,42,43" min="114,14,43"/>
+            <cuboid max="118,42,44" min="116,14,44"/>
+            <cuboid max="149,54,37" min="158,27,35"/>
+            <cuboid max="149,54,39" min="157,27,38"/>
+            <cuboid max="149,54,40" min="156,27,40"/>
+            <cuboid max="149,54,41" min="155,27,41"/>
+            <cuboid max="149,54,42" min="154,27,42"/>
+            <cuboid max="149,54,43" min="153,27,43"/>
+            <cuboid max="149,54,44" min="151,27,44"/>
+            <!-- + - wool lanes -->
+            <cuboid max="108,42,-34" min="120,8,-20"/>
+            <cuboid max="148,48,-33" min="119,14,-45"/>
+            <cuboid max="147,54,-9" min="159,27,-34"/>
+            <cuboid max="118,42,-37" min="109,14,-35"/>
+            <cuboid max="118,42,-39" min="110,14,-38"/>
+            <cuboid max="118,42,-40" min="111,14,-40"/>
+            <cuboid max="118,42,-41" min="112,14,-41"/>
+            <cuboid max="118,42,-42" min="113,14,-42"/>
+            <cuboid max="118,42,-43" min="114,14,-43"/>
+            <cuboid max="118,42,-44" min="116,14,-44"/>
+            <cuboid max="149,54,-37" min="158,27,-35"/>
+            <cuboid max="149,54,-39" min="157,27,-38"/>
+            <cuboid max="149,54,-40" min="156,27,-40"/>
+            <cuboid max="149,54,-41" min="155,27,-41"/>
+            <cuboid max="149,54,-42" min="154,27,-42"/>
+            <cuboid max="149,54,-43" min="153,27,-43"/>
+            <cuboid max="149,54,-44" min="151,27,-44"/>
+            <!-- - + wool lanes -->
+            <cuboid max="-108,42,34" min="-120,8,20"/>
+            <cuboid max="-148,48,33" min="-119,14,45"/>
+            <cuboid max="-147,54,9" min="-159,27,34"/>
+            <cuboid max="-118,42,37" min="-109,14,35"/>
+            <cuboid max="-118,42,39" min="-110,14,38"/>
+            <cuboid max="-118,42,40" min="-111,14,40"/>
+            <cuboid max="-118,42,41" min="-112,14,41"/>
+            <cuboid max="-118,42,42" min="-113,14,42"/>
+            <cuboid max="-118,42,43" min="-114,14,43"/>
+            <cuboid max="-118,42,44" min="-116,14,44"/>
+            <cuboid max="-149,54,37" min="-158,27,35"/>
+            <cuboid max="-149,54,39" min="-157,27,38"/>
+            <cuboid max="-149,54,40" min="-156,27,40"/>
+            <cuboid max="-149,54,41" min="-155,27,41"/>
+            <cuboid max="-149,54,42" min="-154,27,42"/>
+            <cuboid max="-149,54,43" min="-153,27,43"/>
+            <cuboid max="-149,54,44" min="-151,27,44"/>
+            <!-- - - wool lanes -->
+            <cuboid max="-108,42,-34" min="-120,8,-20"/>
+            <cuboid max="-148,48,-33" min="-119,14,-45"/>
+            <cuboid max="-147,54,-9" min="-159,27,-34"/>
+            <cuboid max="-118,42,-37" min="-109,14,-35"/>
+            <cuboid max="-118,42,-39" min="-110,14,-38"/>
+            <cuboid max="-118,42,-40" min="-111,14,-40"/>
+            <cuboid max="-118,42,-41" min="-112,14,-41"/>
+            <cuboid max="-118,42,-42" min="-113,14,-42"/>
+            <cuboid max="-118,42,-43" min="-114,14,-43"/>
+            <cuboid max="-118,42,-44" min="-116,14,-44"/>
+            <cuboid max="-149,54,-37" min="-158,27,-35"/>
+            <cuboid max="-149,54,-39" min="-157,27,-38"/>
+            <cuboid max="-149,54,-40" min="-156,27,-40"/>
+            <cuboid max="-149,54,-41" min="-155,27,-41"/>
+            <cuboid max="-149,54,-42" min="-154,27,-42"/>
+            <cuboid max="-149,54,-43" min="-153,27,-43"/>
+            <cuboid max="-149,54,-44" min="-151,27,-44"/>
+          </join>
+        </subtract>
+      </region>
+      <message>{errors.outside-map}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid max="-159,39,6" min="-147,0,-6"/>
+      </region>
+      <enter>
+        <team>yellow</team>
+      </enter>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <!-- Blue Spawn -->
+    <zone modify="never">
+      <region>
+        <cuboid max="159,39,6" min="147,0,-6"/>
+      </region>
+      <enter>
+        <team>blue</team>
+      </enter>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <!-- Yellow Wool Rooms -->
+    <zone modify="never">
+      <region>
+        <cuboid max="-147,256,-8" min="-159,40,8"/>
+      </region>
+      <enter>
+        <team>blue</team>
+      </enter>
+      <message>{errors.own-wool-room}</message>
+    </zone>
+    <!-- Blue Wool Rooms -->
+    <zone modify="never">
+      <region>
+        <cuboid max="147,256,-8" min="159,40,8"/>
+      </region>
+      <enter>
+        <team>yellow</team>
+      </enter>
+      <message>{errors.own-wool-room}</message>
+    </zone>
+  </zones>
+  <world>
+    <storm>false</storm>
+    <weather check="always"/>
+  </world>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>leather leggings</material>
+        <material>leather boots</material>
+        <material>cooked fish</material>
+        <material>golden apple</material>
+        <material>glass</material>
+        <material>log</material>
+        <material>wood</material>
+        <material>wool</material>
+        <material>arrow</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>iron sword</material>
+        <material>bow</material>
+        <material>diamond pickaxe</material>
+        <material>iron axe</material>
+        <material>iron spade</material>
+      </any>
+    </repair-tools>
+  </items>
+</map>

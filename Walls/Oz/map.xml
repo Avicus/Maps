@@ -1,0 +1,133 @@
+<?xml version="1.0"?>
+<map genre="walls" name="Oz" spec="1.0.5" version="1.0.0">
+  <include src="defaults.xml"/>
+  <include src="Shared/walls.xml"/>
+  <include src="Shared/tutorials/walls.xml"/>
+  <authors>
+    <author uuid="706eaabd35314470b6b0f7937f644e67"/> <!-- itaity -->
+  </authors>
+  <gametype>walls</gametype>
+  <teams>
+    <load-group id="teams.red-blue" max="20" min="1"/>
+    <team color="purple" id="purple" max="20" min="1">{colors.purple}</team>
+    <team color="gray" id="gray" max="20" min="1">{colors.gray}</team>
+  </teams>
+  <tutorial>
+    <step countdown="5s" freeze="true" location="-876,74,-131" pitch="21" yaw="108">
+      <chat>
+        <line>^r • {tutorial.generic.team-spawns}</line>
+      </chat>
+    </step>
+    <step countdown="5s" freeze="true" location="-808,155,-149" pitch="37" yaw="-166">
+      <chat>
+        <line>^r • {tutorial.walls.wall-area}</line>
+      </chat>
+    </step>
+    <step countdown="5s" freeze="true" location="-802,92,-180" pitch="25" yaw="-48">
+      <chat>
+        <line>^r • {tutorial.walls.wall-mid-loot}</line>
+      </chat>
+    </step>
+  </tutorial>
+  <spawns>
+    <spawn>
+      <regions>
+        <point yaw="90">-793,120,-172</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="red">
+      <regions>
+        <point yaw="90">-704.5,73,-212.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="blue">
+      <regions>
+        <point yaw="90">-704.5,73,-132.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="purple">
+      <regions>
+        <point yaw="-90">-882.5,73,-212.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="gray">
+      <regions>
+        <point yaw="-90">-882.5,73,-132.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <zones>
+    <zone modify="never">
+      <region>
+        <invert>
+          <cuboid max="-724,256,-243" min="-864,0,-103"/>
+        </invert>
+      </region>
+    </zone>
+    <zone modify="never" region="height-limit"/>
+    <zone modify="never">
+      <region>
+        <join>
+          <cuboid max="-804,155,-164" min="-864,73,-164"/>
+          <cuboid max="-804,155,-182" min="-864,73,-182"/>
+          <cuboid max="-724,155,-164" min="-784,73,-164"/>
+          <cuboid max="-724,155,-182" min="-784,73,-182"/>
+          <cuboid max="-785,155,-243" min="-785,73,-183"/>
+          <cuboid max="-803,155,-243" min="-803,73,-183"/>
+          <cuboid max="-785,155,-103" min="-785,73,-163"/>
+          <cuboid max="-803,155,-103" min="-803,73,-163"/>
+        </join>
+      </region>
+    </zone>
+    <zone enter="never" modify="never">
+      <region>
+        <cuboid max="-785,256,-102" min="-803,0,-102"/>
+        <cuboid max="-785,256,-244" min="-803,0,-244"/>
+        <cuboid max="-723,256,-164" min="-723,0,-182"/>
+        <cuboid max="-865,256,-164" min="-865,0,-182"/>
+      </region>
+    </zone>
+  </zones>
+  <regions>
+    <above id="height-limit" y="140"/>
+  </regions>
+  <walls end-time="30m" fall-time="10m">
+    <wall>
+      <region>
+        <join>
+          <cuboid max="-804,155,-164" min="-864,73,-164"/>
+          <cuboid max="-804,155,-182" min="-864,73,-182"/>
+          <cuboid max="-724,155,-164" min="-784,73,-164"/>
+          <cuboid max="-724,155,-182" min="-784,73,-182"/>
+          <cuboid max="-785,155,-243" min="-785,73,-183"/>
+          <cuboid max="-803,155,-243" min="-803,73,-183"/>
+          <cuboid max="-785,155,-103" min="-785,73,-163"/>
+          <cuboid max="-803,155,-103" min="-803,73,-163"/>
+        </join>
+      </region>
+    </wall>
+  </walls>
+  <loadouts>
+    <loadout id="default">
+      <helmet material="leather helmet" team-color="true"/>
+      <item material="wood axe" slot="0"/>
+      <item material="compass" slot="7"/>
+      <item amount="5" material="bread" slot="8"/>
+    </loadout>
+    <loadout id="r">
+      <item material="golden apple"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="r"/>
+    </rewards>
+  </kills>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+      </any>
+    </remove-drops>
+  </items>
+</map>

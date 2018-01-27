@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map genre="sky wars" name="Grasslands KOTH" spec="1.0.0" version="1.0.0">
+  <include src="defaults.xml"/>
+  <include src="Shared/skywars.xml"/>
+  <authors>
+    <author uuid="3cce00809faa48f982cf64410305822a"/>  <!-- ProfessorUtonium -->
+  </authors>
+  <teams>
+    <team color="red" id="red" max="1" min="1">{colors.red}</team>
+    <team color="blue" id="blue" max="1" min="1">{colors.blue}</team>
+    <team color="purple" id="purple" max="1" min="1">{colors.purple}</team>
+    <team color="pink" id="pink" max="1" min="1">{colors.pink}</team>
+    <team color="lime" id="lime" max="1" min="1">{colors.lime}</team>
+    <team color="orange" id="orange" max="1" min="1">{colors.orange}</team>
+    <team color="cyan" id="cyan" max="1" min="1">{colors.cyan}</team>
+    <team color="yellow" id="yellow" max="1" min="1">{colors.yellow}</team>
+  </teams>
+  <objectives>
+    <hill capture-time="5s" name="{directions.center}" points="5">
+      <capture>
+        <cylinder base="-51, 80, 13" height="4" radius="3"/>
+      </capture>
+      <progress>
+        <cuboid max="-55, 80, 10" min="-49, 80, 16"/>
+      </progress>
+    </hill>
+    <scores limit="100">
+      <score team="red"/>
+      <score team="cyan"/>
+      <score team="lime"/>
+      <score team="orange"/>
+      <score team="pink"/>
+      <score team="yellow"/>
+      <score team="purple"/>
+      <score team="blue"/>
+    </scores>
+  </objectives>
+  <compasses>
+    <compass target="enemy"/>
+  </compasses>
+  <spawns>
+    <spawn>
+      <regions>
+        <point yaw="0">-51, 108, -49</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="red" yaw="0">
+      <regions>
+        <block>-52, 80, -35</block>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="blue" yaw="-45">
+      <regions>
+        <block>-87, 79, -24</block>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="purple" yaw="-90">
+      <regions>
+        <block>-100, 80, 14</block>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="pink" yaw="-135">
+      <regions>
+        <block>-85, 79, 49</block>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="lime" yaw="180">
+      <regions>
+        <block>-50, 80, 62</block>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="orange" yaw="135">
+      <regions>
+        <block>-15, 79, 51</block>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="cyan" yaw="90">
+      <regions>
+        <block>-2, 80, 12</block>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="yellow" yaw="45">
+      <regions>
+        <block>-13, 79, -22</block>
+      </regions>
+    </spawn>
+  </spawns>
+  <loadouts>
+    <loadout id="default">
+      <helmet material="leather helmet" team-color="true"/>
+      <item material="wood sword" slot="0"/>
+      <item amount="4" material="cooked chicken" slot="7"/>
+      <item material="compass" slot="8"/>
+    </loadout>
+  </loadouts>
+  <remove-drops>
+    <any>
+      <material>compass</material>
+    </any>
+  </remove-drops>
+  <zones>
+    <zone modify="never">
+      <region>
+        <cuboid max="-55, 85, 10" min="-49, 80, 16"/>
+      </region>
+      <message>{errors.cannot-build}</message>
+    </zone>
+  </zones>
+</map>

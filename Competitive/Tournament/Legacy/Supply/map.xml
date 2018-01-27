@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="Supply" spec="1.0.0" version="1.1.0">
+  <include src="defaults.xml"/>
+  <include src="Shared/reward-one-gap.xml"/>
+  <authors>
+    <author uuid="c29bef37d8e242a9b74604f2df78f374"/> <!-- Legoche -->
+    <author uuid="9116d3fa14004adaaecd2eae1d73e383"/> <!-- Xuph -->
+  </authors>
+  <teams>
+    <team color="cyan" id="cyan" max="8" max-overfill="16" min="1">{colors.cyan}</team>
+    <team color="red" id="red" max="8" max-overfill="16" min="1">{colors.red}</team>
+  </teams>
+  <!-- No score limit -->
+  <objectives>
+    <scores kills="1">
+      <score team="cyan"/>
+      <score team="red"/>
+    </scores>
+  </objectives>
+  <results>
+    <win scenario="objectives">
+      <check>
+        <time>12m</time>
+      </check>
+    </win>
+  </results>
+  <spawns>
+    <spawn>
+      <regions>
+        <point yaw="90">0.5, 150, 0.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="cyan">
+      <regions>
+        <point yaw="135">23.5, 98, 51.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="red">
+      <regions>
+        <point yaw="-45">-22.5, 98, -50.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <loadouts>
+    <loadout id="default">
+      <helmet material="iron helmet"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="leather leggings" team-color="true"/>
+      <boots material="iron boots"/>
+      <item material="stone sword" slot="0"/>
+      <item material="bow" slot="1"/>
+      <item material="golden apple" slot="2"/>
+      <item amount="16" material="golden carrot" slot="5"/>
+      <item amount="16" material="arrow" slot="8"/>
+      <effect amplifier="3" duration="3s">damage resistance</effect>
+      <effect>night vision</effect>
+    </loadout>
+  </loadouts>
+  <zones>
+    <load-group id="no-build"/>
+  </zones>
+  <items>
+    <remove-drops>
+      <any>
+        <material>stone sword</material>
+        <material>bow</material>
+        <material>iron helmet</material>
+        <material>leather chestplate</material>
+        <material>leather leggings</material>
+        <material>iron boots</material>
+        <material>golden carrot</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>stone sword</material>
+        <material>leather chestplate</material>
+        <material>leather leggings</material>
+        <material>iron helmet</material>
+        <material>iron boots</material>
+        <material>bow</material>
+      </any>
+    </repair-tools>
+  </items>
+  <world>
+    <gamerules>
+      <doDaylightCycle>false</doDaylightCycle>
+    </gamerules>
+  </world>
+</map>

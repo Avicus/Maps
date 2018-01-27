@@ -1,0 +1,174 @@
+<?xml version="1.0"?>
+<map name="YinYang" spec="1.0.0" version="1.0.0">
+  <include src="defaults.xml"/>
+  <gametype>dtm</gametype>
+  <authors>
+    <author uuid="e47ce459c5f04b7781a0f2f4310ca819"/> <!-- Acytlon -->
+    <author uuid="ae5c1e91745b4a6fa33711484ede6957"/> <!-- Clijmart -->
+  </authors>
+  <tutorial>
+    <step countdown="5s" freeze="false" location="0, 109, -105" pitch="12" yaw="-180">
+      <chat>
+        <line>^r • {tutorial.generic.team-spawns}</line>
+      </chat>
+    </step>
+    <step countdown="7s" freeze="false" location="40, 102, -101" pitch="8" yaw="-90">
+      <chat>
+        <line>^r • {tutorial.dtm.monument-area}</line>
+        <line>^r • {tutorial.dtm.monument-objective}</line>
+      </chat>
+    </step>
+  </tutorial>
+  <teams>
+    <load-group id="teams.red-blue" max="20" min="1"/>
+  </teams>
+  <spawns>
+    <spawn> <!-- Obs -->
+      <regions>
+        <point yaw="-90">-60.5, 149, 0.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="yin" team="red">
+      <regions>
+        <point yaw="0">0.5, 108, -113.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="yang" team="blue">
+      <regions>
+        <point yaw="180">0.5, 108, 114.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <loadouts>
+    <loadout id="yin">
+      <item material="iron sword" slot="0"/>
+      <item material="bow" slot="1">
+        <enchantment level="1">arrow infinite</enchantment>
+      </item>
+      <item material="diamond pickaxe" slot="2">
+        <enchantment level="1">dig speed</enchantment>
+      </item>
+      <item amount="2" material="golden apple" slot="3"/>
+      <item amount="64" damage="15" material="stained glass" slot="4"/>
+      <item amount="32" material="log" slot="6"/>
+      <item amount="32" material="cooked fish" slot="7"/>
+      <item amount="1" material="arrow" slot="28"/>
+      <helmet color="#000000" material="leather helmet"/>
+      <chestplate color="#000000" material="leather chestplate"/>
+      <leggings color="#000000" material="leather leggings"/>
+      <boots color="#000000" material="leather boots"/>
+    </loadout>
+    <loadout id="yang">
+      <item material="iron sword" slot="0"/>
+      <item material="bow" slot="1">
+        <enchantment level="1">arrow infinite</enchantment>
+      </item>
+      <item material="diamond pickaxe" slot="2">
+        <enchantment level="1">dig speed</enchantment>
+      </item>
+      <item amount="2" material="golden apple" slot="3"/>
+      <item amount="64" material="stained glass" slot="4"/>
+      <item amount="32" material="log" slot="6"/>
+      <item amount="32" material="cooked fish" slot="7"/>
+      <item amount="1" material="arrow" slot="28"/>
+      <helmet color="#FFFFFF" material="leather helmet"/>
+      <chestplate color="#FFFFFF" material="leather chestplate"/>
+      <leggings color="#FFFFFF" material="leather leggings"/>
+      <boots color="#FFFFFF" material="leather boots"/>
+    </loadout>
+    <loadout id="kr">
+      <item material="golden apple"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="kr"/>
+    </rewards>
+  </kills>
+  <objectives>
+    <monuments destroyable="true" materials="obsidian" owner="red">
+      <monument name="{directions.left}">
+        <region>
+          <point>-45, 103, -102</point>
+        </region>
+      </monument>
+      <monument name="{directions.right}">
+        <region>
+          <point>45, 103, -102</point>
+        </region>
+      </monument>
+    </monuments>
+    <monuments destroyable="true" materials="obsidian" owner="blue">
+      <monument name="{directions.left}">
+        <region>
+          <point>45, 103, 102</point>
+        </region>
+      </monument>
+      <monument name="{directions.right}">
+        <region>
+          <point>-45, 103, 102</point>
+        </region>
+      </monument>
+    </monuments>
+  </objectives>
+  <zones>
+    <zone modify="never">
+      <region>
+        <invert>
+          <cuboid max="-75, 140, -124" min="75, 75, 124"/>
+        </invert>
+      </region>
+      <message>{errors.outside-map}</message>
+    </zone>
+    <!--  SPAWNS  -->
+    <zone modify="never">
+      <enter>
+        <team>blue</team>
+      </enter>
+      <region>
+        <cuboid max="-6, 113, 108" min="6, 106, 120"/>
+      </region>
+    </zone>
+    <zone modify="never">
+      <enter>
+        <team>red</team>
+      </enter>
+      <region>
+        <cuboid max="-6, 113, -108" min="6, 106, -120"/>
+      </region>
+    </zone>
+    <!--  ENCHANTING TABLES  -->
+    <zone modify="never">
+      <region>
+        <block>-35, 99, 64</block>
+        <block>35, 99, 64</block>
+        <block>-35, 99, -64</block>
+        <block>35, 99, -64</block>
+      </region>
+      <message>{errors.cannot-break-enchanting}</message>
+    </zone>
+  </zones>
+  <items>
+    <remove-drops>
+      <any>
+        <material>arrow</material>
+        <material>log</material>
+        <material>lapis block</material>
+        <material>cooked fish</material>
+        <material>stained glass:15</material>
+        <material>stained glass</material>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>leather leggings</material>
+        <material>leather boots</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>iron sword</material>
+        <material>diamond pickaxe</material>
+        <material>bow</material>
+      </any>
+    </repair-tools>
+  </items>
+</map>

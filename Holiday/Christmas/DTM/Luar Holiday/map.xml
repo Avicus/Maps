@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<map name="Luar Holiday" spec="1.0.0" version="1.1.0">
+  <include src="defaults.xml"/>
+  <include src="Shared/nebula-shop.xml"/>
+  <gametype>dtm</gametype>
+  <include src="Shared/tutorials/dtm.xml"/>
+  <authors>
+    <author uuid="3893a242cc17447e9b1c774fc8941af8"/> <!-- G_SKIPPY -->
+  </authors>
+  <teams>
+    <team color="lime" id="lime" max="25" min="1">{colors.lime}</team>
+    <team color="yellow" id="yellow" max="25" min="1">{colors.yellow}</team>
+  </teams>
+  <spawns>
+    <!-- Spectator spawn -->
+    <spawn>
+      <regions>
+        <point yaw="-90">-49, 83, -861</point>
+      </regions>
+    </spawn>
+    <!-- Team spawns -->
+    <spawn loadout="default" team="lime">
+      <regions>
+        <point yaw="0">22.5, 32, -920.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="yellow">
+      <regions>
+        <point yaw="180">22.5, 32, -817.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <objectives>
+    <monuments materials="obsidian">
+      <monuments owner="lime">
+        <monument name="{directions.left}">
+          <region>
+            <block>-9, 33, -957</block>
+          </region>
+        </monument>
+        <monument name="{directions.right}">
+          <region>
+            <block>53, 33, -957</block>
+          </region>
+        </monument>
+      </monuments>
+      <monuments owner="yellow">
+        <monument name="{directions.left}">
+          <region>
+            <block>53, 33, -782</block>
+          </region>
+        </monument>
+        <monument name="{directions.right}">
+          <region>
+            <block>-9, 33, -782</block>
+          </region>
+        </monument>
+      </monuments>
+    </monuments>
+  </objectives>
+  <loadouts>
+    <loadout id="default">
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="leather leggings" team-color="true"/>
+      <boots material="leather boots" team-color="true"/>
+      <item material="iron sword" slot="0"/>
+      <item material="bow" slot="1">
+        <enchantment>arrow infinite</enchantment>
+      </item>
+      <item material="diamond pickaxe" slot="2">
+        <enchantment level="2">dig speed</enchantment>
+        <enchantment level="2">durability</enchantment>
+      </item>
+      <item material="stone axe" slot="3">
+        <enchantment level="3">durability</enchantment>
+      </item>
+      <item amount="2" material="golden apple" slot="4"/>
+      <item amount="8" material="cooked beef" slot="5"/>
+      <item amount="32" material="stone" slot="6"/>
+      <item amount="32" material="glass" slot="7"/>
+      <item amount="64" material="log" slot="8"/>
+      <item amount="1" material="arrow" slot="28"/>
+    </loadout>
+    <loadout id="kill-reward">
+      <item material="golden apple"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="kill-reward"/>
+    </rewards>
+  </kills>
+  <regions>
+    <above id="height-limit" y="66"/>
+  </regions>
+  <zones>
+    <zone modify="never">
+      <region>
+        <invert>
+          <cuboid max="-32, 65, -975" min="76, 0, -681"/>
+        </invert>
+      </region>
+      <message format="warning">{errors.outside-map}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid max="-51, oo, -821" min="-65, 0, -835"/>
+      </region>
+      <message format="warning">{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cylinder base="22, 31, -921" height="8" radius="9"/>
+      </region>
+      <message format="warning">{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cylinder base="22,31,-817" height="8" radius="9"/>
+      </region>
+      <message format="warning">{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never" region="height-limit">
+      <message format="warning">{errors.height-limit}</message>
+    </zone>
+  </zones>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>leather leggings</material>
+        <material>leather boots</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>iron sword</material>
+        <material>bow</material>
+        <material>diamond pickaxe</material>
+        <material>stone axe</material>
+      </any>
+    </repair-tools>
+  </items>
+</map>

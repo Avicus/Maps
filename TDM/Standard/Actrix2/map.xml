@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="Actrix 2" spec="1.0.0" version="1.0.1">
+  <include src="defaults.xml"/>
+  <include src="Shared/reward-one-gap.xml"/>
+  <include src="Shared/conquest-shop.xml"/>
+  <include src="Shared/reward-one-arrow.xml"/>
+  <authors>
+    <author uuid="8242e55ecc6a458ab272a2b34918045f"/> <!-- funkystudios -->
+    <author uuid="1c74c43029a0471fb30bcc2d9031ebcb"/> <!-- Tazz -->
+    <author uuid="d9b4ffbc11d0453aa93f82dc59fca4b6"/> <!-- Wulfcaspice -->
+  </authors>
+  <gametype>score</gametype>
+  <teams>
+    <load-group id="teams.red-blue" max="16" min="1"/>
+  </teams>
+  <spawns>
+    <spawn yaw="90">
+      <regions>
+        <point yaw="90">68.5, 149, -758.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="blue">
+      <regions>
+        <point yaw="0">17.5, 132, -802.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="red">
+      <regions>
+        <point yaw="-180">17.5, 132, -714.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <!-- No score limit -->
+  <objectives>
+    <scores kills="1">
+      <score team="blue"/>
+      <score team="red"/>
+    </scores>
+  </objectives>
+  <results>
+    <win scenario="objectives">
+      <check>
+        <time>7m</time>
+      </check>
+    </win>
+  </results>
+  <loadouts>
+    <loadout id="default">
+      <effect duration="5s">damage resistance</effect>
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="iron leggings" team-color="true"/>
+      <boots material="leather boots" team-color="true"/>
+      <item material="iron sword" slot="0"/>
+      <item material="bow" slot="1"/>
+      <item amount="2" material="golden apple" slot="2"/>
+      <item amount="32" material="cooked beef" slot="3"/>
+      <item amount="16" material="arrow" slot="27"/>
+    </loadout>
+  </loadouts>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>iron leggings</material>
+        <material>leather boots</material>
+        <material>cooked beef</material>
+        <material>arrow</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>iron sword</material>
+        <material>bow</material>
+      </any>
+    </repair-tools>
+  </items>
+  <zones>
+    <load-group id="no-build"/>
+  </zones>
+  <world>
+    <gamerules>
+      <doDaylightCycle>false</doDaylightCycle>
+    </gamerules>
+  </world>
+  <damage>
+    <disable>
+      <damage>fall</damage>
+    </disable>
+  </damage>
+</map>

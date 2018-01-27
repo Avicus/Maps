@@ -1,0 +1,161 @@
+﻿<?xml version="1.0"?>
+<map name="Nevadaca" spec="1.0.4" version="1.0.1">
+  <include src="Shared/tutorials/koth.xml"/>
+  <include src="defaults.xml"/>
+  <include src="Shared/reward-one-gap.xml"/>
+  <include src="Shared/conquest-shop.xml"/>
+  <authors>
+    <author uuid="883055fb316542919ded7f279ff5381f"/> <!-- Skiizii -->
+  </authors>
+  <gametype>hill</gametype>
+  <teams>
+    <team color="blue" id="blue" max="15" min="1">{colors.blue}</team>
+    <team color="orange" id="orange" max="15" min="1">{colors.orange}</team>
+  </teams>
+  <spawns>
+    <spawn team="spectators">
+      <regions>
+        <point yaw="180">71.5,169,76.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" respawn-delay="10s" respawn-freeze="true" team="blue">
+      <regions>
+        <point yaw="90">148.5,105,0.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" respawn-delay="10s" respawn-freeze="true" team="orange">
+      <regions>
+        <point yaw="-90">-7.5,105,0.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <objectives>
+    <hill capture-time="7s" earn-points="always" id="blue-1" name="Blue Point" points="1">
+      <capture>
+        <cuboid max="98,111,-35" min="104,107,-29"/>
+      </capture>
+      <progress>
+        <cuboid max="98,111,-35" min="104,107,-29"/>
+      </progress>
+    </hill>
+    <hill capture-time="12s" earn-points="always" id="capture-center" name="Center" points="2">
+      <capture>
+        <cuboid max="66,112,4" min="74,108,-4"/>
+      </capture>
+      <progress>
+        <cuboid max="66,112,4" min="74,108,-4"/>
+      </progress>
+    </hill>
+    <hill capture-time="7s" earn-points="always" id="orange-1" name="Orange Point" points="1">
+      <capture>
+        <cuboid max="36,111,35" min="42,107,29"/>
+      </capture>
+      <progress>
+        <cuboid max="36,111,35" min="42,107,29"/>
+      </progress>
+    </hill>
+    <scores limit="750">
+      <score id="cscore" team="blue"/>
+      <score id="pscore" team="orange"/>
+    </scores>
+  </objectives>
+  <results>
+    <win scenario="team" team="blue">
+      <check>
+        <any>
+          <objective team="blue">cscore</objective>
+        </any>
+      </check>
+    </win>
+    <win scenario="team" team="orange">
+      <check>
+        <any>
+          <objective team="orange">pscore</objective>
+        </any>
+      </check>
+    </win>
+  </results>
+  <loadouts>
+    <loadout id="default">
+      <effect duration="5s">damage resistance</effect>
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="iron leggings" team-color="true"/>
+      <boots material="leather boots" team-color="true"/>
+      <item material="iron sword" slot="0"/>
+      <item material="bow" slot="1"/>
+      <item amount="2" material="golden apple" slot="2"/>
+      <item amount="16" material="cooked beef" slot="7"/>
+      <item amount="16" material="arrow" slot="27"/>
+    </loadout>
+    <loadout id="four-arrows">
+      <item amount="4" material="arrow"/>
+    </loadout>
+    <loadout id="one-golden apple">
+      <item material="golden apple"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="one-golden apple"/>
+      <reward loadout="four-arrows"/>
+    </rewards>
+  </kills>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>iron leggings</material>
+        <material>leather boots</material>
+        <material>cooked beef</material>
+        <material>arrow</material>
+        <material>golden apple</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>iron sword</material>
+        <material>bow</material>
+      </any>
+    </repair-tools>
+  </items>
+  <zones>
+    <zone>
+      <region>
+        <cuboid max="144,104,4" min="152,117,-4"/>
+      </region>
+      <enter>
+        <team>blue</team>
+      </enter>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone>
+      <region>
+        <cuboid max="-4,104,-4" min="-12,117,4"/>
+      </region>
+      <enter>
+        <team>orange</team>
+      </enter>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <load-group id="no-build"/>
+  </zones>
+  <world>
+    <gamerules>
+      <doDaylightCycle>true</doDaylightCycle>
+    </gamerules>
+  </world>
+  <tutorial>
+    <step countdown="5s" freeze="true" location="1,105,0" pitch="0" yaw="90">
+      <chat>
+        <line>^r • {tutorial.generic.team-spawns}</line>
+      </chat>
+    </step>
+    <step countdown="4s" freeze="true" location="55,109,1" pitch="0" yaw="-90">
+      <chat>
+        <line>^r • {tutorial.koth.hill-area}</line>
+      </chat>
+    </step>
+  </tutorial>
+</map>

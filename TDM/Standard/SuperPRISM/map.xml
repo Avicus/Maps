@@ -1,0 +1,267 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<map name="SuperPRISM" spec="1.0.2" version="1.2.4">
+  <include src="defaults.xml"/>
+  <include src="Shared/reward-one-arrow.xml"/>
+  <include src="Shared/conquest-shop.xml"/>
+  <authors>
+    <author role="Idea, Main Design and XML" uuid="ba4a93aa49354a71bab2a58f9a124e7b"/>
+    <author role="Building, Aesthetics and WorldEdit magic"
+      uuid="06078e7e6a7b4d318f74853072b182bb"/>
+    <author role="Aesthetics and Building" uuid="9909505b1f0f4af1ae21afbee92427ce"/>
+    <author contributor="true" role="Aesthetics and Feedback"
+      uuid="714ff88f25d947549caad0f3cf24f230"/>
+    <author contributor="true" role="Aesthetics and Feedback"
+      uuid="939a9a1cf735467abfd7ae77cafd6693"/>
+    <author contributor="true" role="XML and Server Hosting"
+      uuid="9bfbc560244a4e28ab70185f39740ec1"/>
+    <author contributor="true" role="Feedback and Suggestions"
+      uuid="dee1cc5166d24c5ea8d4403dcd1d8c83"/>
+    <organization contributor="true" name="The Orange Sunglasses Build Team"
+      role="Help and Support"/>
+  </authors>
+  <gametype>score</gametype>
+  <teams>
+    <team color="cyan" id="cyan" max="20" max-overfill="24" min="1">{colors.cyan}</team>
+    <team color="yellow" id="yellow" max="20" max-overfill="24" min="1">{colors.yellow}</team>
+  </teams>
+  <spawns>
+    <!-- Spectator spawn -->
+    <spawn loadout="obs">
+      <regions>
+        <cuboid max="-1063,15,-2105" min="-1063,15,-2105"/>
+        <cuboid max="-1101,15,-2227" min="-1101,15,-2227"/>
+      </regions>
+    </spawn>
+    <!-- Team spawns -->
+    <spawn loadout="default" team="cyan" yaw="0">
+      <regions>
+        <cuboid max="-1096,1,-2228" min="-1106,1,-2224"/>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="yellow" yaw="179">
+      <regions>
+        <cuboid max="-1068,1,-2104" min="-1058,1,-2108"/>
+      </regions>
+    </spawn>
+  </spawns>
+  <world>
+    <storm>false</storm>
+    <weather check="always"/>
+  </world>
+  <objectives>
+    <scores kills="1">
+      <score team="yellow"/>
+      <score team="cyan"/>
+    </scores>
+  </objectives>
+  <results>
+    <win scenario="objectives">
+      <check>
+        <time>7m</time>
+      </check>
+    </win>
+  </results>
+  <loadouts>
+    <loadout id="default">
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="leather leggings" team-color="true"/>
+      <boots material="leather boots" team-color="true"/>
+      <effect amplifier="1" duration="8m">saturation</effect>
+      <item material="gold sword" slot="0">
+        <enchantment level="127">damage all</enchantment>
+        <enchantment level="10">durability</enchantment>
+      </item>
+      <item material="bow" slot="1">
+        <enchantment level="127">arrow damage</enchantment>
+      </item>
+      <item amount="2" material="arrow" slot="2"/>
+      <effect amplifier="2" duration="oo">speed</effect>
+      <effect amplifier="1" duration="oo">jump</effect>
+      <effect amplifier="1" duration="oo">night vision</effect>
+      <effect amplifier="1" duration="10">heal</effect>
+      <effect amplifier="1" duration="10">damage resistance</effect>
+    </loadout>
+    <loadout id="obs">
+      <effect amplifier="2" duration="oo">speed</effect>
+      <effect amplifier="1" duration="oo">jump</effect>
+      <effect amplifier="1" duration="oo">night vision</effect>
+    </loadout>
+    <loadout id="kill-reward">
+      <item amount="2" material="arrow"/>
+    </loadout>
+  </loadouts>
+  <items>
+    <remove-drops>
+      <any>
+        <material>arrow</material>
+        <material>glass bottle</material>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>leather leggings</material>
+        <material>leather boots</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>gold sword</material>
+        <material>bow</material>
+      </any>
+    </repair-tools>
+  </items>
+  <zones>
+    <!-- Spawn prots -->
+    <zone>
+      <enter>
+        <team>cyan</team>
+      </enter>
+      <region>
+        <join>
+          <cuboid max="-1087,7,-2219" min="-1094,0,-2226"/>
+          <cuboid max="-1106,6,-2206" min="-1114,0,-2213"/>
+        </join>
+      </region>
+    </zone>
+    <zone>
+      <enter>
+        <team>yellow</team>
+      </enter>
+      <region>
+        <join>
+          <cuboid max="-1049,6,-2118" min="-1057,0,-2125"/>
+          <cuboid max="-1069,7,-2106" min="-1076,0,-2112"/>
+        </join>
+      </region>
+    </zone>
+    <!-- Map Rules -->
+    <zone region="everywhere">
+      <modify>
+        <material>tnt</material>
+      </modify>
+      <tnt>
+        <instant-ignite/>
+      </tnt>
+    </zone>
+    <!-- || PADS || -->
+    <!-- Yellow Pads -->
+    <zone velocity="-0.4,1.1,0.0">
+      <region>
+        <cuboid max="-1078,2,-2113" min="-1081,1,-2116"/>
+      </region>
+    </zone>
+    <zone velocity="0.0,1.4,-0.4">
+      <region>
+        <cuboid max="-1059,2,-2120" min="-1062,1,-2123"/>
+      </region>
+    </zone>
+    <zone velocity="0.0,1.7,-0.4">
+      <region>
+        <cuboid max="-1080,2,-2158" min="-1083,1,-2161"/>
+      </region>
+    </zone>
+    <zone velocity="0.0,1.4,0.4">
+      <region>
+        <cuboid max="-1098,2,-2150" min="-1101,1,-2153"/>
+      </region>
+    </zone>
+    <zone velocity="0.0,1.4,-0.4">
+      <region>
+        <cuboid max="-1053,2,-2130" min="-1056,1,-2133"/>
+      </region>
+    </zone>
+    <!-- Green pads room 1 -->
+    <zone velocity="0.4,1.4,0.0">
+      <region>
+        <cuboid max="-1040,2,-2161" min="-1043,1,-2164"/>
+      </region>
+    </zone>
+    <zone velocity="0.0,1.4,0.4">
+      <region>
+        <cuboid max="-1021,2,-2174" min="-1025,1,-2177"/>
+      </region>
+    </zone>
+    <zone velocity="-0.4,1.4,0.0">
+      <region>
+        <cuboid max="-1026,2,-2193" min="-1029,1,-2196"/>
+      </region>
+    </zone>
+    <zone velocity="0.0,1.4,-0.4">
+      <region>
+        <cuboid max="-1053,2,-2179" min="-1056,1,-2182"/>
+      </region>
+    </zone>
+    <!-- Green pads room 2 -->
+    <zone velocity="0.0,1.4,0.4">
+      <region>
+        <cuboid max="-1107,2,-2149" min="-1110,1,-2152"/>
+      </region>
+    </zone>
+    <zone velocity="0.4,1.4,0.0">
+      <region>
+        <cuboid max="-1134,2,-2135" min="-1137,1,-2138"/>
+      </region>
+    </zone>
+    <zone velocity="0.0,1.4,-0.4">
+      <region>
+        <cuboid max="-1139,2,-2154" min="-1142,1,-2157"/>
+      </region>
+    </zone>
+    <zone velocity="-0.4,1.4,0.0">
+      <region>
+        <cuboid max="-1120,2,-2167" min="-1123,1,-2170"/>
+      </region>
+    </zone>
+    <!-- Cyan Pads -->
+    <zone velocity="0.4,1.1,0.0">
+      <region>
+        <cuboid max="-1082,2,-2215" min="-1085,1,-2218"/>
+      </region>
+    </zone>
+    <zone velocity="0.0,1.4,0.4">
+      <region>
+        <cuboid max="-1101,2,-2208" min="-1104,1,-2211"/>
+      </region>
+    </zone>
+    <zone velocity="0.0,1.7,0.4">
+      <region>
+        <cuboid max="-1080,2,-2170" min="-1083,1,-2173"/>
+      </region>
+    </zone>
+    <zone velocity="0.0,1.4,0.4">
+      <region>
+        <cuboid max="-1107,2,-2198" min="-1110,1,-2201"/>
+      </region>
+    </zone>
+    <zone velocity="0.0,1.4,-0.4">
+      <region>
+        <cuboid max="-1062,2,-2178" min="-1065,1,-2181"/>
+      </region>
+    </zone>
+    <!-- Portals -->
+    <zone>
+      <region>
+        <cuboid max="-1038,6,-2178" min="-1039,1,-2179"/>
+      </region>
+      <portal>
+        <destination>
+          <point>-1117.5, 2, -2152.5</point>
+        </destination>
+      </portal>
+    </zone>
+    <zone>
+      <region>
+        <cuboid max="-1124,6,-2152" min="-1125,1,-2153"/>
+      </region>
+      <portal>
+        <destination>
+          <point>-1046.5, 2, -2178.5</point>
+        </destination>
+      </portal>
+    </zone>
+  </zones>
+  <damage>
+    <disable>
+      <damage>fall</damage>
+    </disable>
+  </damage>
+</map>

@@ -1,0 +1,154 @@
+<?xml version="1.0"?>
+<map name="Static" spec="1.0.0" version="1.0.0">
+  <include src="defaults.xml"/>
+  <authors>
+    <author role="The author of the map." uuid="1c74c43029a0471fb30bcc2d9031ebcb"/> <!-- Tazz -->
+    <author role="The author of the map." uuid="e3c3f34f49d742279b9db29d9a3b97f8"/> <!-- Jiveh -->
+  </authors>
+  <teams>
+    <load-group id="teams.red-blue" max="8" min="1"/>
+  </teams>
+  <spawns>
+    <!-- Spectator spawn -->
+    <spawn>
+      <regions>
+        <point yaw="0">8.5, 77, -53.5</point>
+      </regions>
+    </spawn>
+    <!-- Team spawns -->
+    <spawn loadout="default" team="blue" yaw="90">
+      <regions>
+        <point yaw="90">122.5, 185, 19.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="red" yaw="-90">
+      <regions>
+        <point yaw="-90">-105.5, 185, 19.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <objectives>
+    <monuments destroyable="true" fireworks="false" materials="emerald block" owner="blue">
+      <monument name="{directions.left}">
+        <region>
+          <cuboid max="53, 36, 4" min="51, 29, 2"/>
+        </region>
+      </monument>
+      <monument name="{directions.right}">
+        <region>
+          <cuboid max="53, 36, 36" min="51, 29, 34"/>
+        </region>
+      </monument>
+    </monuments>
+    <monuments destroyable="true" fireworks="false" materials="emerald block" owner="red">
+      <monument name="{directions.left}">
+        <region>
+          <cuboid max="-37, 36, 34" min="-35, 29, 36"/>
+        </region>
+      </monument>
+      <monument name="{directions.right}">
+        <region>
+          <cuboid max="-37, 36, 2" min="-35, 29, 4"/>
+        </region>
+      </monument>
+    </monuments>
+  </objectives>
+  <results>
+    <win scenario="objectives">
+      <check>
+        <time>45m</time>
+      </check>
+    </win>
+  </results>
+  <loadouts>
+    <loadout id="default">
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="leather leggings" team-color="true"/>
+      <boots material="leather boots" team-color="true"/>
+      <item material="iron sword" slot="0"/>
+      <item material="bow" slot="1">
+        <enchantment>arrow infinite</enchantment>
+      </item>
+      <item material="diamond pickaxe" slot="2">
+        <enchantment level="3">durability</enchantment>
+      </item>
+      <item amount="3" material="golden apple" slot="4"/>
+      <item amount="3" material="stone axe" slot="5"/>
+      <item amount="32" material="cooked beef" slot="8"/>
+      <item amount="48" damage="1" material="log" slot="5"/>
+      <item amount="64" material="glass" slot="6"/>
+      <item amount="64" material="stone" slot="6"/>
+      <item amount="1" material="arrow" slot="27"/>
+    </loadout>
+    <loadout id="kill-reward">
+      <item material="golden apple"/>
+    </loadout>
+  </loadouts>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>leather leggings</material>
+        <material>leather boots</material>
+        <material>arrow</material>
+        <material>golden apple</material>
+        <material>glass</material>
+        <material>cooked beef</material>
+        <material>stone</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>iron sword</material>
+        <material>bow</material>
+        <material>diamond pickaxe</material>
+        <material>stone axe</material>
+      </any>
+    </repair-tools>
+  </items>
+  <regions>
+    <subtract id="void-outer"> <!-- All blocks of void minus the mid region -->
+      <void/>
+      <cuboid max="59, 44, -8" min="-43, 0, 46"/>
+    </subtract>
+    <above id="height-limit" y="44"/>
+  </regions>
+  <zones>
+    <zone modify="never">
+      <region>
+        <cuboid max="-80, 26, 21" min="-76, 24, 17"/> <!-- Red Water -->
+        <cuboid max="-76, 185, 17" min="-80, 26, 21"/> <!-- Red Tunnel -->
+        <cuboid max="-110, 190, 15" min="-74, 185, 23"/> <!-- Red Base -->
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid max="96, 26, 17" min="92, 24, 21"/> <!-- Blue Water -->
+        <cuboid max="92, 185, 21" min="96, 26, 17"/> <!-- Blue Tunnel -->
+        <cuboid max="126, 190, 23" min="90, 185, 15"/> <!-- Blue Base -->
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <!-- Blue spawn water -->
+    <zone modify="never" use="never">
+      <region>
+        <cuboid max="96, 25, 21" min="92, 25, 17"/>
+      </region>
+    </zone>
+    <!-- Red spawn water -->
+    <zone modify="never" use="never">
+      <region>
+        <cuboid max="-80, 25, 17" min="-76, 25, 21"/>
+      </region>
+    </zone>
+    <zone modify="never" region="void-outer">
+      <message>{errors.outside-map}</message>
+    </zone>
+    <zone modify="never" region="height-limit">
+      <message>{errors.height-limit}</message>
+    </zone>
+  </zones>
+</map>

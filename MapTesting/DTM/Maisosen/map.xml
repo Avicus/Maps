@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="Maisosen" spec="1.0.0" version="1.1.0">
+  <include src="defaults.xml"/>
+  <authors>
+    <author uuid="bf3319534f9243ee8abc7544b8234936"/>  <!-- Spidercell -->
+    <author uuid="3cce00809faa48f982cf64410305822a"/>  <!-- ProfessorUtonium -->
+  </authors>
+  <teams>
+    <load-group id="teams.red-blue" max="25" min="1"/>
+  </teams>
+  <broadcasts>
+    <broadcast format="alert" interval="3m">{broadcasts.villager-trade}</broadcast>
+  </broadcasts>
+  <spawns>
+    <spawn yaw="0">
+      <regions>
+        <circle center="112, 73, -63" radius="1"/>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="blue" yaw="90">
+      <regions>
+        <circle center="193, 71, 1" radius="1"/>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="red" yaw="-90">
+      <regions>
+        <circle center="31, 71, 1" radius="1"/>
+      </regions>
+    </spawn>
+  </spawns>
+  <objectives>
+    <monuments materials="obsidian">
+      <monuments owner="red">
+        <monument name="{directions.top}">
+          <region>
+            <block>72, 69, 1</block>
+          </region>
+        </monument>
+        <monument name="{directions.bottom}">
+          <region>
+            <block>72, 68, 1</block>
+          </region>
+        </monument>
+      </monuments>
+      <monuments owner="blue">
+        <monument name="{directions.top}">
+          <region>
+            <block>152, 69, 1</block>
+          </region>
+        </monument>
+        <monument name="{directions.bottom}">
+          <region>
+            <block>152, 68, 1</block>
+          </region>
+        </monument>
+      </monuments>
+    </monuments>
+  </objectives>
+  <loadouts>
+    <loadout id="default">
+      <helmet material="leather helmet" team-color="true"/>
+      <boots material="leather boots" team-color="true"/>
+      <item material="stone sword" slot="0"/>
+      <item material="bow" slot="1"/>
+      <item material="wood pickaxe" slot="2"/>
+      <item amount="1" material="golden apple" slot="3"/>
+      <item amount="8" material="glass" slot="4"/>
+      <item amount="2" material="log" slot="5"/>
+      <item material="shears" slot="6"/>
+      <item amount="64" material="cooked beef" slot="7"/>
+      <item amount="32" material="arrow" slot="28"/>
+    </loadout>
+    <loadout id="kill-reward">
+      <item material="emerald"/>
+    </loadout>
+  </loadouts>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>log</material>
+        <material>arrow</material>
+        <material>cooked beef</material>
+        <material>glass</material>
+        <material>shears</material>
+        <material>leather boots</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>stone sword</material>
+        <material>bow</material>
+        <material>wood pickaxe</material>
+      </any>
+    </repair-tools>
+  </items>
+  <zones>
+    <zone modify="never">
+      <region>
+        <cuboid max="169, 90, -19" min="205, 52, 17"/>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid max="17, 55, -14" min="57, 90, 18"/>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+  </zones>
+  <chests>
+    <generator max="7" min="1" regenerate-count="1" regenerate-countdown="1m" region="everywhere">
+      <chest-items weight="10">
+        <item material="emerald"/>
+      </chest-items>
+      <chest-items weight="1">
+        <item material="emerald block"/>
+      </chest-items>
+    </generator>
+  </chests>
+  <kills>
+    <rewards>
+      <reward loadout="kill-reward"/>
+    </rewards>
+  </kills>
+</map>

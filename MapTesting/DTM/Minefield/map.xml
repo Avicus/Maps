@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map spec="1.0.5" name="The Minefield Campaign" version="1.0.0" genre="nebula">
+  <include src="defaults.xml"/>
+  <gametype>dtm</gametype>
+  <!--Legacy versions supported setting specific world time, we'll just lock it for now.-->
+  <world>
+    <gamerules>
+      <doDaylightCycle>false</doDaylightCycle>
+    </gamerules>
+  </world>
+  <authors>
+    <author uuid="7041fe1f5d344373b6dc8a7d4605033b" />
+  </authors>
+  <spawns>
+    <spawn>
+      <regions>
+        <point yaw="-90">8.5, 30.0, 15.5</point>
+      </regions>
+    </spawn>
+    <spawn team="blue" loadout="default">
+      <regions>
+        <point yaw="90">128.5, 40.0, 124.5</point>
+      </regions>
+    </spawn>
+    <spawn team="red" loadout="default">
+      <regions>
+        <point yaw="-90">-17.5, 40.0, -91.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <results>
+    <win scenario="objectives">
+      <check>
+        <time>60m</time>
+      </check>
+    </win>
+  </results>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>leather leggings</material>
+        <material>leather boots</material>
+        <material>iron boots</material>
+        <material>iron helmet</material>
+        <material>bow</material>
+        <material>log</material>
+        <material>stone sword</material>
+        <material>iron axe</material>
+        <material>glass</material>
+        <material>diamond pickaxe</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>iron sword</material>
+        <material>diamond sword</material>
+      </any>
+    </repair-tools>
+  </items>
+  <zones>
+    <zone modify="never">
+      <region>
+        <cuboid min="130,39,128" max="120,47,120" />
+      </region>
+      <message>{errors.cannot-build}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid min="-10,48,-88" max="-19,39,-95" />
+      </region>
+      <message>{errors.cannot-build}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid min="75,0,161" max="35,49,87" />
+      </region>
+      <message>{errors.cannot-build}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid min="75,0,-54" max="36,49,-128" />
+      </region>
+      <message>{errors.cannot-build}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid min="48,49,-101" max="63,63,137" />
+      </region>
+      <message>{errors.cannot-build}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid min="33,34,-53" max="76,256,86" />
+      </region>
+      <message>{errors.cannot-build}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid min="72,0,-53" max="136,256,87" />
+      </region>
+      <message>{errors.cannot-build}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid min="39,0,86" max="-24,256,-54" />
+      </region>
+      <message>{errors.cannot-build}</message>
+    </zone>
+    <zone modify="always">
+      <region>
+        <cuboid min="-24,0,-83" max="-8,256,-100" />
+      </region>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid min="17,44,-89" max="21,48,-94" />
+      </region>
+    </zone>
+    <zone modify="always">
+      <region>
+        <cuboid min="-24,0,-83" max="-8,256,-100" />
+      </region>
+    </zone>
+    <zone modify="always">
+      <region>
+        <cuboid min="135,0,116" max="119,256,133" />
+      </region>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid min="94,44,122" max="90,48,127" />
+      </region>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid min="57,33,-93" max="64,40,-84" />
+      </region>
+      <enter>
+        <team>blue</team>
+      </enter>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid min="54,33,126" max="48,40,116" />
+      </region>
+      <enter>
+        <team>red</team>
+      </enter>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid min="50,15,-72" max="47,19,-72"/>
+      </region>
+      <portal yaw="0">
+        <destination>
+           <point>56,17,32</point>
+        </destination>
+      </portal>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid min="55,15,31" max="58,21,34"/>
+      </region>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid min="61,15,105" max="64,19,105"/>
+      </region>
+      <portal yaw="180">
+        <destination>
+           <point>55,17,1</point>
+        </destination>
+      </portal>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid min="56,15,2" max="53,21,-1"/>
+      </region>
+    </zone>
+  </zones>
+  <objectives>
+    <monuments materials="obsidian">
+      <monuments owner="red">
+        <monument name="Left">
+          <region>
+            <block>21, 52, -59</block>
+          </region>
+        </monument>
+        <monument name="Right">
+          <region>
+            <block>21, 52, -123</block>
+          </region>
+        </monument>
+      </monuments>
+      <monuments owner="blue">
+        <monument name="Left">
+          <region>
+            <block>90, 52, 92</block>
+          </region>
+        </monument>
+        <monument name="Right">
+          <region>
+            <block>90, 52, 156</block>
+          </region>
+        </monument>
+      </monuments>
+    </monuments>
+  </objectives>
+  <teams>
+    <team id="blue" color="blue" min="1" max="30" max-overfill="40">Blue Team</team>
+    <team id="red" color="red" min="1" max="30" max-overfill="40">Red Team</team>
+  </teams>
+  <loadouts>
+    <loadout id="default">
+      <item slot="0" material="stone sword" />
+      <item slot="1" material="bow">
+        <enchantments>
+          <enchantment level="1">arrow infinite</enchantment>
+        </enchantments>
+      </item>
+      <item slot="2" material="diamond pickaxe">
+        <enchantments>
+          <enchantment level="1">durability</enchantment>
+        </enchantments>
+      </item>
+      <item slot="3" material="golden apple" amount="2" />
+      <item slot="4" material="cooked_beef" amount="16" />
+      <item slot="5" material="glass" amount="64" />
+      <item slot="6" material="log" amount="32" />
+      <item slot="7" material="iron axe">
+        <enchantments>
+          <enchantment level="1">dig_speed</enchantment>
+        </enchantments>
+      </item>
+      <item slot="28" material="arrow" />
+      <chestplate team-color="true" material="leather chestplate" />
+      <helmet team-color="true" material="leather helmet" />
+      <boots team-color="true" material="leather boots">
+        <enchantments>
+          <enchantment level="1">protection_projectile</enchantment>
+        </enchantments>
+      </boots>
+      <leggings team-color="true" material="leather leggings" />
+      <effect duration="160" level="4">damage resistance</effect>
+      <effect duration="200">speed</effect>
+      <effect duration="200">fast_digging</effect>
+    </loadout>
+  </loadouts>
+</map>

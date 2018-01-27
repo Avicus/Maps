@@ -1,0 +1,255 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<map name="Apollo 13" spec="1.0.4" version="1.0.3">
+  <include src="defaults.xml"/>
+  <include src="Shared/reward-one-gap.xml"/>
+  <include src="Shared/tutorials/ctw.xml"/>
+  <tutorial>
+    <step countdown="5s" freeze="true" location="69,7,219" pitch="-20" yaw="0">
+      <chat>
+        <line>^r • {tutorial.generic.team-spawns}</line>
+      </chat>
+    </step>
+    <step countdown="5s" freeze="true" location="36,24,231" pitch="0" yaw="0">
+      <chat>
+        <line>^r • {tutorial.ctw.wool-area}</line>
+      </chat>
+    </step>
+    <step countdown="5s" freeze="true" location="36,23,250" pitch="65" yaw="0">
+      <chat>
+        <line>^r • {tutorial.ctw.wool-chest}</line>
+      </chat>
+    </step>
+    <step countdown="5s" freeze="true" location="69,7,238" pitch="0" yaw="0">
+      <chat>
+        <line>^r • {tutorial.ctw.wool-monument}</line>
+      </chat>
+    </step>
+  </tutorial>
+  <authors>
+    <author uuid="9116d3fa14004adaaecd2eae1d73e383"/> <!-- Xuph -->
+    <author uuid="99522edd5edf40658861f7e280b7ff09"/> <!-- Bloodoh -->
+    <author uuid="cad8013ab98a40679f0981b0734e0085"/> <!-- imryaan -->
+  </authors>
+  <gametype>ctw</gametype>
+  <teams>
+    <load-group id="teams.red-blue" max="16" min="1"/>
+  </teams>
+  <spawns>
+    <spawn>
+      <regions>
+        <point yaw="90">69.5, 56, 142.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="blue">
+      <regions>
+        <point yaw="180">69.5, 47, 241</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="red">
+      <regions>
+        <point yaw="0">69.5, 47, 43.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <world>
+    <gamerules>
+      <doDaylightCycle>false</doDaylightCycle>
+    </gamerules>
+  </world>
+  <loadouts>
+    <loadout id="default">
+      <effect amplifier="10" duration="15s">damage resistance</effect>
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="leather leggings" team-color="true"/>
+      <boots material="leather boots" team-color="true"/>
+      <item material="stone sword" slot="0"/>
+      <item material="bow" slot="1"/>
+      <item material="iron pickaxe" slot="2">
+        <enchantments>
+          <enchantment level="2">dig speed</enchantment>
+        </enchantments>
+      </item>
+      <item material="iron axe" slot="3"/>
+      <item amount="33" damage="2" material="log" slot="4"/>
+      <item amount="64" material="glass" slot="5"/>
+      <item amount="32" material="golden carrot" slot="6"/>
+      <item material="golden apple" slot="7"/>
+      <item material="bucket" slot="8"/>
+      <item amount="64" material="arrow" slot="28"/>
+    </loadout>
+    <loadout id="reward-get">
+      <item amount="12" material="arrow"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="reward-get"/>
+    </rewards>
+  </kills>
+  <results>
+    <win scenario="objectives">
+      <check>
+        <time>45m</time>
+      </check>
+    </win>
+  </results>
+  <objectives>
+    <wools team="red">
+      <wool color="pink">
+        <source>
+          <cuboid max="102, 21, 252" min="102, 18, 252"/>
+        </source>
+        <destination>
+          <block>70, 8, 42</block>
+        </destination>
+      </wool>
+      <wool color="yellow">
+        <source>
+          <cuboid max="36, 21, 252" min="36, 18, 252"/>
+        </source>
+        <destination>
+          <block>68, 8, 42</block>
+        </destination>
+      </wool>
+    </wools>
+    <wools team="blue">
+      <wool color="lime">
+        <source>
+          <cuboid max="36, 21, 32" min="36, 18, 32"/>
+        </source>
+        <destination>
+          <block>68, 8, 242</block>
+        </destination>
+      </wool>
+      <wool color="cyan">
+        <source>
+          <cuboid max="102, 21, 32" min="102, 18, 32"/>
+        </source>
+        <destination>
+          <block>70, 8, 242</block>
+        </destination>
+      </wool>
+    </wools>
+  </objectives>
+  <regions>
+    <subtract id="void-outer"> <!-- All blocks of void minus the mid region -->
+      <void/>
+      <cuboid max="60, 30, 72" min="78, 0, 212"/>
+      <cuboid max="88, 30, 134" min="50, 0, 150"/>
+      <cuboid max="47, 30, 94" min="92, 0, 81"/>
+      <cuboid max="46, 30, 190" min="92, 0, 203"/>
+      <cuboid max="30, 30, 174" min="42, 0, 110"/>
+      <cuboid max="96, 30, 174" min="108, 0, 110"/>
+    </subtract>
+    <above id="height-limit" y="30"/>
+  </regions>
+  <damage>
+    <disable>
+      <all>
+        <damage>fall</damage>
+        <inside>
+          <region>
+            <join>
+              <cuboid max="70, 14, 231" min="68, 9, 227"/>
+              <cuboid max="68, 14, 53" min="70, 9, 57"/>
+            </join>
+          </region>
+        </inside>
+      </all>
+    </disable>
+  </damage>
+  <zones>
+    <zone modify="never">
+      <enter>
+        <team>red</team>
+      </enter>
+      <region>
+        <subtract id="monument-enter"> <!-- All of the blocks minus the monument -->
+          <cuboid max="78, 30, 42" min="60, 0, 64"/>
+          <block>70, 8, 42</block>
+          <block>68, 8, 42</block>
+        </subtract>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never">
+      <enter>
+        <team>blue</team>
+      </enter>
+      <region>
+        <subtract id="monument-enter"> <!-- All of the blocks minus the monument -->
+          <cuboid max="60, 30, 242" min="78, 0, 220"/>
+          <block>68, 8, 242</block>
+          <block>70, 8, 242</block>
+        </subtract>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="always">
+      <enter>
+        <team>red</team>
+      </enter>
+      <modify>
+        <team>red</team>
+      </modify>
+      <region>
+        <join>
+          <cuboid max="96, 30, 258" min="108, 0, 246"/>
+          <cuboid max="30, 30, 258" min="42, 0, 246"/>
+        </join>
+      </region>
+      <message>{errors.own-wool-room}</message>
+    </zone>
+    <zone modify="always">
+      <enter>
+        <team>blue</team>
+      </enter>
+      <modify>
+        <team>blue</team>
+      </modify>
+      <region>
+        <join>
+          <cuboid max="42, 30, 26" min="30, 0, 38"/>
+          <cuboid max="108, 30, 26" min="96, 0, 38"/>
+        </join>
+      </region>
+      <message>{errors.own-wool-room}</message>
+    </zone>
+    <zone modify="never" region="void-outer">
+      <message>{errors.outside-map}</message>
+    </zone>
+    <zone modify="never" region="height-limit">
+      <message>{errors.height-limit}</message>
+    </zone>
+  </zones>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>leather leggings</material>
+        <material>leather boots</material>
+        <material>glass</material>
+        <material>wood:2</material>
+        <material>ender stone</material>
+        <material>sandstone stairs</material>
+        <material>emerald ore</material>
+        <material>coal ore</material>
+        <material>iron block</material>
+        <material>double step</material>
+        <material>golden carrot</material>
+        <material>bucket</material>
+        <material>string</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>stone sword</material>
+        <material>bow</material>
+        <material>iron pickaxe</material>
+        <material>iron axe</material>
+      </any>
+    </repair-tools>
+  </items>
+</map>

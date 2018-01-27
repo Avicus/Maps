@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="Arcadia TE" spec="1.0.0" version="1.0.0">
+  <include src="defaults.xml"/>
+  <authors>
+    <author uuid="6409b5bbc55041a1808bdd8bbbd0e37a"/> <!-- Zedther -->
+  </authors>
+  <teams>
+    <load-group id="teams.red-blue" max="8" min="1"/>
+  </teams>
+  <objectives>
+    <scores kills="1">
+      <score team="blue"/>
+      <score team="red"/>
+    </scores>
+  </objectives>
+  <results>
+    <win scenario="objectives">
+      <check>
+        <time>12m</time>
+      </check>
+    </win>
+  </results>
+  <spawns auto-respawn="true" respawn-delay="1s" respawn-freeze="true">
+    <spawn>
+      <regions>
+        <point yaw="0">-85.5, 134, -5.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="blue">
+      <regions>
+        <point yaw="90">-30.5, 198, 56.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="red">
+      <regions>
+        <point yaw="-90">-140.5, 198, 56.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <loadouts>
+    <loadout id="default">
+      <helmet material="iron helmet"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="leather leggings" team-color="true"/>
+      <boots material="iron boots"/>
+      <item material="iron sword" slot="0"/>
+      <item material="bow" slot="1"/>
+      <item amount="8" material="cooked beef" slot="5"/>
+      <item amount="12" material="arrow" slot="8"/>
+      <effect amplifier="3" duration="5s">damage resistance</effect>
+      <effect>night vision</effect>
+    </loadout>
+    <loadout id="kill-reward">
+      <item material="golden apple"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="kill-reward"/>
+    </rewards>
+  </kills>
+  <zones>
+    <!-- Disable Build -->
+    <load-group id="no-build"/>
+    <!-- Blue Scorebox Center -->
+    <zone>
+      <region>
+        <cuboid max="-136, 125, 59" min="-134, 120, 53"/>
+      </region>
+      <enter>
+        <team>blue</team>
+      </enter>
+      <scorebox points="2"/>
+      <portal yaw="-90">
+        <destination>
+          <point>-30.5, 126, 56.5</point>
+        </destination>
+      </portal>
+      <message>{errors.wrong-scorebox}</message>
+    </zone>
+    <!-- Red Scorebox Center -->
+    <zone>
+      <region>
+        <cuboid max="-36, 120, 59" min="-38, 125, 53"/>
+      </region>
+      <enter>
+        <team>red</team>
+      </enter>
+      <scorebox points="2"/>
+      <portal yaw="-90">
+        <destination>
+          <point>-140.5, 126, 56.5</point>
+        </destination>
+      </portal>
+      <message>{errors.wrong-scorebox}</message>
+    </zone>
+  </zones>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather chestplate</material>
+        <material>leather leggings</material>
+        <material>cooked beef</material>
+        <material>iron helmet</material>
+        <material>iron sword</material>
+        <material>iron boots</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>iron sword</material>
+        <material>iron helmet</material>
+        <material>iron boots</material>
+        <material>bow</material>
+      </any>
+    </repair-tools>
+  </items>
+</map>

@@ -1,0 +1,44 @@
+<!-- Configuration and general elements used by all maps in the red alert genre. -->
+<map>
+  <zones>
+    <load-group id="no-build"/>
+    <zone>
+      <loadout>
+        <health action="subtract">20</health>
+      </loadout>
+      <region>
+        <below y="0"/>
+      </region>
+    </zone>
+  </zones>
+  <ffa max="16" min="2"/>
+  <elimination lives="1"/>
+  <objectives>
+    <last-competitor-standing/>
+  </objectives>
+  <results>
+    <win>
+      <check>
+        <time>15m</time>
+      </check>
+    </win>
+  </results>
+  <decay>
+    <area fall-delay="1.3s" region="map">
+      <phase delay=".5s">stained clay:5</phase>
+      <phase delay=".5s">stained clay:4</phase>
+      <phase delay=".5s">stained clay:1</phase>
+      <phase delay=".5s">stained clay:14</phase>
+    </area>
+  </decay>
+  <damage>
+    <disable>
+      <damage>fall</damage>
+    </disable>
+  </damage>
+  <world>
+    <gamerules>
+      <doDaylightCycle>false</doDaylightCycle>
+    </gamerules>
+  </world>
+</map>

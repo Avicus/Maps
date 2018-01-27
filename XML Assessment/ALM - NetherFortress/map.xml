@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="Nether Fortress" version="1.0.0" spec="1.0.4">
+    <include src="defaults.xml"/>
+    <authors>
+        <author uuid="42b105207c51425292d98b65df108b12"/> <!-- PieZ -->
+        <author uuid="c2a4c847653e482ab62ed7f8b64330cb" role="XML"/> <!-- ALM -->
+    </authors>
+    <teams>
+        <team id="orange" color="orange" min="2" max="20">{colors.orange}</team>
+        <team id="red" color="red" min="2" max="20">{colors.red}</team>
+    </teams>
+    <spawns>
+        <spawn team="spectators" yaw="90" region="spec-spawn"/>
+        <spawn loadout="default" team="red" yaw="0" region="red-spawn"/>
+        <spawn loadout="default" team="orange" yaw="180" region="orange-spawn"/>
+    </spawns>
+    <objectives>
+        <monuments materials="obsidian">
+            <monuments owner="red">
+                <monument name="{directions.left}" region="red-left"/>
+                <monument name="{directions.right}" region="red-right"/>
+            </monuments>
+            <monuments owner="orange">
+                <monument name="{directions.left}" region="orange-left"/>
+                <monument name="{directions.right}" region="orange-right"/>
+            </monuments>
+        </monuments>
+    </objectives>
+    <zones>
+        <zone region="playable">
+            <tnt>
+                <yield>0</yield> <!-- TNT drops nothing -->
+                <dispenser nuke-limit="70" nuke-multiplier="2.5"/>
+            </tnt>
+        </zone>
+        <zone modify="never">
+            <region>
+                <invert>
+                    <region id="playable"/>
+                </invert>
+            </region>
+            <message>{errors.outside-map}</message>
+        </zone>
+        <zone modify="never">
+            <region>
+                <join>
+                    <region id="red-spawn-room"/>
+                    <region id="orange-spawn-room"/>
+                </join>
+            </region>
+            <message>{errors.spawn-restricted}</message>
+        </zone>
+    </zones>
+    <regions>
+        <!-- Sides -->
+        <cuboid id="red-side" min="-286,73,-25" max="-129,116,67"/>
+        <cuboid id="orange-side" min="-279,76,89" max="-134,124,179"/>
+        <!-- Spawns -->
+        <circle id="orange-spawn" center="-205,85,158" radius="4"/>
+        <circle id="red-spawn" center="-206,85,-1" radius="4"/>
+        <cuboid id="spec-spawn" min="-129,92,75" max="-127,92,80"/>
+        <!-- Monuments -->
+        <cuboid id="red-left" min="-245,107,1" max="-245,108,1"/>
+        <cuboid id="red-right" min="-167,107,0" max="-167,108,0"/>
+        <cuboid id="orange-left" min="-167,107,156" max="-167,108,156"/>
+        <cuboid id="orange-right" min="-245,107,157" max="-245,108,157"/>
+        <!-- Bridges -->
+        <cuboid id="orange-bridge" min="-230,98,159" max="-182,99,161"/>
+        <cuboid id="red-bridge" min="-229,98,-4" max="-182,99,-2"/>
+        <join id="bridges">
+            <region id="orange-bridge"/>
+            <region id="red-bridge"/>
+        </join>`
+        <!-- Protection -->
+        <cuboid id="playable" min="-271,81,-9" max="-139,121,167"/>
+        <cuboid id="orange-spawn-room" min="-212,84,153" max="-199,90,163" />
+        <cuboid id="red-spawn-room" min="-213,84,-6" max="-200,90,4" />
+        <!-- Blaze -->
+        <cuboid id="blaze-spawn" min="-280,114,-10" max="-141,114,170"/>
+    </regions>
+    <loadouts>
+        <loadout id="default">
+            <helmet team-color="true" material="leather helmet"/>
+            <chestplate material="iron chestplate"/>
+            <leggings team-color="true" material="leather leggings"/>
+            <boots material="diamond boots"/>
+            <item amount="1" slot="0" material="iron sword">
+                <enchantments>
+                    <enchantment level="1">damage all</enchantment>
+                    <enchantment level="2">durability</enchantment>
+                </enchantments>
+            </item>
+            <item amount="1" slot="1" material="bow">
+                <enchantments>
+                    <enchantment level="5">damage all</enchantment>
+                    <enchantment level="4">durability</enchantment>
+                    <enchantment level="1">arrow fire</enchantment>
+                    <enchantment level="1">arrow infinite</enchantment>
+                </enchantments>
+            </item>
+            <item amount="1" slot="2" material="diamond pickaxe">
+                <enchantments>
+                    <enchantment level="2">dig speed</enchantment>
+                    <enchantment level="1">silk touch</enchantment>
+                    <enchantment level="1">durability</enchantment>
+                </enchantments>
+            </item>
+            <item amount="64" slot="3" material="baked potato"/>
+            <item amount="64" slot="4" material="netherrack"/>
+            <item amount="1" slot="5" material="flint and steel"/>
+            <item amount="64" slot="6" material="piston base"/>
+            <item amount="64" slot="7" material="wood button"/>
+            <item amount="64" damage="6" slot="8" material="step"/>
+            <item amount="64" slot="15" material="redstone block"/>
+            <item amount="64" slot="16" material="redstone torch on"/>
+            <item amount="64" slot="17" material="dispenser"/>
+            <item amount="1" damage="16417" slot="18" material="potion"/>
+            <item amount="1" damage="16417" slot="19" material="potion"/>
+            <item amount="1" damage="16417" slot="20" material="potion"/>
+            <item amount="64" slot="24" material="tnt"/>
+            <item amount="64" slot="25" material="tnt"/>
+            <item amount="64" slot="26" material="water bucket"/>
+            <item amount="1" damage="16417" slot="27" material="potion"/>
+            <item amount="1" slot="28" material="arrow"/>
+            <item amount="1" damage="16417" slot="29" material="potion"/>
+            <item amount="64" slot="30" material="baked potato"/>
+            <item amount="64" slot="31" material="netherrack"/>
+            <item amount="1" slot="32" material="flint and steel"/>
+            <item amount="64" slot="33" material="piston sticky base"/>
+            <item amount="64" slot="34" material="wood button"/>
+            <item amount="64" damage="6" slot="35" material="step"/>
+        </loadout>
+    </loadouts>
+    <items>
+        <remove-drops>
+            <any>
+                <material>leather helmet</material>
+                <material>iron chestplate</material>
+                <material>leather leggings</material>
+                <material>diamond boots</material>
+                <material>redstone</material>
+                <material>arrow</material>
+                <material>baked potato</material>
+                <material>netherrack</material>
+                <material>wood button</material>
+                <material>step</material>
+                <material>redstone torch on</material>
+                <material>redstone block</material>
+                <material>piston base</material>
+                <material>piston sticky base</material>
+                <material>potion</material>
+            </any>
+        </remove-drops>
+        <repair-tools>
+            <any>
+                <material>diamond sword</material>
+                <material>bow</material>
+                <material>iron pickaxe</material>
+                <material>flint and steel</material>
+            </any>
+        </repair-tools>
+    </items>
+    <executors>
+        <executor id="title" check="always">
+            <send-message location="title">^4^lWELCOME TO HELL!</send-message>
+        </executor>
+        <executor id="welcome-to-hell" check="always">
+            <execution-group>
+                <execution-group check="always">
+                    <replace-block find="stained clay" replace="nether brick" region="red-side"/>
+                    <replace-block find="stained clay" replace="nether brick" region="orange-side"/>
+                    <replace-block find="wood" replace="netherrack" region="red-side"/>
+                    <replace-block find="wood" replace="netherrack" region="orange-side"/>
+                </execution-group>
+                <perform-on-everyone check="always" execute="title"/>
+            </execution-group>
+        </executor>
+        <executor id="spawn-mobs" check="always">
+            <execution-group>
+                <execution-group check="time-5">
+                    <execution-group check="sometimes">
+                        <summon-entity count="3" type="blaze" region="blaze-spawn"/>
+                    </execution-group>
+                </execution-group>
+                <execution-group check="time-15">
+                    <execution-group check="sometimes">
+                        <summon-entity type="ghast" region="blaze-spawn"/>
+                    </execution-group>
+                </execution-group>
+                <execution-group check="time-30">
+                    <execution-group check="sometimes">
+                        <summon-entity count="10" type="blaze" region="blaze-spawn"/>
+                    </execution-group>
+                    <execution-group check="sometimes">
+                        <summon-entity count="2" type="ghast" region="blaze-spawn"/>
+                    </execution-group>
+                </execution-group>
+                <execution-group check="time-hour">
+                    <execution-group check="sometimes">
+                        <summon-entity count="20" type="blaze" region="blaze-spawn"/>
+                    </execution-group>
+                    <execution-group check="sometimes">
+                        <summon-entity count="2" type="ghast" region="blaze-spawn"/>
+                    </execution-group>
+                    <execution-group check="sometimes">
+                        <summon-entity count="1" type="wither" region="blaze-spawn"/>
+                    </execution-group>
+                </execution-group>
+            </execution-group>
+        </executor>
+        <executor check="always">
+            <loop id="spawn-loop" stop="never" interval="2m" execute="spawn-mobs"/>
+        </executor>
+    </executors>
+    <checks>
+        <time id="time-5" compare="greater than equal">5m</time>
+        <time id="time-15" compare="greater than equal">15m</time>
+        <time id="time-30" compare="greater than equal">30m</time>
+        <time id="time-hour" compare="greater than equal">1h</time>
+    </checks>
+    <decay>
+        <area region="bridges" fall-delay="3s">
+            <phase delay="1s">redstone block</phase>
+            <phase delay="1s">dropper</phase>
+            <phase delay="1s">piston base</phase>
+            <phase delay="1s">piston sticky base</phase>
+            <phase delay="1s">tnt</phase>
+        </area>
+    </decay>
+    <triggers>
+        <trigger on="match-start" execute="welcome-to-hell"/>
+        <trigger on="match-start" execute="spawn-loop"/>
+    </triggers>
+</map>

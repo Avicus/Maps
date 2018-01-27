@@ -1,0 +1,23 @@
+<map genre="arcade" name="Planet" spec="1.0.5" version="1.1.0">
+  <include src="defaults.xml"/>
+  <include src="Shared/red-alert.xml"/>
+  <authors>
+    <author uuid="63b88dff-c6b4-4e08-bd17-aae089b12e95"/>
+    <!--  Rilo  -->
+    <author uuid="2caee8ce-4b0a-42a4-b7da-10c0d1e1283c"/>
+    <!-- Wolfy -->
+  </authors>
+  <regions>
+    <circle center="2,70,4" id="spawn" radius="19"/>
+    <cylinder base="2, 30, -3" height="50" id="map" radius="100"/>
+  </regions>
+  <channels global-chat="false" team-chat="true"/>
+  <spawns>
+    <spawn team="spectators">
+      <regions>
+        <point yaw="180">2.5,89,-3.5</point>
+      </regions>
+    </spawn>
+    <spawn check-air="true" region="spawn"></spawn>
+  </spawns>
+</map>

@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<map name="Illegal Office" spec="1.0.0" version="1.1.0">
+  <include src="defaults.xml"/>
+  <include src="Shared/conquest-shop.xml"/>
+  <authors>
+    <author uuid="da98a2f1673c4cecb547e0a342abfde4"/>
+  </authors>
+  <gametype>score</gametype>
+  <teams>
+    <load-group id="teams.red-blue" max="26" min="1"/>
+  </teams>
+  <objectives>
+    <scores kills="1" limit="100">
+      <score team="blue"/>
+      <score team="red"/>
+    </scores>
+  </objectives>
+  <results>
+    <win scenario="objectives">
+      <check>
+        <time>7m</time>
+      </check>
+    </win>
+  </results>
+  <spawns>
+    <spawn yaw="-90">
+      <regions>
+        <block>-54, 85, -13</block>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="blue" yaw="-135">
+      <regions>
+        <block>-42, 51, 47</block>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="red" yaw="45">
+      <regions>
+        <block>22, 51, -75</block>
+      </regions>
+    </spawn>
+  </spawns>
+  <zones>
+    <!-- Boundary -->
+    <zone modify="never">
+      <region>
+        <invert>
+          <cuboid max="31, 46, -85" min="-52, 84, 56"/>
+        </invert>
+      </region>
+    </zone>
+    <!-- Blue Spawn -->
+    <zone modify="never">
+      <enter>
+        <team>blue</team>
+      </enter>
+      <region>
+        <join>
+          <cuboid max="-46, 45, 50" min="-28, 56, 36"/>
+          <cuboid max="-28, 55, 35" min="-43, 51, 32"/>
+        </join>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <!-- Red Spawn -->
+    <zone modify="never">
+      <enter>
+        <team>red</team>
+      </enter>
+      <region>
+        <join>
+          <cuboid max="7, 56, -65" min="25, 45, -79"/>
+          <cuboid max="7, 55, -64" min="22, 51, -61"/>
+        </join>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+  </zones>
+  <loadouts>
+    <loadout id="default">
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="leather leggings" team-color="true"/>
+      <boots material="leather boots" team-color="true"/>
+      <item material="iron sword" slot="0"/>
+      <item material="bow" slot="1"/>
+      <item material="diamond pickaxe" slot="2"/>
+      <item amount="2" material="golden apple" slot="3"/>
+      <item amount="64" color="red" material="wool" slot="4"/>
+      <item amount="64" color="blue" material="wool" slot="5"/>
+      <item amount="16" material="pumpkin pie" slot="6"/>
+      <item material="stick" slot="27"/>
+      <item amount="64" material="arrow" slot="28"/>
+    </loadout>
+    <loadout id="kill-reward">
+      <item material="golden apple"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="kill-reward"/>
+    </rewards>
+  </kills>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>leather leggings</material>
+        <material>leather boots</material>
+        <material>pumpkin pie</material>
+        <material>arrow</material>
+        <material>stick</material>
+        <material>wool</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>iron sword</material>
+        <material>bow</material>
+        <material>diamond pickaxe</material>
+      </any>
+    </repair-tools>
+  </items>
+</map>

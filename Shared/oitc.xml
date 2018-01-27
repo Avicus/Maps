@@ -1,0 +1,66 @@
+<!-- Configuration and general elements used by all maps in the OITC (on in the quiver) genre. -->
+<map>
+  <ffa max="16" max-overfill="16" min="2"/>
+  <objectives>
+    <scores limit="15">
+      <score kills="1"/>
+    </scores>
+  </objectives>
+  <results>
+    <win scenario="objectives">
+      <check>
+        <time>5m</time>
+      </check>
+    </win>
+  </results>
+  <zones>
+    <load-group id="no-build"/>
+  </zones>
+  <loadouts>
+    <loadout id="default">
+      <effect amplifier="256" duration="3s">damage resistance</effect>
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="leather leggings" team-color="true"/>
+      <boots material="leather boots" team-color="true"/>
+      <item material="iron axe" slot="0"/>
+      <item material="bow" slot="1">
+        <enchantment level="50">arrow damage</enchantment>
+      </item>
+      <item material="blaze rod" slot="2">
+        <enchantment>fire aspect</enchantment>
+      </item>
+      <item amount="1" material="arrow" slot="6"/>
+      <item amount="16" material="cooked beef" slot="7"/>
+    </loadout>
+    <loadout id="kill-reward">
+      <item material="arrow"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="kill-reward"/>
+    </rewards>
+  </kills>
+  <world>
+    <gamerules>
+      <doDaylightCycle>false</doDaylightCycle>
+    </gamerules>
+  </world>
+  <elimination lives="10"/>
+  <items>
+    <remove-drops>
+      <any>
+        <material>arrow</material>
+        <material>cooked beef</material>
+        <material>blaze rod</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>iron axe</material>
+        <material>bow</material>
+      </any>
+    </repair-tools>
+  </items>
+</map>

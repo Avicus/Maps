@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="Wonderland" spec="1.0.0" version="1.1.0">
+  <include src="defaults.xml"/>
+  <gametype>dtm</gametype>
+  <authors>
+    <author uuid="be49b1a8600e47519725a8aead777363"/> <!-- IzJust4Fun -->
+    <author uuid="297428a6b482455899f5b413067ed48d"/> <!-- Crazy_Clownz -->
+  </authors>
+  <tutorial>
+    <step countdown="5s" freeze="false" location="-690, 57, -1334" pitch="3.5" yaw="180">
+      <chat>
+        <line>^r • {tutorial.generic.team-spawns}</line>
+      </chat>
+    </step>
+    <step countdown="5s" freeze="false" location="-651, 56, -1344" pitch="1.9" yaw="-90">
+      <chat>
+        <line>^r • {tutorial.dtm.monument-area}</line>
+        <line>^r • {tutorial.dtm.monument-objective}</line>
+      </chat>
+    </step>
+  </tutorial>
+  <teams>
+    <team color="red" id="red" max="25" min="1">{names.evil}</team>
+    <team color="green" id="green" max="25" min="1">{names.good}</team>
+  </teams>
+  <spawns>
+    <!-- Spectator spawn -->
+    <spawn>
+      <regions>
+        <point yaw="180">-690.5, 93, -1223.5</point>
+      </regions>
+    </spawn>
+    <!-- Team spawns -->
+    <spawn loadout="default" team="red" yaw="-180">
+      <regions>
+        <point yaw="-180">-690.5, 55, -1102.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="green" yaw="0">
+      <regions>
+        <point yaw="0">-690.5, 55, -1344.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <objectives>
+    <monuments materials="obsidian">
+      <monuments owner="red">
+        <monument name="{directions.left}">
+          <region>
+            <block>-647,57,-1103</block>
+          </region>
+        </monument>
+        <monument name="{directions.right}">
+          <region>
+            <block>-735,57,-1103</block>
+          </region>
+        </monument>
+      </monuments>
+      <monuments owner="green">
+        <monument name="{directions.left}">
+          <region>
+            <block>-735,57,-1345</block>
+          </region>
+        </monument>
+        <monument name="{directions.right}">
+          <region>
+            <block>-647,57,-1345</block>
+          </region>
+        </monument>
+      </monuments>
+    </monuments>
+  </objectives>
+  <loadouts>
+    <loadout id="default">
+      <helmet material="leather helmet" team-color="true"/>
+      <item material="iron sword" slot="0">
+        <enchantment level="3">durability</enchantment>
+      </item>
+      <item material="bow" slot="1">
+        <enchantment>arrow infinite</enchantment>
+        <enchantment level="2">durability</enchantment>
+      </item>
+      <item material="diamond pickaxe" slot="2">
+        <enchantment level="2">durability</enchantment>
+        <enchantment level="1">dig speed</enchantment>
+      </item>
+      <item amount="3" material="golden apple" slot="3"/>
+      <item amount="64" material="log" slot="4"/>
+      <item amount="64" material="glass" slot="6"/>
+      <item amount="16" material="cooked chicken" slot="7"/>
+      <item amount="1" material="arrow" slot="28"/>
+    </loadout>
+    <loadout id="kill-reward">
+      <item material="golden apple"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="kill-reward"/>
+    </rewards>
+  </kills>
+  <zones>
+    <zone id="some-spawn" modify="only-iron">
+      <region>
+        <cylinder base="-691, 54, -1103" height="10" radius="17"/>
+        <cylinder base="-691, 54, -1345" height="10" radius="17"/>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+  </zones>
+  <checks>
+    <material id="only-iron">iron block</material>
+  </checks>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>cooked chicken</material>
+        <material>log</material>
+        <material>glass</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>iron sword</material>
+        <material>bow</material>
+        <material>diamond pickaxe</material>
+      </any>
+    </repair-tools>
+  </items>
+</map>

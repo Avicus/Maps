@@ -1,0 +1,121 @@
+<?xml version="1.0"?>
+<map genre="walls" name="Mt. Blizzard" spec="1.0.5" version="1.0.0">
+  <include src="defaults.xml"/>
+  <include src="Shared/walls.xml"/>
+  <include src="Shared/tutorials/walls.xml"/>
+  <authors>
+    <author uuid="beff39f4044d4c62a333c65e90555e70"/> <!-- jracer15 -->
+  </authors>
+  <gametype>walls</gametype>
+  <teams>
+    <load-group id="teams.red-blue" max="10" min="1"/>
+    <team color="gray" id="gray" max="10" min="1">{colors.gray}</team>
+    <team color="yellow" id="yellow" max="10" min="1">{colors.yellow}</team>
+  </teams>
+  <tutorial>
+    <step countdown="5s" freeze="true" location="-726,76,-138" pitch="25" yaw="-53">
+      <chat>
+        <line>^r • {tutorial.generic.team-spawns}</line>
+      </chat>
+    </step>
+    <step countdown="5s" freeze="true" location="-774,150,-155" pitch="125" yaw="33">
+      <chat>
+        <line>^r • {tutorial.walls.wall-area}</line>
+      </chat>
+    </step>
+    <step countdown="5s" freeze="true" location="-796,78,-168" pitch="36" yaw="-143">
+      <chat>
+        <line>^r • {tutorial.walls.wall-mid-loot}</line>
+      </chat>
+    </step>
+  </tutorial>
+  <spawns>
+    <spawn>
+      <regions>
+        <point yaw="90">-794.5, 90, -173.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="red">
+      <regions>
+        <point yaw="-90">-871.5, 73.5, -133.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="blue">
+      <regions>
+        <point yaw="-90">-871.5, 73.5, -213.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="gray">
+      <regions>
+        <point yaw="90">-717.5, 73.5, -133.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="yellow">
+      <regions>
+        <point yaw="90">-717.5, 75.5, -213.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <zones>
+    <zone modify="never">
+      <region>
+        <invert>
+          <cuboid max="-864, 131, -243" min="-724, 22, -103"/>
+        </invert>
+      </region>
+    </zone>
+    <zone enter="never" modify="never">
+      <region>
+        <cuboid max="-803,150,-245" min="-785,0,-244"/>
+        <cuboid max="-866,150,-164" min="-865,0,-182"/>
+        <cuboid max="-785,150,-101" min="-803,0,-102"/>
+        <cuboid max="-723,150,-182" min="-722,0,-164"/>
+      </region>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid max="-804, 150, -182" min="-864, 73, -182"/>
+        <cuboid max="-803, 150, -183" min="-803, 73, -243"/>
+        <cuboid max="-785, 150, -183" min="-785, 73, -243"/>
+        <cuboid max="-784, 150, -182" min="-724, 73, -182"/>
+        <cuboid max="-784, 150, -164" min="-724, 73, -164"/>
+        <cuboid max="-785, 150, -163" min="-785, 73, -103"/>
+        <cuboid max="-803, 150, -163" min="-803, 73, -103"/>
+        <cuboid max="-864, 150, -164" min="-804, 73, -164"/>
+      </region>
+    </zone>
+  </zones>
+  <regions>
+    <above id="height-limit" y="150"/>
+  </regions>
+  <walls end-time="60m" fall-time="10m">
+    <wall>
+      <region>
+        <cuboid max="-804, 150, -182" min="-864, 73, -182"/>
+        <cuboid max="-803, 150, -183" min="-803, 73, -243"/>
+        <cuboid max="-785, 150, -183" min="-785, 73, -243"/>
+        <cuboid max="-784, 150, -182" min="-724, 73, -182"/>
+        <cuboid max="-784, 150, -164" min="-724, 73, -164"/>
+        <cuboid max="-785, 150, -163" min="-785, 73, -103"/>
+        <cuboid max="-803, 150, -163" min="-803, 73, -103"/>
+        <cuboid max="-864, 150, -164" min="-804, 73, -164"/>
+      </region>
+    </wall>
+  </walls>
+  <loadouts>
+    <loadout id="default">
+      <helmet material="leather helmet" team-color="true"/>
+      <item amount="1" material="wood sword" slot="0"/>
+      <item amount="1" material="compass" slot="7"/>
+      <item amount="12" material="cooked beef" slot="8"/>
+    </loadout>
+    <loadout id="r">
+      <helmet amount="1" material="golden apple"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="r"/>
+    </rewards>
+  </kills>
+</map>

@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="Yukon 2" spec="1.0.4" version="1.0.0">
+  <include src="defaults.xml"/>
+  <include src="Shared/reward-one-gap.xml"/>
+  <include src="Shared/conquest-shop.xml"/>
+  <authors>
+    <author uuid="54964b606ce749229a4c2b981d8c2ed7"/> <!-- Spoookeh -->
+    <author uuid="7dcb1605a6414f6f99efea04278b6f7c"/> <!-- Lgmatias -->
+  </authors>
+  <teams>
+    <load-group id="teams.red-blue" max="15" min="1"/>
+  </teams>
+  <spawns>
+    <!-- Spectator spawn -->
+    <spawn>
+      <regions>
+        <point yaw="0">109.5, 85, 63.5</point>
+      </regions>
+    </spawn>
+    <!-- Team spawns -->
+    <spawn loadout="default" respawn-delay="5s" respawn-freeze="true" team="red" yaw="-180">
+      <regions>
+        <point yaw="-180">109.5, 53, 120.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" respawn-delay="5s" respawn-freeze="true" team="blue" yaw="0">
+      <regions>
+        <point yaw="0">109.5, 53, 10.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <zones>
+    <zones>
+      <load-group id="no-build"/>
+    </zones>
+    <!-- Posts -->
+    <zone id="red-post">
+      <region>
+        <block>80, 60, 62</block>
+      </region>
+      <post yaw="-90"/>
+    </zone>
+    <zone id="blue-post">
+      <region>
+        <block>138, 60, 68</block>
+      </region>
+      <post yaw="90"/>
+    </zone>
+    <!-- Nets -->
+    <zone>
+      <region>
+        <cuboid max="78, 61, 64" min="82, 59, 60"/>
+      </region>
+      <net points="1">
+        <capture-check>
+          <team>red</team>
+        </capture-check>
+      </net>
+    </zone>
+    <zone>
+      <region>
+        <cuboid max="140, 61, 70" min="136, 59, 66"/>
+      </region>
+      <net points="1">
+        <capture-check>
+          <team>blue</team>
+        </capture-check>
+      </net>
+    </zone>
+    <!-- red spawn -->
+    <zone modify="always">
+      <enter>
+        <team>red</team>
+      </enter>
+      <region>
+        <cuboid max="106, 57, 123" min="112, 53, 109"/>
+      </region>
+      <message>{errors.enemy-base}</message>
+    </zone>
+    <!-- blue spawn -->
+    <zone modify="always">
+      <enter>
+        <team>blue</team>
+      </enter>
+      <region>
+        <cuboid max="112, 57, 7" min="106, 53, 21"/>
+      </region>
+      <message>{errors.enemy-base}</message>
+    </zone>
+  </zones>
+  <world>
+    <gamerules>
+      <doDaylightCycle>true</doDaylightCycle>
+    </gamerules>
+  </world>
+  <loadouts>
+    <loadout id="default">
+      <effect duration="5s">damage resistance</effect>
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="chainmail leggings" team-color="true"/>
+      <boots material="iron boots" team-color="true"/>
+      <item material="iron sword" slot="0"/>
+      <item material="bow" slot="1"/>
+      <item amount="1" material="golden apple" slot="2"/>
+      <item amount="32" material="cooked beef" slot="3"/>
+      <item amount="16" material="arrow" slot="7"/>
+    </loadout>
+    <loadout id="four-arrow">
+      <item amount="4" material="arrow"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="four-arrow"/>
+    </rewards>
+  </kills>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>chainmail leggings</material>
+        <material>iron boots</material>
+        <material>cooked beef</material>
+        <material>golden apple</material>
+        <material>arrow</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>iron sword</material>
+        <material>bow</material>
+      </any>
+    </repair-tools>
+  </items>
+  <results>
+    <win scenario="objectives">
+      <check>
+        <time>7m</time>
+      </check>
+    </win>
+  </results>
+  <objectives>
+    <scores limit="5">
+      <score team="red"/>
+      <score team="blue"/>
+    </scores>
+    <flag color="blue" owner="blue" post="blue-post" recover-time="15s"/>
+    <flag color="red" owner="red" post="red-post" recover-time="15s"/>
+  </objectives>
+</map>

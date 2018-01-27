@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="Valley" spec="1.0.0" version="1.0.0">
+  <include src="defaults.xml"/>
+  <authors>
+    <author uuid="ae5c1e91745b4a6fa33711484ede6957"/> <!-- Clijmart -->
+    <author uuid="ba2341376078452c8d84e046e0bb9334"/> <!-- Lagz -->
+  </authors>
+  <teams>
+    <team color="yellow" id="yellow" max="12" min="1">{colors.yellow}</team>
+    <team color="red" id="red" max="12" min="1">{colors.red}</team>
+  </teams>
+  <objectives>
+    <scores kills="1" limit="100">
+      <score team="yellow"/>
+      <score team="red"/>
+    </scores>
+  </objectives>
+  <results>
+    <win scenario="objectives">
+      <check>
+        <time>8m</time>
+      </check>
+    </win>
+  </results>
+  <spawns>
+    <spawn yaw="0">
+      <regions>
+        <point yaw="0">0.5, 30, 0.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="yellow" yaw="-90">
+      <regions>
+        <point yaw="-90">-55.5, 55, 0.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="red" yaw="90">
+      <regions>
+        <point yaw="90">56.5, 55, 0.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <loadouts>
+    <loadout id="default">
+      <helmet material="iron helmet"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="leather leggings" team-color="true"/>
+      <boots material="iron boots"/>
+      <item material="stone sword" slot="0"/>
+      <item material="bow" slot="1"/>
+      <item amount="8" material="cooked fish" slot="5"/>
+      <item material="golden apple" slot="4"/>
+      <item amount="12" material="arrow" slot="8"/>
+    </loadout>
+  </loadouts>
+  <zones>
+    <!-- Disable Build -->
+    <load-group id="no-build"/>
+    <!-- Yellow Scorebox -->
+    <zone>
+      <region>
+        <cuboid max="42, 9, 1" min="42, 7, -1"/>
+      </region>
+      <enter>
+        <team>yellow</team>
+      </enter>
+      <scorebox points="3"/>
+      <portal heal="false" yaw="-90">
+        <destination>
+          <point>-55.5, 11, 0.5</point>
+        </destination>
+      </portal>
+    </zone>
+    <zone>
+      <region>
+        <cuboid max="42, 9, 1" min="39, 7, -1"/>
+      </region>
+      <enter>
+        <team>yellow</team>
+      </enter>
+      <message>{errors.wrong-scorebox}</message>
+    </zone>
+    <!-- Red Scorebox -->
+    <zone>
+      <region>
+        <cuboid max="-42, 9, 1" min="-42, 7, -1"/>
+      </region>
+      <enter>
+        <team>red</team>
+      </enter>
+      <scorebox points="3"/>
+      <portal heal="false" yaw="90">
+        <destination>
+          <point>56.5, 11, 0.5</point>
+        </destination>
+      </portal>
+    </zone>
+    <zone>
+      <region>
+        <cuboid max="-42, 9, 1" min="-39, 7, -1"/>
+      </region>
+      <enter>
+        <team>red</team>
+      </enter>
+      <message>{errors.wrong-scorebox}</message>
+    </zone>
+  </zones>
+  <damage>
+    <disable>
+      <all>
+        <damage>fall</damage>
+        <inside>
+          <region>
+            <join>
+              <cuboid max="58, 15, 2" min="54, 10, -2"/>
+              <cuboid max="-58, 15, 2" min="-54, 10, -2"/>
+            </join>
+          </region>
+        </inside>
+      </all>
+    </disable>
+  </damage>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather chestplate</material>
+        <material>leather leggings</material>
+        <material>cooked fish</material>
+        <material>stone sword</material>
+        <material>iron helmet</material>
+        <material>iron boots</material>
+        <material>bow</material>
+      </any>
+    </remove-drops>
+  </items>
+  <world>
+    <gamerules>
+      <doDaylightCycle>false</doDaylightCycle>
+    </gamerules>
+  </world>
+</map>

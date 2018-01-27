@@ -1,0 +1,190 @@
+<map description="A quick paced, stoney prison-based Capture the Wool map!" name="Rezzurection"
+  spec="1.0.4" version="1.0.0">
+  <include src="defaults.xml"/>
+  <include src="Shared/reward-one-gap.xml"/>
+  <authors>
+    <!-- Bloodoh -->
+    <author role="Author of the map" uuid="99522edd5edf40658861f7e280b7ff09"/>
+  </authors>
+  <teams>
+    <team color="lime" id="guantanamo" max="16" min="1">{colors.lime}</team>
+    <team color="orange" id="alcatraz" max="16" min="1">{colors.orange}</team>
+  </teams>
+  <spawns>
+    <spawn team="spectators" yaw="180">
+      <regions>
+        <block>1117, 59, -1098</block>
+      </regions>
+    </spawn>
+    <spawn loadout="guantanamo-default" team="alcatraz" yaw="0">
+      <regions>
+        <block>1117, 19, -1308</block>
+      </regions>
+    </spawn>
+    <spawn loadout="alcatraz-default" team="guantanamo" yaw="180">
+      <regions>
+        <block>1117, 19, -1143</block>
+      </regions>
+    </spawn>
+  </spawns>
+  <zones>
+    <zone modify="never">
+      <region>
+        <subtract id="alca-spawn">
+          <!-- Spawn region -->
+          <cuboid max="1133, 13, -1298" min="1101, 29, -1319"/>
+          <!-- Wool monuments -->
+          <block>1115, 20, -1318</block>
+          <block>1117, 20, -1318</block>
+          <!-- Iron & Gold blocks -->
+          <cuboid max="1131, 19, -1300" min="1127, 25, -1317"/>
+        </subtract>
+      </region>
+    </zone>
+    <zone modify="never">
+      <region>
+        <subtract id="guan-spawn">
+          <!-- Spawn region -->
+          <cuboid max="1101, 13, -1153" min="1133, 29, -1132"/>
+          <!-- Wool monuments -->
+          <block>1119, 20, -1133</block>
+          <block>1117, 20, -1133</block>
+          <!-- Iron & Gold blocks -->
+          <cuboid max="1107, 25, -1134" min="1103, 19, -1151"/>
+        </subtract>
+      </region>
+    </zone>
+    <zone modify="never">
+      <region>
+        <subtract id="void">
+          <void/>
+          <!-- Middle of the map -->
+          <cuboid max="1164, 13, -1245" min="1071, 100, -1206"/>
+        </subtract>
+      </region>
+    </zone>
+    <zone modify="never">
+      <region>
+        <!-- Spectator spawn -->
+        <cuboid max="1126, 54, -1086" min="1106, 67, -1108"/>
+      </region>
+    </zone>
+    <zone modify="always">
+      <enter>
+        <team>alcatraz</team>
+      </enter>
+      <region>
+        <!-- Yellow wool -->
+        <cuboid max="1163, 100, -1308" min="1115, 13, -1297"/>
+        <!-- Cyan wool -->
+        <cuboid max="1078, 100, -1308" min="1070, 13, -1298"/>
+      </region>
+      <message>{errors.enemy-base}</message>
+    </zone>
+    <zone modify="always">
+      <enter>
+        <team>guantanamo</team>
+      </enter>
+      <region>
+        <!-- Green wool -->
+        <cuboid max="1071, 100, -1143" min="1079, 13, -1154"/>
+        <!-- Red wool -->
+        <cuboid max="1156, 100, -1143" min="1164, 13, -1153"/>
+      </region>
+      <message>{errors.enemy-base}</message>
+    </zone>
+  </zones>
+  <loadouts>
+    <loadout id="guantanamo-default">
+      <effect duration="5s">damage resistance</effect>
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="leather leggings" team-color="true"/>
+      <boots material="leather boots" team-color="true"/>
+      <item material="iron sword" slot="0"/>
+      <item material="bow" slot="1"/>
+      <item amount="3" material="golden apple" slot="2"/>
+      <item material="diamond pickaxe" slot="3">
+        <enchantments>
+          <enchantment>dig speed</enchantment>
+          <enchantment>luck</enchantment>
+          <enchantment>durability</enchantment>
+        </enchantments>
+      </item>
+      <item amount="64" material="log" slot="4"/>
+      <item color="orange" material="stained glass" slot="5"/>
+      <item amount="16" material="baked potato" slot="6"/>
+      <item amount="6" material="exp bottle" slot="7"/>
+      <item amount="32" material="arrow" slot="28"/>
+    </loadout>
+    <loadout id="alcatraz-default">
+      <effect duration="5s">damage resistance</effect>
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="leather leggings" team-color="true"/>
+      <boots material="leather boots" team-color="true"/>
+      <item material="iron sword" slot="0"/>
+      <item material="bow" slot="1"/>
+      <item amount="3" material="golden apple" slot="2"/>
+      <item material="diamond pickaxe" slot="3">
+        <enchantments>
+          <enchantment>dig speed</enchantment>
+          <enchantment>luck</enchantment>
+          <enchantment>durability</enchantment>
+        </enchantments>
+      </item>
+      <item amount="64" material="log" slot="4"/>
+      <item color="lime" material="stained glass" slot="5"/>
+      <item amount="16" material="baked potato" slot="6"/>
+      <item amount="6" material="exp bottle" slot="7"/>
+      <item amount="32" material="arrow" slot="28"/>
+    </loadout>
+  </loadouts>
+  <repair-tools>
+    <any>
+      <material>iron sword</material>
+      <material>leather helmet</material>
+      <material>leather chestplate</material>
+      <material>leather leggings</material>
+      <material>leather boots</material>
+    </any>
+  </repair-tools>
+  <objectives>
+    <wools pickup="true" team="alcatraz">
+      <wool color="cyan">
+        <source>
+          <block>-1074, 19, -1305</block>
+        </source>
+        <destination>
+          <block>1117, 20, -1133</block>
+        </destination>
+      </wool>
+      <wool color="yellow">
+        <source>
+          <block>1159, 19, -1305</block>
+        </source>
+        <destination>
+          <block>1119, 20, -1133</block>
+        </destination>
+      </wool>
+    </wools>
+    <wools pickup="true" team="guantanamo">
+      <wool color="red">
+        <source>
+          <block>1160, 19, -1146</block>
+        </source>
+        <destination>
+          <block>1117, 20, -1318</block>
+        </destination>
+      </wool>
+      <wool color="green">
+        <source>
+          <block>1075, 19, -1146</block>
+        </source>
+        <destination>
+          <block>1115, 20, -1318</block>
+        </destination>
+      </wool>
+    </wools>
+  </objectives>
+</map>

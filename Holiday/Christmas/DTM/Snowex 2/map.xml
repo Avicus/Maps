@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<map name="Snowex 2" spec="1.0.0" version="1.1.0">
+  <include src="defaults.xml"/>
+  <gametype>dtm</gametype>
+  <include src="Shared/tutorials/dtm.xml"/>
+  <authors>
+    <author uuid="24ca383e679441a0a1957f40e21d6c3e"/> <!-- ParaPhoenix -->
+    <author uuid="44df6b20168f4389b7ac434518207c2f"/> <!-- ParaPenguin -->
+  </authors>
+  <tutorial>
+    <step countdown="5s" freeze="false" location="35, 28, -789" pitch="88" yaw="87">
+      <chat>
+        <line>^r • {tutorial.generic.team-spawns}</line>
+      </chat>
+    </step>
+    <step countdown="4s" location="-13, 32, -770" pitch="64" yaw="88">
+      <chat>
+        <line>^r • {tutorial.dtm.monument-area}</line>
+        <line>^r • {tutorial.dtm.monument-objective}</line>
+      </chat>
+    </step>
+  </tutorial>
+  <teams>
+    <team color="dark gray" id="gray" max="18" min="1">Dark Gray</team>
+    <team color="orange" id="orange" max="18" min="1">Orange</team>
+  </teams>
+  <spawns>
+    <!-- Spectator spawn -->
+    <spawn>
+      <regions>
+        <point yaw="180">80.5, 50, -733.5</point>
+      </regions>
+    </spawn>
+    <!-- Team spawns -->
+    <spawn loadout="default-gray" team="gray" yaw="-90">
+      <regions>
+        <point yaw="-90">35.5, 25, -788.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default-orange" team="orange" yaw="90">
+      <regions>
+        <point yaw="90">125.5, 25, -788.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <objectives>
+    <monuments materials="obsidian">
+      <monuments owner="gray">
+        <monument name="{directions.left}">
+          <region>
+            <block>-18, 28, -770</block>
+          </region>
+        </monument>
+        <monument name="{directions.right}">
+          <region>
+            <block>-18, 28, -808</block>
+          </region>
+        </monument>
+      </monuments>
+      <monuments owner="orange">
+        <monument name="{directions.left}">
+          <region>
+            <block>178, 28, -808</block>
+          </region>
+        </monument>
+        <monument name="{directions.right}">
+          <region>
+            <block>178, 28, -770</block>
+          </region>
+        </monument>
+      </monuments>
+    </monuments>
+  </objectives>
+  <loadouts>
+    <loadout id="default-gray">
+      <chestplate material="leather chestplate" team-color="true"/>
+      <boots material="leather boots" team-color="true"/>
+      <item material="stone sword" slot="0"/>
+      <item material="bow" slot="1">
+        <enchantment>arrow infinite</enchantment>
+      </item>
+      <item material="diamond pickaxe" slot="2"/>
+      <item amount="3" material="golden apple" slot="3"/>
+      <item amount="32" material="log" slot="4"/>
+      <item amount="64" material="glass" slot="5"/>
+      <item amount="16" material="cooked beef" slot="6"/>
+      <item amount="1" material="arrow" slot="27"/>
+    </loadout>
+    <loadout id="default-orange">
+      <chestplate material="leather chestplate" team-color="true"/>
+      <boots material="leather boots" team-color="true"/>
+      <item material="stone sword" slot="0"/>
+      <item material="bow" slot="1">
+        <enchantment>arrow infinite</enchantment>
+      </item>
+      <item material="diamond pickaxe" slot="2"/>
+      <item amount="3" material="golden apple" slot="3"/>
+      <item amount="32" material="log" slot="4"/>
+      <item amount="64" material="glass" slot="5"/>
+      <item amount="16" material="cooked beef" slot="6"/>
+      <item amount="1" material="arrow" slot="27"/>
+    </loadout>
+    <loadout id="kill-reward">
+      <item material="golden apple"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="kill-reward"/>
+    </rewards>
+  </kills>
+  <zones>
+    <zone modify="never">
+      <region>
+        <cylinder base="80, 49, -734" height="6" radius="6"/>
+        <point yaw="90">125.5, 25, -788.5</point>
+        <point yaw="-90">35.5, 25, -788.5</point>
+      </region>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cylinder base="35, 24, -789" height="6" radius="6"/>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cylinder base="125, 24, -789" height="6" radius="6"/>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid max="-1000, 250, -1000" min="1000, 45, 1000"/>
+      </region>
+      <message>{errors.outside-map}</message>
+    </zone>
+  </zones>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather chestplate</material>
+        <material>log</material>
+        <material>cooked beef</material>
+        <material>leather boots</material>
+        <material>skull</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>stone sword</material>
+        <material>bow</material>
+        <material>diamond pickaxe</material>
+      </any>
+    </repair-tools>
+  </items>
+</map>

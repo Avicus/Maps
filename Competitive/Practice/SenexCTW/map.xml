@@ -1,0 +1,209 @@
+<?xml version="1.0"?>
+<map name="Senex CTW" version="1.0.0" description="A great CTW tournament map!" spec="1.0.0">
+    <include src="defaults.xml"/>
+    <authors>
+        <author uuid="9116d3fa14004adaaecd2eae1d73e383" role="The author of the map."/> <!-- Xuph -->
+        <author uuid="e3c3f34f49d742279b9db29d9a3b97f8" role="The author of the map."/> <!-- Jiveh -->
+    </authors>
+    <teams>
+        <team id="lime" color="lime" min="2" max="20">{colors.lime}</team>
+        <team id="cyan" color="cyan" min="2" max="20">{colors.cyan}</team>
+    </teams>
+    <spawns>
+        <!-- Spectator spawn -->
+        <spawn>
+            <regions>
+                <point yaw="0">86.5, 53, -789.5</point>
+            </regions>
+        </spawn>
+        <!-- Team spawns -->
+        <spawn team="cyan" loadout="default" yaw="90">
+            <regions>
+                <point yaw="90">129.5, 132, -743.5</point>
+            </regions>
+        </spawn>
+        <spawn team="lime" loadout="default" yaw="-90">
+            <regions>
+                <point yaw="-90">43.5, 132, -743.5</point>
+            </regions>
+        </spawn>
+    </spawns>
+    <objectives>
+        <wools team="lime" pickup="false">
+            <wool color="yellow">
+                <source>
+                    <block>180, 7, -805</block>
+                </source>
+                <destination>
+                    <block>44,4,-745</block>
+                </destination>
+            </wool>
+            <wool color="blue">
+                <source>
+                    <block>180, 7, -683</block>
+                </source>
+                <destination>
+                    <block>44, 4, -743</block>
+                </destination>
+            </wool>
+        </wools>
+        <wools team="cyan" pickup="false">
+            <wool color="red">
+                <source>
+                    <block>-8, 7, -683</block>
+                </source>
+                <destination>
+                    <block>128, 4, -743</block>
+                </destination>
+            </wool>
+            <wool color="purple">
+                <source>
+                    <block>-8, 7, -805</block>
+                </source>
+                <destination>
+                    <block>128, 4, -745</block>
+                </destination>
+            </wool>
+        </wools>
+    </objectives>
+    <regions>
+        <subtract id="void-outer"> <!-- All blocks of void minus the mid region -->
+            <void/>
+            <cuboid min="58, 0, -723" max="114, 34, -765"/>
+            <cuboid min="147, 0, -750" max="154, 34, -738"/>
+            <cuboid min="25, 0, -738" max="18, 34, -750"/>
+        </subtract>
+        <above id="height-limit" y="34"/>
+    </regions>
+    <zones>
+        <playable>
+            <region>
+                <cuboid min="185, 0, -678" max="-13, 34, -810"/>
+            </region>
+        </playable>
+        <zone modify="never">
+            <region>
+        <subtract id="monument-enter"> <!-- All of the blocks minus the monument (lime) -->
+            <cuboid min="48, 0, -749" max="38, 20, -739"/>
+            <block>44, 4, -743</block>
+            <block>44, 4, -745</block>
+        </subtract>
+            </region>
+            <message>{errors.spawn-restricted}</message>
+        </zone>
+        <zone modify="never">
+            <region>
+        <subtract id="monument-enter"> <!-- All of the blocks minus the monument (cyan) -->
+            <cuboid min="124, 0, -739" max="134, 20, -749"/>
+            <block>128, 4, -743</block>
+            <block>128, 4, -745</block>
+        </subtract>
+            </region>
+            <message>{errors.spawn-restricted}</message>
+        </zone>
+        <zone modify="never">
+            <region>
+                <sphere origin="86, 52, -790" radius="6" height="4"/> <!-- Spectator Spawn Region -->
+                <cuboid min="175,4,-799" max="185,34,-810"/> <!-- Room is Wool Yellow -->
+                <cuboid min="185,4,-689" max="175,34,-678"/> <!-- Room is Wool Blue -->
+                <cuboid min="-3,4,-689" max="-13,34,-678"/> <!-- Room is Wool Red -->
+                <cuboid min="-13,4,-799" max="-3,34,-810"/> <!-- Room is Wool Purple -->
+            </region>
+        </zone>
+        <!-- cyan woolrooms -->
+        <zone modify="always">
+            <enter>
+                <team>lime</team>
+            </enter>
+            <region>
+                <cuboid min="175, 4, -799" max="185, 34, -810"/>
+                <cuboid min="185 ,4, -689" max="175, 34, -678"/>
+            </region>
+            <message>{errors.own-wool-room}</message>
+        </zone>
+        <!-- lime woolrooms -->
+        <zone modify="always">
+            <enter>
+                <team>cyan</team>
+            </enter>
+            <region>
+                <cuboid min="-3, 4, -689" max="-13, 34, -678"/>
+                <cuboid min="-13, 4, -799" max="-3, 34, -810"/>
+            </region>
+            <message>{errors.own-wool-room}</message>
+        </zone>
+
+        <zone modify="never" region="void-outer">
+            <message>{errors.outside-map}</message>
+        </zone>
+        <zone modify="never" region="height-limit">
+            <message>{errors.height-limit}</message>
+        </zone>
+        <zone modify="never"> <!--  tubes  -->
+            <region>
+                <cuboid min="45, 12, -745" max="42, 139, -742"/>
+                <cuboid min="128, 12, -742" max="131, 139, -745"/>
+            </region>
+            <message>{senex.tubes}</message>
+        </zone>
+    </zones>
+    <loadouts>
+        <loadout id="default">
+            <effect duration="10s" amplifier="10">damage resistance</effect>
+            <helmet material="leather helmet" team-color="true"/>
+            <chestplate material="leather chestplate" team-color="true"/>
+            <leggings material="leather leggings" team-color="true"/>
+            <boots material="leather boots" team-color="true"/>
+            <item slot="0" material="iron sword"/>
+            <item slot="1" material="bow"/>
+            <item slot="2" material="iron pickaxe">
+                <enchantment level="2">durability</enchantment>
+            </item>
+            <item slot="3" material="golden apple"/>
+            <item slot="4" material="cooked beef" amount="32"/>
+            <item slot="5" material="log" amount="64"/>
+            <item slot="6" material="glass" amount="32"/>
+            <item slot="27" material="arrow" amount="32"/>
+        </loadout>
+        <loadout id="kill-reward">
+            <item material="golden apple"/>
+            <item material="arrow" amount="4"/>
+        </loadout>
+    </loadouts>
+    <kills>
+        <rewards>
+            <reward loadout="kill-reward"/>
+        </rewards>
+    </kills>
+    <items>
+        <remove-drops>
+            <any>
+                <material>leather helmet</material>
+                <material>leather chestplate</material>
+                <material>leather leggings</material>
+                <material>leather boots</material>
+                <material>golden apple</material>
+                <material>arrow</material>
+                <material>log</material>
+                <material>wood</material>
+                <material>glass</material>
+                <material>sandstone</material>
+            </any>
+        </remove-drops>
+        <repair-tools>
+            <any>
+                <material>iron sword</material>
+                <material>bow</material>
+                <material>iron pickaxe</material>
+                <material>iron axe</material>
+            </any>
+        </repair-tools>
+    </items>
+    <locales>
+     <locale lang="en">
+       <senex>
+         <tubes>You may not destroy or modify the spawn tubes!</tubes>
+       </senex>
+     </locale>
+    </locales>
+</map>

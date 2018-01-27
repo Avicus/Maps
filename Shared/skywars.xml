@@ -1,0 +1,114 @@
+<!-- Default chest population data for all SkyWars maps. -->
+<map>
+  <chests>
+    <generator max="10" min="1" regenerate-count="1" regenerate-countdown="1m" region="everywhere">
+      <chest-items max="16" weight="4">
+        <item material="arrow"/>
+      </chest-items>
+      <chest-items max="1" weight="3">
+        <item material="bow"/>
+      </chest-items>
+      <chest-items max="1" weight="10">
+        <item material="leather helmet"/>
+        <item material="leather chestplate"/>
+        <item material="leather leggings"/>
+        <item material="leather boots"/>
+        <item material="wood sword"/>
+      </chest-items>
+      <chest-items max="48" min="1" weight="11">
+        <item material="cobblestone"/>
+        <item material="wood"/>
+        <item material="dirt"/>
+        <item material="glass"/>
+        <item material="glass"/>
+        <item material="stone"/>
+      </chest-items>
+      <chest-items max="16" min="1" weight="8">
+        <item material="log"/>
+      </chest-items>
+      <chest-items max="1" weight="5">
+        <item material="gold helmet"/>
+        <item material="gold chestplate"/>
+        <item material="gold leggings"/>
+        <item material="gold boots"/>
+        <item material="gold sword"/>
+      </chest-items>
+      <chest-items max="1" weight="2">
+        <item material="iron helmet"/>
+        <item material="iron chestplate"/>
+        <item material="iron leggings"/>
+        <item material="iron boots"/>
+        <item material="iron sword"/>
+      </chest-items>
+      <chest-items max="3" weight="10">
+        <item material="apple"/>
+        <item material="cooked beef"/>
+        <item material="cooked beef"/>
+        <item material="cooked fish"/>
+        <item material="wheat"/>
+        <item material="egg"/>
+        <item material="bucket"/>
+        <item material="grilled pork"/>
+        <item material="bone"/>
+        <item material="egg"/>
+        <item material="coal"/>
+        <item material="pumpkin pie"/>
+      </chest-items>
+      <chest-items max="16" weight="4">
+        <item material="gold ingot"/>
+      </chest-items>
+      <chest-items max="6" weight="8">
+        <item material="apple"/>
+        <item material="cooked beef"/>
+        <item material="ice"/>
+        <item material="cooked beef"/>
+        <item material="cooked fish"/>
+        <item material="wheat"/>
+        <item material="grilled pork"/>
+        <item material="grilled pork"/>
+        <item material="bone"/>
+        <item material="fireball"/>
+        <item material="book"/>
+      </chest-items>
+      <chest-items weight="6">
+        <item material="fishing rod"/>
+        <item material="flint and steel"/>
+        <item material="arrow"/>
+        <item material="flint"/>
+        <item material="compass"/>
+        <item material="golden apple"/>
+        <item material="chainmail helmet"/>
+        <item material="chainmail chestplate"/>
+        <item material="chainmail leggings"/>
+        <item material="chainmail boots"/>
+        <item material="lapis block"/>
+      </chest-items>
+      <chest-items weight="4">
+        <item material="stone sword"/>
+        <item material="stone axe"/>
+        <item material="stone pickaxe"/>
+        <item material="gold axe"/>
+      </chest-items>
+      <chest-items weight="3">
+        <item material="iron sword"/>
+        <item material="iron ingot"/>
+      </chest-items>
+      <chest-items max="3" weight="2">
+        <item material="diamond"/>
+        <item material="exp_bottle"/>
+        <item material="tnt"/>
+        <item material="sponge"/>
+      </chest-items>
+      <chest-items max="10" min="1" weight="2">
+        <item material="redstone"/>
+      </chest-items>
+      <chest-items weight="1">
+        <item material="diamond axe"/>
+        <item material="diamond sword"/>
+        <item material="ender pearl"/>
+        <item material="enchantment table"/>
+        <item material="anvil"/>
+      </chest-items>
+    </generator>
+  </chests>
+</map>

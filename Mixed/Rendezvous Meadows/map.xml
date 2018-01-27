@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="Rendezvous Meadows" spec="1.0.4" version="1.1.0">
+  <include src="defaults.xml"/>
+  <include src="Shared/reward-one-gap.xml"/>
+  <authors>
+    <author uuid="f391227e626f4076a38995e2b922d167"/> <!-- Haribo98 -->
+    <author uuid="50849f8fdd104947b0cf5d91fa3634a2"/> <!-- Crimson_Aught -->
+  </authors>
+  <gametype>ctw</gametype>
+  <gametype>dtm</gametype>
+  <teams>
+    <load-group id="teams.red-blue" max="16" min="1"/>
+  </teams>
+  <spawns>
+    <!-- Spectator spawn -->
+    <spawn>
+      <regions>
+        <point yaw="-90">-58.5, 70, -771.5</point>
+      </regions>
+    </spawn>
+    <!-- Team spawns -->
+    <spawn loadout="default" team="blue" yaw="0">
+      <regions>
+        <point yaw="0">23.5, 51, -887.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="red" yaw="-180">
+      <regions>
+        <point yaw="-180">23.5, 51, -657.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <objectives>
+    <monuments materials="obsidian">
+      <monuments owner="blue">
+        <monument name="{directions.middle}">
+          <region>
+            <block>23, 50, -948</block>
+          </region>
+        </monument>
+      </monuments>
+      <monuments owner="red">
+        <monument name="{directions.middle}">
+          <region>
+            <block>23, 50, -598</block>
+          </region>
+        </monument>
+      </monuments>
+    </monuments>
+    <wools pickup="false" team="blue">
+      <wool color="light blue">
+        <source>
+          <block>68, 56, -648</block>
+        </source>
+        <destination>
+          <block>21, 45, -884</block>
+        </destination>
+      </wool>
+      <wool color="lime">
+        <source>
+          <block>-22, 56, -648</block>
+        </source>
+        <destination>
+          <block>25, 45, -884</block>
+        </destination>
+      </wool>
+    </wools>
+    <wools pickup="false" team="red">
+      <wool color="pink">
+        <source>
+          <block>-22, 56, -898</block>
+        </source>
+        <destination>
+          <block>25, 45, -662</block>
+        </destination>
+      </wool>
+      <wool color="orange">
+        <source>
+          <block>68, 56, -898</block>
+        </source>
+        <destination>
+          <block>21, 45, -662</block>
+        </destination>
+      </wool>
+    </wools>
+  </objectives>
+  <loadouts>
+    <loadout id="default">
+      <helmet material="leather helmet" team-color="true"/>
+      <item material="stone sword" slot="0"/>
+      <item material="bow" slot="1">
+        <enchantments>
+          <enchantment>arrow infinite</enchantment>
+        </enchantments>
+      </item>
+      <item material="diamond pickaxe" slot="2">
+        <enchantments>
+          <enchantment level="1">dig speed</enchantment>
+        </enchantments>
+      </item>
+      <item amount="3" material="golden apple" slot="3"/>
+      <item amount="64" material="log" slot="4"/>
+      <item amount="64" material="glass" slot="5"/>
+      <item amount="16" material="cooked beef" slot="6"/>
+      <item material="arrow" slot="28"/>
+    </loadout>
+    <loadout id="kill-reward">
+      <item material="golden apple"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="kill-reward"/>
+    </rewards>
+  </kills>
+  <regions>
+    <above id="height-limit" y="73"/>
+  </regions>
+  <zones>
+    <zone modify="never">
+      <region>
+        <cuboid max="-55, 73, -776" min="-63, 64, -768"/> <!-- Spectator Spawn Region -->
+      </region>
+      <message>{errors.cannot-build}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <subtract id="monument-enter"> <!-- All of the blocks minus the monument (blue) -->
+          <cylinder base="23, 43, -888" height="12" radius="12"/>
+          <block>25, 45, -884</block>
+          <block>21, 45, -884</block>
+        </subtract>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <subtract id="monument-enter"> <!-- All of the blocks minus the monument (red) -->
+          <cylinder base="23, 43, -658" height="12" radius="12"/>
+          <block>25, 45, -662</block>
+          <block>21, 45, -662</block>
+        </subtract>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid max="19, 53, -875" min="27, 45, -850"/>
+      </region>
+      <message>{errors.cannot-build}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid max="19, 53, -671" min="27, 45, -696"/>
+      </region>
+      <message>{errors.cannot-build}</message>
+    </zone>
+    <!-- blue woolrooms -->
+    <zone modify="always">
+      <enter>
+        <team>red</team>
+      </enter>
+      <region>
+        <cuboid max="-27, 73, -905" min="-18, 46, -897"/> <!-- Room is Wool Pink -->
+        <cuboid max="-19, 73, -910" min="-25, 46, -905"/> <!-- Room is Wool Pink 2 -->
+        <cuboid max="63, 73, -905" min="72, 46, -897"/> <!-- Room is Wool Orange -->
+        <cuboid max="71, 73, -910" min="65, 46, -905"/> <!-- Room is Wool Orange 2 -->
+      </region>
+      <message>{errors.own-wool-room}</message>
+    </zone>
+    <!-- red woolrooms -->
+    <zone modify="always">
+      <enter>
+        <team>blue</team>
+      </enter>
+      <region>
+        <cuboid max="73, 73, -641" min="64, 46, -649"/> <!-- Room is Wool Light Blue -->
+        <cuboid max="65, 73, -636" min="71, 46, -641"/> <!-- Room is Wool Light Blue 2 -->
+        <cuboid max="-17, 73, -641" min="-26, 46, -649"/> <!-- Room is Wool Lime -->
+        <cuboid max="-25, 73, -636" min="-19, 46, -641"/> <!-- Room is Wool Lime 2 -->
+      </region>
+      <message>{errors.own-wool-room}</message>
+    </zone>
+    <zone modify="never" region="height-limit">
+      <message>{errors.height-limit}</message>
+    </zone>
+  </zones>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>cooked beef</material>
+        <material>golden apple</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>stone sword</material>
+        <material>bow</material>
+        <material>diamond pickaxe</material>
+      </any>
+    </repair-tools>
+  </items>
+</map>

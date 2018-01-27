@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<map name="KotF Test" spec="1.0.4" version="1.0.0">
+  <include src="defaults.xml"/>
+  <authors>
+    <author uuid="1c898c77b0cc474a8ce4b5521f2b18e7"/>  <!-- Prodigy4532 -->
+  </authors>
+  <teams>
+    <load-group id="teams.red-blue" max="2" min="1"/>
+  </teams>
+  <spawns>
+    <spawn>
+      <regions>
+        <point yaw="-180">2, 15, -2</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="blue">
+      <regions>
+        <point yaw="0">2, 6, -7</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="red">
+      <regions>
+        <point yaw="180">2, 6, 3</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <objectives>
+    <flag carrying-delay="1" carrying-points="3" post="flag-post" recover-time="0"
+      respawn-delay="15"/>
+    <scores limit="300">
+      <score team="blue"/>
+      <score team="red"/>
+    </scores>
+  </objectives>
+  <results>
+    <win scenario="objectives">
+      <check>
+        <time>12m</time>
+      </check>
+    </win>
+  </results>
+  <loadouts>
+    <loadout id="default">
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="leather leggings" team-color="true"/>
+      <boots material="leather boots" team-color="true"/>
+    </loadout>
+  </loadouts>
+  <zones>
+    <load-group id="no-build"/>
+    <zone id="flag-post">
+      <region>
+        <join>
+          <block>4, 6, -2</block>
+          <block>2, 6, -2</block>
+          <block>0, 6, -2</block>
+        </join>
+      </region>
+      <post yaw="0"/>
+    </zone>
+  </zones>
+</map>

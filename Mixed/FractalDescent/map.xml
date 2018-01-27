@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="Fractal Descent" spec="1.0.3" version="1.2.0">
+  <include src="defaults.xml"/>
+  <include src="Shared/tutorials/mixed/dtc-dtm.xml"/>
+  <gametype>dtm</gametype>
+  <gametype>dtc</gametype>
+  <authors>
+    <author uuid="459fd9190d58401a96016cab1eb721ab"/> <!-- Reshif -->
+    <author uuid="dbe909c62b154528b12ac77ed4031496"/> <!-- teheggy -->
+  </authors>
+  <teams>
+    <team color="blue" id="blue" max="32" min="1">{colors.blue}</team>
+    <team color="red" id="red" max="32" min="1">{colors.red}</team>
+  </teams>
+  <spawns>
+    <spawn loadout="obs">
+      <regions>
+        <cuboid max="-60, 29, 3" min="-53, 29, -4" yaw="-90"/>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="blue">
+      <regions>
+        <point yaw="0">0, 19, -101</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="red">
+      <regions>
+        <point yaw="180">0, 19, 101</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <loadouts>
+    <loadout id="obs">
+      <effect duration="10000s">night vision</effect>
+    </loadout>
+    <loadout id="spawn">
+      <effect duration="10000s">night vision</effect>
+      <effect amplifier="20" duration="8s">damage resistance</effect>
+    </loadout>
+    <loadout id="default" parent="spawn">
+      <item material="diamond sword" slot="0"/>
+      <item material="bow" slot="1">
+        <enchantment level="1">arrow infinite</enchantment>
+      </item>
+      <item material="iron pickaxe" slot="2">
+        <enchantment level="3">durability</enchantment>
+        <enchantment level="2">dig speed</enchantment>
+      </item>
+      <item amount="64" material="smooth brick" slot="3"/>
+      <item amount="64" material="smooth brick" slot="4"/>
+      <item amount="64" material="glass" slot="5"/>
+      <item amount="64" damage="1" material="wood" slot="6"/>
+      <item amount="32" material="ladder" slot="7"/>
+      <item amount="32" material="golden carrot" slot="8"/>
+      <item amount="1" material="arrow" slot="28"/>
+      <helmet material="leather helmet" team-color="true"/>
+    </loadout>
+    <loadout id="kill-reward">
+      <item material="golden apple"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="kill-reward"/>
+    </rewards>
+  </kills>
+  <phases countdown-message="{phases.transition}" fail-message="{phases.cores.fail}">
+    <phase delay="10m" id="gold" pass-phase="packedice" success-message="GOLD CORE MODE">
+      ^eGOLD
+      <materials>
+        <material find="obsidian" replace="gold block"/>
+      </materials>
+    </phase>
+    <phase delay="20m" id="packedice" success-message="PACKED ICE CORE MODE">
+      PACKED ICE
+      <materials>
+        <material find="gold block" replace="packed ice"/>
+      </materials>
+    </phase>
+  </phases>
+  <objectives>
+    <leakables destroyable="true" first-phase="gold" materials="obsidian">
+      <leakables owner="red">
+        <leakable leak-distance="6" name="Core" repairable="false">
+          <region>
+            <cuboid max="3, 23, 45" min="-3, 17, 39"/>
+          </region>
+        </leakable>
+      </leakables>
+      <leakables owner="blue">
+        <leakable leak-distance="6" name="Core" repairable="false">
+          <region>
+            <cuboid max="3, 23, -39" min="-3, 17, -45"/>
+          </region>
+        </leakable>
+      </leakables>
+    </leakables>
+    <monuments destroyable="true" fireworks="true" materials="ender stone">
+      <monuments owner="red">
+        <monument name="Left Monument">
+          <region>
+            <cuboid max="-23, 15, 30" min="-24, 10, 25"/>
+          </region>
+        </monument>
+        <monument name="Right Monument">
+          <region>
+            <cuboid max="25, 17, 30" min="22, 10, 27"/>
+          </region>
+        </monument>
+      </monuments>
+      <monuments owner="blue">
+        <monument name="Left Monument">
+          <region>
+            <cuboid max="22, 17, -31" min="25, 10, -28"/>
+          </region>
+        </monument>
+        <monument name="Right Monument">
+          <region>
+            <cuboid max="-26, 17, -31" min="-23, 10, -28"/>
+          </region>
+        </monument>
+      </monuments>
+    </monuments>
+  </objectives>
+  <regions>
+    <above id="height-limit" y="45"/>
+    <cylinder base="0, 0, -84" height="45" id="blue-spawn" radius="10"/>
+    <cylinder base="0, 0, 84" height="45" id="red-spawn" radius="10"/>
+  </regions>
+  <zones>
+    <zone modify="never">
+      <region>
+        <invert>
+          <join>
+            <cuboid max="41, 46, 92" min="-42, 12, -92"/>
+            <cuboid max="41, 46, 48" min="-42, 0, -48"/>
+          </join>
+        </invert>
+      </region>
+      <message format="warning">{errors.outside-map}</message>
+    </zone>
+    <zone modify="never">
+      <enter>
+        <team>blue</team>
+      </enter>
+      <region id="blue-spawn"/>
+      <message format="warning">{errors.enemy-base}</message>
+    </zone>
+    <zone modify="never">
+      <enter>
+        <team>red</team>
+      </enter>
+      <region id="red-spawn"/>
+      <message format="warning">{errors.enemy-base}</message>
+    </zone>
+    <zone modify="never" region="height-limit">
+      <message format="warning">{errors.height-limit}</message>
+    </zone>
+  </zones>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>obsidian</material>
+        <material>gold block</material>
+        <material>smooth brick</material>
+        <material>glass</material>
+        <material>ladder</material>
+        <material>ender stone</material>
+        <material>arrow</material>
+        <material>golden carrot</material>
+        <material>wood</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>diamond sword</material>
+        <material>bow</material>
+        <material>arrow</material>
+        <material>iron pickaxe</material>
+      </any>
+    </repair-tools>
+  </items>
+  <tutorial>
+    <step countdown="5s" location="0,23,-68.5" pitch="26" yaw="-180">
+      <chat>
+        <line>^r • {tutorial.generic.team-spawns}</line>
+      </chat>
+    </step>
+    <step countdown="3s" location="-34.5,27,0.5" pitch="51" yaw="-90">
+      <chat>
+        <line>^r • {tutorial.dtm.monument-area}</line>
+      </chat>
+    </step>
+    <step countdown="3s" location="-3.5,21,34.5" pitch="23" yaw="-23">
+      <chat>
+        <line>^r • {tutorial.dtc.core-leak}</line>
+      </chat>
+    </step>
+    <step countdown="3s" location="-24,13,-23" pitch="22" yaw="-180">
+      <chat>
+        <line>^r • {tutorial.dtm.monument-objective}</line>
+      </chat>
+    </step>
+  </tutorial>
+</map>

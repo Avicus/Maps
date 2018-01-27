@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="Outbreak" version="1.1.0" spec="1.0.0">
+    <include src="defaults.xml"/>
+    <include src="Shared/reward-one-gap.xml"/>
+
+    <authors>
+        <author uuid="cad8013ab98a40679f0981b0734e0085"/> <!-- roadmanryan -->
+        <author uuid="9116d3fa14004adaaecd2eae1d73e383"/> <!-- Xuph -->
+    </authors>
+
+    <teams>
+        <team id="lime" color="lime" min="2" max="8" max-overfill="8">{colors.lime}</team>
+        <team id="yellow" color="yellow" min="2" max="8" max-overfill="8">{colors.yellow}</team>
+    </teams>
+
+    <objectives>
+        <monuments materials="obsidian">
+            <monuments owner="lime">
+                <monument name="{directions.left}">
+                    <region>
+                        <block>259, 16, -26</block>
+                    </region>
+                </monument>
+                <monument name="{directions.right}">
+                    <region>
+                        <block>259, 16, 26</block>
+                    </region>
+                </monument>
+            </monuments>
+            <monuments owner="yellow">
+                <monument name="{directions.left}">
+                    <region>
+                        <block>15, 16, 26</block>
+                    </region>
+                </monument>
+                <monument name="{directions.right}">
+                    <region>
+                        <block>15, 16, -26</block>
+                    </region>
+                </monument>
+            </monuments>
+        </monuments>
+    </objectives>
+
+    <results>
+        <win scenario="objectives">
+            <check>
+                <time>45m</time>
+            </check>
+        </win>
+    </results>
+
+    <spawns>
+        <spawn team="spectators" yaw="180">
+            <regions>
+                <point yaw="180">137.5, 45, 69.5</point>
+            </regions>
+        </spawn>
+        <spawn team="lime" yaw="90" loadout="default">
+            <regions>
+                <point yaw="90">255.5, 7, 0.5</point>
+            </regions>
+        </spawn>
+        <spawn team="yellow" yaw="-90" loadout="default">
+            <regions>
+                <point yaw="-90">19.5, 7, 0.5</point>
+            </regions>
+        </spawn>
+    </spawns>
+
+    <zones>
+        <zone modify="never">
+            <region>
+                <invert><cuboid min="10, 0, -31" max="264, 30, 31"/></invert>
+            </region>
+            <message>{errors.outside-map}</message>
+        </zone>
+        <zone modify="never">
+            <region>
+                <cuboid min="11, 0, 5" max="28, 30, -7"/>
+            </region>
+            <message>{errors.spawn-restricted}</message>
+        </zone>
+        <zone modify="never">
+            <region>
+                <cuboid min="263, 0, -5" max="245, 30, 6"/>
+            </region>
+            <message>{errors.spawn-restricted}</message>
+        </zone>
+        <zone modify="never">
+            <region>
+                <cuboid min="264, 0, 20" max="218, 30, 6"/>
+            </region>
+            <message>{errors.cannot-build}</message>
+        </zone>
+        <zone modify="never">
+            <region>
+                <cuboid min="264, 0, -20" max="218, 30, -6"/>
+            </region>
+            <message>{errors.cannot-build}</message>
+        </zone>
+        <zone modify="never">
+            <region>
+                <cuboid min="10, 0, -20" max="56, 30, -6"/>
+            </region>
+            <message>{errors.cannot-build}</message>
+        </zone>
+        <zone modify="never">
+            <region>
+                <cuboid min="10, 0, 20" max="56, 30, 6"/>
+            </region>
+            <message>{errors.cannot-build}</message>
+        </zone>
+    </zones>
+
+    <loadouts>
+        <loadout id="default">
+            <helmet team-color="true" material="leather helmet"/>
+            <item slot="0" material="iron sword"/>
+            <item slot="1" material="bow"/>
+            <item slot="2" material="diamond pickaxe"/>
+            <item slot="3" material="golden apple" amount="2"/>
+            <item slot="4" material="log" amount="32"/>
+            <item slot="5" material="glass" amount="32"/>
+            <item slot="7" material="cooked beef" amount="32"/>
+            <item slot="8" material="iron spade"/>
+            <item slot="9" material="arrow" amount="24"/>
+        </loadout>
+        <loadout id="kill-reward">
+            <item material="golden apple"/>
+            <item material="arrow" amount="4"/>
+        </loadout>
+    </loadouts>
+
+    <kills>
+        <rewards>
+            <reward loadout="kill-reward"/>
+        </rewards>
+    </kills>
+
+    <items>
+        <remove-drops>
+            <any>
+                <material>leather helmet</material>
+                <material>cooked beef</material>
+                <material>arrow</material>
+                <material>golden apple</material>
+            </any>
+        </remove-drops>
+
+        <repair-tools>
+            <any>
+                <material>iron sword</material>
+                <material>bow</material>
+                <material>diamond pickaxe</material>
+            </any>
+        </repair-tools>
+    </items>
+
+    <world>
+        <gamerules>
+            <doDaylightCycle>false</doDaylightCycle>
+        </gamerules>
+    </world>
+</map>

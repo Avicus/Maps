@@ -1,0 +1,114 @@
+<?xml version="1.0"?>
+<map name="MiniWalls" spec="1.0.5" version="1.0.0">
+  <include src="defaults.xml"/>
+  <include src="Shared/walls.xml"/>
+  <include src="Shared/tutorials/walls.xml"/>
+  <gametype>walls</gametype>
+  <authors>
+    <author uuid="7041fe1f5d344373b6dc8a7d4605033b"/> <!-- Polar_Express -->
+  </authors>
+  <teams>
+    <load-group id="teams.red-blue" max="20" min="1"/>
+    <team color="green" id="green" max="20" min="1">Green Team</team>
+    <team color="yellow" id="yellow" max="20" min="1">Yellow Team</team>
+  </teams>
+  <tutorial>
+    <step countdown="5s" freeze="true" location="86,233,107" pitch="26" yaw="34">
+      <chat>
+        <line>^r • {tutorial.generic.team-spawns}</line>
+      </chat>
+    </step>
+    <step countdown="5s" freeze="true" location="56,252,63" pitch="34" yaw="-39">
+      <chat>
+        <line>^r • {tutorial.walls.wall-area}</line>
+      </chat>
+    </step>
+    <step countdown="5s" freeze="true" location="55,231,7" pitch="-2" yaw="8">
+      <chat>
+        <line>^r • {tutorial.walls.wall-mid-loot}</line>
+      </chat>
+    </step>
+  </tutorial>
+  <spawns>
+    <spawn>
+      <regions>
+        <cuboid max="50, 262, 53" min="60, 258, 63" yaw="-45"/>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="red">
+      <regions>
+        <point yaw="180">28, 233, 113</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="blue">
+      <regions>
+        <point yaw="180">83, 233, 113</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="green">
+      <regions>
+        <point yaw="0">83, 233, 4</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="yellow">
+      <regions>
+        <point yaw="0">28, 231, 4</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <zones>
+    <zone modify="never">
+      <region>
+        <invert>
+          <cuboid max="106, 255, 109" min="4, 1, 7"/>
+        </invert>
+      </region>
+    </zone>
+    <zone modify="never" region="height-limit"/>
+    <zone modify="never">
+      <region>
+        <cuboid max="60, 231, 8" min="60, 253, 108"/>
+        <cuboid max="50, 231, 8" min="50, 253, 108"/>
+        <cuboid max="5, 231, 53" min="105, 253, 53"/>
+        <cuboid max="5, 231, 63" min="105, 253, 63"/>
+      </region>
+    </zone>
+    <zone enter="never" modify="never">
+      <region>
+        <cuboid max="50, 0, 111" min="60, 255, 109"/>
+        <cuboid max="2,0,53" min="4, 255, 63"/>
+        <cuboid max="60,255,5" min="50,0,7"/>
+        <cuboid max="108,0,63" min="106,255,53"/>
+      </region>
+    </zone>
+  </zones>
+  <regions>
+    <above id="height-limit" y="247"/>
+  </regions>
+  <walls end-time="30m" fall-time="10m">
+    <wall>
+      <region>
+        <cuboid max="60, 231, 8" min="60, 253, 108"/>
+        <cuboid max="50, 231, 8" min="50, 253, 108"/>
+        <cuboid max="5, 231, 53" min="105, 253, 53"/>
+        <cuboid max="5, 231, 63" min="105, 253, 63"/>
+      </region>
+    </wall>
+  </walls>
+  <loadouts>
+    <loadout id="default">
+      <helmet material="leather helmet" team-color="true"/>
+      <item material="wood axe" slot="0"/>
+      <item material="compass" slot="7"/>
+      <item amount="5" material="bread" slot="8"/>
+    </loadout>
+    <loadout id="r">
+      <item material="golden apple"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="r"/>
+    </rewards>
+  </kills>
+</map>

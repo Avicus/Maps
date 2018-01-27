@@ -1,0 +1,167 @@
+<?xml version="1.0"?>
+<map name="Solvite" spec="1.0.0" version="1.0.0">
+  <include src="defaults.xml"/>
+  <include src="Shared/phases-dtc.xml"/>
+  <authors>
+    <author uuid="ae5c1e91745b4a6fa33711484ede6957"/> <!-- Clijmart -->
+    <author uuid="3ec3ad7c563c45fbaedfdd32066a2e19"/> <!-- mepii -->
+  </authors>
+  <teams>
+    <load-group id="teams.red-blue" max="18" min="1"/>
+  </teams>
+  <gametype>dtc</gametype>
+  <gametype>dtm</gametype>
+  <spawns>
+    <spawn>
+      <regions>
+        <point yaw="0">0.5, 49, 0.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="red-kit" team="red">
+      <regions>
+        <point yaw="-90">-93.5, 36, 0.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="blue-kit" team="blue">
+      <regions>
+        <point yaw="90">94.5, 36, 0.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <loadouts>
+    <loadout id="default">
+      <item material="iron sword" slot="0"/>
+      <item material="bow" slot="1">
+        <enchantment level="1">arrow infinite</enchantment>
+      </item>
+      <item material="diamond pickaxe" slot="2">
+        <enchantment level="3">durability</enchantment>
+      </item>
+      <item material="iron axe" slot="3"/>
+      <item amount="2" material="golden apple" slot="4"/>
+      <item amount="32" material="cooked fish" slot="5"/>
+      <item amount="1" material="bucket" slot="7"/>
+      <item amount="32" material="log" slot="8"/>
+      <item amount="1" material="arrow" slot="28"/>
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="iron leggings" team-color="true"/>
+      <boots material="leather boots" team-color="true"/>
+    </loadout>
+    <loadout id="red-kit" parent="default">
+      <item amount="32" damage="14" material="stained glass" slot="6"/>
+    </loadout>
+    <loadout id="blue-kit" parent="default">
+      <item amount="32" damage="3" material="stained glass" slot="6"/>
+    </loadout>
+    <loadout id="kill-reward">
+      <item material="golden apple"/>
+    </loadout>
+  </loadouts>
+  <objectives>
+    <leakables destroyable="true" first-phase="gold" materials="obsidian">
+      <leakables owner="red">
+        <leakable leak-distance="2" name="Core">
+          <region>
+            <cuboid max="-43, 5, -9" min="-57, 18, 9"/>
+          </region>
+        </leakable>
+      </leakables>
+      <leakables owner="blue">
+        <leakable leak-distance="2" name="Core">
+          <region>
+            <cuboid max="44, 5, 10" min="58, 18, -7"/>
+          </region>
+        </leakable>
+      </leakables>
+    </leakables>
+    <monuments destroyable="true" materials="emerald block">
+      <monuments owner="red">
+        <monument name="Front Monument">
+          <region>
+            <cuboid max="-26, 13, 2" min="-29, 3, -1"/>
+          </region>
+        </monument>
+      </monuments>
+      <monuments owner="blue">
+        <monument name="Front Monument">
+          <region>
+            <cuboid max="27, 13, -1" min="30, 3, 2"/>
+          </region>
+        </monument>
+      </monuments>
+    </monuments>
+  </objectives>
+  <damage>
+    <disable>
+      <all>
+        <damage>fall</damage>
+        <inside>
+          <region>
+            <join>
+              <cuboid max="91, 10, -3" min="98, 43, 4"/>
+              <cuboid max="-97, 43, -3" min="-90, 10, 4"/>
+            </join>
+          </region>
+        </inside>
+      </all>
+    </disable>
+  </damage>
+  <world>
+    <storm>false</storm>
+    <weather check="always"/>
+  </world>
+  <kills>
+    <rewards>
+      <reward loadout="kill-reward"/>
+    </rewards>
+  </kills>
+  <zones>
+    <zone modify="never">
+      <enter>
+        <team>red</team>
+      </enter>
+      <region>
+        <cuboid max="-109, 256, 9" min="-79, 1, -9"/>
+      </region>
+      <message>{errors.enemy-base}</message>
+    </zone>
+    <zone modify="never">
+      <enter>
+        <team>blue</team>
+      </enter>
+      <region>
+        <cuboid max="109, 256, 9" min="79, 1, -9"/>
+      </region>
+      <message>{errors.enemy-base}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <above y="27"/>
+      </region>
+    </zone>
+  </zones>
+  <items>
+    <remove-drops>
+      <any>
+        <material>stained glass:14</material>
+        <material>stained glass:3</material>
+        <material>cooked fish</material>
+        <material>golden apple</material>
+        <material>arrow</material>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>iron leggings</material>
+        <material>leather boots</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>iron sword</material>
+        <material>diamond pickaxe</material>
+        <material>bow</material>
+        <material>iron axe</material>
+      </any>
+    </repair-tools>
+  </items>
+</map>

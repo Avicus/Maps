@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="Downtown" spec="1.0.0" version="1.0.0">
+  <include src="defaults.xml"/>
+  <include src="Shared/reward-one-gap.xml"/>
+  <include src="Shared/conquest-shop.xml"/>
+  <authors>
+    <author uuid="cad8013ab98a40679f0981b0734e0085"/> <!-- imryaan -->
+  </authors>
+  <teams>
+    <team color="green" id="green" max="16" max-overfill="18" min="1">{colors.green}</team>
+    <team color="purple" id="purple" max="16" max-overfill="18" min="1">{colors.purple}</team>
+  </teams>
+  <gametype>score</gametype>
+  <!-- No score limit -->
+  <objectives>
+    <scores kills="1">
+      <score team="green"/>
+      <score team="purple"/>
+    </scores>
+  </objectives>
+  <results>
+    <win scenario="objectives">
+      <check>
+        <time>7m</time>
+      </check>
+    </win>
+  </results>
+  <spawns>
+    <spawn>
+      <regions>
+        <point yaw="90">58.5, 90, -52.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="green">
+      <regions>
+        <point yaw="90">134.5, 55, -52.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="purple">
+      <regions>
+        <point yaw="-90">-17.5, 55, -52.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <loadouts>
+    <loadout id="default">
+      <helmet material="iron helmet"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="leather leggings" team-color="true"/>
+      <boots material="iron boots"/>
+      <item material="stone sword" slot="0"/>
+      <item material="bow" slot="1"/>
+      <item material="golden apple" slot="2"/>
+      <item amount="16" material="golden carrot" slot="5"/>
+      <item amount="16" material="arrow" slot="27"/>
+    </loadout>
+  </loadouts>
+  <zones>
+    <load-group id="no-build"/>
+  </zones>
+  <items>
+    <remove-drops>
+      <any>
+        <material>stone sword</material>
+        <material>bow</material>
+        <material>iron helmet</material>
+        <material>leather chestplate</material>
+        <material>leather leggings</material>
+        <material>iron boots</material>
+        <material>golden carrot</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>stone sword</material>
+        <material>leather chestplate</material>
+        <material>leather leggings</material>
+        <material>iron helmet</material>
+        <material>iron boots</material>
+        <material>bow</material>
+      </any>
+    </repair-tools>
+  </items>
+  <world>
+    <gamerules>
+      <doDaylightCycle>false</doDaylightCycle>
+    </gamerules>
+  </world>
+</map>

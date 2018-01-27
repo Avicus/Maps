@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="Dragon WarZ" spec="1.0.0" version="1.0.0">
+  <include src="defaults.xml"/>
+  <authors>
+    <author uuid="42b105207c51425292d98b65df108b12"/>
+    <!--  PieZ  -->
+    <author uuid="dc56a94d03984a13a115018a84b8082c"/>
+    <!-- K_R_Cord -->
+  </authors>
+  <teams>
+    <team color="blue" id="blue" max="10" min="1">{colors.blue}</team>
+    <team color="red" id="red" max="10" min="1">{colors.red}</team>
+  </teams>
+  <objectives>
+    <last-team-standing team="blue"/>
+    <last-team-standing team="red"/>
+  </objectives>
+  <elimination lives="3"/>
+  <results>
+    <win scenario="objectives">
+      <check>
+        <time>5m</time>
+      </check>
+    </win>
+  </results>
+  <spawns>
+    <spawn>
+      <!--  Observer -->
+      <regions>
+        <point yaw="180">296, 53, 1351</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="red">
+      <!--  Red  -->
+      <regions>
+        <point yaw="90">340, 53, 1348</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="blue">
+      <!--  Blue  -->
+      <regions>
+        <point yaw="-90">244, 53, 1348</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <projectiles>
+    <projectile cooldown="15s" id="dragon-bow" name="Call of the Dragon" type="ender_dragon"/>
+  </projectiles>
+  <loadouts>
+    <loadout id="default">
+      <item material="stick" slot="0">
+        <enchantment level="5">knockback</enchantment>
+      </item>
+      <item material="bow" projectile="dragon-bow" slot="1"/>
+      <item material="golden apple" slot="2"/>
+      <item amount="64" material="arrow" slot="3"/>
+      <item amount="64" material="arrow" slot="4"/>
+      <item amount="64" material="arrow" slot="5"/>
+    </loadout>
+  </loadouts>
+  <world>
+    <gamerules>
+      <doDaylightCycle>false</doDaylightCycle>
+    </gamerules>
+  </world>
+</map>

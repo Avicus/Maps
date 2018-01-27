@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map genre="sky wars" name="Abandoned Canyon" spec="1.0.0" version="1.0.0">
+  <include src="defaults.xml"/>
+  <include src="Shared/skywars.xml"/>
+  <authors>
+    <author uuid="0e56116560bf49e6aa383db002ad7d08 "/>  <!-- AbusiveUser -->
+  </authors>
+  <ffa max="8" max-overfill="8" min="2"/>
+  <objectives>
+    <last-competitor-standing/>
+  </objectives>
+  <results>
+    <win scenario="objectives">
+      <check>
+        <time>8m</time>
+      </check>
+    </win>
+  </results>
+  <compasses>
+    <compass target="enemy"/>
+  </compasses>
+  <spawns>
+    <spawn team="spectators" yaw="-180">
+      <regions>
+        <block>1, 77, 0</block>
+      </regions>
+    </spawn>
+    <spawn loadout="default" look="-45, 31, 46" mode="safe">
+      <regions>
+        <block>0, 57, -49</block>
+        <block>-35, 57, -34</block>
+        <block>-48, 57, 0</block>
+        <block>-35, 57, 37</block>
+        <block>0, 57, 50</block>
+        <block>36, 57, 37</block>
+        <block>50, 57, 0</block>
+        <block>36, 57, -33</block>
+      </regions>
+    </spawn>
+  </spawns>
+  <elimination lives="1"/>
+  <loadouts>
+    <loadout id="default">
+      <helmet material="leather helmet" team-color="true"/>
+      <item material="wood sword" slot="0"/>
+      <item amount="4" material="cooked beef" slot="7"/>
+      <item material="compass" slot="8"/>
+    </loadout>
+  </loadouts>
+  <remove-drops>
+    <any>
+      <material>compass</material>
+    </any>
+  </remove-drops>
+</map>

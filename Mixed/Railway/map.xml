@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="Railway" spec="1.0.4" version="1.0.3">
+  <include src="defaults.xml"/>
+  <include src="Shared/reward-one-gap.xml"/>
+  <include src="Shared/phases-dtc.xml"/>
+  <include src="Shared/tutorials/mixed/dtc-dtm.xml"/>
+  <gametype>dtc</gametype>
+  <gametype>dtm</gametype>
+  <authors>
+    <author uuid="3cce00809faa48f982cf64410305822a"/> <!-- EDNAS -->
+    <author uuid="c2a4c847653e482ab62ed7f8b64330cb"/> <!-- Alm -->
+    <author role="Ideas, building" uuid="3feb57900603446c9bbfd5fb40759f41"/> <!-- dev_revs -->
+  </authors>
+  <teams>
+    <team color="purple" id="purple" max="25" min="1">{colors.purple}</team>
+    <team color="cyan" id="cyan" max="25" min="1">{colors.cyan}</team>
+  </teams>
+  <tutorial>
+    <step countdown="5s" location="18.5,22,-1.5" pitch="33" yaw="90">
+      <chat>
+        <line>^r • {tutorial.generic.team-spawns}</line>
+      </chat>
+    </step>
+    <step countdown="3s" location="72.5,11,-1.5" pitch="0" yaw="90">
+      <chat>
+        <line>^r • {tutorial.dtm.monument-area}</line>
+      </chat>
+    </step>
+    <step countdown="3s" location="64.5,16,-4" pitch="8" yaw="69">
+      <chat>
+        <line>^r • {tutorial.dtc.core-leak}</line>
+      </chat>
+    </step>
+    <step countdown="3s" location="52.5,10.5,31.5" pitch="9" yaw="62">
+      <chat>
+        <line>^r • {tutorial.dtm.monument-objective}</line>
+      </chat>
+    </step>
+  </tutorial>
+  <spawns>
+    <!-- Spectator spawn -->
+    <spawn>
+      <regions>
+        <point yaw="180">105.5,40,49.5</point>
+      </regions>
+    </spawn>
+    <!-- Team spawns -->
+    <spawn loadout="default" team="cyan" yaw="0">
+      <regions>
+        <point yaw="90">193.5,21,-1.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="purple" yaw="180">
+      <regions>
+        <point yaw="-90">12.5,21,-1.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <objectives>
+    <monuments destroyable="true" materials="emerald block">
+      <monuments owner="cyan">
+        <monument name="{directions.right}">
+          <region>
+            <cuboid max="159,13,33" min="156,9,36"/>
+          </region>
+        </monument>
+        <monument name="{directions.left}">
+          <region>
+            <cuboid max="157,13,-37" min="159,9,-39"/>
+          </region>
+        </monument>
+      </monuments>
+      <monuments owner="purple">
+        <monument name="{directions.left}">
+          <region>
+            <cuboid max="46,13,33" min="48,9,35"/>
+          </region>
+        </monument>
+        <monument name="{directions.right}">
+          <region>
+            <cuboid max="46,13,-39" min="48,9,-37"/>
+          </region>
+        </monument>
+      </monuments>
+    </monuments>
+    <leakables destroyable="true" first-phase="gold" materials="obsidian">
+      <leakables owner="cyan">
+        <leakable leak-distance="5" name="Cave">
+          <region>
+            <cuboid max="150,19,1" min="144,13,-5"/>
+          </region>
+        </leakable>
+      </leakables>
+      <leakables owner="purple">
+        <leakable leak-distance="5" name="Cave">
+          <region>
+            <cuboid max="55,19,-5" min="61,13,1"/>
+          </region>
+        </leakable>
+      </leakables>
+    </leakables>
+  </objectives>
+  <loadouts>
+    <loadout id="default">
+      <item material="iron sword" slot="0"/>
+      <item material="bow" slot="1"/>
+      <item material="diamond pickaxe" slot="2"/>
+      <item material="iron axe" slot="3"/>
+      <item amount="64" damage="2" material="log" slot="4"/>
+      <item amount="1" material="golden apple" slot="5"/>
+      <item amount="64" material="glass" slot="6"/>
+      <item amount="64" material="stone" slot="7"/>
+      <item amount="64" material="golden carrot" slot="8"/>
+      <item amount="64" material="arrow" slot="17"/>
+      <item amount="48" material="piston base" slot="25"/>
+      <item amount="48" material="slime block" slot="26"/>
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="leather leggings" team-color="true"/>
+      <boots material="leather boots" team-color="true"/>
+    </loadout>
+    <loadout id="kill-reward">
+      <item material="golden apple"/>
+      <item amount="6" material="arrow"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="kill-reward"/>
+    </rewards>
+  </kills>
+  <zones>
+    <zone modify="never">
+      <region>
+        <cuboid max="185,26,13" min="200,12,-15"/>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid max="16,12,-12" min="2,27,16"/>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never" region="height-limit">
+      <message>{errors.height-limit}</message>
+    </zone>
+  </zones>
+  <regions>
+    <above id="height-limit" y="38"/>
+  </regions>
+  <items>
+    <remove-drops>
+      <any>
+        <material>arrow</material>
+        <material>golden apple</material>
+        <material>iron axe</material>
+        <material>diamond pickaxe</material>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>leather leggings</material>
+        <material>leather boots</material>
+        <material>golden carrot</material>
+        <material>slime block</material>
+        <material>piston base</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>iron sword</material>
+        <material>bow</material>
+        <material>diamond pickaxe</material>
+      </any>
+    </repair-tools>
+  </items>
+</map>

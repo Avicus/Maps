@@ -1,0 +1,218 @@
+<map name="Titans" spec="1.0.0" version="1.0.0">
+  <include src="defaults.xml"/>
+  <authors>
+    <!-- G_SKIPPY -->
+    <author role="Map author" uuid="3893a242cc17447e9b1c774fc8941af8"/>
+  </authors>
+  <teams>
+    <team color="orange" id="orange" max="25" min="1">{colors.orange}</team>
+    <team color="purple" id="purple" max="25" min="1">{colors.purple}</team>
+  </teams>
+  <gametype>score</gametype>
+  <objectives>
+    <scores kills="1">
+      <score team="orange"/>
+      <score team="purple"/>
+    </scores>
+  </objectives>
+  <results>
+    <win scenario="objectives">
+      <check>
+        <time>7m</time>
+      </check>
+    </win>
+  </results>
+  <spawns>
+    <spawn>
+      <regions>
+        <point yaw="180">-40, 127, -746</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="purple">
+      <regions>
+        <point yaw="-90">-120, 74, -800</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="orange">
+      <regions>
+        <point yaw="90">37, 74, -799</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <zones>
+    <!-- Purple -->
+    <zone modify="never">
+      <enter>
+        <team>purple</team>
+      </enter>
+      <region>
+        <join>
+          <cylinder base="-121, 73, -801" height="4" radius="9"/>
+        </join>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <!-- Orange -->
+    <zone modify="never">
+      <enter>
+        <team>orange</team>
+      </enter>
+      <region>
+        <join>
+          <cylinder base="37, 73, -800" height="4" radius="9"/>
+        </join>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never" region="everywhere"/>
+  </zones>
+  <loadouts>
+    <loadout id="default">
+      <helmet material="diamond helmet" team-color="true">
+        <enchantment level="4">PROTECTION_ENVIRONMENTAL</enchantment>
+        <enchantment level="3">durability</enchantment>
+      </helmet>
+      <chestplate material="diamond chestplate" team-color="true">
+        <enchantment level="4">PROTECTION_ENVIRONMENTAL</enchantment>
+        <enchantment level="3">durability</enchantment>
+      </chestplate>
+      <leggings material="diamond leggings" team-color="true">
+        <enchantment level="4">PROTECTION_ENVIRONMENTAL</enchantment>
+        <enchantment level="3">durability</enchantment>
+      </leggings>
+      <boots material="diamond boots" team-color="true">
+        <enchantment level="4">PROTECTION_ENVIRONMENTAL</enchantment>
+        <enchantment level="3">durability</enchantment>
+      </boots>
+      <item material="diamond sword" slot="0">
+        <enchantment level="4">DAMAGE_ALL</enchantment>
+        <enchantment level="3">durability</enchantment>
+        <enchantment level="2">FIRE_ASPECT</enchantment>
+      </item>
+      <item material="bow" slot="1">
+        <enchantment level="5">arrow_damage</enchantment>
+        <enchantment level="3">durability</enchantment>
+        <enchantment level="1">arrow_infinite</enchantment>
+        <enchantment level="1">arrow_fire</enchantment>
+      </item>
+      <item amount="3" material="golden apple" slot="3"/>
+      <item amount="24" material="bread" slot="5"/>
+      <item amount="1" material="arrow" slot="28"/>
+      <item material="potion" potion="instant heal" splash="true">
+        <effect amplifier="2">heal</effect>
+      </item>
+      <item material="potion" potion="instant heal" splash="true">
+        <effect amplifier="2">heal</effect>
+      </item>
+      <item material="potion" potion="instant heal" splash="true">
+        <effect amplifier="2">heal</effect>
+      </item>
+      <item material="potion" potion="instant heal" splash="true">
+        <effect amplifier="2">heal</effect>
+      </item>
+      <item material="potion" potion="instant heal" splash="true">
+        <effect amplifier="2">heal</effect>
+      </item>
+      <item material="potion" potion="instant heal" splash="true">
+        <effect amplifier="2">heal</effect>
+      </item>
+      <item material="potion" potion="instant heal" splash="true">
+        <effect amplifier="2">heal</effect>
+      </item>
+      <item material="potion" potion="instant heal" splash="true">
+        <effect amplifier="2">heal</effect>
+      </item>
+      <item material="potion" potion="instant heal" splash="true">
+        <effect amplifier="2">heal</effect>
+      </item>
+      <item material="potion" potion="instant heal" splash="true">
+        <effect amplifier="2">heal</effect>
+      </item>
+      <item material="potion" potion="instant heal" splash="true">
+        <effect amplifier="2">heal</effect>
+      </item>
+      <item material="potion" potion="instant heal" splash="true">
+        <effect amplifier="2">heal</effect>
+      </item>
+      <item material="potion" potion="instant heal" splash="true">
+        <effect amplifier="2">heal</effect>
+      </item>
+      <item material="potion" potion="instant heal" splash="true">
+        <effect amplifier="2">heal</effect>
+      </item>
+      <item material="potion" potion="instant heal" splash="true">
+        <effect amplifier="2">heal</effect>
+      </item>
+      <item material="potion" potion="instant heal" splash="true">
+        <effect amplifier="2">heal</effect>
+      </item>
+      <item material="potion" potion="instant heal" splash="true">
+        <effect amplifier="2">heal</effect>
+      </item>
+      <item material="potion" potion="instant heal" splash="true">
+        <effect amplifier="2">heal</effect>
+      </item>
+      <item material="potion" potion="instant heal" splash="true">
+        <effect amplifier="2">heal</effect>
+      </item>
+      <item material="potion" potion="instant heal" splash="true">
+        <effect amplifier="2">heal</effect>
+      </item>
+      <item material="potion" potion="instant heal" splash="true">
+        <effect amplifier="2">heal</effect>
+      </item>
+      <item material="potion" potion="instant heal" splash="true">
+        <effect amplifier="2">heal</effect>
+      </item>
+      <item material="potion" potion="instant heal" splash="true">
+        <effect amplifier="2">heal</effect>
+      </item>
+      <item material="potion" potion="fire_resistance">
+        <effect amplifier="1" duration="8m">fire_resistance</effect>
+      </item>
+      <item material="potion" potion="fire_resistance">
+        <effect amplifier="1" duration="8m">fire_resistance</effect>
+      </item>
+      <item material="potion" potion="fire_resistance">
+        <effect amplifier="1" duration="8m">fire_resistance</effect>
+      </item>
+      <item material="potion" potion="speed">
+        <effect amplifier="1" duration="8m">speed</effect>
+      </item>
+      <item material="potion" potion="speed">
+        <effect amplifier="1" duration="8m">speed</effect>
+      </item>
+      <item material="potion" potion="speed">
+        <effect amplifier="1" duration="8m">speed</effect>
+      </item>
+    </loadout>
+    <loadout id="kill-reward">
+      <item amount="2" material="golden apple"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="kill-reward"/>
+    </rewards>
+  </kills>
+  <items>
+    <remove-drops>
+      <any>
+        <material>diamond helmet</material>
+        <material>diamond chestplate</material>
+        <material>diamond leggings</material>
+        <material>diamond boots</material>
+        <material>bread</material>
+        <material>arrow</material>
+        <material>golden apple</material>
+        <material>glass bottle</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>diamond sword</material>
+        <material>bow</material>
+      </any>
+    </repair-tools>
+  </items>
+</map>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="Sky" spec="1.0.0" version="1.0.0">
+  <include src="defaults.xml"/>
+  <include src="Shared/skywars.xml"/>
+  <authors>
+    <author uuid="873e325e60fb47598660f3049e8728fb"/>  <!-- JJTCool -->
+  </authors>
+  <teams>
+    <load-group id="teams.red-blue" max="12" min="1"/>
+  </teams>
+  <spawns>
+    <!-- Spectator spawn -->
+    <spawn>
+      <regions>
+        <point yaw="-90">91.5, 241, -579.5</point>
+      </regions>
+    </spawn>
+    <!-- Team spawns -->
+    <spawn loadout="default" team="blue" yaw="90">
+      <regions>
+        <point yaw="90">98.5, 123, -659.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="red" yaw="90">
+      <regions>
+        <point yaw="90">106.5, 126, -508.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <objectives>
+    <last-team-standing team="blue"/>
+    <last-team-standing team="red"/>
+  </objectives>
+  <results>
+    <win scenario="objectives">
+      <check>
+        <time>8m</time>
+      </check>
+    </win>
+  </results>
+  <compasses>
+    <compass target="enemy"/>
+  </compasses>
+  <elimination lives="1"/>
+  <regions>
+    <above id="height-limit" y="190"/>
+  </regions>
+  <zones>
+    <zone modify="never" region="height-limit">
+      <message>{errors.height-limit}</message>
+    </zone>
+  </zones>
+  <loadouts>
+    <loadout id="default">
+      <helmet material="leather helmet" team-color="true"/>
+      <item material="wood sword" slot="0"/>
+      <item amount="8" material="cooked beef" slot="7"/>
+      <item material="compass" slot="8"/>
+    </loadout>
+  </loadouts>
+  <remove-drops>
+    <any>
+      <material>compass</material>
+    </any>
+  </remove-drops>
+</map>

@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Localized strings for the english language. -->
+<map>
+  <locales>
+    <locale country="es" lang="es">
+      <colors>
+        <aqua>Azul Claro</aqua>
+        <cyan>Cian</cyan>
+        <gray>Gris</gray>
+        <red>Rojo</red>
+        <blue>Azul</blue>
+        <green>Verde</green>
+        <lime>Lima</lime>
+        <yellow>Amarillo</yellow>
+        <orange>Naranja</orange>
+        <purple>Morado</purple>
+        <pink>Rosa</pink>
+      </colors>
+      <arcade>
+        <arcade>Arcade</arcade>
+        <minotaur>Minotauro</minotaur>
+        <ghost-squadron>Escuadron fantasma</ghost-squadron>
+        <parkour>Parkour</parkour>
+        <bombers>Bombarderos</bombers>
+        <mtdm>Mini TDM</mtdm>
+        <oitc>Uno en la recámara</oitc>
+        <spleef>Spleef</spleef>
+      </arcade>
+      <phases>
+        <transition>^6Cambiando a ^6{0} en {1}^6!</transition>
+        <core>
+          <gold>^c * * ^eCORE DE ORO ^c * *</gold>
+          <glass>^c * * ^fCORE DE CRISTAL ^c * *</glass>
+          <fail>Fallo al pasar a la siguiente fase!</fail>
+        </core>
+        <monument>
+          <gold>MONUMENTO DE ORO</gold>
+          <glass>MONUMENTO DE CRISTAL</glass>
+          <fail>^cFallo al pasar a la siguiente fase del monumento!</fail>
+        </monument>
+      </phases>
+      <names>
+        <villains>Villanos</villains>
+        <heroes>Héroes</heroes>
+        <shrine>Santuario</shrine>
+        <blueberries>Arándanos</blueberries>
+        <raspberries>Frambuesas</raspberries>
+        <grapes>Uvas</grapes>
+        <cosmos>Cosmos</cosmos>
+        <chaos>Caos</chaos>
+        <evil>Demonio</evil>
+        <good>Bueno</good>
+      </names>
+      <kits>
+        <melee>Cuerpo a cuerpo</melee>
+        <medic>Médico</medic>
+        <medic-description>Curate a ti y tus compañeros usando pociones de curación.
+        </medic-description>
+        <bunny>Conejito</bunny>
+        <bunny-description>Consigue un aumento de salto y velocidad para esquivar a tus enemigos
+        </bunny-description>
+        <alchemist>Alquimista</alchemist>
+        <alchemist-description>Usa el poder de las pociones y debilita a tus oponentes
+        </alchemist-description>
+        <pyromancer>Pirómano</pyromancer>
+        <pyromancer-description>Lanza fuego y causa quemaduras a cualquiera que golpees
+        </pyromancer-description>
+        <mortician>Mortician</mortician>
+        <mortician-description>Los no muertos te servirán al atacar a tus enemigos.
+        </mortician-description>
+        <swordsman>Espadachín</swordsman>
+        <swordsman-description>El equipamiento básico de espada.</swordsman-description>
+        <marksman>Arquero</marksman>
+        <marksman-description>Dispara a los enemigos desde lejos</marksman-description>
+        <ninja>Ninja</ninja>
+        <ninja-description>Vuélvete invisible y asalta a tus enemigos por detrás</ninja-description>
+        <heavy>Pesado</heavy>
+        <heavy-description>¡Reduce el daño entrante!</heavy-description>
+        <trainer>Domador</trainer>
+        <trainer-description>Spawn the pack and deal more damage than the ordinary swordsman!
+        </trainer-description>
+        <golem>Golem</golem>
+        <golem-description>¡Empuja a los jugadores enemigos fuera de ti y de tú equipo!
+        </golem-description>
+        <shamon>Doctor</shamon>
+        <shamon-description>Sube los niveles de vida tuyo y de tus compañeros</shamon-description>
+        <barbarian>Barbaro</barbarian>
+        <barbarian-description>Perlea en la base enemiga y sorprendelos por detras!
+        </barbarian-description>
+        <marauder>Marauder</marauder>
+        <marauder-description>Los Proyectiles no te dañaran y tendrás un extra de 10 corazones
+        </marauder-description>
+        <witch>Bruja</witch>
+        <witch-description>Dale Speed y Fire Resistance a cualquiera que lo necesite!
+        </witch-description>
+        <lumberjack>Leñador</lumberjack>
+        <lumberjack-description>Haz mucho daño y con prisa, nada se pondrá en tu camino.
+        </lumberjack-description>
+        <builder>Constructor</builder>
+        <builder-description>Construye con bloques para defender la base de tu equipo.
+        </builder-description>
+        <engineer>Ingeniero</engineer>
+        <engineer-description>Construye trampas para tus enemigos.</engineer-description>
+        <wizard>Brujo</wizard>
+        <wizard-description>Usa encantamientos mágicos en tu enemigo.</wizard-description>
+        <poseidon>Poseidón</poseidon>
+        <poseidon-description>Trabaja y pelea debajo del agua.</poseidon-description>
+        <scout>Explorador</scout>
+        <scout-description>Sigue a tus oponentes a la velocidad de la luz.</scout-description>
+        <warrior>Guerrero</warrior>
+        <warrior-description>Prepárate para combatir contra otros.</warrior-description>
+        <cannoner>Cañonero</cannoner>
+        <cannoner-description>Se un experto de la dinamita y explota el lado contrario.
+        </cannoner-description>
+        <pyro>
+          <name>Pyro</name>
+          <description>Light your enemies on fire!</description>
+        </pyro>
+        <archer>
+          <name>Archer</name>
+          <description>Snipe your foes from long distances!</description>
+        </archer>
+        <fireman>
+          <name>Fireman</name>
+          <description>Put out fires with your water!</description>
+        </fireman>
+        <cleric>
+          <name>Cleric</name>
+          <description>Heal you and your friends with your health potions!</description>
+        </cleric>
+        <beastmaster>
+          <name>Beastmaster</name>
+          <description>Fight with your mini army by your side!</description>
+        </beastmaster>
+        <cactus>
+          <name>Cactus</name>
+          <description>Prickle your enemies to death with your spikey thorns!</description>
+        </cactus>
+        <cook>
+          <name>Cook</name>
+          <description>Eat your way through your enemies!</description>
+        </cook>
+        <miner>
+          <name>Miner</name>
+          <description>Mine, Mine, Mine the blocks!!!!!!!!!</description>
+        </miner>
+      </kits>
+      <broadcasts>
+        <map-kits>¡Este mapa tiene equipamientos activados! Usa /kit para seleccionar el tuyo.
+        </map-kits>
+        <region-monument>¡Debes destruir toda la región del monumento para ganar!</region-monument>
+        <villager-trade>^cCollect ^a^lemeralds ^cand trade with ^a^lvillagers to upgrade!
+        </villager-trade>
+        <map-kits-2>¡Para mirar los equipamientos, haz /kits y para seleccionar, haz /kit nombre del
+          equipamiento!
+        </map-kits-2>
+        <potion-teleport>^c^lDrink ^a^lpotions ^c^lto teleport and find the ^a^ljukebox ^c^lto find
+          better items
+        </potion-teleport>
+        <wool-safeties>^cWool safeties are ^4^lenabled ^cand wool will respawn in chests every ^4^l5
+          minutes.
+        </wool-safeties>
+      </broadcasts>
+      <directions>
+        <back-left>Atrás Izquierda</back-left>
+        <back-right>Atrás Derecha</back-right>
+        <back-middle>Medio Atras</back-middle>
+        <front-left>Frente Izquierda</front-left>
+        <front-right>Frente Derecha</front-right>
+        <left>Izquierda</left>
+        <right>Derecha</right>
+        <center>Centro</center>
+        <middle>Medio</middle>
+        <up>Arriba</up>
+        <down>Abajo</down>
+        <top>Superior</top>
+        <bottom>Inferior</bottom>
+        <upper>Superior</upper>
+        <lower>Inferior</lower>
+        <back>Atrás</back>
+        <front>Frente</front>
+        <left-side>Lado Izquierdo</left-side>
+        <right-side>Lado Derecho</right-side>
+        <top-left>Arriba Izquierda</top-left>
+        <top-right>Arriba Derecha</top-right>
+        <top-middle>Arriba Medio</top-middle>
+        <bottom-left>Abajo Izquierda</bottom-left>
+        <bottom-right>Abajo Derecha</bottom-right>
+        <bottom-middle>Abajo Medio</bottom-middle>
+        <mid-left>Medio Izquierda</mid-left>
+        <mid-right>Medio Derecha</mid-right>
+      </directions>
+      <errors>
+        <cannot-build-map>No puedes construir en este mapa.</cannot-build-map>
+        <cannot-build>No puedes construir aquí.</cannot-build>
+        <cannot-build-hill>No puedes construir cerca de la colina.</cannot-build-hill>
+        <cannot-break-enchanting>No puedes destruir la mesa de encantamientos.
+        </cannot-break-enchanting>
+        <outside-map>No puedes contruir fuera de los límites del mapa.</outside-map>
+        <enemy-base>No puedes entrar o modificar la base de un enemigo.</enemy-base>
+        <own-wool-room>No puedes entrar a tu propio wool room!</own-wool-room>
+        <wrong-scorebox>No puedes entrar a esa scorebox.</wrong-scorebox>
+        <spawn-restricted>Las áreas de spawn pueden tener restricciones de entrada o construcción.
+        </spawn-restricted>
+        <height-limit>Has alcanzado a la altura limite del mapa.</height-limit>
+      </errors>
+      <tutorial>
+        <map-tutorial>Tutorial del Mapa</map-tutorial>
+        <map-tutorial-over>Fin del Tutorial</map-tutorial-over>
+        <you-are-spectating>Estas observando esta partida. Puedes usar "/join" para participar.
+        </you-are-spectating>
+        <how-to-back>Click izquierdo para volver atras.</how-to-back>
+        <how-to-exit>Escribe cualquier comando para salir del tutorial.</how-to-exit>
+        <four-teams>Este mapa tiene 4 equipos.</four-teams>
+        <free-for-all>Este mapa es todos contra todos.</free-for-all>
+        <capture-the-flag>El modo de juego de este mapa es capturar la bandera</capture-the-flag>
+        <destroy-the-monument>Este mapa es de la modalidad de destruye el núcleo.
+        </destroy-the-monument>
+        <frenzy>El modo de juego de este mapa es Eliminación.</frenzy>
+        <skywars>Este mapa tiene la modalidad SkyWars.</skywars>
+        <koth>Este mapa tiene la modalidad de Rey de la colina.</koth>
+        <arcade>Este mapa tiene la modalidad Arcade.</arcade>
+        <capture-the-wool>Este mapa es de la modalidad de captura la lana.</capture-the-wool>
+        <generic>
+          <team-spawns>Los equipos aparecen en su lado del mapa, en esta área.</team-spawns>
+        </generic>
+        <dtm>
+          <title>Destruye el monumento</title>
+          <desc1>^7You are about to play a ^6Destroy the Monument ^6^l(DTM) ^6map!</desc1>
+          <desc2>^7The goal of this map is to ^3break all or a majority of the other team's
+            monuments.
+          </desc2>
+          <desc3>^7A ^omonument ^7is a ^lblock or set of blocks that must be destroyed. ^7You will
+            be teleported to one shortly.
+          </desc3>
+          <colored>Debes destruir los monumentos con el mismo color de su equipo.</colored>
+          <monument-area>Los monumentos están localizados en áreas como estas.</monument-area>
+          <monument-region>The monuments are located in regions that require you to break a majority
+            of this
+            block type.
+          </monument-region>
+          <monument-objective>Destroy the opposing team's monument(s) to win the match for your
+            team!
+          </monument-objective>
+          <collect-emeralds-dtm>Collect emeralds by killing players and trade it in for neat
+            stuff!
+          </collect-emeralds-dtm>
+          <rare-location>If you find a rare location like this, step into the redstone square to get
+            a rare item!
+          </rare-location>
+        </dtm>
+        <ctf>
+          <capture-area>You must reach an area like this on the other side of the map to retrieve
+            the flag.
+          </capture-area>
+          <capture-point>This point holds the flag, capture the flag(s) to win the match for your
+            team!
+          </capture-point>
+        </ctf>
+        <ctw>
+          <title>Captura la lana</title>
+          <desc1>^7You are about to play a ^6Capture the Wool ^6^l(CTW) ^6map!</desc1>
+          <desc2>^7The goal of this map is to ^3take colored wool(s) from the enemy team's base and
+            return them to yours.
+          </desc2>
+          <desc3>^7A ^owool ^7is the ^l"flag" your team must capture from the enemy team. ^7You will
+            be teleported to where you will find wools shortly.
+          </desc3>
+          <wool-area>You must reach an area like this on the other side of the map to retrieve the
+            wool.
+          </wool-area>
+          <wool-chest>This chest contains a supply of wool that you must add to your inventory and
+            return to
+            your side of the map.
+          </wool-chest>
+          <wool-monument>Place the wool(s) in your team wool monument in order to win the match for
+            your team!
+          </wool-monument>
+          <enderbow>Shoot your bow to travel to other platforms</enderbow>
+          <collect-string>You must reach this platform to recieve string. String spawns every 10
+            seconds
+          </collect-string>
+          <dye-color>You must reach this platform to recieve dye. Find the other platforms to
+            recieve the other dyes
+          </dye-color>
+          <craft-wool>Craft your wool by using four pieces of string and any dye
+          </craft-wool>
+          <drop-wool>You cannot drop wool! If you craft it, you hold the burden to capture it!
+          </drop-wool>
+        </ctw>
+        <koth>
+          <title>King of the Hill</title>
+          <desc1>^7You are about to play a ^6King of the Hill ^6^l(KOTH) ^6map!</desc1>
+          <desc2>^7The goal of this map is to ^3obtain points by controlling the hill(s) scattered
+            around the map
+          </desc2>
+          <desc3>^7A ^ohill ^7is where your ^lteam must stand in order to claim points.</desc3>
+          <desc4>^lIt will change color depending on who controls it. ^7You will be teleported to
+            one shortly.
+          </desc4>
+          <hill-area>You must reach an area like this on the map, and you must stand in these areas
+            in order
+            to capture them.
+          </hill-area>
+          <hill-area-permanent>You must reach an area like this on the map and you must stand in
+            these areas
+            in order to capture them. You can only capture them once.
+          </hill-area-permanent>
+          <hill-area-depreciated>You must reach an area like this on the map and you must stand in
+            these areas
+            in order to capture them. If you move out of the area, then you will lose control of the
+            hill.
+          </hill-area-depreciated>
+        </koth>
+        <dtc>
+          <title>Destroy The Core</title>
+          <desc1>^7You are about to play a ^6Destroy the Core ^6^l(DTC) ^6map!</desc1>
+          <desc2>^7The goal of this map is to ^3leak the lava out of the opposing team's core.
+          </desc2>
+          <desc3>^7A ^ocore ^7is a ^lset of blocks surrounding a lava center that must be broken in
+            order to make the lava leak out. ^7You will be teleported to one shortly.
+          </desc3>
+          <core-leak>^7This is the obsidian core, leak the lava inside to win!</core-leak>
+        </dtc>
+        <tdm>
+          <title>Team Deathmatch</title>
+          <desc1>^7You are about to play a ^6Team Deathmatch ^6^l(TDM) ^6map!</desc1>
+          <desc2>^7The goal of this map is to ^3obtain points by killing opposing players.</desc2>
+          <desc3>^7Opposing players ^lwill try to fight back so make sure to get them before they
+            get you!
+          </desc3>
+        </tdm>
+        <tnt>
+          <title>This map has ^4^lTNT</title>
+          <desc1>^7Please be aware that caught team griefing with ^4^lTNT ^7will result in
+            ^4^lpunishments!
+          </desc1>
+          <desc2>^4^lTNT ^7can be used to destroy enemy monuments and cores.</desc2>
+        </tnt>
+        <mixed>
+          <dtc-dtm>
+            <title>Mixed: DTC &amp; DTM</title>
+            <desc1>^7You are about to play a ^6Mixed Map ^7with ^6^lDTC ^7and ^6^lDTM
+              ^3gamemodes^7!
+            </desc1>
+            <desc2>^7The goal of this map is to ^3leak the lava out of the opposing team's core and
+              ^3break all or a majority of the other team's monuments.
+            </desc2>
+            <desc3>^7A ^ocore ^7is a ^lset of blocks surrounding a lava center that must be broken
+              in order to make the lava leak out. ^7You will be teleported to one shortly.
+            </desc3>
+          </dtc-dtm>
+        </mixed>
+        <walls>
+          <title>Gamemode: Walls</title>
+          <desc1>^7You are about to play a ^6^lWalls ^6map!</desc1>
+          <desc2>^7The goal is to prepare yourself and be ready for battle.</desc2>
+          <desc3>^7You need to wait for the walls to fall to start the battle.</desc3>
+          <wall-area>^7The wall is located in this area and looks like this.</wall-area>
+          <wall-mid-loot>^7In the middle you will find some loot to improve your equipment.
+          </wall-mid-loot>
+        </walls>
+      </tutorial>
+      <walls>
+        <name>Muro</name>
+        <errors>
+          <cannot-destroy-wall>You may not destroy the wall!</cannot-destroy-wall>
+        </errors>
+      </walls>
+    </locale>
+  </locales>
+</map>

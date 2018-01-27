@@ -1,0 +1,207 @@
+<!-- Default kits and configurations used for all maps in the walls gamemode. -->
+<map>
+  <!-- Compasses target enemies -->
+  <compasses>
+    <compass target="enemy"/>
+  </compasses>
+  <!-- Remove default team helmets -->
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+      </any>
+    </remove-drops>
+  </items>
+  <!-- Kits -->
+  <kits>
+    <kit description="{kits.builder-description}" id="builder" loadout="builder1"
+      name="{kits.builder}">
+      <icon material="log"/>
+    </kit>
+    <kit description="{kits.miner.description}" id="miner" loadout="miner1"
+      name="{kits.miner.name}">
+      <icon material="diamond pickaxe"/>
+    </kit>
+    <kit description="{kits.engineer-description}" id="engineer" loadout="engineer1"
+      name="{kits.engineer}">
+      <icon material="tnt"/>
+    </kit>
+    <kit description="{kits.heavy-description}" id="heavy" loadout="heavy1" name="{kits.heavy}">
+      <icon material="diamond chestplate"/>
+    </kit>
+    <kit description="{kits.pyro.description}" id="pyro" loadout="pyro1" name="{kits.pyro.name}">
+      <icon material="fireball"/>
+    </kit>
+    <kit description="{kits.archer.description}" id="archer" loadout="archer1"
+      name="{kits.archer.name}">
+      <icon material="bow"/>
+    </kit>
+    <kit description="{kits.cook.description}" id="cook" loadout="cook1" name="{kits.cook.name}">
+      <icon material="cooked beef"/>
+    </kit>
+    <kit description="{kits.warrior-description}" id="warrior" loadout="warrior1"
+      name="{kits.warrior}">
+      <icon material="stone sword"/>
+    </kit>
+    <kit description="{kits.scout-description}" id="scout" loadout="scout1" name="{kits.scout}">
+      <icon material="diamond boots"/>
+    </kit>
+    <kit description="{kits.fireman.description}" id="fireman" loadout="fireman1"
+      name="{kits.fireman.name}">
+      <icon material="water bucket"/>
+    </kit>
+    <kit description="{kits.lumberjack-description}" id="lumberjack" loadout="lumberjack1"
+      name="{kits.lumberjack}">
+      <icon material="iron axe"/>
+      <abilities>
+        <lumber-jack/>
+      </abilities>
+    </kit>
+    <kit description="{kits.cleric.description}" id="cleric" loadout="cleric1"
+      name="{kits.cleric.name}">
+      <icon material="potion"/>
+    </kit>
+    <kit description="{kits.beastmaster.description}" id="beastmaster"
+      loadout="beastmaster1" name="{kits.beastmaster.name}">
+      <icon material="bone"/>
+    </kit>
+    <kit desciption="{kits.cactus.description}" id="cactus" loadout="cactus1"
+      name="{kits.cactus.name}">
+      <icon material="cactus"/>
+    </kit>
+  </kits>
+  <loadouts>
+    <loadout force="true" id="builder1">
+      <helmet material="leather helmet" team-color="true" unbreakable="true"/>
+      <item amount="32" material="log" slot="0"/>
+      <item amount="12" material="cooked beef" slot="1"/>
+      <item amount="1" material="compass" slot="2"/>
+    </loadout>
+    <loadout force="true" id="miner1">
+      <helmet material="leather helmet" team-color="true" unbreakable="true"/>
+      <item amount="1" material="iron pickaxe" slot="0">
+        <enchantments>
+          <enchantment level="1">dig speed</enchantment>
+        </enchantments>
+      </item>
+      <item amount="12" material="cooked beef" slot="1"/>
+      <item amount="1" material="compass" slot="2"/>
+    </loadout>
+    <loadout force="true" id="engineer1">
+      <helmet material="leather helmet" team-color="true" unbreakable="true"/>
+      <item amount="32" material="redstone" slot="0"/>
+      <item amount="8" material="tnt" slot="1"/>
+      <item amount="4" material="piston sticky base" slot="2"/>
+      <item amount="12" material="cooked beef" slot="3"/>
+      <item amount="1" material="compass" slot="4"/>
+    </loadout>
+    <loadout force="true" id="heavy1">
+      <chestplate material="chainmail chestplate" team-color="true" unbreakable="true"/>
+      <boots material="chainmail boots" team-color="true" unbreakable="true"/>
+      <item amount="12" material="cooked beef" slot="0"/>
+      <item amount="1" material="compass" slot="1"/>
+    </loadout>
+    <loadout force="true" id="pyro1">
+      <helmet material="leather helmet" team-color="true" unbreakable="true"/>
+      <boots material="leather boots" team-color="true" unbreakable="true"/>
+      <item amount="4" material="fireball" slot="0"/>
+      <item amount="1" material="blaze rod" slot="1">
+        <enchantments>
+          <enchantment level="1">fire aspect</enchantment>
+        </enchantments>
+      </item>
+      <item amount="12" material="cooked beef" slot="2"/>
+      <item amount="1" material="compass" slot="3"/>
+    </loadout>
+    <loadout force="true" id="archer1">
+      <helmet material="leather helmet" team-color="true" unbreakable="true"/>
+      <item amount="1" material="bow" slot="0">
+        <enchantments>
+          <enchantment level="1">arrow damage</enchantment>
+        </enchantments>
+      </item>
+      <item amount="32" material="arrow" slot="1"/>
+      <item amount="12" material="cooked beef" slot="2"/>
+      <item amount="1" material="compass" slot="3"/>
+    </loadout>
+    <loadout force="true" id="cook1">
+      <helmet material="leather helmet" team-color="true" unbreakable="true"/>
+      <item amount="20" material="cooked beef" slot="0"/>
+      <item amount="2" material="golden apple" slot="1"/>
+    </loadout>
+    <loadout force="true" id="warrior1">
+      <helmet material="chainmail helmet" team-color="true" unbreakable="true"/>
+      <item amount="1" material="stone sword" slot="0"/>
+      <item amount="12" material="cooked beef" slot="1"/>
+      <item amount="1" material="compass" slot="2"/>
+    </loadout>
+    <loadout force="true" id="scout1">
+      <helmet material="leather helmet" team-color="true" unbreakable="true"/>
+      <item material="potion" potion="speed" slot="0">
+        <effects>
+          <effect amplifier="1" duration="8m">speed</effect>
+        </effects>
+      </item>
+      <item material="potion" potion="speed" slot="1">
+        <effects>
+          <effect amplifier="1" duration="2m">speed</effect>
+        </effects>
+      </item>
+      <item amount="12" material="cooked beef" slot="2"/>
+      <item amount="1" material="compass" slot="3"/>
+    </loadout>
+    <loadout force="true" id="fireman1">
+      <helmet material="leather helmet" team-color="true" unbreakable="true"/>
+      <item amount="1" material="water bucket" slot="0"/>
+      <item amount="1" material="stone axe" slot="1"/>
+      <item amount="12" material="cooked beef" slot="2"/>
+      <item amount="1" material="compass" slot="3"/>
+    </loadout>
+    <loadout force="true" id="lumberjack1">
+      <helmet material="leather helmet" team-color="true" unbreakable="true"/>
+      <item amount="1" material="stone axe" slot="0">
+        <enchantments>
+          <enchantment level="1">dig speed</enchantment>
+        </enchantments>
+      </item>
+      <item amount="12" material="cooked beef" slot="1"/>
+      <item amount="1" material="compass" slot="2"/>
+    </loadout>
+    <loadout force="true" id="cleric1">
+      <helmet material="leather helmet" team-color="true" unbreakable="true"/>
+      <item amount="2" material="potion" potion="instant heal" slot="0" splash="true">
+        <effects>
+          <effect amplifier="2">heal</effect>
+        </effects>
+      </item>
+      <item amount="12" material="cooked beef" slot="1"/>
+      <item amount="1" material="compass" slot="2"/>
+    </loadout>
+    <loadout force="true" id="beastmaster1">
+      <item amount="5" damage="95" material="monster egg" slot="0"/>
+      <item amount="32" material="bone" slot="1"/>
+      <item amount="12" material="cooked beef" slot="2"/>
+      <item amount="1" material="compass" slot="3"/>
+    </loadout>
+    <loadout force="true" id="cactus1">
+      <helmet material="leather helmet" team-color="true" unbreakable="true"/>
+      <item amount="1" material="book" slot="0">
+        <enchantments>
+          <enchantment level="1">thorns</enchantment>
+        </enchantments>
+      </item>
+      <item amount="12" material="cooked beef" slot="1"/>
+      <item amount="1" material="compass" slot="2"/>
+    </loadout>
+  </loadouts>
+  <!-- Only mobs spawned from eggs are allowed -->
+  <world>
+    <mobs>
+      <any>
+        <all>
+          <spawn>spawner egg</spawn>
+        </all>
+      </any>
+    </mobs>
+  </world>
+</map>

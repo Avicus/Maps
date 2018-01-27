@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="Reunification" spec="1.0.0" version="1.1.0">
+  <include src="defaults.xml"/>
+  <include src="Shared/reward-one-gap.xml"/>
+  <authors>
+    <author uuid="bf3319534f9243ee8abc7544b8234936"/> <!-- Vice -->
+    <author uuid="fce15d96ef38436e82d0af606b0b243f"/> <!-- Mar1n3 -->
+  </authors>
+  <teams>
+    <team color="yellow" id="yellow" max="36" min="1">{colors.yellow}</team>
+    <team color="blue" id="blue" max="36" min="1">{colors.blue}</team>
+  </teams>
+  <spawns>
+    <!-- Spectator spawn -->
+    <spawn>
+      <regions>
+        <point yaw="0">-452, 21, 1522</point>
+      </regions>
+    </spawn>
+    <!-- Team spawns -->
+    <spawn loadout="default" look="-515, 5, 1598" team="yellow">
+      <regions>
+        <point yaw="-180">-511, 5, 1637</point>
+        <point yaw="0">-511, 5, 1559</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" look="-389, 5, 1598" team="blue">
+      <regions>
+        <point yaw="0">-393, 5, 1559</point>
+        <point yaw="180">-393, 5, 1637</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <objectives>
+    <monuments materials="obsidian">
+      <monuments owner="blue">
+        <monument name="{directions.center}">
+          <region>
+            <cuboid max="-389, 13, 1598" min="-389, 11, 1598"/>
+          </region>
+        </monument>
+      </monuments>
+      <monuments owner="yellow">
+        <monument name="{directions.center}">
+          <region>
+            <cuboid max="-515, 11, 1598" min="-515, 13, 1598"/>
+          </region>
+        </monument>
+      </monuments>
+    </monuments>
+  </objectives>
+  <loadouts>
+    <loadout id="default">
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="leather leggings" team-color="true"/>
+      <boots material="leather boots" team-color="true"/>
+      <item material="iron sword" slot="0"/>
+      <item material="bow" slot="1"/>
+      <item material="diamond pickaxe" slot="2"/>
+      <item material="iron axe" slot="3">
+        <enchantment level="2">dig speed</enchantment>
+      </item>
+      <item amount="2" material="golden apple" slot="4"/>
+      <item amount="16" material="cooked beef" slot="5"/>
+      <item amount="64" material="stone" slot="6"/>
+      <item amount="32" material="log" slot="7"/>
+      <item amount="32" material="glass" slot="8"/>
+      <item amount="48" material="arrow" slot="27"/>
+      <item material="iron spade" slot="28">
+        <enchantment level="1">dig speed</enchantment>
+      </item>
+    </loadout>
+    <loadout id="sixteen-arrow">
+      <item amount="16" material="arrow"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="sixteen-arrow"/>
+    </rewards>
+  </kills>
+  <zones>
+    <zone modify="never">
+      <region>
+        <invert>
+          <cuboid max="-351, 27, 1534" min="-553, 0, 1663"/>
+        </invert>
+      </region>
+      <message>{errors.outside-map}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cylinder base="-511, 4, 1559" height="16" radius="12"/>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cylinder base="-393, 4, 1637" height="16" radius="12"/>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cylinder base="-393, 4, 1559" height="16" radius="12"/>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cylinder base="-511, 4, 1637" height="16" radius="12"/>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+  </zones>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>leather leggings</material>
+        <material>leather boots</material>
+        <material>cooked beef</material>
+        <material>arrow</material>
+        <material>golden apple</material>
+        <material>stone</material>
+        <material>glass</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>iron sword</material>
+        <material>bow</material>
+        <material>iron axe</material>
+        <material>diamond pickaxe</material>
+        <material>iron spade</material>
+      </any>
+    </repair-tools>
+  </items>
+  <tutorial>
+    <step countdown="5s" freeze="false" location="-393, 10, 1601" pitch="0" yaw="-135">
+      <chat>
+        <line>^r This is the monument. This is the objective you need to break in order to win, as
+          well as defend so you won't lose.
+        </line>
+      </chat>
+    </step>
+    <step countdown="5s" freeze="false" location="-391, 6, 1557" pitch="0" yaw="40">
+      <chat>
+        <line>^r This is where players spawn. There are two spawns per side, and you cannot build
+          inside of them.
+        </line>
+      </chat>
+    </step>
+    <step countdown="5s" freeze="false" location="-376, 7, 1557" pitch="0" yaw="40">
+      <chat>
+        <line>^r This is where the iron is located for armor. There are two armor deposits per side,
+          right outside of your spawn.
+        </line>
+      </chat>
+    </step>
+  </tutorial>
+  <chests>
+    <generator allow-duplicates="true" max="64" min="64"
+      regenerate-count="2147483647" regenerate-countdown="10m" region="chest-markers">
+      <chest-items max="64" min="64" weight="15">
+        <item material="fence"/>
+        <item material="ladder"/>
+        <item material="trap_door"/>
+        <item material="log"/>
+        <item material="stained_glass"/>
+        <item material="wool"/>
+        <item material="wood_button"/>
+        <item material="wood"/>
+        <item material="wood_step"/>
+        <item material="wood_plate"/>
+      </chest-items>
+      <chest-items max="64" min="64" weight="8">
+        <item material="iron fence"/>
+        <item material="workbench"/>
+      </chest-items>
+      <chest-items max="64" min="64" weight="5">
+        <item material="iron fence"/>
+        <item material="workbench"/>
+      </chest-items>
+      <chest-items max="1" min="1" weight="4">
+        <item material="iron helmet"/>
+        <item material="iron chestplate"/>
+        <item material="iron leggings"/>
+        <item material="iron boots"/>
+      </chest-items>
+      <chest-items max="32" min="32" weight="3">
+        <item material="redstone"/>
+        <item material="lever"/>
+        <item material="piston_base"/>
+        <item material="hopper"/>
+      </chest-items>
+    </generator>
+  </chests>
+  <regions>
+    <join id="chest-markers">
+      <block>-383, 7, 1603</block>
+      <block>-378, 7, 1608</block>
+      <block>-378, 7, 1588</block>
+      <block>-378, 7, 1593</block>
+      <block>-521, 7, 1603</block>
+      <block>-521, 7, 1608</block>
+      <block>-526, 7, 1588</block>
+      <block>-526, 7, 1593</block>
+    </join>
+  </regions>
+</map>

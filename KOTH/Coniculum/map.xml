@@ -1,0 +1,131 @@
+﻿<?xml version="1.0"?>
+<map description="Explore the caves to capture the hill and win!" name="Coniculum" spec="1.0.4"
+  version="1.0.0">
+  <include src="defaults.xml"/>
+  <include src="Shared/tutorials/koth.xml"/>
+  <include src="Shared/conquest-shop.xml"/>
+  <include src="Shared/reward-one-gap.xml"/>
+  <tutorial>
+    <step countdown="5s" freeze="true" location="-17.5, 31, -880.5" pitch="45" yaw="177">
+      <chat>
+        <line>^r • {tutorial.generic.team-spawns}</line>
+      </chat>
+    </step>
+    <step countdown="4s" freeze="true" location="61, 35, -848" pitch="38" yaw="48">
+      <chat>
+        <line>^r • {tutorial.koth.hill-area}</line>
+      </chat>
+    </step>
+  </tutorial>
+  <authors>
+    <author uuid="97fa0d2faf67474cb8a1e1a5ab7c1af1"/>  <!-- KooDaLord -->
+    <author uuid="578434bc303048548e6b8e60df523412"/> <!-- yoavkipper -->
+  </authors>
+  <gametype>hill</gametype>
+  <teams>
+    <load-group id="teams.red-blue" max="15" min="1"/>
+    <team color="green" id="green" max="15" min="1">{colors.green}</team>
+    <team color="yellow" id="yellow" max="15" min="1">{colors.yellow}</team>
+  </teams>
+  <spawns>
+    <spawn team="spectators" yaw="0">
+      <regions>
+        <block>48, 26, -855</block>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="red" yaw="135">
+      <regions>
+        <block>116, 27, -786</block>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="blue" yaw="-45">
+      <regions>
+        <block>-20, 27, -892</block>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="green" yaw="45">
+      <regions>
+        <block>101, 27, -907</block>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="yellow" yaw="-135">
+      <regions>
+        <block>-5, 27, -771</block>
+      </regions>
+    </spawn>
+  </spawns>
+  <objectives>
+    <hill capture-time="5s" name="{directions.center}" points="1">
+      <capture>
+        <cylinder base="48, 20, -837" height="4" radius="5"/>
+      </capture>
+      <progress>
+        <cuboid max="53, 32, -832" min="43, 20, -842"/>
+      </progress>
+    </hill>
+    <scores limit="100">
+      <score team="red"/>
+      <score team="blue"/>
+      <score team="green"/>
+      <score team="yellow"/>
+    </scores>
+  </objectives>
+  <zones>
+    <zone>
+      <region>
+        <sphere origin="116, 27, -786" radius="8"/>
+      </region>
+      <enter>
+        <team>red</team>
+      </enter>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone>
+      <region>
+        <sphere origin="-20, 27, -892" radius="8"/>
+      </region>
+      <enter>
+        <team>blue</team>
+      </enter>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone>
+      <region>
+        <sphere origin="101, 27, -907" radius="8"/>
+      </region>
+      <enter>
+        <team>green</team>
+      </enter>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone>
+      <region>
+        <sphere origin="-5, 27, -771" radius="8"/>
+      </region>
+      <enter>
+        <team>yellow</team>
+      </enter>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <load-group id="no-build"/>
+  </zones>
+  <loadouts>
+    <loadout id="default">
+      <effect duration="7s">damage resistance</effect>
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="leather leggings" team-color="true"/>
+      <boots material="leather boots" team-color="true"/>
+      <item material="iron sword" slot="0"/>
+      <item material="bow" slot="1"/>
+      <item amount="16" material="bread" slot="2"/>
+      <item material="golden apple" slot="6"/>
+      <item amount="16" material="arrow" slot="7"/>
+    </loadout>
+  </loadouts>
+  <world>
+    <gamerules>
+      <doDaylightCycle>false</doDaylightCycle>
+    </gamerules>
+  </world>
+</map>

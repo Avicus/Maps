@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="Cake5v5" spec="1.0.3" version="1.0.0">
+  <include src="defaults.xml"/>
+  <authors>
+    <author uuid="ae5c1e91745b4a6fa33711484ede6957"/>
+    <author uuid="3ec3ad7c563c45fbaedfdd32066a2e19"/>
+    <author uuid="50a34639abb34cf1b182204756c49f49"/>
+    <author uuid="004e817d35fa47aeac7e4f37d70ed9ba"/>
+    <author role="xml, baby" uuid="47b15675a0484e8f863a0cbf86ba22dc"/>
+  </authors>
+  <teams>
+    <load-group id="teams.red-blue" max="5" min="1"/>
+  </teams>
+  <spawns>
+    <spawn team="spectators">
+      <regions>
+        <point yaw="-90">-59,42,0</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="blue">
+      <regions>
+        <point yaw="180">1,46,92</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="red">
+      <regions>
+        <point yaw="0">-1,46,-88</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <world>
+    <storm>false</storm>
+    <weather check="always"/>
+  </world>
+  <damage>
+    <disable>
+      <all>
+        <damage>fall</damage>
+        <inside>
+          <region>
+            <join>
+              <cuboid max="3, 18, 90" min="-1, 15, 94"/>
+              <cuboid max="-3, 18, -86" min="1, 15, -90"/>
+            </join>
+          </region>
+        </inside>
+      </all>
+    </disable>
+  </damage>
+  <loadouts>
+    <loadout id="default">
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="iron leggings"/>
+      <boots material="leather boots" team-color="true"/>
+      <item material="iron sword" slot="0"/>
+      <item material="bow" slot="1"/>
+      <item material="diamond pickaxe" slot="2"/>
+      <item material="iron axe" slot="3"/>
+      <item amount="64" material="glass" slot="4"/>
+      <item amount="64" material="sandstone" slot="5"/>
+      <item amount="32" material="log" slot="6"/>
+      <item amount="32" material="cooked fish" slot="7"/>
+      <item amount="3" material="golden apple" slot="8"/>
+      <item amount="32" material="arrow" slot="9"/>
+    </loadout>
+    <loadout id="kill-reward">
+      <item material="golden apple"/>
+      <item amount="6" material="arrow"/>
+    </loadout>
+  </loadouts>
+  <zones>
+    <zone modify="never">
+      <region>
+        <subtract>
+          <everywhere/>
+          <join>
+            <cuboid id="mid" max="37,30,51" min="-37,0,-47"/>
+            <cuboid id="sub" max="29,30,53" min="19,0,52"/>
+            <cuboid id="sub" max="30,30,80" min="19,0,54"/>
+            <cuboid id="sub" max="30,30,82" min="18,0,81"/>
+            <cuboid id="sub" max="30,30,83" min="16,0,83"/>
+            <cuboid id="sub" max="30,30,85" min="11,0,84"/>
+            <cuboid id="sub" max="29,30,87" min="11,0,86"/>
+            <cuboid id="sub" max="28,30,89" min="11,0,88"/>
+            <cuboid id="sub" max="27,30,90" min="11,0,90"/>
+            <cuboid id="sub" max="26,30,91" min="11,0,91"/>
+            <cuboid id="sub" max="25,30,92" min="11,0,92"/>
+            <cuboid id="sub" max="24,30,93" min="11,0,93"/>
+            <cuboid id="sub" max="22,30,94" min="11,0,94"/>
+            <cuboid id="sub" max="20,30,95" min="11,0,95"/>
+            <cuboid id="sub" max="9,30,53" min="-7,0,52"/>
+            <cuboid id="sub" max="10,30,56" min="-8,0,54"/>
+            <cuboid id="sub" max="11,30,69" min="-9,0,57"/>
+            <cuboid id="sub" max="-18,30,53" min="-28,0,52"/>
+            <cuboid id="sub" max="-17,30,80" min="-28,0,54"/>
+            <cuboid id="sub" max="-16,30,82" min="-28,0,81"/>
+            <cuboid id="sub" max="-14,30,83" min="-28,0,83"/>
+            <cuboid id="sub" max="-9,30,85" min="-28,0,84"/>
+            <cuboid id="sub" max="-9,30,87" min="-27,0,86"/>
+            <cuboid id="sub" max="-9,30,89" min="-26,0,88"/>
+            <cuboid id="sub" max="-9,30,90" min="-25,0,90"/>
+            <cuboid id="sub" max="-9,30,91" min="-24,0,91"/>
+            <cuboid id="sub" max="-9,30,92" min="-23,0,92"/>
+            <cuboid id="sub" max="-9,30,93" min="-22,0,93"/>
+            <cuboid id="sub" max="-9,30,94" min="-20,0,94"/>
+            <cuboid id="sub" max="-9,30,95" min="-18,0,95"/>
+            <cuboid id="sub" max="-19,30,-48" min="-29,0,-49"/>
+            <cuboid id="sub" max="-19,30,-50" min="-30,0,-76"/>
+            <cuboid id="sub" max="-18,30,-77" min="-30,0,-78"/>
+            <cuboid id="sub" max="-16,30,-79" min="-30,0,-79"/>
+            <cuboid id="sub" max="-11,30,-80" min="-30,0,-80"/>
+            <cuboid id="sub" max="-11,30,-80" min="-30,0,-81"/>
+            <cuboid id="sub" max="-11,30,-82" min="-29,0,-83"/>
+            <cuboid id="sub" max="-11,30,-84" min="-28,0,-85"/>
+            <cuboid id="sub" max="-11,30,-86" min="-27,0,-86"/>
+            <cuboid id="sub" max="-11,30,-87" min="-26,0,-87"/>
+            <cuboid id="sub" max="-11,30,-88" min="-25,0,-88"/>
+            <cuboid id="sub" max="-11,30,-89" min="-24,0,-89"/>
+            <cuboid id="sub" max="-11,30,-90" min="-22,0,-90"/>
+            <cuboid id="sub" max="-11,30,-91" min="-20,0,-91"/>
+            <cuboid id="sub" max="28,30,-48" min="18,0,-49"/>
+            <cuboid id="sub" max="28,30,-50" min="17,0,-76"/>
+            <cuboid id="sub" max="28,30,-77" min="16,0,-78"/>
+            <cuboid id="sub" max="28,30,-79" min="14,0,-79"/>
+            <cuboid id="sub" max="28,30,-80" min="9,0,-81"/>
+            <cuboid id="sub" max="27,30,-82" min="9,0,-83"/>
+            <cuboid id="sub" max="26,30,-84" min="9,0,-85"/>
+            <cuboid id="sub" max="25,30,-86" min="9,0,-86"/>
+            <cuboid id="sub" max="24,30,-87" min="9,0,-87"/>
+            <cuboid id="sub" max="23,30,-88" min="9,0,-88"/>
+            <cuboid id="sub" max="22,30,-89" min="9,0,-89"/>
+            <cuboid id="sub" max="20,30,-90" min="9,0,-90"/>
+            <cuboid id="sub" max="18,30,-91" min="9,0,-91"/>
+            <cuboid id="bluewater" max="3,25,89" min="-1,25,87"/>
+            <cuboid id="bluewater" max="-1,25,90" min="-3,25,88"/>
+            <cuboid id="bluewater" max="-2,25,94" min="-4,25,90"/>
+            <cuboid id="bluewater" max="-1,25,96" min="-3,25,94"/>
+            <cuboid id="bluewater" max="3,25,97" min="-1,25,95"/>
+            <cuboid id="bluewater" max="5,25,96" min="3,25,94"/>
+            <cuboid id="bluewater" max="6,25,94" min="4,25,90"/>
+            <cuboid id="bluewater" max="5,25,90" min="3,25,88"/>
+            <cuboid id="redwater" max="1,25,-83" min="-3,25,-85"/>
+            <cuboid id="redwater" max="3,25,-84" min="1,25,-86"/>
+            <cuboid id="redwater" max="4,25,-86" min="2,25,-90"/>
+            <cuboid id="redwater" max="3,25,-90" min="1,25,-92"/>
+            <cuboid id="redwater" max="1,25,-91" min="-3,25,-93"/>
+            <cuboid id="redwater" max="-3,25,-90" min="-5,25,-92"/>
+            <cuboid id="redwater" max="-4,25,-86" min="-6,25,-90"/>
+            <cuboid id="redwater" max="-3,25,-84" min="-5,25,-86"/>
+          </join>
+        </subtract>
+      </region>
+      <message format="warning">{errors.outside-map}</message>
+    </zone>
+    <zone>
+      <region>
+        <join>
+          <cuboid id="bluenter" max="-10,15,95" min="-12,15,84"/>
+          <cuboid id="lgtbluenter" max="14,15,95" min="12,15,84"/>
+        </join>
+      </region>
+      <enter>
+        <team>red</team>
+      </enter>
+      <message>{errors.own-wool-room}</message>
+    </zone>
+    <zone>
+      <region>
+        <join>
+          <cuboid id="redenter" max="12,15,-80" min="10,15,-91"/>
+          <cuboid id="pinkenter" max="-12,15,-80" min="-14,15,-91"/>
+        </join>
+      </region>
+      <enter>
+        <team>blue</team>
+      </enter>
+      <message>{errors.own-wool-room}</message>
+    </zone>
+    <zone>
+      <region>
+        <cuboid id="redspawnenter" max="1,15,-65" min="-3,9,-72"/>
+      </region>
+      <enter>
+        <team>red</team>
+      </enter>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone>
+      <region>
+        <cuboid id="bluespawnenter" max="3,15,76" min="-1,9,69"/>
+      </region>
+      <enter>
+        <team>blue</team>
+      </enter>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+  </zones>
+  <kills>
+    <rewards>
+      <reward loadout="kill-reward"/>
+    </rewards>
+  </kills>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>iron leggings</material>
+        <material>leather boots</material>
+        <material>cooked fish</material>
+        <material>arrow</material>
+        <material>golden apple</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>iron sword</material>
+        <material>bow</material>
+        <material>diamond pickaxe</material>
+        <material>iron axe</material>
+      </any>
+    </repair-tools>
+  </items>
+  <objectives>
+    <wools>
+      <wools team="red">
+        <wool color="blue">
+          <source>
+            <join>
+              <point>-2,14,89</point>
+              <point>-2,14,90</point>
+            </join>
+          </source>
+          <destination>
+            <point>-4,12,-69</point>
+          </destination>
+        </wool>
+        <wool color="light blue">
+          <source>
+            <join>
+              <point>4,14,90</point>
+              <point>4,14,89</point>
+            </join>
+          </source>
+          <destination>
+            <point>3,12,-69</point>
+          </destination>
+        </wool>
+      </wools>
+      <wools team="blue">
+        <wool color="red">
+          <source>
+            <join>
+              <point>2,14,-85</point>
+              <point>2,14,-86</point>
+            </join>
+          </source>
+          <destination>
+            <point>4,12,-73</point>
+          </destination>
+        </wool>
+        <wool color="pink">
+          <source>
+            <join>
+              <point>-4,14,-86</point>
+              <point>-4,14,-85</point>
+            </join>
+          </source>
+          <destination>
+            <point>-2,12,73</point>
+          </destination>
+        </wool>
+      </wools>
+    </wools>
+  </objectives>
+  <gamerules>
+    <doDaylightCycle>false</doDaylightCycle>
+  </gamerules>
+  <results>
+    <win scenario="objectives">
+      <check>
+        <time>30m</time>
+      </check>
+    </win>
+  </results>
+</map>

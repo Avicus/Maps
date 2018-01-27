@@ -1,0 +1,33 @@
+<!--
+    Shared file loaded for all maps that contains useful groups or "snippets" of code that is used in a lot of maps.
+    This is different from a regular include file because it can contain a wide variety of different feature definitions which can span a
+    variety of gamemodes and that are only loaded by the respective map's XML file directly.
+    Larger things that span multiple modules should generally receive their own include file.
+    The goal of this file if to cut down on excess code duplication and make it easy to change things in Atlas without having to change a lot of XMLs.
+-->
+<map>
+  <module-group id="no-build">
+    <!-- Disable Build -->
+    <zone modify="never" region="everywhere">
+      <message>{errors.cannot-build-map}</message>
+    </zone>
+  </module-group>
+  <!-- Teams Start -->
+  <module-group id="teams.red-blue">
+    <team color="red" id="red" max="$max" min="$min">{colors.red}</team>
+    <team color="blue" id="blue" max="$max" min="$min">{colors.blue}</team>
+  </module-group>
+  <module-group id="teams.pink-yellow">
+    <team color="pink" id="pink" max="$max" min="$min">{colors.pink}</team>
+    <team color="yellow" id="yellow" max="$max" min="$min">{colors.yellow}</team>
+  </module-group>
+  <module-group id="teams.lime-cyan">
+    <team color="lime" id="lime" max="$max" min="$min">{colors.lime}</team>
+    <team color="cyan" id="cyan" max="$max" min="$min">{colors.cyan}</team>
+  </module-group>
+  <module-group id="teams.green-blue">
+    <team color="green" id="green" max="$max" min="$min">{colors.green}</team>
+    <team color="blue" id="blue" max="$max" min="$min">{colors.blue}</team>
+  </module-group>
+  <!-- Teams End -->
+</map>

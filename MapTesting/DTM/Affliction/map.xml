@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="Affliction" spec="1.0.4" version="1.1.0">
+  <include src="defaults.xml"/>
+  <authors>
+    <author uuid="3cce00809faa48f982cf64410305822a"/> <!-- EDNAS -->
+    <author uuid="c2a4c847653e482ab62ed7f8b64330cb"/> <!-- Alm -->
+  </authors>
+  <teams>
+    <load-group id="teams.red-blue" max="15" min="1"/>
+  </teams>
+  <spawns>
+    <spawn team="spectators">
+      <regions>
+        <point yaw="90">-36.5, 39, -34.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="blue">
+      <regions>
+        <point yaw="0">-12.5, 7, -83.5</point>
+        <point yaw="0">-52.5, 7, -83.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="red">
+      <regions>
+        <point yaw="180">-12.5, 7, 14.5</point>
+        <point yaw="180">-52.5, 7, 14.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <objectives>
+    <monuments materials="obsidian">
+      <monuments owner="blue">
+        <monument name="{directions.top}">
+          <region>
+            <block>-33, 4, -85</block>
+          </region>
+        </monument>
+        <monument name="{directions.bottom}">
+          <region>
+            <block>-33, 3, -85</block>
+          </region>
+        </monument>
+      </monuments>
+      <monuments owner="red">
+        <monument name="{directions.top}">
+          <region>
+            <block>-33, 4, 15</block>
+          </region>
+        </monument>
+        <monument name="{directions.bottom}">
+          <region>
+            <block>-33, 3, 15</block>
+          </region>
+        </monument>
+      </monuments>
+    </monuments>
+  </objectives>
+  <loadouts>
+    <loadout id="default">
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="chainmail chestplate"/>
+      <leggings material="leather leggings" team-color="true"/>
+      <boots material="leather boots" team-color="true"/>
+      <item material="stone sword" slot="0">
+        <enchantments>
+          <enchantment level="1">damage all</enchantment>
+        </enchantments>
+      </item>
+      <item material="bow" slot="1"/>
+      <item material="diamond pickaxe" slot="2"/>
+      <item material="iron axe" slot="3">
+        <enchantments>
+          <enchantment level="1">dig speed</enchantment>
+        </enchantments>
+      </item>
+      <item amount="3" material="golden apple" slot="4"/>
+      <item amount="64" material="stained clay" slot="5" team-color="true"/>
+      <item amount="16" material="cooked beef" slot="7"/>
+      <item amount="32" material="arrow" slot="27"/>
+    </loadout>
+    <loadout id="kill-reward">
+      <item material="golden apple"/>
+      <item amount="1" material="lapis block"/>
+    </loadout>
+    <loadout id="reg">
+      <effect amplifier="2" duration="7s">regeneration</effect>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="kill-reward"/>
+    </rewards>
+  </kills>
+  <zones>
+    <zone modify="never">
+      <region>
+        <cylinder base="-12, 6, -83" height="10" radius="6"/>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cylinder base="-52, 6, -83" height="10" radius="6"/>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cylinder base="-52, 6, -83" height="10" radius="6"/>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cylinder base="-12, 6, 14" height="10" radius="6"/>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cylinder base="-56, 4, -31" height="5" radius="4"/>
+      </region>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cylinder base="-10, 4, -39" height="5" radius="4"/>
+      </region>
+    </zone>
+    <zone modify="never">
+      <region id="regenroom">
+        <cylinder base="-33,5,-35" height="6" radius="2"/>
+      </region>
+      <triggers enter="give-items"/>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cylinder base="-10,5,-39" height="6" radius="2"/>
+      </region>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cylinder base="-56,5,-31" height="6" radius="2"/>
+      </region>
+    </zone>
+  </zones>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>leather leggings</material>
+        <material>leather boots</material>
+        <material>chainmail chestplate</material>
+        <material>cooked beef</material>
+        <material>stained clay</material>
+        <material>arrow</material>
+        <material>iron axe</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>stone sword</material>
+        <material>bow</material>
+        <material>diamond pickaxe</material>
+      </any>
+    </repair-tools>
+  </items>
+  <executors>
+    <executor check="always" id="regeneration">
+      <apply-loadout id="give-items" loadout="reg"/>
+    </executor>
+  </executors>
+</map>

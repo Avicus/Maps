@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="Warriors II" spec="1.0.5" version="1.0.0">
+  <include src="defaults.xml"/>
+  <authors>
+    <author uuid="1c898c77b0cc474a8ce4b5521f2b18e7"/> <!-- Prodigy4532 -->
+  </authors>
+  <loadouts>
+    <loadout id="kit">
+      <effect duration="5s">damage resistance</effect>
+      <item amount="3" material="golden apple" slot="16"/>
+      <!-- Hotbar -->
+      <item material="diamond sword" slot="0">
+        <enchantments>
+          <enchantment level="2">damage all</enchantment>
+        </enchantments>
+      </item>
+      <item amount="16" material="ender pearl" slot="1"/>
+      <item damage="16421" material="potion" slot="2"/>
+      <item damage="16421" material="potion" slot="3"/>
+      <item damage="16421" material="potion" slot="4"/>
+      <item damage="16421" material="potion" slot="5"/>
+      <item damage="16421" material="potion" slot="6"/>
+      <item damage="8226" material="potion" slot="7"/>
+      <item amount="32" material="golden carrot" slot="8"/>
+      <!-- Speed off-hotbar -->
+      <item damage="8226" material="potion" slot="17"/>
+      <item damage="8226" material="potion" slot="26"/>
+      <item damage="8226" material="potion" slot="35"/>
+      <item damage="8226" material="potion" slot="34"/>
+      <!-- Heal off-hotbar -->
+      <item damage="16421" material="potion" slot="9"/>
+      <item damage="16421" material="potion" slot="10"/>
+      <item damage="16421" material="potion" slot="11"/>
+      <item damage="16421" material="potion" slot="12"/>
+      <item damage="16421" material="potion" slot="13"/>
+      <item damage="16421" material="potion" slot="14"/>
+      <item damage="16421" material="potion" slot="15"/>
+      <item damage="16421" material="potion" slot="18"/>
+      <item damage="16421" material="potion" slot="19"/>
+      <item damage="16421" material="potion" slot="20"/>
+      <item damage="16421" material="potion" slot="21"/>
+      <item damage="16421" material="potion" slot="22"/>
+      <item damage="16421" material="potion" slot="23"/>
+      <item damage="16421" material="potion" slot="24"/>
+      <item damage="16421" material="potion" slot="25"/>
+      <item damage="16421" material="potion" slot="27"/>
+      <item damage="16421" material="potion" slot="28"/>
+      <item damage="16421" material="potion" slot="29"/>
+      <item damage="16421" material="potion" slot="30"/>
+      <item damage="16421" material="potion" slot="31"/>
+      <item damage="16421" material="potion" slot="32"/>
+      <item damage="16421" material="potion" slot="33"/>
+      <!-- Armor -->
+      <helmet material="diamond helmet">
+        <enchantments>
+          <enchantment level="1">protection environmental</enchantment>
+          <enchantment level="3">durability</enchantment>
+        </enchantments>
+      </helmet>
+      <chestplate material="diamond chestplate">
+        <enchantments>
+          <enchantment level="1">protection environmental</enchantment>
+          <enchantment level="3">durability</enchantment>
+        </enchantments>
+      </chestplate>
+      <leggings material="diamond leggings">
+        <enchantments>
+          <enchantment level="1">protection environmental</enchantment>
+          <enchantment level="3">durability</enchantment>
+        </enchantments>
+      </leggings>
+      <boots material="diamond boots">
+        <enchantments>
+          <enchantment level="1">protection environmental</enchantment>
+          <enchantment level="3">durability</enchantment>
+          <enchantment level="4">protection fall</enchantment>
+        </enchantments>
+      </boots>
+    </loadout>
+  </loadouts>
+  <ffa max="32" min="2"/>
+  <elimination lives="1"/>
+  <objectives>
+    <last-competitor-standing/>
+  </objectives>
+  <results>
+    <win scenario="objectives">
+      <check>
+        <time>12m</time>
+      </check>
+    </win>
+  </results>
+  <spawns>
+    <!-- Spectator spawn -->
+    <spawn team="spectators" yaw="-135">
+      <regions>
+        <point>0.5, 36, 0.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="kit" look="-54, 31, 43" mode="safe">
+      <regions>
+        <cuboid max="11, 4, -10" min="-11, 4, 11"/>
+      </regions>
+    </spawn>
+  </spawns>
+  <results>
+    <win scenario="objectives">
+      <check>
+        <time>10m</time>
+      </check>
+    </win>
+  </results>
+  <items>
+    <remove-drops>
+      <any>
+        <material>golden carrot</material>
+      </any>
+    </remove-drops>
+  </items>
+  <zones>
+    <zone modify="never">
+      <region>
+        <cuboid max="oo, 0, -oo" min="-oo, 256, oo"/>
+      </region>
+    </zone>
+  </zones>
+</map>

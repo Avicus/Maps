@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="Cavum 2" spec="1.0.0" version="1.1.0">
+  <include src="defaults.xml"/>
+  <include src="Shared/tutorials/dtm.xml"/>
+  <gametype>dtm</gametype>
+  <authors>
+    <author uuid="14c22263a1b741439c12941b586e3a50"/> <!-- GrapeSmoothie -->
+  </authors>
+  <teams>
+    <team color="blue" id="blue" max="25" min="1">{names.blueberries}</team>
+    <team color="purple" id="purple" max="25" min="1">{names.grapes}</team>
+  </teams>
+  <tutorial>
+    <step countdown="5s" freeze="false" location="198,53,3" pitch="-10" yaw="-90">
+      <chat>
+        <line>^r • {tutorial.generic.team-spawns}</line>
+      </chat>
+    </step>
+    <step countdown="4s" location="199,56,-72" pitch="-10" yaw="-135">
+      <chat>
+        <line>^r • {tutorial.dtm.monument-area}</line>
+      </chat>
+    </step>
+    <step countdown="5s" location="139,46,-62" pitch="-10" yaw="-135">
+      <chat>
+        <line>^r • {tutorial.dtm.monument-objective}</line>
+      </chat>
+    </step>
+  </tutorial>
+  <spawns>
+    <spawn>
+      <regions>
+        <circle center="99,74,-123" radius="5"/>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="purple">
+      <regions>
+        <point yaw="90">205.5, 56, 3.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="blue">
+      <regions>
+        <point yaw="-90">-7.5, 56, 3.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <objectives>
+    <monuments materials="obsidian">
+      <monuments owner="purple">
+        <monument name="{directions.front-right}">
+          <region>
+            <block>144,49,73</block>
+          </region>
+        </monument>
+        <monument name="{directions.front-left}">
+          <region>
+            <block>144,49,-67</block>
+          </region>
+        </monument>
+        <monument name="{directions.back-right}">
+          <region>
+            <block>204,59,83</block>
+          </region>
+        </monument>
+        <monument name="{directions.back-left}">
+          <region>
+            <block>204,59,-77</block>
+          </region>
+        </monument>
+      </monuments>
+      <monuments owner="blue">
+        <monument name="{directions.front-right}">
+          <region>
+            <block>53,49,-67</block>
+          </region>
+        </monument>
+        <monument name="{directions.front-left}">
+          <region>
+            <block>53,49,73</block>
+          </region>
+        </monument>
+        <monument name="{directions.back-right}">
+          <region>
+            <block>-7,59,-77</block>
+          </region>
+        </monument>
+        <monument name="{directions.back-left}">
+          <region>
+            <block>-7,59,83</block>
+          </region>
+        </monument>
+      </monuments>
+    </monuments>
+  </objectives>
+  <loadouts>
+    <loadout id="default">
+      <effect amplifier="5" duration="5s">damage resistance</effect>
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="leather leggings" team-color="true"/>
+      <boots material="leather boots" team-color="true"/>
+      <item material="iron sword" slot="0"/>
+      <item material="bow" slot="1">
+        <enchantment>arrow infinite</enchantment>
+      </item>
+      <item material="diamond pickaxe" slot="2">
+        <enchantment>dig speed</enchantment>
+        <enchantment level="3">durability</enchantment>
+      </item>
+      <item amount="3" material="golden apple" slot="3"/>
+      <item amount="32" material="cooked beef" slot="4"/>
+      <item amount="64" material="glass" slot="5"/>
+      <item amount="32" material="log" slot="6"/>
+      <item amount="1" material="iron axe" slot="7"/>
+      <item material="arrow" slot="28"/>
+    </loadout>
+    <loadout id="kill-reward">
+      <item material="golden apple"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="kill-reward"/>
+    </rewards>
+  </kills>
+  <regions>
+    <circle center="-7, 45, 3" id="blue-spawn" radius="20"/>
+    <circle center="205, 45, 3" id="purple-spawn" radius="20"/>
+    <join id="spawns">
+      <point>0,0,0</point>
+      <cylinder base="99, 73, -123" height="20" radius="10"/> <!-- Spectators -->
+      <cylinder base="-7, 45, 3" height="16" radius="20"/> <!-- Blue Berries -->
+      <cylinder base="205, 45, 3" height="16" radius="20"/> <!-- Grapes -->
+    </join>
+  </regions>
+  <zones>
+    <zone modify="never" region="spawns">
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+  </zones>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>leather leggings</material>
+        <material>leather boots</material>
+        <material>log</material>
+        <material>glass</material>
+        <material>arrow</material>
+        <material>golden apple</material>
+        <material>wood</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>diamond pickaxe</material>
+        <material>bow</material>
+        <material>iron sword</material>
+      </any>
+    </repair-tools>
+  </items>
+</map>

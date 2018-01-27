@@ -1,0 +1,145 @@
+<map description="Be the team with the most points after 12 minutes."
+  name="Endurance"
+  spec="1.0.5"
+  version="1.1.3">
+  <include src="defaults.xml"/>
+  <include src="Shared/reward-one-gap.xml"/>
+  <gametype>score</gametype>
+  <authors>
+    <author uuid="8de835a6916a4fcf9b25239dda454411"/>
+    <!-- Passively -->
+  </authors>
+  <teams>
+    <team color="red" id="red" max="8" min="1">{colors.red}</team>
+    <team color="blue" id="blue" max="8" min="1">{colors.blue}</team>
+  </teams>
+  <!-- No Score Limit -->
+  <objectives>
+    <scores kills="1">
+      <score team="red"/>
+      <score team="blue"/>
+    </scores>
+  </objectives>
+  <results>
+    <win scenario="objectives">
+      <check>
+        <time>12m</time>
+      </check>
+    </win>
+  </results>
+  <spawns>
+    <!-- Spectator Spawn -->
+    <spawn loadout="all">
+      <regions>
+        <point yaw="-0">47, 21, -31</point>
+      </regions>
+    </spawn>
+    <!-- Team Spawns -->
+    <spawn loadout="default" team="red" yaw="-90">
+      <regions>
+        <point yaw="-90">0, 3, 0.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="blue" yaw="90">
+      <regions>
+        <point yaw="90">94, 3, 0.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <regions>
+    <join id="red-base">
+      <cuboid max="-3, 10, -4" min="13, 0, 3"/>
+    </join>
+    <join id="blue-base">
+      <cuboid max="97, 10, 4" min="81, 0, -3"/>
+    </join>
+  </regions>
+  <loadouts>
+    <loadout id="all">
+      <effect duration="10000s">night vision</effect>
+    </loadout>
+    <loadout id="default" parent="all">
+      <effect duration="3s">damage resistance</effect>
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="iron leggings"/>
+      <boots material="leather boots" team-color="true"/>
+      <item material="stone sword" slot="0"/>
+      <item material="bow" slot="1"/>
+      <item amount="16" material="arrow" slot="2"/>
+      <item material="golden apple" slot="7"/>
+      <item amount="32" material="cooked beef" slot="8"/>
+    </loadout>
+  </loadouts>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>iron leggings</material>
+        <material>leather boots</material>
+        <material>cooked beef</material>
+        <material>arrow</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>stone sword</material>
+        <material>bow</material>
+      </any>
+    </repair-tools>
+  </items>
+  <checks>
+    <team id="only-red">red</team>
+    <team id="only-blue">blue</team>
+  </checks>
+  <regions>
+    <cuboid id="blue-score" max="68, 5, -1" min="68, 2, 1"/>
+    <cuboid id="red-score" max="26, 5, 1" min="26, 2, -1"/>
+  </regions>
+  <zones>
+    <!-- Disable Build -->
+    <load-group id="no-build"/>
+    <!-- Red Scorebox -->
+    <zone enter="only-blue" region="red-score">
+      <scorebox points="2"/>
+      <portal yaw="90">
+        <destination>
+          <point>75.5, 4, 0.5</point>
+        </destination>
+      </portal>
+      <message>{errors.wrong-scorebox}</message>
+    </zone>
+    <!-- Blue Scorebox -->
+    <zone enter="only-red" region="blue-score">
+      <scorebox points="2"/>
+      <portal yaw="-90">
+        <destination>
+          <point>18.5, 4, 0.5</point>
+        </destination>
+      </portal>
+      <message>{errors.wrong-scorebox}</message>
+    </zone>
+    <!-- Blue Base -->
+    <zone modify="never" region="blue-base">
+      <enter>
+        <team>blue</team>
+      </enter>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <!-- Red Base -->
+    <zone modify="never" region="red-base">
+      <enter>
+        <team>red</team>
+      </enter>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+  </zones>
+  <world>
+    <gamerules>
+      <doDaylightCycle>false</doDaylightCycle>
+    </gamerules>
+    <weather check="always"/>
+    <storm>false</storm>
+  </world>
+</map>

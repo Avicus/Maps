@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map genre="arcade" name="Arriva" spec="1.0.0" version="1.0.0">
+  <include src="defaults.xml"/>
+  <authors>
+    <author uuid="8140193825d1437ebb70d2828a7a6aac"/> <!-- Shirokamii -->
+    <author uuid="06e0e1734a9346549769fa7c216e353f"/> <!-- Howsie -->
+  </authors>
+  <teams competitor="individual">
+    <team color="red" id="minotaur" max="1" max-overfill="1" min="1">Minotaur</team>
+    <team color="cyan" id="players" max="15" max-overfill="15" min="1">Players</team>
+  </teams>
+  <channels global-chat="false" team-chat="true"/>
+  <spawns>
+    <spawn team="spectators" yaw="180">
+      <regions>
+        <point>17, 103, -815</point>
+      </regions>
+    </spawn>
+    <spawn loadout="minotaur-loadout" team="minotaur" yaw="90">
+      <regions>
+        <point>-6, 103, -797</point>
+      </regions>
+    </spawn>
+    <spawn loadout="players-loadout" team="players" yaw="135">
+      <regions>
+        <point>42, 103, -779</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <loadouts>
+    <loadout id="minotaur-loadout">
+      <helmet material="leather helmet" team-color="true" unbreakable="true"/>
+      <chestplate material="leather chestplate" team-color="true" unbreakable="true"/>
+      <leggings material="leather leggings" team-color="true" unbreakable="true"/>
+      <boots material="leather boots" team-color="true" unbreakable="true"/>
+      <item material="iron axe" slot="0" unbreakable="true">
+        <enchantment level="100">damage all</enchantment>
+      </item>
+    </loadout>
+    <loadout id="players-loadout">
+      <helmet material="leather helmet" team-color="true" unbreakable="true"/>
+    </loadout>
+  </loadouts>
+  <zones>
+    <zone>
+      <region>
+        <cuboid max="14, 105, -813" min="20, 102, -819"/>
+      </region>
+      <enter>
+        <team>players</team>
+      </enter>
+      <scorebox points="1"/>
+    </zone>
+    <zone modify="never" region="everywhere"/>
+  </zones>
+  <objectives>
+    <score limit="1" team="players"/>
+    <last-team-standing team="minotaur"/>
+  </objectives>
+  <elimination/>
+</map>

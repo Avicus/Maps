@@ -1,0 +1,107 @@
+<?xml version="1.0"?>
+<map name="Boolean Classic" version="1.0.0" spec="1.0.0">
+    <include src="defaults.xml"/>
+    <authors>
+        <author uuid="d9b4ffbc11d0453aa93f82dc59fca4b6"/> <!-- Wulfcaspice -->
+    </authors>
+    <teams>
+        <team id="red" color="red" min="10" max="25">{colors.red}</team>
+        <team id="blue" color="blue" min="10" max="25">{colors.blue}</team>
+    </teams>
+    <spawns>
+        <spawn team="spectators" yaw="42">
+            <regions>
+                <block>1322, 24, 1187</block>
+            </regions>
+        </spawn>
+
+        <spawn team="red" loadout="default" yaw="135">
+            <regions>
+                <block>1328, 7, 1280</block>
+            </regions>
+        </spawn>
+
+        <spawn team="blue" loadout="default" yaw="-45">
+            <regions>
+                <block>1229, 7, 1181</block>
+            </regions>
+        </spawn>
+    </spawns>
+    <loadouts>
+        <loadout id="default">
+            <helmet material="iron helmet"/>
+            <chestplate material="leather chestplate" team-color="true"/>
+            <item slot="0" material="stone sword"/>
+            <item slot="1" material="bow">
+                <enchantment>arrow infinite</enchantment>
+            </item>
+            <item slot="2" material="iron pickaxe" unbreakable="true"/>
+            <item slot="3" material="iron axe" unbreakable="true"/>
+            <item slot="4" material="log" amount="32"/>
+            <item slot="5" material="glass" amount="8"/>
+            <item slot="7" material="golden apple" amount="2"/>
+            <item slot="8" material="cooked beef" amount="8"/>
+            <item slot="28" material="arrow"/>
+        </loadout>
+    </loadouts>
+    <items>
+        <remove-drops>
+            <any>
+                <material>iron helmet</material>
+                <material>leather chestplate</material>
+                <material>log</material>
+                <material>wood</material>
+                <material>glass</material>
+                <material>cooked beef</material>
+                <material>arrow</material>
+            </any>
+        </remove-drops>
+        <repair-tools>
+            <any>
+                <material>stone sword</material>
+                <material>bow</material>
+                <material>iron pickaxe</material>
+                <material>iron axe</material>
+            </any>
+        </repair-tools>
+    </items>
+    <zones>
+        <playable>
+            <region>
+                <cuboid min="1349, 0, 1301" max="1208, 26, 1160"/>
+            </region>
+        </playable>
+
+        <zone id="blue-post" yaw="135">
+            <region>
+                <block>1344, 15, 1296</block>
+            </region>
+            <post yaw="100"/>
+        </zone>
+
+        <zone id="blue-net">
+            <region>
+                <sphere origin="1232, 6, 1184" radius="2"/>
+            </region>
+            <net owner="blue" points="1"/>
+        </zone>
+
+        <scorebox points="5">
+            <region>
+                <cuboid min="1344, 13, 1296" max="1345, 17, 1297"/>
+            </region>
+            <redeemables>
+                <item points="3" material="stone"/>
+            </redeemables>
+        </scorebox>
+    </zones>
+
+    <objectives>
+        <flag color="red" post="blue-post" points="5">
+            <banner color="black">
+                <pattern color="red">skull</pattern>
+                <pattern color="silver">border</pattern>
+            </banner>
+        </flag>
+    </objectives>
+</map>

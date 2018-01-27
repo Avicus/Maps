@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="Truncatis" spec="1.0.4" version="1.0.3">
+  <include src="defaults.xml"/>
+  <include src="Shared/reward-one-gap.xml"/>
+  <authors>
+    <author uuid="a7daca96cf1f40bc91506bd1a5561af8"/> <!-- Limidi -->
+  </authors>
+  <teams>
+    <load-group id="teams.red-blue" max="20" min="1"/>
+  </teams>
+  <spawns>
+    <spawn>
+      <regions>
+        <point yaw="-180">-33.5, 42, 38.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="blue">
+      <regions>
+        <point yaw="-90">-165, 38, 11</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="red">
+      <regions>
+        <point yaw="90">99, 38, 11</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <world>
+    <gamerules>
+      <doDaylightCycle>false</doDaylightCycle>
+    </gamerules>
+  </world>
+  <loadouts>
+    <loadout id="default">
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="leather leggings" team-color="true"/>
+      <boots material="leather boots" team-color="true"/>
+      <item material="iron sword" slot="0"/>
+      <item material="bow" slot="1"/>
+      <item material="diamond pickaxe" slot="2"/>
+      <item material="iron axe" slot="3"/>
+      <item amount="32" material="log" slot="4"/>
+      <item amount="64" material="glass" slot="5"/>
+      <item amount="16" material="cooked beef" slot="6"/>
+      <item material="golden apple" slot="7"/>
+      <item amount="32" material="arrow" slot="28"/>
+    </loadout>
+    <loadout id="reward-get">
+      <item amount="4" material="arrow"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="reward-get"/>
+    </rewards>
+  </kills>
+  <objectives>
+    <wools team="blue">
+      <wool color="blue">
+        <source>
+          <cuboid max="-207, 45, 9" min="-207, 45, 10"/>
+        </source>
+        <destination>
+          <block>104, 47, 13</block>
+        </destination>
+      </wool>
+    </wools>
+    <wools team="red">
+      <wool color="red">
+        <source>
+          <cuboid max="140, 45, 10" min="140, 45, 9"/>
+        </source>
+        <destination>
+          <block>-171, 47, 13</block>
+        </destination>
+      </wool>
+    </wools>
+  </objectives>
+  <regions>
+    <subtract id="void-outer"> <!-- All blocks of void minus the mid region -->
+      <void/>
+      <cuboid max="-170, 64, 34" min="102, 0, -16"/>
+      <cuboid max="73, 64, 41" min="49, 0, -21"/>
+      <cuboid max="-140, 64, 41" min="-116, 0, -21"/>
+    </subtract>
+    <above id="height-limit" y="64"/>
+  </regions>
+  <zones>
+    <zone modify="never">
+      <enter>
+        <team>blue</team>
+      </enter>
+      <region>
+        <cuboid max="-157, 41, 16" min="-172, 0, 4"/>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never">
+      <enter>
+        <team>red</team>
+      </enter>
+      <region>
+        <cuboid max="90, 41, 4" min="105, 0, 16"/>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never">
+      <modify>
+        <team>blue</team>
+      </modify>
+      <region>
+        <subtract id="wool-room-modify"> <!-- All of the blocks minus the monument -->
+          <cuboid max="140, 48, 5" min="134, 0, 17"/>
+          <cuboid max="134, 46, 10" min="134, 45, 9"/>
+        </subtract>
+      </region>
+      <message>{errors.cannot-build}</message>
+    </zone>
+    <zone modify="never">
+      <modify>
+        <team>red</team>
+      </modify>
+      <region>
+        <subtract id="wool-room-modify"> <!-- All of the blocks minus the monument -->
+          <cuboid max="-207, 48, 5" min="-200, 0, 17"/>
+          <cuboid max="-201, 46, 9" min="-201, 45, 10"/>
+        </subtract>
+      </region>
+      <message>{errors.cannot-build}</message>
+    </zone>
+    <zone modify="always">
+      <enter>
+        <team>blue</team>
+      </enter>
+      <region>
+        <cuboid max="134, 47, 11" min="134, 45, 8"/>
+      </region>
+      <message>{errors.own-wool-room}</message>
+    </zone>
+    <zone modify="always">
+      <enter>
+        <team>red</team>
+      </enter>
+      <region>
+        <cuboid max="-201, 47, 8" min="-201, 45, 11"/>
+      </region>
+      <message>{errors.own-wool-room}</message>
+    </zone>
+    <zone modify="never" region="void-outer">
+      <message>{errors.outside-map}</message>
+    </zone>
+    <zone modify="never" region="height-limit">
+      <message>{errors.height-limit}</message>
+    </zone>
+  </zones>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>leather leggings</material>
+        <material>leather boots</material>
+        <material>glass</material>
+        <material>cooked beef</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>iron sword</material>
+        <material>bow</material>
+        <material>diamond pickaxe</material>
+        <material>iron axe</material>
+      </any>
+    </repair-tools>
+  </items>
+</map>

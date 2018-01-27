@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="A New Day II" spec="1.0.6" version="1.0.1">
+    <include src="defaults.xml"/>
+    <gametype>ctw</gametype>
+    <include src="Shared/tutorials/dtm.xml"/>
+    <authors>
+        <author uuid="b5071a63-bba3-491a-909f-02db314f4319"/>
+        <!--   Dc   -->
+    </authors>
+    <tutorial>
+        <step countdown="5s" freeze="true" location="105.6,14.1,211.1" pitch="5.6" yaw="-90">
+            <chat>
+                <line>^r • {tutorial.generic.team-spawns}</line>
+            </chat>
+        </step>
+        <step countdown="5s" freeze="true" location="92.1,15.6,185.9" pitch="8.6" yaw="-113">
+            <chat>
+                <line>^r • {tutorial.ctw.wool-area}</line>
+            </chat>
+        </step>
+        <step countdown="5s" freeze="true" location="111.2,9,177.4" pitch="24" yaw="-90">
+            <chat>
+                <line>^r • {tutorial.ctw.wool-chest}</line>
+            </chat>
+        </step>
+        <step countdown="5s" freeze="true" location="123.3,9.6,211.4" pitch="13.8" yaw="-89">
+            <chat>
+                <line>^r • {tutorial.ctw.wool-monument}</line>
+            </chat>
+        </step>
+    </tutorial>
+    <teams>
+        <team color="red" id="red" max="20" min="1">{colors.red}</team>
+        <team color="blue" id="blue" max="20" min="1">{colors.blue}</team>
+    </teams>
+    <spawns>
+        <!--    Spectator Spawn    -->
+        <spawn>
+            <regions>
+                <point yaw="180">23.5,23,300.5</point>
+            </regions>
+        </spawn>
+        <!--    Red + Blue Teams    -->
+        <spawn loadout="team" team="red" yaw="-90">
+            <regions>
+                <point yaw="-90">-75,9,211.5</point>
+            </regions>
+        </spawn>
+        <spawn loadout="team" team="blue" yaw="90">
+            <regions>
+                <point yaw="90">122,9,211.5</point>
+            </regions>
+        </spawn>
+    </spawns>
+    <world>
+        <gamerules>
+            <doDaylightCycle>false</doDaylightCycle>
+        </gamerules>
+    </world>
+    <regions>
+        <join id ="void-outer">
+            <void/>
+        </join>
+    </regions>
+    <objectives>
+        <wools>
+            <wools pickup="false" team="red">
+                <wool color="yellow">
+                    <source>
+                        <join>
+                            <block>113,9,177</block>
+                        </join>
+                    </source>
+                    <destination>
+                        <block>-80,10,209</block>
+                    </destination>
+                </wool>
+                <wool color="orange">
+                    <source>
+                        <join>
+                            <block>113,9,245</block>
+                        </join>
+                    </source>
+                    <destination>
+                        <block>-80,10,213</block>
+                    </destination>
+                </wool>
+            </wools>
+            <wools pickup="false" team="blue">
+                <wool color="purple">
+                    <source>
+                        <join>
+                            <block>-67,9,245</block>
+                        </join>
+                    </source>
+                    <destination>
+                        <block>126,10,209</block>
+                    </destination>
+                </wool>
+                <wool color="lime">
+                    <source>
+                        <join>
+                            <block>-67,9,177</block>
+                        </join>
+                    </source>
+                    <destination>
+                        <block>126,10,213</block>
+                    </destination>
+                </wool>
+            </wools>
+        </wools>
+    </objectives>
+    <loadouts>
+        <loadout id="team">
+            <helmet material="iron helmet" team-color="true"/>
+            <chestplate material="leather chestplate" team-color="true"/>
+            <leggings material="leather leggings" team-color="true"/>
+            <boots material="leather boots" team-color="true"/>
+            <item slot="0" material="stone sword"/>
+            <item material="bow" slot="1">
+                <enchantments>
+                    <enchantment level="2">arrow infinite</enchantment>
+                </enchantments>
+            </item>
+            <item material="diamond pickaxe" slot="2">
+                <enchantments>
+                    <enchantment level="1">dig speed</enchantment>
+                </enchantments>
+            </item>
+            <item material="stone spade" slot="3">
+                <enchantments>
+                    <enchantment level="2">dig speed</enchantment>
+                </enchantments>
+            </item>
+            <item slot="4" material="golden apple" amount="1"/>
+            <item slot="5" material="log" amount="32"/>
+            <item slot="8" material="cooked beef" amount="32"/>
+            <item slot="28" material="arrow" amount="1"/>
+            <item slot="7" material="glass" amount="32"/>
+        </loadout>
+        <loadout id="kill-reward">
+            <item material="golden apple"/>
+        </loadout>
+    </loadouts>
+    <kills>
+        <rewards>
+            <reward loadout="kill-reward"/>
+        </rewards>
+    </kills>
+    <checks>
+        <team id="only-red">red</team>
+        <team id="only-blue">blue</team>
+    </checks>
+    <zones>
+        <zone modify="never">
+            <region>
+                <above y="55"/>
+            </region>
+            <message>{errors.height-limit}</message>
+        </zone>
+        <zone modify="never">
+            <region>
+                <subtract>
+                    <cuboid max="-64,55,221" min="-84,3,202"/>
+                    <block>-80,10,213</block>
+                    <block>-80,10,209</block>
+                </subtract>
+            </region>
+            <message>{errors.spawn-restricted}</message>
+        </zone>
+        <zone modify="never">
+            <region>
+                <subtract>
+                    <cuboid max="110,55,200" min="130,3,220"/>
+                    <block>126,10,209</block>
+                    <block>126,10,213</block>
+                </subtract>
+            </region>
+            <message>{errors.spawn-restricted}</message>
+        </zone>
+        <zone modify="never" region="void-outer" water-rule="no-flow">
+            <message>{errors.outside-map}</message>
+        </zone>
+        <!--  Wool Rooms #1  -->
+        <zone modify="only-red" enter="only-red">
+            <region>
+                <join>
+                    <cuboid max="99,55,265" min="128,3,230"/>
+                    <cuboid max="99,55,192" min="128,3,162"/>
+                </join>
+            </region>
+            <enter>
+                <team>red</team>
+            </enter>
+            <message>{errors.own-wool-room}</message>
+        </zone>
+        <!--  Wool Rooms #2  -->
+        <zone modify="only-blue" enter="only-blue">
+            <region>
+                <join>
+                    <cuboid max="-53,55,162" min="-82,3,192"/>
+                    <cuboid max="-53,28,230" min="-82,3,260"/>
+                </join>
+            </region>
+            <enter>
+                <team>blue</team>
+            </enter>
+            <message>{errors.own-wool-room}</message>
+        </zone>
+    </zones>
+    <items>
+        <remove-drops>
+            <any>
+                <material>iron helmet</material>
+                <material>leather chestplate</material>
+                <material>leather leggings</material>
+                <material>leather boots</material>
+                <material>cooked beef</material>
+                <material>golden apple</material>
+                <material>glass</material>
+                <material>wood</material>
+                <material>log</material>
+                <material>arrow</material>
+            </any>
+        </remove-drops>
+        <repair-tools>
+            <any>
+                <material>stone sword</material>
+                <material>bow</material>
+                <material>diamond pickaxe</material>
+                <material>stone spade</material>
+            </any>
+        </repair-tools>
+    </items>
+</map>

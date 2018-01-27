@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="Dragons Den" spec="1.0.0" version="1.1.0">
+  <include src="defaults.xml"/>
+  <authors>
+    <author uuid="3cce00809faa48f982cf64410305822a"/> <!-- Sethskye -->
+    <author uuid="c2a4c847653e482ab62ed7f8b64330cb"/> <!-- ALM -->
+  </authors>
+  <gametype>lts</gametype>
+  <compasses>
+    <compass target="enemy"/>
+  </compasses>
+  <teams>
+    <load-group id="teams.red-blue" max="16" min="1"/>
+  </teams>
+  <zones>
+    <zones>
+      <zone modify="never" region="everywhere"/>
+    </zones>
+    <zone velocity="0, 1.6, 0">
+      <region>
+        <cuboid max="68, 8, -49" min="70, 4, -49"/>
+      </region>
+    </zone>
+    <zone velocity="0, 1.6, 0">
+      <region>
+        <cuboid max="68, 8, -32" min="70, 4, -35"/>
+      </region>
+    </zone>
+    <zone velocity="0, 1.1, 0">
+      <region>
+        <cuboid max="48, 17, -38" min="48, 13, -37"/>
+      </region>
+    </zone>
+    <zone velocity="0, 1.1, 0">
+      <region>
+        <cuboid max="48, 17, -47" min="47, 13, -46"/>
+      </region>
+    </zone>
+    <zone velocity="0, 1.1, 0">
+      <region>
+        <cuboid max="91, 17, -47" min="90, 13, -46"/>
+      </region>
+    </zone>
+    <zone velocity="0, 1.1, 0">
+      <region>
+        <cuboid max="91, 17, -38" min="90, 13, -37"/>
+      </region>
+    </zone>
+  </zones>
+  <objectives>
+    <last-team-standing team="blue"/>
+    <last-team-standing team="red"/>
+  </objectives>
+  <elimination lives="1"/>
+  <results>
+    <win scenario="objectives">
+      <check>
+        <time>5m</time>
+      </check>
+    </win>
+  </results>
+  <spawns>
+    <!-- Spectator spawn -->
+    <spawn loadout="night-vision">
+      <regions>
+        <point yaw="180">69, 11, -7</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="blue">
+      <regions>
+        <point yaw="90">135, 15, -41</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="red">
+      <regions>
+        <point yaw="-90">3, 15, -41</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <loadouts>
+    <loadout id="default">
+      <effect amplifier="1" duration="10m">night vision</effect>
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="chainmail leggings"/>
+      <boots material="leather boots" team-color="true"/>
+      <item material="wood sword" slot="0"/>
+      <item material="bow" slot="1"/>
+      <item amount="16" material="bread" slot="2"/>
+      <item material="compass" slot="3"/>
+      <item amount="16" material="arrow" slot="8"/>
+    </loadout>
+    <loadout id="night-vision">
+      <effect amplifier="1" duration="oo">night vision</effect>
+    </loadout>
+    <loadout id="one-golden-apple">
+      <item material="golden apple"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="one-golden-apple"/>
+    </rewards>
+  </kills>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>leather leggings</material>
+        <material>leather boots</material>
+        <material>compass</material>
+        <material>bread</material>
+        <material>arrow</material>
+        <material>golden apple</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>wood sword</material>
+        <material>bow</material>
+      </any>
+    </repair-tools>
+  </items>
+  <damage>
+    <disable>
+      <any>
+        <damage>fall</damage>
+      </any>
+    </disable>
+  </damage>
+</map>

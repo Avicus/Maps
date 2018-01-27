@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="Deathlands" spec="1.0.0" version="1.1.0">
+  <include src="defaults.xml"/>
+  <include src="Shared/tutorials/dtm.xml"/>
+  <gametype>dtm</gametype>
+  <authors>
+    <author uuid="378952b5808f4a33911e39c7ba153b38"/> <!-- Pavlo -->
+  </authors>
+  <teams>
+    <team color="green" id="green" max="25" min="1">{colors.green}</team>
+    <team color="red" id="red" max="25" min="1">{colors.red}</team>
+  </teams>
+  <tutorial>
+    <step countdown="5s" freeze="false" location="3212,31,-1709" pitch="0" yaw="-165">
+      <chat>
+        <line>^r • {tutorial.generic.team-spawns}</line>
+      </chat>
+    </step>
+    <step countdown="4s" location="3175,31,-1711" pitch="-58" yaw="-139">
+      <chat>
+        <line>^r • {tutorial.dtm.monument-area}</line>
+      </chat>
+    </step>
+    <step countdown="5s" location="3232,40,-1699" pitch="31" yaw="-45">
+      <chat>
+        <line>^r • {tutorial.dtm.monument-objective}</line>
+      </chat>
+    </step>
+  </tutorial>
+  <spawns>
+    <spawn yaw="-90">
+      <regions>
+        <circle center="3133, 77, -1630" radius="1"/>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="green" yaw="135">
+      <regions>
+        <circle center="3185, 33, -1543" radius="2"/>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="red" yaw="-45">
+      <regions>
+        <circle center="3215, 33, -1717" radius="2"/>
+      </regions>
+    </spawn>
+  </spawns>
+  <objectives>
+    <monuments materials="obsidian">
+      <monuments owner="green">
+        <monument name="{directions.right}">
+          <region>
+            <block>3165, 39, -1567</block>
+          </region>
+        </monument>
+        <monument name="{directions.left}">
+          <region>
+            <block>3223, 36, -1549</block>
+          </region>
+        </monument>
+      </monuments>
+      <monuments owner="red">
+        <monument name="{directions.right}">
+          <region>
+            <block>3235, 39, -1695</block>
+          </region>
+        </monument>
+        <monument name="{directions.left}">
+          <region>
+            <block>3177, 36, -1713</block>
+          </region>
+        </monument>
+      </monuments>
+    </monuments>
+  </objectives>
+  <loadouts>
+    <loadout id="default">
+      <helmet material="iron helmet"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="leather leggings" team-color="true"/>
+      <boots material="iron boots"/>
+      <item material="iron sword" slot="0"/>
+      <item material="bow" slot="1">
+        <enchantment>arrow infinite</enchantment>
+      </item>
+      <item material="diamond pickaxe" slot="2">
+        <enchantment level="3">durability</enchantment>
+      </item>
+      <item amount="3" material="golden apple" slot="3"/>
+      <item amount="32" material="cooked beef" slot="4"/>
+      <item amount="64" material="glass" slot="5"/>
+      <item amount="64" damage="3" material="log" slot="6"/>
+      <item amount="1" material="arrow" slot="10"/>
+    </loadout>
+    <loadout id="kill-reward">
+      <item material="golden apple"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="kill-reward"/>
+    </rewards>
+  </kills>
+  <zones>
+    <zone modify="never">
+      <region>
+        <cuboid max="3181, 32, -1548" min="3189, 35, -1540"/>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid max="3219, 32, -1714" min="3211, 35, -1722"/>
+      </region>
+      <message>{errors.cannot-build}</message>
+    </zone>
+  </zones>
+  <items>
+    <remove-drops>
+      <any>
+        <material>iron helmet</material>
+        <material>leather chestplate</material>
+        <material>leather leggings</material>
+        <material>iron boots</material>
+        <material damage="3">log</material>
+        <material>arrow</material>
+        <material>cooked beef</material>
+        <material>glass</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>iron sword</material>
+        <material>bow</material>
+        <material>diamond pickaxe</material>
+      </any>
+    </repair-tools>
+  </items>
+</map>

@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="Plaza CTW"
+  spec="1.0.5"
+  version="1.0.0">
+  <include src="defaults.xml"/>
+  <include src="Shared/tutorials/ctw.xml"/>
+  <gametype>ctw</gametype>
+  <authors>
+    <author uuid="68cfe240d81c46ae8a939e3eb5d71e3e"/> <!-- myv -->
+    <author uuid="883055fb316542919ded7f279ff5381f"/> <!-- Skiizii -->
+  </authors>
+  <teams>
+    <team color="pink" id="pink" max="32" min="1">{colors.pink}</team>
+    <team color="yellow" id="yellow" max="32" min="1">{colors.yellow}</team>
+  </teams>
+  <spawns>
+    <!-- Spectator spawn -->
+    <spawn yaw="-180">
+      <region>
+        <cuboid max="-4, 139, 36" min="0, 139, 40"/>
+      </region>
+    </spawn>
+    <!-- Team spawns -->
+    <spawn loadout="pink-main" team="pink" yaw="0">
+      <regions>
+        <point>-1.5, 72, -63.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="yellow-main" team="yellow" yaw="180">
+      <regions>
+        <point>-1.5, 72, 140.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <loadouts>
+    <loadout id="main">
+      <item material="iron sword" slot="0"/>
+      <item material="bow" slot="1">
+        <enchantments>
+          <enchantment>arrow infinite</enchantment>
+        </enchantments>
+      </item>
+      <item material="diamond pickaxe" slot="2"/>
+      <item amount="64" material="log" slot="4"/>
+      <item amount="4" material="golden apple" slot="7"/>
+      <item amount="32" material="cooked beef" slot="8"/>
+      <item amount="1" material="arrow" slot="28"/>
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="leather leggings" team-color="true"/>
+      <boots material="leather boots" team-color="true"/>
+    </loadout>
+    <loadout id="yellow-main" parent="main">
+      <item amount="64" damage="4" material="stained glass" slot="3"/>
+    </loadout>
+    <loadout id="pink-main" parent="main">
+      <item amount="64" damage="6" material="stained glass" slot="3"/>
+    </loadout>
+  </loadouts>
+  <regions>
+    <join id="main-map">
+      <cuboid max="-41, oo, -83" min="37, 0, 159"/>
+    </join>
+    <join id="pink-wool-rooms">
+      <cuboid id="orange-wool" max="25, oo, -83" min="37, 0, -61"/>
+      <cuboid id="purple-wool" max="-41, oo, -83" min="-29, 0, -61"/>
+    </join>
+    <join id="yellow-wool-rooms">
+      <cuboid id="lime-wool" max="37, oo, 159" min="25, 0, 137"/>
+      <cuboid id="cyan-wool" max="-41, oo, 159" min="-29, 0, 137"/>
+    </join>
+    <join id="orange-wool-location">
+      <block>35, 76, -74</block>
+      <block>32, 76, -74</block>
+    </join>
+    <join id="purple-wool-location">
+      <block>-36, 76, -74</block>
+      <block>-39, 76, -74</block>
+    </join>
+    <join id="lime-wool-location">
+      <block>35, 76, 150</block>
+      <block>32, 76, 150</block>
+    </join>
+    <join id="cyan-wool-location">
+      <block>-39, 76, 150</block>
+      <block>-36, 76, 150</block>
+    </join>
+    <above id="height-limit" y="86"/>
+  </regions>
+  <checks>
+    <allow id="allow-iron-block">
+      <all>
+        <material>iron block</material>
+      </all>
+    </allow>
+    <team id="only-pink">pink</team>
+    <team id="only-yellow">yellow</team>
+  </checks>
+  <zones>
+    <zone modify="never">
+      <region>
+        <invert>
+          <region id="main-map"/>
+        </invert>
+      </region>
+      <message>{errors.outside-map}</message>
+    </zone>
+    <!-- Pink Spawn -->
+    <zone enter="only-pink">
+      <region>
+        <subtract>
+          <cuboid max="-11, oo, -68" min="3, 0, -53"/>
+          <block>-4, 71, -59</block>
+          <block>0, 71, -59</block>
+        </subtract>
+      </region>
+      <modify>
+        <material>iron block</material>
+      </modify>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <!-- Yellow Spawn -->
+    <zone enter="only-yellow">
+      <region>
+        <subtract>
+          <cuboid max="7, oo, 144" min="-7, 0, 129"/>
+          <block>-4, 71, 135</block>
+          <block>0, 71, 135</block>
+        </subtract>
+      </region>
+      <modify>
+        <material>iron block</material>
+      </modify>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone enter="only-yellow" modify="never" region="pink-wool-rooms"/>
+    <zone enter="only-pink" modify="never" region="yellow-wool-rooms"/>
+    <zone modify="never" region="height-limit">
+      <message format="warning">{errors.height-limit}</message>
+    </zone>
+  </zones>
+  <objectives>
+    <wools>
+      <wools pickup="false" team="pink">
+        <wool color="cyan">
+          <destination>
+            <block>-4, 71, -59</block>
+          </destination>
+          <source>
+            <region id="cyan-wool-location"/>
+          </source>
+        </wool>
+        <wool color="lime">
+          <destination>
+            <block>0, 71, -59</block>
+          </destination>
+          <source>
+            <region id="lime-wool-location"/>
+          </source>
+        </wool>
+      </wools>
+      <wools pickup="false" team="yellow">
+        <wool color="orange">
+          <destination>
+            <block>-4, 71, 135</block>
+          </destination>
+          <source>
+            <region id="orange-wool-location"/>
+          </source>
+        </wool>
+        <wool color="purple">
+          <destination>
+            <block>0, 71, 135</block>
+          </destination>
+          <source>
+            <region id="purple-wool-location"/>
+          </source>
+        </wool>
+      </wools>
+    </wools>
+  </objectives>
+  <world>
+    <storm>false</storm>
+    <weather check="always"/>
+  </world>
+  <items>
+    <remove-drops>
+      <any>
+        <material>log</material>
+        <material>wood</material>
+        <material>stained glass:4</material>
+        <material>stained glass:6</material>
+        <material>string</material>
+        <material>cooked beef</material>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>leather leggings</material>
+        <material>leather boots</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>iron sword</material>
+        <material>bow</material>
+        <material>diamond pickaxe</material>
+      </any>
+    </repair-tools>
+  </items>
+  <tutorial>
+    <step countdown="5s" freeze="true" location="-1.5, 74, 128.5" pitch="9" yaw="0">
+      <chat>
+        <line>^r • {tutorial.generic.team-spawns}</line>
+      </chat>
+    </step>
+    <step countdown="5s" freeze="true" location="30.5, 79, 157.5" pitch="32" yaw="-136">
+      <chat>
+        <line>^r • {tutorial.ctw.wool-chest}</line>
+      </chat>
+    </step>
+    <step countdown="5s" freeze="true" location="-4.5, 71, 138.5" pitch="13" yaw="-160">
+      <chat>
+        <line>^r • {tutorial.ctw.wool-monument}</line>
+      </chat>
+    </step>
+  </tutorial>
+</map>

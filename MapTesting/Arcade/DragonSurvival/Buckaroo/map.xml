@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+<map description="Try to avoid the dragon for five minutes!" name="Dragon Survival: Buckaroo"
+  spec="1.0.0" version="1.0.0">
+  <!-- This map is not functional until a developer adds support for a module where players can morph as a dragon and have dragon properties. Until then, this is not expected to be set or tested until that feature is available. -->
+  <include src="defaults.xml"/>
+  <authors>
+    <author uuid="bf3319534f9243ee8abc7544b8234936"/> <!-- ViceWatercolour -->
+  </authors>
+  <teams>
+    <team color="orange" id="orange" max="1" min="1">Dragon</team>
+    <team color="lime" id="lime" max="26" min="1">Attackers</team>
+  </teams>
+  <loadouts>
+    <loadout id="attackers">
+      <walk-speed action="add">1</walk-speed>
+      <effect>saturation</effect>
+      <helmet material="diamond helmet" unbreaking="true"/>
+      <chestplate material="iron chestplate" unbreaking="true"/>
+      <leggings material="leather leggings" team-color="true" unbreaking="true"/>
+      <boots material="diamond boots" unbreaking="true"/>
+      <item material="iron axe" slot="0" unbreaking="true"/>
+      <item material="bow" slot="1" unbreaking="true"/>
+      <item material="compass" slot="2"/>
+      <item amount="64" material="arrow" slot="28"/>
+      <item amount="64" material="arrow" slot="27"/>
+      <item amount="64" material="arrow" slot="29"/>
+    </loadout>
+    <loadout id="dragon">
+      <health action="add">8</health>
+      <fly-speed action="add">12</fly-speed>
+      <effect>absorption</effect>
+      <effect amplifier="64">regeneration</effect>
+      <effect amplifier="64">heal</effect>
+      <effect>saturation</effect>
+      <item material="diamond sword" slot="0" unbreaking="true">
+        <enchantment level="6">damage all</enchantment>
+      </item>
+    </loadout>
+  </loadouts>
+  <kits>
+    <kit description="^4Raise hell on the poachers!" name="Dragon">
+      <icon material="obsidian"/>
+      <loadout>
+        <disguise>ender dragon</disguise>
+      </loadout>
+    </kit>
+  </kits>
+  <spawns>
+    <spawn>
+      <regions>
+        <point yaw="-90">345, 72, 362</point>
+      </regions>
+    </spawn>
+    <spawn loadout="dragon" team="orange" yaw="-135">
+      <regions>
+        <point yaw="-135">314, 102, 448</point>
+      </regions>
+    </spawn>
+    <spawn loadout="attackers" team="lime" yaw="-45">
+      <regions>
+        <point yaw="-45">365.5, 64, 362.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <compasses>
+    <compass target="enemy"/>
+  </compasses>
+  <objectives>
+    <last-team-standing team="orange"/>
+  </objectives>
+  <results>
+    <win scenario="objectives">
+      <check>
+        <time>5m</time>
+      </check>
+    </win>
+  </results>
+  <zones>
+    <load-group id="no-build"/>
+  </zones>
+  <elimination lives="1"/>
+  <damage>
+    <disable>
+      <damage>fall</damage>
+    </disable>
+  </damage>
+  <remove-drops>
+    <any>
+      <material>diamond helmet</material>
+      <material>iron chestplate</material>
+      <material>leather leggings</material>
+      <material>diamond boots</material>
+    </any>
+  </remove-drops>
+</map>

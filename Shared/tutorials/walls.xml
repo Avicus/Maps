@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Base tutorial that should be included by all WALLS maps. -->
+<map>
+  <include src="Shared/tutorials/main.xml"/>
+  <tutorial>
+    <prefix countdown="4s">
+      <title stay="3s" subtitle="^a^l{tutorial.walls.title}"/>
+      <chat>
+        <line>^a^m--------------^f ^l{tutorial.walls.title} ^a^m--------------</line>
+        <line>^r • {tutorial.walls.desc1}</line>
+        <line>^r • {tutorial.walls.desc2}</line>
+        <line>^r • {tutorial.walls.desc3}</line>
+        <line>^a^m------------------------------------------</line>
+      </chat>
+    </prefix>
+  </tutorial>
+</map>

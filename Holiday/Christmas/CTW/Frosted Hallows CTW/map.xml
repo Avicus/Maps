@@ -1,0 +1,226 @@
+﻿<?xml version="1.0"?>
+<map description="Holiday cheer everywhere!. Can you make it to the wool rooms?" name="Frosted Hallows CTW"
+  spec="1.0.4" version="1.0.0">
+  <include src="defaults.xml"/>
+  <include src="Shared/reward-one-gap.xml"/>
+  <include src="Shared/tutorials/ctw.xml"/>
+  <tutorial>
+    <step countdown="5s" freeze="true" location="-1280,11,-877" pitch="0" yaw="0">
+      <chat>
+        <line>^r • {tutorial.generic.team-spawns}</line>
+      </chat>
+    </step>
+    <step countdown="5s" freeze="true" location="-1338,11,-907" pitch="0" yaw="0">
+      <chat>
+        <line>^r • {tutorial.ctw.wool-area}</line>
+      </chat>
+    </step>
+    <step countdown="5s" freeze="true" location="-1337,12,-895" pitch="0" yaw="0">
+      <chat>
+        <line>^r • {tutorial.ctw.wool-chest}</line>
+      </chat>
+    </step>
+    <step countdown="5s" freeze="true" location="-1274,11,-880" pitch="0" yaw="0">
+      <chat>
+        <line>^r • {tutorial.ctw.wool-monument}</line>
+      </chat>
+    </step>
+  </tutorial>
+  <authors>
+    <author uuid="21822ebaa4cb4f1eb8033871d5ac0ff3"/> <!-- Izjust4fun -->
+    <author uuid="297428a6b482455899f5b413067ed48d"/> <!-- Red_Dead -->
+  </authors>
+  <teams>
+    <team color="green" id="green" max="25" min="1">{colors.green}</team>
+    <team color="orange" id="orange" max="25" min="1">{colors.orange}</team>
+  </teams>
+  <gametype>ctw</gametype>
+  <spawns>
+    <!-- Spectator spawn -->
+    <spawn yaw="90">
+      <regions>
+        <point>-1207.5,41,-1002.5</point>
+      </regions>
+    </spawn>
+    <!-- Team spawns -->
+    <spawn loadout="teams-default" team="green" yaw="180">
+      <regions>
+        <point>-1279.5,11,-870.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="teams-default" team="orange" yaw="0">
+      <regions>
+        <point>-1279.5,11,-1134.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <objectives>
+    <wools>
+      <wools pickup="false" team="green">
+        <wool color="orange">
+          <source>
+            <join>
+              <block>-1336,12,-1113</block>
+            </join>
+          </source>
+          <destination>
+            <block>-1286,11,-876</block>
+          </destination>
+        </wool>
+        <wool color="red">
+          <source>
+            <join>
+              <block>-1224,12,-1113</block>
+            </join>
+          </source>
+          <destination>
+            <block>-1274,11,-876</block>
+          </destination>
+        </wool>
+      </wools>
+      <wools pickup="false" team="orange">
+        <wool color="blue">
+          <source>
+            <join>
+              <block>-1336,12,-893</block>
+            </join>
+          </source>
+          <destination>
+            <block>-1286,11,-1130</block>
+          </destination>
+        </wool>
+        <wool color="purple">
+          <source>
+            <join>
+              <block>-1224,12,-893</block>
+            </join>
+          </source>
+          <destination>
+            <block>-1274,11,-1130</block>
+          </destination>
+        </wool>
+      </wools>
+    </wools>
+  </objectives>
+  <loadouts>
+    <loadout id="teams-default">
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="leather leggings" team-color="true"/>
+      <boots material="leather boots" team-color="true"/>
+      <item material="iron sword" slot="0"/>
+      <item material="bow" slot="1"/>
+      <item material="diamond pickaxe" slot="2"/>
+      <item material="iron axe" slot="3"/>
+      <item amount="16" material="glass" slot="4"/>
+      <item amount="24" material="log" slot="5"/>
+      <item amount="64" material="cooked fish" slot="6"/>
+      <item amount="2" material="golden apple" slot="7"/>
+      <item material="iron spade" slot="8"/>
+      <item amount="128" material="arrow" slot="27"/>
+    </loadout>
+  </loadouts>
+  <zones>
+    <zone modify="never">
+      <region>
+        <above y="27"/>
+      </region>
+      <message>{errors.height-limit}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <subtract>
+          <void/>
+          <cuboid max="-1300,27,-1076" min="-1260,0,-930"/>
+          <cuboid max="-1295,255,-1158" min="-1265,0,-1129"/>
+          <cuboid max="-1265,255,-848" min="-1295,0,-877"/>
+        </subtract>
+      </region>
+      <message>{errors.outside-map}</message>
+    </zone>
+    <!-- Green Spawn -->
+    <zone>
+      <region>
+        <subtract>
+          <cuboid max="-1265,255,-848" min="-1295,0,-877"/>
+          <block>-1286,11,-876</block>
+          <block>-1274,11,-876</block>
+        </subtract>
+      </region>
+      <modify>
+        <material>iron block</material>
+      </modify>
+      <enter>
+        <team>green</team>
+      </enter>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <!-- Orange Spawn -->
+    <zone>
+      <region>
+        <subtract>
+          <cuboid max="-1295,255,-1158" min="-1265,0,-1129"/>
+          <block>-1286,11,-1130</block>
+          <block>-1274,11,-1130</block>
+        </subtract>
+      </region>
+      <modify>
+        <material>iron block</material>
+      </modify>
+      <enter>
+        <team>orange</team>
+      </enter>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <!-- Green Wool Rooms -->
+    <zone modify="never">
+      <region>
+        <cuboid max="-1228,255,-900" min="-1218,0,-891"/>
+        <cuboid max="-1332,255,-900" min="-1342,0,-891"/>
+      </region>
+      <enter>
+        <team>orange</team>
+      </enter>
+      <message>{errors.own-wool-room}</message>
+    </zone>
+    <!-- Orange Wool Rooms -->
+    <zone modify="never">
+      <region>
+        <cuboid max="-1332,255,-1106" min="-1342,0,-1115"/>
+        <cuboid max="-1228,255,-1106" min="-1218,0,-1115"/>
+      </region>
+      <enter>
+        <team>green</team>
+      </enter>
+      <message>{errors.own-wool-room}</message>
+    </zone>
+  </zones>
+  <world>
+    <storm>false</storm>
+    <weather check="always"/>
+  </world>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>leather leggings</material>
+        <material>leather boots</material>
+        <material>cooked fish</material>
+        <material>golden apple</material>
+        <material>glass</material>
+        <material>log</material>
+        <material>wood</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>iron sword</material>
+        <material>bow</material>
+        <material>diamond pickaxe</material>
+        <material>iron axe</material>
+        <material>iron spade</material>
+      </any>
+    </repair-tools>
+  </items>
+</map>

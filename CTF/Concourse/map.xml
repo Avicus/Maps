@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<map name="Concourse" spec="1.0.4" version="1.0.0">
+  <include src="defaults.xml"/>
+  <include src="Shared/reward-one-gap.xml"/>
+  <include src="Shared/conquest-shop.xml"/>
+  <authors>
+    <author uuid="3143b9d9cea7465f97fc8de59fbbb3a4"/>  <!-- DiamondAx -->
+  </authors>
+  <teams>
+    <load-group id="teams.red-blue" max="20" min="1"/>
+  </teams>
+  <spawns>
+    <spawn>
+      <regions>
+        <point yaw="-90">3, 53, -446</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="blue">
+      <regions>
+        <point yaw="0">3, 8, -443</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="red">
+      <regions>
+        <point yaw="180">3, 8, -449</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <objectives>
+    <flag carrying-delay="1" carrying-points="1" post="flag-post" recover-time="0"
+      respawn-delay="15s"/>
+    <scores limit="150">
+      <score team="blue"/>
+      <score team="red"/>
+    </scores>
+  </objectives>
+  <results>
+    <win scenario="objectives">
+      <check>
+        <time>7m</time>
+      </check>
+    </win>
+  </results>
+  <loadouts>
+    <loadout id="default">
+      <effect amplifier="1">night vision</effect>
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="leather leggings" team-color="true"/>
+      <boots material="leather boots" team-color="true"/>
+      <item slot="0" material="stone sword" unbreakable="true" />
+      <item slot="1" material="bow" unbreakable="true"  />
+      <item slot="2" material="golden apple"/>
+      <item slot="7" material="cooked beef"/>
+      <item slot="27" amount="64" material="arrow"/>
+    </loadout>
+  </loadouts>
+  <zones>
+    <load-group id="no-build"/>
+    <zone id="flag-post">
+      <region>
+        <join>
+          <block>3, 20, -476</block>
+          <block>3, 15, -446</block>
+          <block>3, 20, -416</block>
+        </join>
+      </region>
+      <post yaw="90"/>
+    </zone>
+  </zones>
+</map>

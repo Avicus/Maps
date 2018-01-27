@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map spec="1.0.5" name="Planks" version="1.0.0" genre="nebula">
+  <gametype>dtm</gametype>
+  <!--Legacy versions supported setting specific world time, we'll just lock it for now.-->
+  <world>
+    <gamerules>
+      <doDaylightCycle>false</doDaylightCycle>
+    </gamerules>
+  </world>
+  <authors>
+    <author uuid="7041fe1f5d344373b6dc8a7d4605033b" />
+  </authors>
+  <spawns>
+    <spawn>
+      <regions>
+        <point yaw="-178">7.5, 59.0, 100.5</point>
+      </regions>
+    </spawn>
+    <spawn team="red" loadout="default">
+      <regions>
+        <point yaw="90">116.5, 12.0, 15.5</point>
+      </regions>
+    </spawn>
+    <spawn team="blue" loadout="default">
+      <regions>
+        <point yaw="-90">-109.5, 12.0, 15.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <results>
+    <win scenario="objectives">
+      <check>
+        <time>1h</time>
+      </check>
+    </win>
+  </results>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>leather leggings</material>
+        <material>leather boots</material>
+        <material>log</material>
+        <material>stone axe</material>
+        <material>diamond pickaxe</material>
+        <material>stone sword</material>
+        <material>cooked beef</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>bow</material>
+        <material>iron sword</material>
+      </any>
+    </repair-tools>
+  </items>
+  <zones>
+    <zone modify="never">
+      <region>
+        <cuboid min="-114, 9, 10" max="-99, 24, 21"/>
+      </region>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid min="106, 9, 10" max="106, 24, 21"/>
+      </region>
+    </zone>
+  </zones>
+  <objectives>
+    <monuments materials="obsidian">
+      <monuments owner="blue">
+        <monument name="Tower A">
+          <region>
+            <block>-89, 29, 7</block>
+          </region>
+        </monument>
+        <monument name="Tower B">
+          <region>
+            <block>-89, 28, 7</block>
+          </region>
+        </monument>
+      </monuments>
+      <monuments owner="red">
+        <monument name="Tower A">
+          <region>
+            <block>96, 29, 7</block>
+          </region>
+        </monument>
+        <monument name="Tower B">
+          <region>
+            <block>96, 28, 7</block>
+          </region>
+        </monument>
+      </monuments>
+    </monuments>
+  </objectives>
+  <teams>
+    <team id="red" color="red" min="2" max="15" max-overfill="18">Red Team</team>
+    <team id="blue" color="blue" min="2" max="15" max-overfill="18">Blue Team</team>
+  </teams>
+  <loadouts>
+    <loadout id="default">
+      <item slot="0" material="stone sword" />
+      <item slot="1" material="bow" />
+      <item slot="2" material="diamond pickaxe" />
+      <item slot="3" material="stone axe">
+        <enchantments>
+          <enchantment level="1">dig speed</enchantment>
+        </enchantments>
+      </item>
+      <item slot="4" material="golden apple" amount="3" />
+      <item slot="5" material="log" amount="64" />
+      <item slot="7" material="cooked beef" amount="16" />
+      <item slot="27" material="arrow" amount="32" />
+      <chestplate team-color="true" material="leather chestplate" />
+      <helmet team-color="true" material="leather helmet" />
+      <boots team-color="true" material="leather boots" />
+      <leggings team-color="true" material="leather leggings" />
+      <effect duration="100" level="4">damage resistance</effect>
+    </loadout>
+  </loadouts>
+</map>

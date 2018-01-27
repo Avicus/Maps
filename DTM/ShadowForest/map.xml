@@ -1,0 +1,134 @@
+<?xml version="1.0"?>
+<map name="Shadow Forest" spec="1.0.0" version="1.1.0">
+  <include src="defaults.xml"/>
+  <gametype>dtm</gametype>
+  <authors>
+    <author uuid="378952b5808f4a33911e39c7ba153b38"/> <!-- Pavlo -->
+  </authors>
+  <teams>
+    <team color="lime" id="lime" max="20" min="1">Light</team>
+    <team color="purple" id="purple" max="20" min="1">Darkness</team>
+  </teams>
+  <objectives>
+    <monuments materials="obsidian">
+      <monuments owner="purple">
+        <monument name="{directions.left}">
+          <region>
+            <block>3176, 100, -1613</block>
+          </region>
+        </monument>
+        <monument name="{directions.middle}">
+          <region>
+            <block>3141, 138, -1615</block>
+          </region>
+        </monument>
+        <monument name="{directions.right}">
+          <region>
+            <block>3110, 95, -1618</block>
+          </region>
+        </monument>
+      </monuments>
+      <monuments owner="lime">
+        <monument name="{directions.left}">
+          <region>
+            <block>3096, 100, -1707</block>
+          </region>
+        </monument>
+        <monument name="{directions.middle}">
+          <region>
+            <block>3131, 138, -1705</block>
+          </region>
+        </monument>
+        <monument name="{directions.right}">
+          <region>
+            <block>3162, 95, -1702</block>
+          </region>
+        </monument>
+      </monuments>
+    </monuments>
+  </objectives>
+  <spawns>
+    <spawn yaw="90">
+      <regions>
+        <circle center="3200, 153, -1659" radius="2"/>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="lime">
+      <regions>
+        <circle center="3129, 80, -1726" radius="2"/>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="purple" yaw="180">
+      <regions>
+        <circle center="3143, 80, -1592" radius="2"/>
+      </regions>
+    </spawn>
+  </spawns>
+  <zones>
+    <zone modify="never">
+      <region>
+        <cuboid max="3140, 88, -1734" min="3120, 79, -1721"/>
+      </region>
+      <enter>
+        <team>lime</team>
+      </enter>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid max="3152, 88, -1586" min="3135, 79, -1599"/>
+      </region>
+      <enter>
+        <team>purple</team>
+      </enter>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+  </zones>
+  <loadouts>
+    <loadout id="default">
+      <effect amplifier="5" duration="5s">damage resistance</effect>
+      <helmet material="leather helmet" team-color="true"/>
+      <item material="iron sword" slot="0"/>
+      <item material="bow" slot="1">
+        <enchantment>arrow infinite</enchantment>
+      </item>
+      <item material="diamond pickaxe" slot="2">
+        <enchantment level="3">durability</enchantment>
+      </item>
+      <item amount="3" material="golden apple" slot="3"/>
+      <item amount="16" material="cooked beef" slot="4"/>
+      <item amount="64" material="glass" slot="5"/>
+      <item amount="32" material="log" slot="6"/>
+      <item amount="4" material="exp bottle" slot="7"/>
+      <item material="arrow" slot="27"/>
+      <item material="lapis block" slot="28"/>
+    </loadout>
+    <loadout id="kill-reward">
+      <item material="golden apple"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="kill-reward"/>
+    </rewards>
+  </kills>
+  <items>
+    <repair-tools>
+      <any>
+        <material>iron sword</material>
+        <material>bow</material>
+        <material>diamond pickaxe</material>
+      </any>
+    </repair-tools>
+    <remove-drops>
+      <any>
+        <material>log</material>
+        <material>wood</material>
+        <material>glass</material>
+        <material>leather helmet</material>
+        <material>cooked beef</material>
+        <material>arrow</material>
+      </any>
+    </remove-drops>
+  </items>
+</map>

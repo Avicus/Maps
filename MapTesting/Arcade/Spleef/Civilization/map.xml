@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map genre="arcade" name="Civilization" spec="1.0.0" version="1.0.0">
+  <include src="defaults.xml"/>
+  <authors>
+    <author uuid="cad8013ab98a40679f0981b0734e0085"/> <!-- imryaan -->
+  </authors>
+  <ffa max="12" min="2"/>
+  <elimination lives="1"/>
+  <objectives>
+    <last-competitor-standing/>
+  </objectives>
+  <channels global-chat="false" team-chat="true"/>
+  <results>
+    <win scenario="objectives">
+      <check>
+        <time>4m</time>
+      </check>
+    </win>
+  </results>
+  <spawns>
+    <spawn>
+      <regions>
+        <point yaw="0">36.5, 11, -11.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" look="37, 6, -42" mode="safe">
+      <regions>
+        <circle center="37, 4, -43" radius="13"/>
+        <circle center="37, 4, -43" radius="6"/>
+      </regions>
+    </spawn>
+  </spawns>
+  <loadouts>
+    <loadout id="default">
+      <helmet material="leather helmet" team-color="true"/>
+      <item material="diamond spade" slot="0">
+        <enchantment level="100">durability</enchantment>
+        <enchantment level="100">dig speed</enchantment>
+      </item>
+    </loadout>
+  </loadouts>
+  <zones>
+    <!-- Walls -->
+    <zone modify="never">
+      <region>
+        <above y="5"/>
+      </region>
+    </zone>
+  </zones>
+  <damage>
+    <disable>
+      <any>
+        <not>
+          <damage>void</damage>
+        </not>
+      </any>
+    </disable>
+  </damage>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>snow ball</material>
+      </any>
+    </remove-drops>
+  </items>
+  <world>
+    <gamerules>
+      <doDaylightCycle>false</doDaylightCycle>
+      <doTileDrops>false</doTileDrops>
+    </gamerules>
+  </world>
+</map>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map spec="1.0.5" name="Titans Origins" version="1.0.0">
+  <gametype>tdm</gametype>
+  <authors>
+    <author uuid="3893a242cc17447e9b1c774fc8941af8"/> <!-- G_SKIPPY -->
+  </authors>
+  <spawns>
+    <spawn>
+      <regions>
+        <point yaw="180">-40.5,127,-746.5</point>
+      </regions>
+    </spawn>
+    <spawn team="orange" loadout="default">
+      <regions>
+        <point yaw="90">37.5,74,-799.5</point>
+      </regions>
+    </spawn>
+    <spawn team="purple" loadout="default">
+      <regions>
+        <point yaw="-90">-120.5,74,-800.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <items>
+    <repair-tools>
+      <any>
+        <material>diamond helmet</material>
+        <material>diamond chestplate</material>
+        <material>diamond leggings</material>
+        <material>diamond boots</material>
+        <material>diamond sword</material>
+        <material>bow</material>
+      </any>
+    </repair-tools>
+    <remove-drops>
+      <any>
+        <material>exp bottle</material>
+        <material>arrow</material>
+        <material>golden apple</material>
+        <material>cooked beef</material>
+      </any>
+    </remove-drops>
+  </items>
+  <teams>
+    <team id="orange" color="orange" min="1" max="25" max-overfill="30"> Orange Team</team>
+    <team id="purple" color="purple" min="1" max="25" max-overfill="30">Purple Team</team>
+  </teams>
+  <objectives>
+    <scores kills="1" limit="150">
+      <score team="orange"/>
+      <score team="purple"/>
+    </scores>
+  </objectives>
+  <results>
+    <win scenario="objectives">
+      <check>
+        <time>15m</time>
+      </check>
+    </win>
+  </results>
+  <loadouts>
+    <loadout id="default">
+      <helmet material="diamond helmet" />
+      <chestplate material="diamond chestplate" />
+      <leggings material="diamond leggings" />
+      <boots material="diamond boots" />
+      <item material="diamond sword" slot="0"/>
+      <item material="bow" slot="1"/>
+      <item amount="3" material="golden apple" slot="3"/>
+      <item amount="24" material="cooked beef" slot="4"/>
+      <item amount="64" material="exp bottle" slot="5"/>
+      <item amount="64" material="exp bottle" slot="6"/>
+      <item amount="64" material="exp bottle" slot="7"/>
+      <item amount="64" material="arrow" slot="28"/>
+      <item amount="64" material="lapis block" slot="9"/>
+    </loadout>
+    <loadout id="kill-reward">
+      <item amount="2" material="golden apple"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="kill-reward"/>
+    </rewards>
+  </kills>
+</map>

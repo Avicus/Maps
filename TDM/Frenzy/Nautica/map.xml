@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="Nautica" spec="1.0.0" version="1.0.0">
+  <include src="defaults.xml"/>
+  <authors>
+    <author uuid="0e561165-60bf-49e6-aa38-3db002ad7d08"/> <!-- AbusiveUser -->
+    <author uuid="45417b55-5117-42d0-9dd6-672227c040a2"/> <!-- PepsiMax -->
+    <author uuid="e4b99cb2-9d7a-49a5-9743-f5b107d21053"/> <!-- TheAAG -->
+  </authors>
+  <gametype>lts</gametype>
+  <teams>
+    <load-group id="teams.lime-cyan" max="15" min="1"/>
+  </teams>
+  <spawns>
+    <spawn> <!-- Obs -->
+      <regions>
+        <point yaw="-90">-991, 48, -1101.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="kit" team="lime"> <!-- Lime -->
+      <regions>
+        <point yaw="-180">-939.5, 13, -1051.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="kit" team="cyan"> <!-- Cyan -->
+      <regions>
+        <point yaw="0">-939.5, 13, -1151.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <loadouts>
+    <loadout id="kit">
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="iron chestplate"/>
+      <leggings material="chainmail leggings"/>
+      <boots material="leather boots" team-color="true">
+        <enchantment level="100">protection fall</enchantment>
+      </boots>
+      <item material="iron sword" slot="0">
+        <enchantment level="127">damage all</enchantment>
+      </item>
+      <item material="bow" slot="1">
+        <enchantment level="127">arrow damage</enchantment>
+      </item>
+      <item amount="12" material="bread" slot="8"/>
+      <item amount="1" material="arrow" slot="28"/>
+    </loadout>
+    <loadout id="r"> <!-- Kill Reward -->
+      <item amount="1" material="arrow"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="r"/>
+    </rewards>
+  </kills>
+  <objectives>
+    <last-team-standing team="cyan"/>
+    <last-team-standing team="lime"/>
+  </objectives>
+  <elimination lives="2"/>
+  <results>
+    <win scenario="objectives">
+      <check>
+        <time>10m</time>
+      </check>
+    </win>
+  </results>
+  <items>
+    <remove-drops>
+      <any>
+        <material>golden apple</material>
+        <material>leather helmet</material>
+        <material>iron chestplate</material>
+        <material>chainmail leggings</material>
+        <material>leather boots</material>
+        <material>bread</material>
+        <material>arrow</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>iron sword</material>
+        <material>bow</material>
+      </any>
+    </repair-tools>
+  </items>
+  <locales>
+    <locale lang="en">
+      <error>
+        <build>errors.cannot-build-map</build>
+      </error>
+    </locale>
+  </locales>
+  <zones>
+    <zone velocity="0, 1.6, 0">
+      <region>
+        <block>-928, 11, -1122</block>
+      </region>
+    </zone>
+    <zone velocity="0, 1.6, 0">
+      <region>
+        <block>-952, 11, -1122</block>
+      </region>
+    </zone>
+    <zone velocity="0, 1.6, 0">
+      <region>
+        <block>-952, 11, -1082</block>
+      </region>
+    </zone>
+    <zone velocity="0, 1.6, 0">
+      <region>
+        <block>-928, 11, -1082</block>
+      </region>
+    </zone>
+    <zones>
+      <zone modify="never" region="everywhere"/>
+      <build-message>{error.build}</build-message>
+    </zones>
+  </zones>
+</map>

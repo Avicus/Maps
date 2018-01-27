@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="Formorgar 2" spec="1.0.0" version="1.1.0">
+  <include src="defaults.xml"/>
+  <gametype>dtm</gametype>
+  <authors>
+    <author uuid="da98a2f1673c4cecb547e0a342abfde4"/> <!-- timaeusTestified -->
+    <author uuid="9116d3fa14004adaaecd2eae1d73e383"/> <!-- Xuph -->
+    <author uuid="3cce00809faa48f982cf64410305822a"/> <!-- Edans -->
+  </authors>
+  <teams>
+    <team color="yellow" id="yellow" max="25" min="1">{colors.yellow}</team>
+    <team color="purple" id="purple" max="25" min="1">{colors.purple}</team>
+  </teams>
+  <spawns>
+    <spawn yaw="-90">
+      <regions>
+        <circle center="-70, 115, 129" radius="1"/>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="yellow" yaw="0">
+      <regions>
+        <circle center="7, 81, 24" radius="2"/>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="purple" yaw="180">
+      <regions>
+        <circle center="7, 81, 234" radius="2"/>
+      </regions>
+    </spawn>
+  </spawns>
+  <objectives>
+    <monuments materials="obsidian">
+      <monuments owner="yellow">
+        <monument name="{directions.left}">
+          <region>
+            <block>-23, 87, 7</block>
+          </region>
+        </monument>
+        <monument name="{directions.right}">
+          <region>
+            <block>37, 87, 7</block>
+          </region>
+        </monument>
+      </monuments>
+      <monuments owner="purple">
+        <monument name="{directions.left}">
+          <region>
+            <block>37, 87, 251</block>
+          </region>
+        </monument>
+        <monument name="{directions.right}">
+          <region>
+            <block>-23, 87, 251</block>
+          </region>
+        </monument>
+      </monuments>
+    </monuments>
+  </objectives>
+  <loadouts>
+    <loadout id="default">
+      <effect amplifier="10" duration="15s">damage resistance</effect>
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="chainmail leggings"/>
+      <boots material="leather boots" team-color="true"/>
+      <item material="iron sword" slot="0"/>
+      <item material="bow" slot="1">
+        <enchantment>arrow infinite</enchantment>
+      </item>
+      <item material="diamond pickaxe" slot="2"/>
+      <item amount="3" material="golden apple" slot="3"/>
+      <item amount="32" damage="2" material="log" slot="4"/>
+      <item amount="64" material="glass" slot="5"/>
+      <item amount="32" material="cooked beef" slot="6"/>
+      <item amount="4" material="exp bottle" slot="7"/>
+      <item amount="1" material="arrow" slot="9"/>
+      <item amount="1" material="lapis block" slot="10"/>
+    </loadout>
+    <loadout id="kill-reward">
+      <item material="golden apple"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="kill-reward"/>
+    </rewards>
+  </kills>
+  <zones>
+    <zone modify="never">
+      <region>
+        <cylinder base="7, 78, 24" height="22" radius="10"/>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cylinder base="7, 78, 234" height="22" radius="10"/>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <point>-37, 83, 59</point>/>
+      </region>
+      <message>{errors.cannot-build}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <point>51, 83, 59</point>/>
+      </region>
+      <message>{errors.cannot-build}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <point>-37, 83, 199</point>/>
+      </region>
+      <message>{errors.cannot-build}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <point>51, 83, 199</point>/>
+      </region>
+      <message>{errors.cannot-build}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <point>7, 81, 59</point>/>
+      </region>
+      <message>{errors.cannot-build}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <point>7, 81, 199</point>/>
+      </region>
+      <message>{errors.cannot-build}</message>
+    </zone>
+  </zones>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>chainmail leggings</material>
+        <material>leather boots</material>
+        <material>log</material>
+        <material>arrow</material>
+        <material>cooked beef</material>
+        <material>glass</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>iron sword</material>
+        <material>bow</material>
+        <material>diamond pickaxe</material>
+      </any>
+    </repair-tools>
+  </items>
+</map>

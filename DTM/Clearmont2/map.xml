@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="Clearmont 2" spec="1.0.0" version="1.1.0">
+  <include src="defaults.xml"/>
+  <include src="Shared/tutorials/dtm.xml"/>
+  <gametype>dtm</gametype>
+  <authors>
+    <author uuid="378952b5808f4a33911e39c7ba153b38"/> <!-- Pavlo -->
+  </authors>
+  <tutorial>
+    <step countdown="5s" freeze="false" location="4,30,-244" pitch="0" yaw="180">
+      <chat>
+        <line>^r • {tutorial.generic.team-spawns}</line>
+      </chat>
+    </step>
+    <step countdown="4s" location="-18,29,-228" pitch="0" yaw="100">
+      <chat>
+        <line>^r • {tutorial.dtm.monument-area}</line>
+      </chat>
+    </step>
+    <step countdown="4s" location="-18,29,-228" pitch="0" yaw="100">
+      <chat>
+        <line>^r • {tutorial.dtm.monument-objective}</line>
+      </chat>
+    </step>
+  </tutorial>
+  <teams>
+    <team color="red" id="red" max="25" min="1">{colors.red}</team>
+    <team color="cyan" id="cyan" max="25" min="1">{colors.cyan}</team>
+  </teams>
+  <spawns>
+    <spawn yaw="-90">
+      <regions>
+        <circle center="-53, 88, -101" radius="1"/>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="red" yaw="0">
+      <regions>
+        <circle center="4, 31, -249" radius="2"/>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="cyan" yaw="180">
+      <regions>
+        <circle center="14, 31, 46" radius="2"/>
+      </regions>
+    </spawn>
+  </spawns>
+  <objectives>
+    <monuments materials="obsidian">
+      <monuments owner="red">
+        <monument name="{directions.left}">
+          <region>
+            <block>-23,30,-229</block>
+          </region>
+        </monument>
+        <monument name="{directions.right}">
+          <region>
+            <block>42, 36, -249</block>
+          </region>
+        </monument>
+        <monument name="{directions.middle}">
+          <region>
+            <block>16, 31, -198</block>
+          </region>
+        </monument>
+      </monuments>
+      <monuments owner="cyan">
+        <monument name="{directions.left}">
+          <region>
+            <block>41, 30, 25</block>
+          </region>
+        </monument>
+        <monument name="{directions.right}">
+          <region>
+            <block>-24, 36, 45</block>
+          </region>
+        </monument>
+        <monument name="{directions.middle}">
+          <region>
+            <block>2, 31, -6</block>
+          </region>
+        </monument>
+      </monuments>
+    </monuments>
+  </objectives>
+  <loadouts>
+    <loadout id="default">
+      <helmet material="leather helmet" team-color="true"/>
+      <item material="iron sword" slot="0"/>
+      <item material="bow" slot="1">
+        <enchantment>arrow infinite</enchantment>
+      </item>
+      <item material="diamond pickaxe" slot="2"/>
+      <item amount="3" material="golden apple" slot="3"/>
+      <item amount="32" material="cooked beef" slot="4"/>
+      <item amount="64" damage="1" material="log" slot="5"/>
+      <item amount="64" material="log" slot="6"/>
+      <item material="iron axe" slot="7"/>
+      <item amount="64" material="arrow" slot="28"/>
+    </loadout>
+    <loadout id="kill-reward">
+      <item material="golden apple"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="kill-reward"/>
+    </rewards>
+  </kills>
+  <!-- Kill regions, gold mine regions, and enchantment table protection were not transfered. -->
+  <zones>
+    <zone modify="never">
+      <region>
+        <cylinder base="4, 30, -250" height="5" radius="5"/>
+      </region>
+      <enter>
+        <team>red</team>
+      </enter>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cylinder base="14, 30, 46" height="5" radius="5"/>
+      </region>
+      <enter>
+        <team>cyan</team>
+      </enter>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+  </zones>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>boat</material>
+        <material>flint</material>
+        <material>glass</material>
+        <material>cooked beef</material>
+        <material>log</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>iron sword</material>
+        <material>bow</material>
+        <material>diamond pickaxe</material>
+        <material>iron axe</material>
+      </any>
+    </repair-tools>
+  </items>
+</map>

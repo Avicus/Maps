@@ -1,0 +1,285 @@
+<?xml version="1.0"?>
+<map name="Turbine" spec="1.0.4" version="1.0.0">
+  <include src="defaults.xml"/>
+  <authors>
+    <author uuid="47b15675a0484e8f863a0cbf86ba22dc"/> <!-- profbananaslug -->
+    <author uuid="3eafbe943dea41038900b45294cebcab"/>
+  </authors>
+  <teams>
+    <team color="red" id="red" max="15" min="1">RED</team>
+    <team color="blue" id="blue" max="15" min="1">BLU
+    </team> <!-- do not localize this for real, "red" and "blu" are the team names in every language, and are not colors in this case (red = reliable excavation demolition, blu = builder's league united) -->
+  </teams>
+  <spawns>
+    <spawn team="spectators" yaw="90">
+      <regions>
+        <block>93, 87, -2</block>
+      </regions>
+    </spawn>
+    <spawn team="red" yaw="-42.7">
+      <regions>
+        <block>24, 85, -17</block>
+      </regions>
+    </spawn>
+    <spawn loadout="global" team="blue" yaw="133.7">
+      <regions>
+        <block>160, 85, 13</block>
+      </regions>
+    </spawn>
+  </spawns>
+  <loadouts>
+    <loadout id="global">
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="leather leggings" team-color="true"/>
+      <boots material="leather boots" team-color="true"/>
+      <kit-menu slot="7"/>
+    </loadout>
+    <loadout id="scoutl" parent="global">
+      <item amount="1" material="bow" name="Scattergun" slot="0"/>
+      <item amount="1" damage="8195" material="potion" name="Bonk! Atomic Punch" slot="1">
+        <effects>
+          <effect amplifier="2" duration="200">damage resistance</effect>
+        </effects>
+      </item>
+      <item amount="1" material="raw fish" name="Holy Mackerel" slot="2">
+        <lore>
+          <line>Getting hit by a fish has got</line>
+          <line>to be humiliating.</line>
+        </lore>
+      </item>
+      <effect amplifier="0" duration="10m">speed</effect>
+      <item amount="20" material="arrow" slot="8"/>
+    </loadout>
+    <loadout id="soldierl" parent="global">
+      <item amount="1" material="bow" name="Rocket Launcher" projectile="rocket" slot="0"/>
+      <item amount="1" damage="16393" material="potion" name="Buff Banner" slot="1">
+        <effects>
+          <effect amplifier="0" duration="200">increase damage</effect>
+        </effects>
+      </item>
+      <item amount="1" material="iron spade" name="Shovel" slot="2"/>
+      <health action="add">12</health>
+      <max-health action="add">12</max-health>
+      <item amount="20" material="arrow" slot="8"/>
+    </loadout>
+    <loadout id="pyrol" parent="global">
+      <item amount="1" material="bow" name="Flamethrower" slot="0">
+        <enchantments>
+          <enchantment level="1">arrow fire</enchantment>
+        </enchantments>
+      </item>
+      <item amount="1" material="iron axe" name="Fire Axe" slot="1">
+        <enchantments>
+          <enchantment level="2">fire aspect</enchantment>
+        </enchantments>
+      </item>
+      <health action="add">8</health>
+      <max-health action="add">8</max-health>
+      <effect amplifier="0" duration="10m">fire resistance</effect>
+      <item amount="20" material="arrow" slot="8"/>
+    </loadout>
+    <loadout id="demomanl" parent="global">
+      <item amount="1" material="bow" name="Grenade Launcher" projectile="tnt" slot="0"/>
+      <item amount="1" material="iron sword" name="The Eyelander" slot="1"/>
+      <health action="add">8</health>
+      <max-health action="add">8</max-health>
+      <item amount="20" material="arrow" slot="8"/>
+    </loadout>
+    <loadout id="heavyl" parent="global">
+      <item amount="3" material="golden apple" name="Apple Sandvich" slot="1"/>
+      <item amount="1" material="bow" name="Minigun" slot="0"/>
+      <health action="add">28</health>
+      <max-health action="add">28</max-health>
+      <effect amplifier="0" duration="10m">slow</effect>
+      <item amount="64" material="arrow" slot="8"/>
+    </loadout>
+    <loadout id="medicl" parent="global">
+      <item amount="1" material="bow" name="Syringe Gun" slot="0"/>
+      <item amount="1" damage="16387" material="potion" name="Potion of Absorption " slot="1">
+        <effects>
+          <effect amplifier="0" duration="600">absorption</effect>
+        </effects>
+      </item>
+      <item amount="2" damage="16421" material="potion" slot="2"/>
+      <item amount="1" material="iron sword" name="Bonesaw" slot="3"/>
+      <health action="add">4</health>
+      <max-health action="add">4</max-health>
+      <effect amplifier="0" duration="10m">weakness</effect>
+      <item amount="48" material="arrow" slot="8"/>
+    </loadout>
+    <loadout id="sniperl" parent="global">
+      <item amount="1" damage="16387" material="potion" name="Jarate" slot="1">
+        <effects>
+          <effect amplifier="0" duration="600">weakness</effect>
+        </effects>
+      </item>
+      <item amount="1" material="bow" name="Sniper Rifle" slot="0">
+        <enchantments>
+          <enchantment level="1">arrow damage</enchantment>
+        </enchantments>
+      </item>
+      <item amount="1" material="stone sword" name="Kukri" slot="2"/>
+      <item amount="16" material="arrow" slot="8"/>
+    </loadout>
+    <loadout id="spyl">
+      <item amount="1" material="bow" name="Revolver" slot="0"/>
+      <item amount="1" material="iron sword" name="Knife" slot="1">
+      </item>
+      <item amount="3" damage="8193" material="potion" name="Invisibility" slot="2">
+        <effects>
+          <effect amplifier="0" duration="400">invisibility</effect>
+        </effects>
+      </item>
+      <item amount="16" material="arrow" slot="8"/>
+      <item amount="1" color="red" material="leather chestplate" slot="32"/>
+      <item amount="1" color="blue" material="leather chestplate" slot="33"/>
+      <item amount="1" color="red" material="leather helmet" slot="5"/>
+      <item amount="1" color="blue" material="leather helmet" slot="6"/>
+      <item amount="1" color="red" material="leather leggings" slot="23"/>
+      <item amount="1" color="blue" material="leather leggings" slot="24"/>
+      <item amount="1" color="red" material="leather boots" slot="14"/>
+      <item amount="1" color="blue" material="leather boots" slot="15"/>
+      <kit-menu slot="7"/>
+    </loadout>
+    <loadout id="kill-reward">
+      <item amount="4" material="arrow"/>
+    </loadout>
+    <loadout id="the-cure-to-world-hunger">
+      <saturation action="add">20000</saturation>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="kill-reward"/>
+    </rewards>
+  </kills>
+  <items>
+    <remove-drops>
+      <always/>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>stone sword</material>
+        <material>bow</material>
+      </any>
+    </repair-tools>
+  </items>
+  <zones>
+    <zones>
+      <load-group id="no-build"/>
+    </zones>
+    <zone>
+      <region>
+        <join>
+          <cuboid max="50, 89, -14" min="27, 85, -20"/>
+          <cuboid max="27, 89, -3" min="21, 85, -21"/>
+        </join>
+      </region>
+      <enter>
+        <team>red</team>
+      </enter>
+      <loadout>
+        <effect amplifier="1" duration="3s">regeneration</effect>
+      </loadout>
+    </zone>
+    <zone>
+      <region>
+        <join>
+          <cuboid max="157, 89, 16" min="134, 85, 10"/>
+          <cuboid max="128, 89, -20" min="157, 85, -1"/>
+        </join>
+      </region>
+      <enter>
+        <team>blue</team>
+      </enter>
+      <loadout>
+        <effect amplifier="1" duration="3s">regeneration</effect>
+      </loadout>
+    </zone>
+    <zone id="red-post">
+      <region>
+        <block>29, 78, 33</block>
+      </region>
+      <post yaw="-137"/>
+    </zone>
+    <zone id="blue-post">
+      <region>
+        <block>155, 78, -37</block>
+      </region>
+      <post yaw="43"/>
+    </zone>
+    <zone id="red-net">
+      <region>
+        <cuboid max="31, 80, 35" min="27, 78, 31"/>
+      </region>
+      <net owner="red" points="1"/>
+    </zone>
+    <zone id="blue-net">
+      <region>
+        <cuboid max="-157, 80, -35" min="153, 78, -39"/>
+      </region>
+      <net owner="blue" points="1"/>
+    </zone>
+  </zones>
+  <objectives>
+    <scores limit="3">
+      <score team="red"/>
+      <score team="blue"/>
+    </scores>
+    <flag color="red" owner="red" post="red-post"/>
+    <flag color="blue" owner="blue" post="blue-post"/>
+  </objectives>
+  <projectiles>
+    <projectile cooldown="5s" damage="4" id="tnt" name="Grenade Launcher" type="primed tnt"/>
+    <projectile cooldown="3s" damage="6" id="rocket" name="Rocket Launcher" type="fireball"
+      velocity="1.6"/>
+  </projectiles>
+  <triggers>
+    <trigger execute="hunger-loop" on="match-start"/>
+  </triggers>
+  <executors>
+    <executor check="always" id="give-hunger">
+      <apply-loadout loadout="the-cure-to-world-hunger"/>
+    </executor>
+    <executor check="always" id="hunger-thing-because-alm-lazy">
+      <perform-on-everyone check="always" execute="give-hunger"/>
+    </executor>
+    <executor check="always">
+      <loop check="always" execute="hunger-thing-because-alm-lazy" id="hunger-loop" interval="15s"
+        stop="never"/>
+    </executor>
+  </executors> <!-- could've done this in like one line in pgm -->
+  <kits> <!-- i'm not a mapdev or translator so i am not going to localize this, alm -->
+    <kit default="true" description="The fastest and most mobile class." id="Scout" loadout="scoutl"
+      name="Scout">
+      <icon damage="8226" material="potion"/>
+      <abilities>
+        <double-jump icarus="2" push="1"/>
+      </abilities>
+    </kit>
+    <kit description="Tough and well-armed." id="soldier" loadout="soldierl" name="Soldier">
+      <icon material="fireball"/>
+    </kit>
+    <kit description="Ignite all your enemies." id="Pyro" loadout="pyrol" name="Pyro">
+      <icon material="flint and steel"/>
+    </kit>
+    <kit description="A master of explosives." id="Demoman" loadout="demomanl" name="Demoman">
+      <icon material="tnt"/>
+    </kit>
+    <kit description="A towering hulk." id="heavy" loadout="heavyl" name="Heavy">
+      <icon material="diamond chestplate"/>
+    </kit>
+    <kit description="A healer with little regard for ethics." id="medic" loadout="medicl"
+      name="Medic">
+      <icon damage="16453" material="potion"/>
+    </kit>
+    <kit description="Pick off enemies from afar." id="sniper" loadout="sniperl" name="Sniper">
+      <icon material="bow"/>
+    </kit>
+    <kit description="Use invisibility and disguises to sneak behind enemy lines" id="spy"
+      loadout="spyl" name="Spy">
+      <icon damage="8238" material="potion"/>
+    </kit>
+  </kits>
+</map>

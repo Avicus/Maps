@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="System Divide" spec="1.0.4" version="1.0.3">
+  <include src="defaults.xml"/>
+  <include src="Shared/tutorials/ctw.xml"/>
+  <tutorial>
+    <step countdown="5s" freeze="true" location="1,7,14" pitch="0" yaw="180">
+      <chat>
+        <line>^r • {tutorial.generic.team-spawns}</line>
+      </chat>
+    </step>
+    <step countdown="5s" freeze="true" location="20,7,-58" pitch="0" yaw="180">
+      <chat>
+        <line>^r • {tutorial.ctw.wool-area}</line>
+      </chat>
+    </step>
+    <step countdown="5s" freeze="true" location="19,7,-70" pitch="0" yaw="180">
+      <chat>
+        <line>^r • {tutorial.ctw.wool-chest}</line>
+      </chat>
+    </step>
+    <step countdown="5s" freeze="true" location="-3,7,1" pitch="0" yaw="90">
+      <chat>
+        <line>^r • {tutorial.ctw.wool-monument}</line>
+      </chat>
+    </step>
+  </tutorial>
+  <authors>
+    <author uuid="8de835a6916a4fcf9b25239dda454411"/>
+    <!-- Passively -->
+  </authors>
+  <teams>
+    <load-group id="teams.red-blue" max="25" min="1"/>
+  </teams>
+  <gametype>ctw</gametype>
+  <spawns>
+    <spawn>
+      <regions>
+        <point yaw="0">62.5, 53, 0.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="red">
+      <regions>
+        <point yaw="90">123.5, 8, 0.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="blue">
+      <regions>
+        <point yaw="-90">0.5, 8, 0.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <world>
+    <gamerules>
+      <doDaylightCycle>false</doDaylightCycle>
+    </gamerules>
+  </world>
+  <loadouts>
+    <loadout id="default">
+      <item material="stone sword" slot="0"/>
+      <item material="bow" slot="1">
+        <enchantments>
+          <enchantment level="1">arrow infinite</enchantment>
+          <enchantment level="1">durability</enchantment>
+        </enchantments>
+      </item>
+      <item material="iron pickaxe" slot="2">
+        <enchantments>
+          <enchantment level="1">durability</enchantment>
+        </enchantments>
+      </item>
+      <item material="iron axe" slot="3"/>
+      <item amount="32" material="log" slot="4"/>
+      <item amount="64" material="glass" slot="5"/>
+      <item amount="1" material="nether star" slot="6"/>
+      <item amount="1" material="golden apple" slot="7"/>
+      <item amount="32" material="golden carrot" slot="8"/>
+      <item amount="1" material="arrow" slot="28"/>
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="leather leggings" team-color="true"/>
+      <boots material="leather boots" team-color="true"/>
+    </loadout>
+    <loadout id="kill-reward">
+      <item material="golden apple"/>
+      <item material="nether star"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="kill-reward"/>
+    </rewards>
+  </kills>
+  <results>
+    <win scenario="objectives">
+      <check>
+        <time>45m</time>
+      </check>
+    </win>
+  </results>
+  <objectives>
+    <wools team="red">
+      <wool color="cyan">
+        <source>
+          <region id="cyan-wool-chests"/>
+        </source>
+        <destination>
+          <block>130, 8, 1</block>
+        </destination>
+      </wool>
+      <wool color="orange">
+        <source>
+          <region id="orange-wool-chests"/>
+        </source>
+        <destination>
+          <block>130, 8, -1</block>
+        </destination>
+      </wool>
+    </wools>
+    <wools team="blue">
+      <wool color="lime">
+        <source>
+          <region id="lime-wool-chests"/>
+        </source>
+        <destination>
+          <block>-7, 8, -1</block>
+        </destination>
+      </wool>
+      <wool color="yellow">
+        <source>
+          <region id="yellow-wool-chests"/>
+        </source>
+        <destination>
+          <block>-7, 8, 1</block>
+        </destination>
+      </wool>
+    </wools>
+  </objectives>
+  <regions>
+    <above id="height-limit" y="35"/>
+    <join id="orange-wool-chests">
+      <block>19, 7, 74</block>
+      <block>21, 5, 73</block>
+      <block>17, 5, 73</block>
+    </join>
+    <join id="cyan-wool-chests">
+      <block>17, 5, -73</block>
+      <block>21, 5, -73</block>
+      <block>19, 7, -74</block>
+    </join>
+    <join id="yellow-wool-chests">
+      <block>102, 5, -73</block>
+      <block>106, 5, -73</block>
+      <block>104, 7, -74</block>
+    </join>
+    <join id="lime-wool-chests">
+      <block>106, 5, 73</block>
+      <block>102, 5, 73</block>
+      <block>104, 7, 74</block>
+    </join>
+  </regions>
+  <zones>
+    <zone modify="never">
+      <region>
+        <invert>
+          <cuboid max="-14, 256, -76" min="137, 1, 76"/>
+        </invert>
+      </region>
+      <message>{errors.outside-map}</message>
+    </zone>
+    <zone modify="never" region="height-limit">
+      <message>{errors.height-limit}</message>
+    </zone>
+    <zone modify="always">
+      <enter>
+        <team>blue</team>
+      </enter>
+      <region>
+        <cuboid max="97, 256, 76" min="111, 1, 64"/>
+        <cuboid max="111, 256, -76" min="97, 1, -64"/>
+      </region>
+      <message>{errors.own-wool-room}</message>
+    </zone>
+    <zone modify="always">
+      <enter>
+        <team>red</team>
+      </enter>
+      <region>
+        <cuboid max="26, 256, -76" min="12, 1, -64"/>
+        <cuboid max="12, 256, 76" min="26, 1, 64"/>
+      </region>
+      <message>{errors.own-wool-room}</message>
+    </zone>
+    <zone modify="never">
+      <enter>
+        <team>red</team>
+      </enter>
+      <region>
+        <subtract>
+          <cuboid max="109, 256, -14" min="137, 1, 14"/>
+          <block>130, 8, -1</block>
+          <block>130, 8, 1</block>
+        </subtract>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never">
+      <enter>
+        <team>blue</team>
+      </enter>
+      <region>
+        <subtract>
+          <cuboid max="14, 256, 14" min="-14, 1, -14"/>
+          <block>-7, 8, 1</block>
+          <block>-7, 8, -1</block>
+        </subtract>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+  </zones>
+  <items>
+    <remove-drops>
+      <any>
+        <material>glass</material>
+        <material>arrow</material>
+        <material>wood</material>
+        <material>golden carrot</material>
+        <material>golden apple</material>
+        <material>arrow</material>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>leather leggings</material>
+        <material>leather boots</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>stone sword</material>
+        <material>iron axe</material>
+        <material>iron pickaxe</material>
+        <material>bow</material>
+      </any>
+    </repair-tools>
+  </items>
+</map>

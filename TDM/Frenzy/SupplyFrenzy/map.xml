@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="Supply: Frenzy" spec="1.0.0" version="1.1.0">
+  <include src="defaults.xml"/>
+  <authors>
+    <author uuid="c29bef37d8e242a9b74604f2df78f374"/> <!-- Legoche -->
+    <author uuid="9116d3fa14004adaaecd2eae1d73e383"/> <!-- Xuph -->
+  </authors>
+  <gametype>lts</gametype>
+  <compasses>
+    <compass target="enemy"/>
+  </compasses>
+  <teams>
+    <team color="cyan" id="cyan" max="12" min="1">{colors.cyan}</team>
+    <team color="red" id="red" max="12" min="1">{colors.red}</team>
+  </teams>
+  <objectives>
+    <last-team-standing team="cyan"/>
+    <last-team-standing team="red"/>
+  </objectives>
+  <elimination lives="1"/>
+  <results>
+    <win scenario="objectives">
+      <check>
+        <time>5m</time>
+      </check>
+    </win>
+  </results>
+  <spawns>
+    <spawn>
+      <regions>
+        <point yaw="90">0.5, 150, 0.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="cyan">
+      <regions>
+        <point yaw="135">23.5, 98, 51.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="red">
+      <regions>
+        <point yaw="-45">-22.5, 98, -50.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <loadouts>
+    <loadout id="default">
+      <helmet material="iron helmet"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="leather leggings" team-color="true"/>
+      <boots material="iron boots"/>
+      <item material="stone sword" slot="0"/>
+      <item material="bow" slot="1"/>
+      <item amount="16" material="golden carrot" slot="2"/>
+      <item material="compass" slot="3"/>
+      <item amount="16" material="arrow" slot="8"/>
+      <effect>night vision</effect>
+    </loadout>
+    <loadout id="one-golden-apple">
+      <item material="golden apple"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="one-golden-apple"/>
+    </rewards>
+  </kills>
+  <zones>
+    <load-group id="no-build"/>
+  </zones>
+  <items>
+    <remove-drops>
+      <any>
+        <material>golden carrot</material>
+        <material>leather chestplate</material>
+        <material>compass</material>
+        <material>leather leggings</material>
+        <material>iron helmet</material>
+        <material>iron boots</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>stone sword</material>
+        <material>bow</material>
+      </any>
+    </repair-tools>
+  </items>
+  <world>
+    <gamerules>
+      <doDaylightCycle>false</doDaylightCycle>
+    </gamerules>
+  </world>
+</map>

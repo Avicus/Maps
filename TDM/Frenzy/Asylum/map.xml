@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="Asylum" spec="1.0.0" version="1.0.0">
+  <include src="defaults.xml"/>
+  <authors>
+    <author uuid="68cfe240d81c46ae8a939e3eb5d71e3e"/> <!-- Myv -->
+    <author uuid="f3a45beadbde479181550988b644ac3b"/> <!-- ASquarePig -->
+  </authors>
+  <gametype>lts</gametype>
+  <teams>
+    <load-group id="teams.red-blue" max="10" min="1"/>
+  </teams>
+  <compasses>
+    <compass target="enemy"/>
+  </compasses>
+  <spawns>
+    <spawn> <!-- Obs -->
+      <regions>
+        <point yaw="0">-17, 113, -33</point>
+      </regions>
+    </spawn>
+    <spawn loadout="kit" team="red"> <!-- Red -->
+      <regions>
+        <point yaw="-45">-35.5, 70, -20.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="kit" team="blue"> <!-- Blue -->
+      <regions>
+        <point yaw="135">1.5, 70, 25.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <loadouts>
+    <loadout id="kit">
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="chainmail chestplate"/>
+      <leggings material="leather leggings" team-color="true"/>
+      <boots material="leather boots" team-color="true"/>
+      <item material="wood sword" slot="0"/>
+      <item material="bow" slot="1"/>
+      <item material="compass" slot="2"/>
+      <item amount="12" material="bread" slot="8"/>
+      <item amount="16" material="arrow" slot="28"/>
+    </loadout>
+    <loadout id="r"> <!-- Kill Reward -->
+      <item material="golden apple"/>
+      <item amount="2" material="arrow"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="r"/>
+    </rewards>
+  </kills>
+  <zones>
+    <zones>
+      <zone modify="never" region="everywhere"/>
+    </zones>
+  </zones>
+  <objectives>
+    <last-team-standing team="blue"/>
+    <last-team-standing team="red"/>
+  </objectives>
+  <elimination lives="1"/>
+  <results>
+    <win scenario="objectives">
+      <check>
+        <time>10m</time>
+      </check>
+    </win>
+  </results>
+  <items>
+    <remove-drops>
+      <any>
+        <material>golden apple</material>
+        <material>leather helmet</material>
+        <material>chainmail chestplate</material>
+        <material>leather leggings</material>
+        <material>leather boots</material>
+        <material>bread</material>
+        <material>stone sword</material>
+        <material>bow</material>
+        <material>arrow</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>wood sword</material>
+        <material>bow</material>
+      </any>
+    </repair-tools>
+  </items>
+</map>

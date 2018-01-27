@@ -1,0 +1,158 @@
+﻿<?xml version="1.0"?>
+<map name="Overgrown" spec="1.0.4" version="1.0.0">
+  <include src="Shared/tutorials/koth.xml"/>
+  <include src="defaults.xml"/>
+  <include src="Shared/reward-one-gap.xml"/>
+  <include src="Shared/conquest-shop.xml"/>
+  <authors>
+    <author uuid="075b5514-293a-4bd5-bcef-367e687d3556"/>  <!-- Umber -->
+    <author uuid="282f4bab-54bb-4e2a-8345-9583c8d533ce"/>  <!-- EDJM9 -->
+  </authors>
+  <tutorial>
+    <step countdown="5s" freeze="true" location="-22.5, 28, 6.5" pitch="27" yaw="-40">
+      <chat>
+        <line>^r • {tutorial.generic.team-spawns}</line>
+      </chat>
+    </step>
+    <step countdown="4s" freeze="true" location="-68, 22, 28" pitch="38" yaw="18">
+      <chat>
+        <line>^r • {tutorial.koth.hill-area}</line>
+      </chat>
+    </step>
+  </tutorial>
+  <gametype>hill</gametype>
+  <teams>
+    <team color="purple" id="purple" max="18" min="1">{colors.purple}</team>
+    <team color="yellow" id="yellow" max="18" min="1">{colors.yellow}</team>
+  </teams>
+  <spawns>
+    <spawn team="spectators" yaw="180">
+      <regions>
+        <point>-63.5,58,89.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" respawn-freeze="true" team="purple" yaw="-127">
+      <regions>
+        <point>-116,26,69</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" respawn-freeze="true" team="yellow" yaw="53">
+      <regions>
+        <point>-13,26,10</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <objectives>
+    <hill capture-time="7s" earn-points="always" name="Point A" points="1">
+      <capture>
+        <cylinder base="-14,14,67" height="2" radius="7"/>
+      </capture>
+      <progress>
+        <cylinder base="-14,14,67" height="28" radius="12"/>
+      </progress>
+    </hill>
+    <hill capture-time="12s" earn-points="always" name="{directions.center}" points="1">
+      <capture>
+        <cylinder base="-65,15,39" height="2" radius="6"/>
+      </capture>
+      <progress>
+        <cylinder base="-65,15,39" height="28" radius="12"/>
+      </progress>
+    </hill>
+    <hill capture-time="7s" earn-points="always" name="Point B" points="1">
+      <capture>
+        <cylinder base="-116,14,11" height="2" radius="7"/>
+      </capture>
+      <progress>
+        <cylinder base="-116,14,11" height="28" radius="12"/>
+      </progress>
+    </hill>
+    <scores limit="750">
+      <score id="purplescore" team="purple"/>
+      <score id="yellowscore" team="yellow"/>
+    </scores>
+  </objectives>
+  <results>
+    <win scenario="team" team="purple">
+      <check>
+        <any>
+          <objective team="purple">purplescore</objective>
+        </any>
+      </check>
+    </win>
+    <win scenario="team" team="yellow">
+      <check>
+        <any>
+          <objective team="yellow">yellowscore</objective>
+        </any>
+      </check>
+    </win>
+  </results>
+  <loadouts>
+    <loadout id="default">
+      <effect duration="5s">damage resistance</effect>
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="iron leggings" team-color="true"/>
+      <boots material="leather boots" team-color="true"/>
+      <item material="iron sword" slot="0"/>
+      <item material="bow" slot="1"/>
+      <item amount="2" material="golden apple" slot="2"/>
+      <item amount="16" material="cooked beef" slot="7"/>
+      <item amount="16" material="arrow" slot="27"/>
+    </loadout>
+    <loadout id="four-arrows">
+      <item amount="4" material="arrow"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="four-arrows"/>
+    </rewards>
+  </kills>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>iron leggings</material>
+        <material>leather boots</material>
+        <material>cooked beef</material>
+        <material>arrow</material>
+        <material>golden apple</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>iron sword</material>
+        <material>bow</material>
+      </any>
+    </repair-tools>
+  </items>
+  <zones>
+    <zone>
+      <region>
+        <cuboid max="-121,45,72" min="-112,24,65"/>
+      </region>
+      <enter>
+        <team>purple</team>
+      </enter>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone>
+      <region>
+        <cuboid max="-9,45,6" min="-18,24,13"/>
+      </region>
+      <enter>
+        <team>yellow</team>
+      </enter>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <load-group id="no-build"/>
+  </zones>
+  <world>
+    <gamerules>
+      <doDaylightCycle>true</doDaylightCycle>
+    </gamerules>
+  </world>
+</map>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="Arkashia KOTH" spec="1.0.0" version="1.1.0">
+  <include src="defaults.xml"/>
+  <include src="Shared/nexus-kits.xml"/>
+  <include src="Shared/reward-one-gap.xml"/>
+  <authors>
+    <author uuid="706eaabd35314470b6b0f7937f644e67"/>
+    <author uuid="99d1680d4e484f53af0e68d1e22696bc"/>
+    <author uuid="6ceda19d312c4b42aee3acbdf9c9fc13"/>
+  </authors>
+  <teams>
+    <load-group id="teams.red-blue" max="25" min="1"/>
+  </teams>
+  <broadcasts>
+    <broadcast format="alert" interval="2m">{broadcasts.map-kits}</broadcast>
+    <broadcast format="alert" interval="2m">{broadcasts.map-kits-2}</broadcast>
+  </broadcasts>
+  <objectives>
+    <hill capture-time="12s" id="capture-center" name="Bridge" points="2">
+      <capture>
+        <cylinder base="850, 71, -151" height="2" radius="4"/>
+      </capture>
+      <progress>
+        <cylinder base="850, 71, -151" height="2" radius="4"/>
+      </progress>
+    </hill>
+    <hill capture-time="7s" id="waterfall" name="Waterfall" points="1">
+      <capture>
+        <cylinder base="893, 79, -151" height="2" radius="4"/>
+      </capture>
+      <progress>
+        <cylinder base="893, 79, -151" height="2" radius="4"/>
+      </progress>
+    </hill>
+    <hill capture-time="7s" id="stronghold" name="Stronghold" points="1">
+      <capture>
+        <cylinder base="808, 85, -151" height="2" radius="4"/>
+      </capture>
+      <progress>
+        <cylinder base="808, 85, -151" height="2" radius="4"/>
+      </progress>
+    </hill>
+    <scores limit="500">
+      <score team="red"/>
+      <score team="blue"/>
+    </scores>
+  </objectives>
+  <results>
+    <win scenario="objectives">
+      <check>
+        <time>8m</time>
+      </check>
+    </win>
+  </results>
+  <spawns>
+    <spawn yaw="90">
+      <regions>
+        <block>746, 126, -152</block>
+      </regions>
+    </spawn>
+    <spawn team="red" yaw="0">
+      <regions>
+        <block>851, 70, -206</block>
+      </regions>
+    </spawn>
+    <spawn team="blue" yaw="180">
+      <regions>
+        <block>849, 70, -94</block>
+      </regions>
+    </spawn>
+  </spawns>
+  <zones>
+    <zones>
+      <zone modify="never" region="everywhere"/>
+    </zones>
+  </zones>
+  <world>
+    <gamerules>
+      <doTileDrops>false</doTileDrops>
+    </gamerules>
+  </world>
+</map>

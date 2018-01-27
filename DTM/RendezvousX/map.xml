@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="Rendezvous X" spec="1.0.6" version="1.4.0">
+    <include src="defaults.xml"/>
+    <include src="Shared/reward-one-gap.xml"/>
+    <authors>
+        <author uuid="bf331953-4f92-43ee-8abc-7544b8234936"/>
+        <!--    Vice    -->
+        <author uuid="44df6b20-168f-4389-b7ac-434518207c2f"/>
+        <!-- Orignal Creator (parapenguin) -->
+        <author uuid="378952b5-808f-4a33-911e-39c7ba153b38"/>
+        <!-- Pavlo -->
+    </authors>
+    <teams>
+        <team color="blue" id="blue" max="18" min="1">{colors.blue}</team>
+        <team color="red" id="red" max="18" min="1">{colors.red}</team>
+    </teams>
+    <spawns>
+        <!--    Spectator spawn    -->
+        <spawn>
+            <regions>
+                <point yaw="90">64.5,33,18.5</point>
+            </regions>
+        </spawn>
+        <!--    Team spawns    -->
+        <spawn loadout="all" team="blue" yaw="-180">
+            <regions>
+                <point yaw="-180">0.5,14,84.5</point>
+            </regions>
+        </spawn>
+        <spawn loadout="all" team="red" yaw="0">
+            <regions>
+                <point yaw="0">0.5,14,-47.5</point>
+            </regions>
+        </spawn>
+    </spawns>
+    <world>
+        <gamerules>
+            <doDaylightCycle>false</doDaylightCycle>
+        </gamerules>
+    </world>
+    <objectives>
+        <monuments materials="obsidian">
+            <monuments owner="blue">
+                <monument name="{directions.left}">
+                    <region>
+                        <join>
+                            <block>32,18,155</block>
+                            <block>32,16,155</block>
+                        </join>
+                    </region>
+                </monument>
+                <monument name="{directions.right}">
+                    <region>
+                        <join>
+                            <block>-32,16,155</block>
+                            <block>-32,18,155</block>
+                        </join>
+                    </region>
+                </monument>
+            </monuments>
+            <monuments owner="red">
+                <monument name="{directions.left}">
+                    <region>
+                        <join>
+                            <block>-32,16,-119</block>
+                            <block>-32,18,-119</block>
+                        </join>
+                    </region>
+                </monument>
+                <monument name="{directions.right}">
+                    <region>
+                        <join>
+                            <block>32,16,-119</block>
+                            <block>32,18,-119</block>
+                        </join>
+                    </region>
+                </monument>
+            </monuments>
+        </monuments>
+    </objectives>
+    <loadouts>
+        <loadout id="all">
+            <helmet material="leather helmet" team-color="true"/>
+            <chestplate material="leather chestplate" team-color="true"/>
+            <leggings material="leather leggings" team-color="true"/>
+            <boots material="leather boots" team-color="true"/>
+            <item material="iron sword" slot="0"/>
+            <item material="bow" slot="1"/>
+            <item material="diamond pickaxe" slot="2"/>
+            <item amount="3" material="golden apple" slot="3"/>
+            <item amount="48" material="log" slot="4"/>
+            <item amount="64" material="glass" slot="7"/>
+            <item amount="32" material="cooked fish" slot="8"/>
+            <item amount="64" material="arrow" slot="27"/>
+        </loadout>
+    </loadouts>
+    <regions>
+        <join id ="void-outer">
+            <void/>
+        </join>
+    </regions>
+    <zones>
+        <zone modify="never">
+            <region>
+                <above y="55"/>
+            </region>
+            <message>{errors.height-limit}</message>
+        </zone>
+        <zone modify="never">
+            <region>
+                <cuboid max="-5,7,-53" min="5,18,-43"/>
+            </region>
+            <message>{errors.spawn-restricted}</message>
+        </zone>
+        <zone modify="never">
+            <region>
+                <cuboid max="5,7,79" min="-5,18,89"/>
+            </region>
+            <message>{errors.spawn-restricted}</message>
+        </zone>
+    </zones>
+    <items>
+        <remove-drops>
+            <any>
+                <material>leather helmet</material>
+                <material>leather chestplate</material>
+                <material>leather leggings</material>
+                <material>leather boots</material>
+                <material>log</material>
+                <material>arrow</material>
+                <material>cooked fish</material>
+                <material>golden apple</material>
+                <material>wood</material>
+                <material>glass</material>
+            </any>
+        </remove-drops>
+        <repair-tools>
+            <any>
+                <material>iron sword</material>
+                <material>bow</material>
+                <material>diamond pickaxe</material>
+            </any>
+        </repair-tools>
+    </items>
+</map>

@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<map name="Rapture II" spec="1.0.0" version="1.1.0">
+  <include src="defaults.xml"/>
+  <include src="Shared/reward-one-gap.xml"/>
+  <authors>
+    <author role="Map author" uuid="3893a242cc17447e9b1c774fc8941af8"/>
+  </authors>
+  <teams>
+    <load-group id="teams.red-blue" max="20" min="1"/>
+  </teams>
+  <gametype>score</gametype>
+  <!-- No Score Limit -->
+  <objectives>
+    <scores kills="1">
+      <score team="blue"/>
+      <score team="red"/>
+    </scores>
+  </objectives>
+  <results>
+    <win scenario="objectives">
+      <check>
+        <time>7m</time>
+      </check>
+    </win>
+  </results>
+  <spawns>
+    <spawn>
+      <regions>
+        <point yaw="-180">77.5, 105, -785.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="blue">
+      <regions>
+        <point yaw="-90">-40.5, 23, -847.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="red">
+      <regions>
+        <point yaw="90">195.5, 23, -841.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <zones>
+    <!-- Blue Spawn -->
+    <zone modify="never">
+      <region>
+        <cylinder base="-40, 17, -847" height="10" radius="10"/>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <!-- Red Spawn -->
+    <zone modify="never">
+      <region>
+        <cylinder base="195, 17, -841" height="10" radius="10"/>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+  </zones>
+  <loadouts>
+    <loadout id="default">
+      <effect duration="5s">damage resistance</effect>
+      <helmet material="iron helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <item material="stone axe" slot="0">
+        <enchantment level="2">damage_all</enchantment>
+      </item>
+      <item material="bow" slot="1">
+        <enchantment>arrow infinite</enchantment>
+      </item>
+      <item material="iron pickaxe" slot="2"/>
+      <item material="golden apple" slot="3"/>
+      <item amount="48" material="cobblestone" slot="4"/>
+      <item amount="32" damage="1" material="log" slot="5"/>
+      <item amount="32" damage="3" material="leaves" slot="6"/>
+      <item amount="16" material="cooked fish" slot="7"/>
+      <item amount="16" material="lapis block" slot="8"/>
+      <item amount="1" material="arrow" slot="28"/>
+    </loadout>
+  </loadouts>
+  <items>
+    <remove-drops>
+      <any>
+        <material>iron helmet</material>
+        <material>leather chestplate</material>
+        <material>cobblestone</material>
+        <material>log</material>
+        <material>leaves</material>
+        <material>cooked fish</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>iron pickaxe</material>
+        <material>bow</material>
+        <material>stone axe</material>
+      </any>
+    </repair-tools>
+  </items>
+</map>

@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="Greater Than" spec="1.0.5" version="1.0.0">
+  <include src="defaults.xml"/>
+  <include src="Shared/tutorials/ctw.xml"/>
+  <gametype>ctw</gametype>
+  <authors>
+    <author uuid="1154d26dfa5d4c429a38aa3506d6ac7e"/> <!-- Stuarts -->
+  </authors>
+  <contributors>
+    <contributor uuid="075b5514293a4bd5bcef367e687d3556"/> <!-- Spo0kyKoja -->
+  </contributors>
+  <teams>
+    <team id="green" color="green" min="1" max="15">{colors.green}</team>
+    <team id="blue" color="blue" min="1" max="15">{colors.blue}</team>
+  </teams>
+  <spawns>
+    <!-- Spectator spawn -->
+    <spawn yaw="-175">
+      <region>
+        <cuboid max="-77, 100, 92" min="-75, 100, 90"/>
+      </region>
+    </spawn>
+    <!-- Team spawns -->
+    <spawn loadout="blue-main" team="blue" yaw="90">
+      <regions>
+        <point>48, 73, 0</point>
+      </regions>
+    </spawn>
+    <spawn loadout="green-main" team="green" yaw="-90">
+      <regions>
+        <point>-200, 73, 0</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <loadouts>
+    <loadout id="main">
+      <item material="stone sword" slot="0"/>
+      <item material="bow" slot="1">
+      </item>
+      <item material="iron pickaxe" slot="4">
+        <enchantments>
+          <enchantment level="3">durability</enchantment>
+        </enchantments>
+      </item>
+      <item amount="24" damage="1" material="log" slot="5"/>
+      <item amount="1" material="golden apple" slot="2"/>
+      <item amount="1" material="stone axe" slot="3">
+        <enchantments>
+          <enchantment level="5">durability</enchantment>
+          <enchantment level="3">dig speed</enchantment>
+        </enchantments>
+      </item>
+      <item amount="12" material="cooked beef" slot="8"/>
+      <item amount="16" material="arrow" slot="28"/>
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="chainmail leggings"/>
+      <boots material="iron boots"/>
+    </loadout>
+    <loadout id="green-main" parent="main">
+      <item amount="16" damage="13" material="stained glass" slot="6"/>
+    </loadout>
+    <loadout id="blue-main" parent="main">
+      <item amount="16" damage="11" material="stained glass" slot="6"/>
+    </loadout>
+    <loadout id="kr">
+      <item material="golden apple"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="kr"/>
+    </rewards>
+  </kills>
+  <regions>
+    <join id="main-map">
+      <cuboid max="-239, 100, -104" min="94, 0, 98"/>
+    </join>
+    <join id="center">
+      <cuboid max="-110, oo, 43" min="-42, 0, 8"/>
+    </join>
+    <join id="lightblue-wool-room">
+      <cuboid id="lightblue-wool" max="46, 94, 81" min="32, 0, 66"/>
+    </join>
+    <join id="purple-wool-room">
+      <cuboid id="purple-wool" max="-47, 94, -81" min="-32, 0, -66"/>
+    </join>
+    <join id="yellow-wool-room">
+      <cuboid id="yellow-wool" max="-121, 94, -81" min="-105, 0, -66"/>
+    </join>
+    <join id="lime-wool-room">
+      <cuboid id="lime-wool" max="-183, 94, 81" min="-199, 0, 66"/>
+    </join>
+    <join id="lightblue-wool-location">
+      <block>39, 69, 73</block>
+    </join>
+    <join id="purple-wool-location">
+      <block>-39, 69, -73</block>
+    </join>
+    <join id="yellow-wool-location">
+      <block>-113, 69, -73</block>
+    </join>
+    <join id="lime-wool-location">
+      <block>-191, 69, 73</block>
+    </join>
+    <above id="height-limit" y="100"/>
+  </regions>
+  <checks>
+    <team id="only-green">green</team>
+    <team id="only-blue">blue</team>
+  </checks>
+  <zones>
+    <zone modify="never">
+      <region>
+        <invert>
+          <region id="main-map"/>
+        </invert>
+      </region>
+      <message>{errors.outside-map}</message>
+    </zone>
+    <!-- Green Spawn -->
+    <zone enter="only-green">
+      <region>
+        <subtract>
+          <cuboid max="-215, oo, 8" min="-163, 0, -8"/>
+          <block>-208, 74, 1</block>
+          <block>-208, 74, -1</block>
+        </subtract>
+      </region>
+      <modify>
+        <material>iron block</material>
+      </modify>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <!-- Blue Spawn -->
+    <zone enter="only-blue">
+      <region>
+        <subtract>
+          <cuboid max="62, oo, -8" min="11, 0, 8"/>
+          <block>56, 74, -1</block>
+          <block>56, 74, 1</block>
+        </subtract>
+      </region>
+      <modify>
+        <material>iron block</material>
+      </modify>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never" region="center">
+      <message>{errors.outside-map}</message>
+    </zone>
+    <zone modify="never" region="lightblue-wool-room">
+     <enter>
+       <any>
+         <team>green</team>
+       </any>
+     </enter>
+   </zone>
+   <zone modify="never" region="purple-wool-room">
+     <enter>
+       <any>
+         <team>green</team>
+       </any>
+     </enter>
+   </zone>
+   <zone modify="never" region="yellow-wool-room">
+     <enter>
+       <any>
+         <team>blue</team>
+       </any>
+     </enter>
+   </zone>
+   <zone modify="never" region="lime-wool-room">
+     <enter>
+       <any>
+         <team>blue</team>
+       </any>
+     </enter>
+   </zone>
+  </zones>
+  <objectives>
+    <wools>
+      <wools pickup="false" team="green">
+        <wool color="purple">
+          <destination>
+            <join>
+              <block>-208, 74, -1</block>
+            </join>
+          </destination>
+          <source>
+            <region id="purple-wool-location"/>
+          </source>
+        </wool>
+        <wool color="light blue">
+          <destination>
+            <join>
+              <block>-208, 74, 1</block>
+            </join>
+          </destination>
+          <source>
+            <region id="lightblue-wool-location"/>
+          </source>
+        </wool>
+      </wools>
+      <wools pickup="false" team="blue">
+        <wool color="lime">
+          <destination>
+            <join>
+              <block>56, 74, 1</block>
+            </join>
+          </destination>
+          <source>
+            <region id="lime-wool-location"/>
+          </source>
+        </wool>
+        <wool color="yellow">
+          <destination>
+            <join>
+              <block>56, 74, -1</block>
+            </join>
+          </destination>
+          <source>
+            <region id="yellow-wool-location"/>
+          </source>
+        </wool>
+      </wools>
+      </wools>
+  </objectives>
+  <world>
+    <storm>false</storm>
+    <weather check="always"/>
+  </world>
+  <items>
+    <remove-drops>
+      <any>
+        <material>log</material>
+        <material>stone sword</material>
+        <material>stone axe</material>
+        <material>bow</material>
+        <material>string</material>
+        <material>cooked beef</material>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>chainmail leggings</material>
+        <material>iron boots</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>stone sword</material>
+        <material>bow</material>
+        <material>iron pickaxe</material>
+      </any>
+    </repair-tools>
+  </items>
+</map>

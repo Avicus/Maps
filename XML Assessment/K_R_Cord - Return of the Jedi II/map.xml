@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="Return of the Jedi xTREME" version="1.2.0" spec="1.0.4">
+    <include src="defaults.xml"/>
+    <!-- Authors -->
+    <authors>
+      <author uuid="42b105207c51425292d98b65df108b12"/> <!-- PieZ -->
+      <author uuid="dc56a94d03984a13a115018a84b8082c"/> <!-- K_R_Cord -->
+    </authors>
+    <!-- Teams -->
+    <teams>
+        <team id="team luigi" color="green" min="1" max="1000">{colors.green}</team>
+        <team id="team mario" color="red" min="1" max="1000">{colors.red}</team>
+    </teams>
+    <!-- Spawns -->
+    <spawns>
+      <spawn team="spectators" yaw="90">
+        <regions>
+            <point yaw="90">0,0,0</point>
+        </regions>
+      </spawn>
+      <spawn team="team luigi" yaw="0" loadout="default">
+        <regions>
+            <point yaw="0">-206, 85.5, 160</point>
+        </regions>
+      </spawn>
+      <spawn team="team mario" yaw="180" loadout="default">
+        <regions>
+            <point yaw="180">-207, 85.5, -3.5</point>
+        </regions>
+      </spawn>
+    </spawns>
+    <!-- Objectives -->
+    <objectives>
+        <scores kills="1" limit="250">
+            <score team="team luigi"/>
+            <score team="team mario"/>
+        </scores>
+    </objectives>
+    <results>
+        <win scenario="objectives">
+            <check>
+                <time>69m</time>
+            </check>
+        </win>
+    </results>
+    <!-- Regions -->
+    <regions>
+      <cuboid id="green-side-bottom" min="-143,91,94" max="-269,84,170"/>
+      <cuboid id="green-side-top" min="-143,92,94" max="-143,103,170"/>
+      <cuboid id="platform" min="-259, 91, 64" max="-161,91,93"/>
+    </regions>
+    <!-- Triggers -->
+    <triggers>
+        <trigger on="match-start" execute="burn"/>
+    </triggers>
+    <!-- Executors -->
+    <executors>
+      <executor id="burn" check="always">
+          <execution-group check="always">
+              <replace-block find="stained clay" replace="stained_clay:5" region="green-side-bottom"/>
+              <replace-block find="stained clay" replace="stained_clay:13" region="green-side-top"/>
+              <replace-block find="air" replace="stained_clay:15" region="platform"/>
+          </execution-group>
+        </executor>
+      </executors>
+      <!-- Loadout -->
+      <loadouts>
+        <loadout id="default">
+          <item slot="0" material="bow" projectile="smallfireball"/>
+          <item slot="1" material="golden apple" amount="55"/>
+          <item slot="8" material="arrow" amount="64"/>
+          <item slot="7" material="arrow" amount="64"/>
+          <item slot="6" material="arrow" amount="64"/>
+        </loadout>
+      </loadouts>
+      <!-- Projectiles -->
+      <projectiles>
+        <projectile id="smallfireball" name="fireball" type="small fireball" damage="100" cooldown="1s"/>
+      </projectiles>
+</map>

@@ -1,0 +1,43 @@
+<shops>
+  <shop id="nebula-shop" name="Nebula Shop" open-check="always">
+    <point-config>
+      <player-kill>1</player-kill>
+    </point-config>
+    <items>
+      <item check="always" name="Spanky Spade" prestige="0" price="10">
+        <description>
+          <line>Knockback V on an 11 use diamond shovel.</line>
+        </description>
+        <stack damage="1550" material="diamond spade">
+          <enchantments>
+            <enchantment level="5">knockback</enchantment>
+          </enchantments>
+        </stack>
+      </item>
+      <item check="always" name="Arrows" prestige="0" price="5">
+        <description>
+          <line>More arrows to shoot at enemies</line>
+        </description>
+        <stack amount="64" material="arrow"/>
+      </item>
+      <item check="always" name="Golden Apples" prestige="0" price="2">
+        <description>
+          <line>Heal yourself with apples</line>
+        </description>
+        <stack amount="5" material="golden apple"/>
+      </item>
+      <item check="always" name="Small Speed Potion" prestige="0" price="4">
+        <description>
+          <line>Get a boost of speed</line>
+        </description>
+        <stack damage="8194" material="potion"/>
+      </item>
+      <item check="always" name="Big Speed Potion" prestige="0" price="6">
+        <description>
+          <line>Get a bigger boost of speed</line>
+        </description>
+        <stack damage="8194" material="potion"/>
+      </item>
+    </items>
+  </shop>
+</shops>

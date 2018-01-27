@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map genre="sky wars" name="Destroyed Cave" spec="1.0.0" version="1.0.0">
+  <include src="defaults.xml"/>
+  <include src="Shared/skywars.xml"/>
+  <authors>
+    <author uuid="bf3319534f9243ee8abc7544b8234936"/>  <!-- Spidercell -->
+    <author uuid="3cce00809faa48f982cf64410305822a"/>  <!-- ProfessorUtonium -->
+  </authors>
+  <ffa max="8" max-overfill="8" min="2"/>
+  <objectives>
+    <last-competitor-standing/>
+  </objectives>
+  <results>
+    <win scenario="objectives">
+      <check>
+        <time>7m</time>
+      </check>
+    </win>
+  </results>
+  <compasses>
+    <compass target="enemy"/>
+  </compasses>
+  <spawns>
+    <spawn team="spectators" yaw="0">
+      <regions>
+        <block>-45, 50, -32</block>
+      </regions>
+    </spawn>
+    <spawn loadout="default" look="-45, 31, 46" mode="safe">
+      <regions>
+        <block>17, 31, 46</block>
+        <block>1, 31, 93</block>
+        <block>-45, 31, 109</block>
+        <block>-92, 31, 93</block>
+        <block>-108, 31, 46</block>
+        <block>-92, 31, 0</block>
+        <block>-45, 31, -16</block>
+        <block>1, 31, 0</block>
+      </regions>
+    </spawn>
+  </spawns>
+  <elimination lives="1"/>
+  <loadouts>
+    <loadout id="default">
+      <helmet material="leather helmet" team-color="true"/>
+      <item material="wood sword" slot="0"/>
+      <item amount="4" material="cooked chicken" slot="7"/>
+      <item material="compass" slot="8"/>
+    </loadout>
+  </loadouts>
+  <remove-drops>
+    <any>
+      <material>compass</material>
+    </any>
+  </remove-drops>
+</map>

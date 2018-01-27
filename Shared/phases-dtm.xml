@@ -1,0 +1,17 @@
+<!-- Default phases used for maps in DTM. -->
+<map>
+  <phases countdown-message="{phases.transition}" fail-message="{phases.monument.fail}">
+    <phase delay="25m" id="gold" pass-phase="glass" success-message="{phases.monument.gold}">
+      ^eGold
+      <materials>
+        <material find="obsidian" replace="gold block"/>
+      </materials>
+    </phase>
+    <phase delay="20m" id="glass" success-message="{phases.monument.glass}">
+      Glass
+      <materials>
+        <material find="gold block" replace="glass"/>
+      </materials>
+    </phase>
+  </phases>
+</map>

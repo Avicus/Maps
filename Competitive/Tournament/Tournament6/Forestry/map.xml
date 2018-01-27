@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="Forestry" spec="1.0.4" version="1.0.3">
+  <include src="defaults.xml"/>
+  <include src="Shared/reward-one-gap.xml"/>
+  <authors>
+    <author uuid="0b8f95fa0f404f289fd0b8e243bb6800"/> <!-- Fouled -->
+  </authors>
+  <teams>
+    <team color="blue" id="blue" max="8" min="1">{colors.blue}</team>
+    <team color="purple" id="purple" max="8" min="1">{colors.purple}</team>
+  </teams>
+  <spawns>
+    <spawn>
+      <regions>
+        <point yaw="90">40.5, 75, 65.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" respawn-delay="5s" respawn-freeze="true" team="blue">
+      <regions>
+        <point yaw="180">-37.5, 90, 153.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" respawn-delay="5s" respawn-freeze="true" team="purple">
+      <regions>
+        <point yaw="0">-37.5, 90, -22.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <world>
+    <gamerules>
+      <doDaylightCycle>false</doDaylightCycle>
+    </gamerules>
+  </world>
+  <broadcasts>
+    <broadcast format="alert" interval="5m">{broadcasts.wool-safeties}</broadcast>
+  </broadcasts>
+  <loadouts>
+    <loadout id="default">
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="leather leggings" team-color="true"/>
+      <boots material="iron boots" team-color="true"/>
+      <item material="iron sword" slot="0"/>
+      <item material="bow" slot="1"/>
+      <item material="diamond pickaxe" slot="2"/>
+      <item material="iron axe" slot="3"/>
+      <item amount="20" damage="1" material="log" slot="4"/>
+      <item amount="64" material="glass" slot="5"/>
+      <item amount="16" material="cooked beef" slot="6"/>
+      <item material="golden apple" slot="7"/>
+      <item amount="64" material="arrow" slot="28"/>
+    </loadout>
+    <loadout id="reward-get">
+      <item amount="10" material="arrow"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="reward-get"/>
+    </rewards>
+  </kills>
+  <results>
+    <win scenario="objectives">
+      <check>
+        <time>45m</time>
+      </check>
+    </win>
+  </results>
+  <objectives>
+    <wools refill-delay="5m" team="blue">
+      <wool color="yellow">
+        <source>
+          <block>-41, 9, -43</block>
+        </source>
+        <destination>
+          <block>-40, 6, 155</block>
+        </destination>
+      </wool>
+      <wool color="orange">
+        <source>
+          <block>-35, 9, -43</block>
+        </source>
+        <destination>
+          <block>-36, 6, 155</block>
+        </destination>
+      </wool>
+    </wools>
+    <wools refill-delay="5m" team="purple">
+      <wool color="light blue">
+        <source>
+          <block>-41, 9, 173</block>
+        </source>
+        <destination>
+          <block>-40, 6, -25</block>
+        </destination>
+      </wool>
+      <wool color="red">
+        <source>
+          <block>-35, 9, 173</block>
+        </source>
+        <destination>
+          <block>-36, 6, -25</block>
+        </destination>
+      </wool>
+    </wools>
+  </objectives>
+  <regions>
+    <subtract id="void-outer"> <!-- All blocks of void minus the mid region -->
+      <void/>
+      <cuboid max="-76,30,-2" min="-64,0,-10"/>
+      <cuboid max="-57,30,11" min="-63,0,-1"/>
+      <cuboid max="-13,30,1" min="-19,0,-11"/>
+      <cuboid max="-12,30,10" min="0,0,2"/>
+      <cuboid max="-12,30,43" min="0,0,30"/>
+      <cuboid max="-64,30,43" min="-76,0,30"/>
+      <cuboid max="5,30,71" min="-48,0,59"/>
+      <cuboid max="-12,30,52" min="0,0,78"/>
+      <cuboid max="-44,30,58" min="-48,0,72"/>
+      <cuboid max="-12,30,100" min="0,0,87"/>
+      <cuboid max="-12,30,128" min="0,0,120"/>
+      <cuboid max="-19,30,141" min="-13,0,129"/>
+      <cuboid max="-63,30,119" min="-57,0,131"/>
+      <cuboid max="-76,30,132" min="-64,0,140"/>
+      <cuboid max="-64,30,87" min="-76,0,100"/>
+    </subtract>
+    <above id="height-limit" y="30"/>
+  </regions>
+  <damage>
+    <disable>
+      <all>
+        <damage>fall</damage>
+        <inside>
+          <region>
+            <join>
+              <cuboid max="-40, 8, 154" min="-36, 4, 151"/>
+              <cuboid max="-36, 8, -24" min="-40, 4, -21"/>
+            </join>
+          </region>
+        </inside>
+      </all>
+    </disable>
+  </damage>
+  <zones>
+    <zone modify="never">
+      <enter>
+        <team>blue</team>
+      </enter>
+      <region>
+        <subtract id="monument-enter"> <!-- All of the blocks minus the monument -->
+          <cuboid max="-32, 35, 155" min="-44, 0, 144"/>
+          <block>-36, 6, 155</block>
+          <block>-40, 6, 155</block>
+        </subtract>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never">
+      <enter>
+        <team>purple</team>
+      </enter>
+      <region>
+        <subtract id="monument-enter"> <!-- All of the blocks minus the monument -->
+          <cuboid max="-32, 35, -25" min="-44, 0, -14"/>
+          <block>-40, 6, -25</block>
+          <block>-36, 6, -25</block>
+        </subtract>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never">
+      <enter>
+        <team>blue</team>
+      </enter>
+      <region>
+        <join>
+          <cuboid max="-29, 35, 180" min="-47, 17, 166"/>
+          <cuboid max="-37, 35, 165" min="-39, 0, 187"/>
+        </join>
+      </region>
+      <message>{errors.cannot-build}</message>
+    </zone>
+    <zone modify="never">
+      <enter>
+        <team>purple</team>
+      </enter>
+      <region>
+        <join>
+          <cuboid max="-47, 35, -50" min="-29, 17, -36"/>
+          <cuboid max="-39, 35, -35" min="-37, 0, -57"/>
+        </join>
+      </region>
+      <message>{errors.cannot-build}</message>
+    </zone>
+    <zone modify="never" water-rule="no-flow">
+      <region>
+        <join>
+          <cylinder base="-16, 15, 65" height="22" radius="4"/>
+          <cylinder base="-70, 13, 65" height="20" radius="4"/>
+        </join>
+      </region>
+      <message>{errors.cannot-build}</message>
+    </zone>
+    <zone>
+      <enter>
+        <team>blue</team>
+      </enter>
+      <modify>
+        <team>blue</team>
+      </modify>
+      <region>
+        <join id="wool-room-modify"> <!-- All of the blocks minus the monument -->
+          <cuboid max="-53, 35, -49" min="-23, 0, -37"/>
+          <cuboid max="-48, 10, -44" min="-48, 8, -42"/>
+          <cuboid max="-28, 10, -42" min="-28, 8, -44"/>
+        </join>
+      </region>
+      <message>{errors.cannot-build}</message>
+    </zone>
+    <zone>
+      <enter>
+        <team>purple</team>
+      </enter>
+      <modify>
+        <team>purple</team>
+      </modify>
+      <region>
+        <join id="wool-room-modify"> <!-- All of the blocks minus the monument -->
+          <cuboid max="-23, 35, 179" min="-53, 0, 167"/>
+          <cuboid max="-28, 10, 174" min="-28, 8, 172"/>
+          <cuboid max="-48, 10, 172" min="-48, 8, 174"/>
+        </join>
+      </region>
+      <message>{errors.cannot-build}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <join>
+          <block>-35, 9, -40</block>
+          <block>-35, 8, -40</block>
+          <block>-35, 9, -46</block>
+          <block>-35, 8, -46</block>
+          <block>-36, 11, -41</block>
+          <block>-36, 11, -45</block>
+          <block>-41, 8, -46</block>
+          <block>-41, 9, -46</block>
+          <block>-41, 8, -40</block>
+          <block>-41, 9, -40</block>
+          <block>-40, 11, -45</block>
+          <block>-40, 11, -41</block>
+          <block>-35, 9, 176</block>
+          <block>-35, 8, 176</block>
+          <block>-35, 8, 170</block>
+          <block>-35, 9, 170</block>
+          <block>-36, 11, 171</block>
+          <block>-36, 11, 175</block>
+          <block>-41, 9, 170</block>
+          <block>-41, 8, 170</block>
+          <block>-41, 9, 176</block>
+          <block>-41, 8, 176</block>
+          <block>-40, 11, 175</block>
+          <block>-40, 11, 171</block>
+          <cuboid max="-22, 2, -37" min="-54, 0, -49"/>
+          <cuboid max="-54, 2, 179" min="-22, 0, -167"/>
+        </join>
+      </region>
+      <message>{errors.cannot-build}</message>
+    </zone>
+    <zone modify="never" region="void-outer" water-rule="no-flow">
+      <message>{errors.outside-map}</message>
+    </zone>
+    <zone modify="never" region="height-limit" water-rule="no-flow">
+      <message>{errors.height-limit}</message>
+    </zone>
+  </zones>
+  <executors>
+    <executor check="always" id="match-start-regions">
+      <replace-block find="stained glass" replace="air">
+        <region>
+          <cuboid max="-98, 35, -13" min="15, 0, 141"/>
+        </region>
+      </replace-block>
+    </executor>
+  </executors>
+  <triggers>
+    <trigger execute="match-start-regions" on="match-start"/>
+  </triggers>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>leather leggings</material>
+        <material>leather boots</material>
+        <material>glass</material>
+        <material>cooked beef</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>iron sword</material>
+        <material>bow</material>
+        <material>diamond pickaxe</material>
+        <material>iron axe</material>
+      </any>
+    </repair-tools>
+  </items>
+</map>

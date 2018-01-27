@@ -1,0 +1,126 @@
+<?xml version="1.0"?>
+<map name="Skyward Valley" spec="1.0.4" version="1.0.0">
+  <include src="defaults.xml"/>
+  <include src="Shared/reward-one-gap.xml"/>
+  <include src="Shared/reward-one-arrow.xml"/>
+  <authors>
+    <author uuid="4f71d9f9-953d-4b5d-86ae-9d46e5083d2b"/> <!-- Radstock2 -->
+    <author uuid="cc67ec01-4b98-4e65-b0ed-49c14c6cb88b"/> <!-- DiaolicForce -->
+    <author uuid="e7fe6589-3b2c-435f-9c03-8e82d5c7ca84"/> <!-- TempestTemplar -->
+    <author contributor="true" role="Helping with the layout"
+      uuid="fe3608b7-d105-4029-8800-34b3147065b6"/> <!-- rockymine -->
+  </authors>
+  <teams>
+    <load-group id="teams.red-blue" max="14" min="1"/>
+  </teams>
+  <loadouts>
+    <loadout id="spawnl">
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="leather leggings" team-color="true"/>
+      <boots material="leather boots" team-color="true"/>
+      <item material="iron sword" slot="0" unbreakable="true"/>
+      <item material="bow" slot="1" unbreakable="true"/>
+      <item material="iron pickaxe" slot="2" unbreakable="true"/>
+      <item material="iron axe" slot="3" unbreakable="true"/>
+      <item amount="32" material="arrow" slot="28"/>
+      <item amount="42" material="wood" slot="4"/>
+      <item amount="32" material="glass" slot="6"/>
+      <item amount="1" material="golden apple" slot="7"/>
+      <item amount="64" id="`rFlying Fish" material="cooked fish" slot="5"/>
+    </loadout>
+  </loadouts>
+  <spawns>
+    <spawn loadout="spawnl" team="red">
+      <regions yaw="180">
+        <cylinder base="7,109,244" height="3" radius="2"/>
+      </regions>
+    </spawn>
+    <spawn loadout="spawnl" team="blue">
+      <regions yaw="0">
+        <cylinder base="7,109,23" height="3" radius="2"/>
+      </regions>
+    </spawn>
+    <spawn>
+      <regions yaw="90">
+        <cylinder base="-65,160,114" height="6" radius="4"/>
+      </regions>
+    </spawn>
+  </spawns>
+  <objectives>
+    <wools pickup="false">
+      <wool color="magenta" team="blue">
+        <source>
+          <block>52,123,265</block>
+        </source>
+        <destination>
+          <block>10,110,23</block>
+        </destination>
+      </wool>
+      <wool color="lime" team="red">
+        <source>
+          <block>52,123,65</block>
+        </source>
+        <destination>
+          <block>9,110,244</block>
+        </destination>
+      </wool>
+    </wools>
+  </objectives>
+  <regions>
+    <cuboid id="lime-woolroom" max="64,146,80" min="41,114,49"/>
+    <cuboid id="magenta-woolroom" max="64,146,219" min="41,114,181"/>
+    <cuboid id="red-spawn" max="-14,85,232" min="20,129,255"/>
+    <cuboid id="blue-spawn" max="-14,85,10" min="20,129,31"/>
+  </regions>
+  <zones>
+    <zone modify="never">
+      <region>
+        <region id="lime-woolroom"/>
+        <region id="magenta-woolroom"/>
+      </region>
+    </zone>
+    <zone enter="only-red" message="You may not enter the enemy woolroom!">
+      <region>
+        <region id="lime-woolroom"/>
+      </region>
+      <message>{errors.own-wool-room}</message>
+    </zone>
+    <zone enter="only-blue" message="You may not enter the enemy woolroom!">
+      <region>
+        <region id="magenta-woolroom"/>
+      </region>
+      <message>{errors.own-wool-room}</message>
+    </zone>
+    <zone enter="only-red" message="You may not enter the enemy's base!">
+      <region>
+        <region id="red-spawn"/>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone enter="only-blue" message="You may not enter the enemy's base!">
+      <region>
+        <region id="blue-spawn"/>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+  </zones>
+  <checks>
+    <team id="only-blue">blue</team>
+    <team id="only-red">red</team>
+  </checks>
+  <remove-drops>
+    <material>iron sword</material>
+    <material>bow</material>
+    <material>iron pickaxe</material>
+    <material>iron axe</material>
+    <material>arrow</material>
+    <material>wood</material>
+    <material>glass</material>
+    <material>cooked fish</material>
+    <material>leather helmet</material>
+    <material>leather chestplate</material>
+    <material>leather leggings</material>
+    <material>leather boots</material>
+  </remove-drops>
+</map>

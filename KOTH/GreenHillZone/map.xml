@@ -1,0 +1,193 @@
+<?xml version="1.0"?>
+<map name="Green Hill Zone" spec="1.0.4" version="1.0.5">
+  <include src="defaults.xml"/>
+  <include src="Shared/conquest-shop.xml"/>
+  <authors>
+    <author uuid="060baa18285240d8afcbe61607c04be3"/> <!-- PepsiDog -->
+  </authors>
+  <teams>
+    <team color="orange" id="orange" max="32" max-overfill="32" min="1">{colors.orange}</team>
+    <team color="purple" id="purple" max="32" max-overfill="32" min="1">{colors.purple}</team>
+  </teams>
+  <spawns>
+    <spawn>
+      <regions>
+        <cuboid max="156, 36, 119" min="146, 35, 129" yaw="90"/>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="purple">
+      <regions>
+        <point yaw="-130">149.5, 11, 87.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="orange">
+      <regions>
+        <point yaw="-50">149.5, 11, 161.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <loadouts>
+    <loadout id="default">
+      <item material="iron sword" slot="0" unbreakable="true"/>
+      <item material="bow" slot="1" unbreakable="true"/>
+      <item material="iron pickaxe" name="^cIron Destroyer" slot="2" unbreakable="true">
+        <enchantments>
+          <enchantment level="3">durability</enchantment>
+          <enchantment level="2">dig speed</enchantment>
+        </enchantments>
+      </item>
+      <item damage="8229" material="potion" slot="3"/>
+      <item amount="32" material="apple" slot="4"/>
+      <item amount="32" material="arrow" slot="7"/>
+      <helmet material="leather helmet" team-color="true" unbreakable="true"/>
+      <chestplate material="chainmail chestplate" unbreakable="true"/>
+      <leggings material="leather leggings" team-color="true" unbreakable="true"/>
+      <boots material="leather boots" team-color="true" unbreakable="true"/>
+    </loadout>
+    <loadout id="kill-reward">
+      <item damage="8229" material="potion"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="kill-reward"/>
+    </rewards>
+  </kills>
+  <regions>
+    <cylinder base="149, 0, 86" height="16" id="purplesp" radius="5"/>
+    <cylinder base="149, 0, 162" height="16" id="orangesp" radius="5"/>
+  </regions>
+  <zones>
+    <zone modify="never">
+      <region>
+        <invert>
+          <join>
+            <cuboid max="148, 12, 206" min="161, 11, 192"/>
+            <cuboid max="148, 12, 42" min="161, 11, 55"/>
+          </join>
+        </invert>
+      </region>
+    </zone>
+    <zone region="orangesp">
+      <enter>
+        <team>orange</team>
+      </enter>
+      <message>You may not enter the enemy spawn!</message>
+    </zone>
+    <zone region="purplesp">
+      <enter>
+        <team>purple</team>
+      </enter>
+      <message>You may not enter the enemy spawn!</message>
+    </zone>
+    <zone velocity="-.5, 2.3, 0">
+      <region>
+        <cuboid max="179, 16, 126" min="183, 14, 123"/>
+      </region>
+    </zone>
+  </zones>
+  <objectives>
+    <hill capture-time="7s" earn-points="always" id="pointa" name="Point A" points="1">
+      <capture>
+        <cuboid max="178, 25, 33" min="184, 22, 27"/>
+      </capture>
+      <progress>
+        <cuboid max="177, 33, 34" min="185, 22, 26"/>
+      </progress>
+    </hill>
+    <hill capture-time="12s" earn-points="always" id="hill-center" name="Center" points="1">
+      <capture>
+        <cuboid max="156, 37, 119" min="146, 34, 129"/>
+      </capture>
+      <progress>
+        <cuboid max="157, 34, 118" min="145, 45, 130"/>
+      </progress>
+    </hill>
+    <hill capture-time="7s" earn-points="always" id="pointb" name="Point B" points="1">
+      <capture>
+        <cuboid max="178, 25, 215" min="184, 22, 221"/>
+      </capture>
+      <progress>
+        <cuboid max="177, 33, 214" min="185, 22, 222"/>
+      </progress>
+    </hill>
+    <scores limit="750">
+      <score id="oscore" team="orange"/>
+      <score id="pscore" team="purple"/>
+    </scores>
+  </objectives>
+  <results>
+    <win scenario="team" team="orange">
+      <check>
+        <any>
+          <objective team="orange">oscore</objective>
+        </any>
+      </check>
+    </win>
+    <win scenario="team" team="purple">
+      <check>
+        <any>
+          <objective team="purple">pscore</objective>
+        </any>
+      </check>
+    </win>
+  </results>
+  <damage>
+    <disable>
+      <all>
+        <damage>fall</damage>
+        <inside>
+          <region>
+            <cuboid max="132, 256, 15" min="191, 0, 233"/>
+          </region>
+        </inside>
+      </all>
+    </disable>
+  </damage>
+  <items>
+    <remove-drops>
+      <any>
+        <material>apple</material>
+        <material>potion</material>
+        <material>glass bottle</material>
+        <material>golden apple</material>
+        <material>arrow</material>
+        <material>leather helmet</material>
+        <material>chainmail chestplate</material>
+        <material>leather leggings</material>
+        <material>leather boots</material>
+        <material>iron helmet</material>
+        <material>iron chestplate</material>
+        <material>iron leggings</material>
+        <material>iron boots</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>iron sword</material>
+        <material>iron pickaxe</material>
+        <material>bow</material>
+      </any>
+    </repair-tools>
+  </items>
+  <tutorial>
+    <step countdown="3s" freeze="true" location="169, 39, 152" pitch="10" yaw="160">
+      <chat>
+        <line>^rThis map is a ^a^lKing of the Hill ^r(KotH) map. The objective is to collect</line>
+        <line>^r750 points by capturing and holding the ^c^l3 hills^r, denoted by the beacons.
+        </line>
+      </chat>
+    </step>
+    <step countdown="4s" location="167, 12, 56" pitch="10" yaw="115">
+      <chat>
+        <line>^rAcross from the spawn, there are ^a^liron blocks^r to gain iron armor.</line>
+        <line>^rThere is a ^c^lspawner^r, so your team will never run out of iron.</line>
+      </chat>
+    </step>
+    <step countdown="4s" location="181, 18, 131" pitch="30" yaw="-176">
+      <chat>
+        <line>^rStep on the ^6^lgold blocks^r to be shot up through the mountain.</line>
+      </chat>
+    </step>
+  </tutorial>
+</map>

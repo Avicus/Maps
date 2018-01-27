@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="Stadium Arcadium" spec="1.0.0" version="1.0.0">
+  <include src="defaults.xml"/>
+  <include src="Shared/conquest-shop.xml"/>
+  <authors>
+    <author uuid="bf331953-4f92-43ee-8abc-7544b8234936"/>
+  </authors>
+  <gametype>lts</gametype>
+  <compasses>
+    <compass target="enemy"/>
+  </compasses>
+  <ffa max="8" min="2"/>
+  <objectives>
+    <last-competitor-standing/>
+  </objectives>
+  <spawns>
+    <spawn team="spectators" yaw="-90">
+      <regions>
+        <point>-38.5,24,0.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" auto-respawn="true">
+      <regions>
+        <point yaw="180">0.5,2,52.5</point>
+        <point yaw="-135">-38.5,2,39.5</point>
+        <point yaw="-90">-51.5,2,0.5</point>
+        <point yaw="-45">-38.5,2,-38.5</point>
+        <point yaw="0">0.5,2,-51.5</point>
+        <point yaw="45">39.5,2,-38.5</point>
+        <point yaw="90">52.5,2,0.5</point>
+        <point yaw="135">39.5,2,39.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <elimination lives="10"/>
+  <loadouts>
+    <loadout id="default">
+      <effect duration="5s">damage resistance</effect>
+      <helmet material="leather helmet" team-color="true">
+        <enchantment>durability</enchantment>
+      </helmet>
+      <chestplate material="leather chestplate" team-color="true">
+        <enchantment>durability</enchantment>
+      </chestplate>
+      <leggings material="chainmail leggings">
+        <enchantment>durability</enchantment>
+      </leggings>
+      <boots material="leather boots" team-color="true">
+        <enchantment>durability</enchantment>
+      </boots>
+      <item material="stone sword" slot="0"/>
+      <item material="bow" slot="1"/>
+      <item material="compass" slot="2"/>
+      <item amount="32" material="cooked chicken" slot="6"/>
+      <item material="golden apple" slot="7"/>
+      <item amount="16" material="arrow" slot="27"/>
+    </loadout>
+    <loadout id="one-golden-apple">
+      <item material="golden apple"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="one-golden-apple"/>
+    </rewards>
+  </kills>
+  <zones>
+    <zone region="everywhere" modify="never"/>
+  </zones>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>chainmail leggings</material>
+        <material>compass</material>
+        <material>leather boots</material>
+        <material>golden apple</material>
+        <material>cooked beef</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>stone sword</material>
+        <material>bow</material>
+      </any>
+    </repair-tools>
+  </items>
+</map>

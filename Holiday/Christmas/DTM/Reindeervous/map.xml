@@ -1,0 +1,154 @@
+﻿<?xml version="1.0"?>
+<map description="A rocky landscape ready for warfare." name="Reindeervous" spec="1.0.4"
+  version="1.0.0">
+  <include src="defaults.xml"/>
+  <gametype>dtm</gametype>
+  <include src="Shared/reward-one-gap.xml"/>
+  <include src="Shared/tutorials/dtm.xml"/>
+  <authors>
+    <author uuid="44df6b20168f4389b7ac434518207c2f"/> <!-- ParaPenguin -->
+  </authors>
+  <tutorial>
+    <step countdown="5s" freeze="false" location="63, 29, -807" pitch="20.1" yaw="-0.3">
+      <chat>
+        <line>^r • {tutorial.generic.team-spawns}</line>
+      </chat>
+    </step>
+    <step countdown="4s" location="99, 38, -763" pitch="38" yaw="-91.3">
+      <chat>
+        <line>^r • {tutorial.dtm.monument-area}</line>
+        <line>^r • {tutorial.dtm.monument-objective}</line>
+      </chat>
+    </step>
+  </tutorial>
+  <teams>
+    <load-group id="teams.red-blue" max="18" min="1"/>
+  </teams>
+  <spawns>
+    <spawn id="default" team="spectators" yaw="0">
+      <regions>
+        <block>12, 54, -897</block>
+      </regions>
+    </spawn>
+    <spawn id="red" loadout="default" team="red" yaw="0">
+      <regions>
+        <block>62, 28, -797</block>
+      </regions>
+    </spawn>
+    <spawn id="blue" loadout="default" team="blue" yaw="0">
+      <regions>
+        <block>-38, 28, -797</block>
+      </regions>
+    </spawn>
+  </spawns>
+  <objectives>
+    <monuments materials="obsidian">
+      <monuments owner="blue">
+        <monument name="{directions.left}">
+          <region>
+            <block>-84, 37, -763</block>
+          </region>
+        </monument>
+        <monument name="{directions.right}">
+          <region>
+            <block>-84, 37, -833</block>
+          </region>
+        </monument>
+      </monuments>
+      <monuments owner="red">
+        <monument name="{directions.left}">
+          <region>
+            <block>108, 37, -833</block>
+          </region>
+        </monument>
+        <monument name="{directions.right}">
+          <region>
+            <block>108, 37, -763</block>
+          </region>
+        </monument>
+      </monuments>
+    </monuments>
+  </objectives>
+  <zones>
+    <zone modify="never">
+      <region>
+        <invert>
+          <cuboid max="-90, 25, -749" min="114, 56, -845"/>
+        </invert>
+      </region>
+      <message>{errors.outside-map}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid max="61, 26, -788" min="65, 31, -808"/>
+      </region>
+      <enter>
+        <team>red</team>
+      </enter>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid max="-41, 26, -808" min="-37, 31, -788"/>
+      </region>
+      <enter>
+        <team>blue</team>
+      </enter>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid max="67, 37, -807" min="59, 33, -812"/>
+        <cuboid max="67, 37, -789" min="59, 33, -784"/>
+        <cuboid max="65, 26, -788" min="61, 33, -785"/>
+        <cuboid max="65, 26, -808" min="61, 33, -811"/>
+        <cuboid max="61, 26, -788" min="65, 31, -808"/>
+        <cuboid max="-43, 37, -789" min="-35, 33, -784"/>
+        <cuboid max="-35, 37, -812" min="-43, 33, -807"/>
+        <cuboid max="-37, 26, -808" min="-41, 33, -811"/>
+        <cuboid max="-37, 26, -788" min="-41, 33, -785"/>
+        <cuboid max="-41, 26, -808" min="-37, 31, -788"/>
+        <cuboid max="62, 24, -797" min="64, 24, -799"/>
+        <cuboid max="-40, 24, -799" min="-38, 24, -797"/>
+      </region>
+      <message>{errors.cannot-build}</message>
+    </zone>
+  </zones>
+  <items>
+    <repair-tools>
+      <any>
+        <material>iron sword</material>
+        <material>diamond pickaxe</material>
+        <material>bow</material>
+      </any>
+    </repair-tools>
+    <remove-drops>
+      <any>
+        <material>cooked fish</material>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>leather leggings</material>
+        <material>leather boots</material>
+        <material>log</material>
+        <material>glass</material>
+        <material>golden apple</material>
+      </any>
+    </remove-drops>
+  </items>
+  <loadouts>
+    <loadout id="default">
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="leather leggings" team-color="true"/>
+      <boots material="leather boots" team-color="true"/>
+      <effect duration="8s">damage resistance</effect>
+      <item material="iron sword" slot="0"/>
+      <item material="bow" slot="1"/>
+      <item material="diamond pickaxe" slot="2"/>
+      <item amount="3" material="golden apple" slot="3"/>
+      <item amount="64" material="glass" slot="4"/>
+      <item amount="32" material="log" slot="5"/>
+      <item amount="32" material="cooked fish" slot="6"/>
+      <item amount="64" material="arrow" slot="27"/>
+    </loadout>
+  </loadouts>
+</map>

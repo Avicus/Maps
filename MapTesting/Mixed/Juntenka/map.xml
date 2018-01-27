@@ -1,0 +1,361 @@
+<?xml version="1.0"?>
+<map description="Steal the wool and destroy the end stone pillar!" name="Juntenka" spec="1.0.0"
+  version="1.0.1">
+  <include src="defaults.xml"/>
+  <authors>
+    <author uuid="1865ac01271f4f69b979b43a78c39989"/> <!-- Zintenka -->
+    <author uuid="99b8a2a4cb224ba1a6837cd90a02aac5"/> <!-- Junr -->
+  </authors>
+  <teams>
+    <team color="purple" id="purple" max="25" max-overfill="35" min="1">Junr Empire</team>
+    <team color="orange" id="orange" max="25" max-overfill="35" min="1">Zin Egalitarian</team>
+  </teams>
+  <spawns>
+    <spawn loadout="spec" pitch="90" team="spectators" yaw="-90">
+      <regions>
+        <cuboid max="103, 72, 29" min="105, 72, 28"/>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="purple" yaw="90">
+      <regions>
+        <cuboid max="219, 11, 64" min="228, 11, 50"/>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="orange" yaw="-90">
+      <regions>
+        <cuboid max="-20, 10, 12" min="-11, 10, -2"/>
+      </regions>
+    </spawn>
+  </spawns>
+  <objectives>
+    <wools>
+      <wools team="purple">
+        <wool color="purple">
+          <destination>
+            <cuboid max="182, 39, 13" min="182, 37, 11"/>
+          </destination>
+        </wool>
+      </wools>
+      <wools team="orange">
+        <wool color="orange">
+          <destination>
+            <cuboid max="26,39,49" min="26, 37, 51"/>
+          </destination>
+        </wool>
+      </wools>
+    </wools>
+    <monuments fireworks="true" materials="ender stone">
+      <monuments owner="purple">
+        <monument name="Endstone Pillar">
+          <region>
+            <cuboid max="53, 48, -39" min="59, 28, -33"/>
+          </region>
+        </monument>
+      </monuments>
+      <monuments owner="orange">
+        <monument name="Endstone Pillar">
+          <region>
+            <cuboid max="155, 28, 101" min="149, 48, 95"/>
+          </region>
+        </monument>
+      </monuments>
+    </monuments>
+  </objectives>
+  <checks>
+    <!-- These blocks cannot be broken -->
+    <deny id="deny-break">
+      <any>
+        <material>stained glass:10</material>
+        <material>stained glass:1</material>
+      </any>
+    </deny>
+    <!-- Stops teams from placing TNT at specified areas -->
+    <not id="deny-tnt">
+      <all>
+        <material>tnt</material>
+      </all>
+    </not>
+  </checks>
+  <regions>
+    <join id="spawns">
+      <cuboid max="230, 0, 75" min="209, 70, 48"/> <!-- Purple -->
+      <cuboid max="-22, 0, -13" min="-1, 70, 14"/> <!-- Orange -->
+    </join>
+    <cuboid id="monument-purp" max="164, 70, 110" min="140, 0, 86"/> <!-- Purple -->
+    <cuboid id="monument-oran" max="44, 70, -48" min="68, 70, -24"/> <!-- Orange -->
+    <join id="wools">
+      <cuboid max="163, 43, 27" min="137, 70, -1"/> <!-- Purple -->
+      <cuboid max="44, 43, 37" min="70, 70, 63"/> <!-- Orange -->
+    </join>
+    <join id="walls-build-deny">
+      <cuboid max="163, 69, 139" min="165, 0, 75"/>
+      <cuboid max="229, 69, 73" min="165, 0, 75"/>
+      <cuboid max="229, 69, 50" min="183, 0, 49"/>
+      <cuboid max="-21, 69, -11" min="43, 0, -13"/>
+      <cuboid max="-21, 69, 12" min="25, 0, 13"/>
+      <cuboid max="45, 69, -77" min="43, 0, -13"/>
+    </join>
+    <join id="void-build-allow">
+      <cuboid max="70, 69, 84" min="138, 0, -22"/>
+      <cuboid max="162, 69, 139" min="96, 0, 85"/>
+      <cuboid max="46, 69, -77" min="112, 0, -23"/>
+    </join>
+    <void id="void-deny"/>
+    <cuboid id="map" max="-23, 0, -79" min="231, 75, 141"/>
+    <fill bounds="map" id="unbreakable-blocks"
+      materials="quartz block;step:7;stained glass:5;stained glass:14;sign;ladder;wool;stone button"
+      start="104,0,31"/>
+  </regions>
+  <zones>
+    <zone modify="never" region="walls-build-deny">
+      <message>^c^lYou cannot build against {colors.red} walls.</message>
+    </zone>
+    <zone modify="always" region="void-build-allow"/>
+    <zone modify="never">
+      <region>
+        <above y="70"/>
+      </region>
+      <message>^9^lNyeh! Unbreakable ceiling!</message>
+    </zone>
+    <zone modify="never" region="spawns">
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <!-- Attacking team enters wool tower -->
+    <zone loadout="purple-wool">
+      <region>
+        <cuboid max="57, 48, 50" min="57, 47, 50"/>
+      </region>
+      <enter>
+        <team>Junr Empire</team>
+      </enter>
+      <portal>
+        <destination yaw="-90">
+          <block>57, 67, 50</block>
+        </destination>
+      </portal>
+    </zone>
+    <zone loadout="orange-wool">
+      <region>
+        <cuboid max="151, 48, 12" min="151, 47, 12"/>
+      </region>
+      <enter>
+        <team>Zin Egalitarian</team>
+      </enter>
+      <portal>
+        <destination yaw="90">
+          <block>151, 67, 12</block>
+        </destination>
+      </portal>
+    </zone>
+    <!-- Defending team enters wool tower -->
+    <zone id="purple-defense-wool">
+      <region>
+        <cuboid max="62, 48, 44" min="52, 45, 54"/>
+      </region>
+      <enter>
+        <team>Zin Egalitarian</team>
+      </enter>
+      <portal>
+        <destination yaw="-90">
+          <block>53, 56, 50</block>
+        </destination>
+      </portal>
+    </zone>
+    <zone id="orange-defense-wool">
+      <region>
+        <cuboid max="156, 46, 9" min="146, 47, 16"/>
+      </region>
+      <enter>
+        <team>Junr Empire</team>
+      </enter>
+      <portal>
+        <destination yaw="90">
+          <block>147, 56, 12</block>
+        </destination>
+      </portal>
+    </zone>
+    <!-- Defending team leaves wool tower -->
+    <zone id="purple-leave-wool">
+      <region>
+        <cuboid max="52, 58, 51" min="52, 56, 49"/>
+      </region>
+      <enter>
+        <team>Zin Egalitarian</team>
+      </enter>
+      <portal>
+        <destination yaw="90">
+          <block>48, 44, 50</block>
+        </destination>
+      </portal>
+    </zone>
+    <zone id="orange-leave-wool">
+      <region>
+        <cuboid max="156, 58, 11" min="156, 56, 13"/>
+      </region>
+      <enter>
+        <team>Junr Empire</team>
+      </enter>
+      <portal>
+        <destination yaw="-90">
+          <block>160, 44, 12</block>
+        </destination>
+      </portal>
+    </zone>
+    <!-- Attacking team leaves wool tower -->
+    <zone id="purple-escape-wool">
+      <region>
+        <cuboid max="150, 54, 11" min="152, 52, 13"/>
+      </region>
+      <enter>
+        <team>Junr Empire</team>
+      </enter>
+      <portal>
+        <destination yaw="-109">
+          <block>149, 47, 14</block>
+        </destination>
+      </portal>
+    </zone>
+    <zone id="orange-escape-wool">
+      <region>
+        <cuboid max="56, 54, 49" min="58, 52, 51"/>
+      </region>
+      <enter>
+        <team>Zin Egalitarian</team>
+      </enter>
+      <portal>
+        <destination yaw="74">
+          <block>59, 47, 48</block>
+        </destination>
+      </portal>
+    </zone>
+    <!-- Blocks that cannot be broken -->
+    <zone modify="never" region="unbreakable-blocks">
+      <message>^f^lCan't destroy these blocks.</message>
+    </zone>
+    <!-- Cannot place or use TNT in wool towers -->
+    <zone break="deny-break" modify="deny-tnt" place="deny-break" region="wools">
+      <message>^f^lCan't use TNT or break glass or wool.</message>
+    </zone>
+    <!-- Defending team cannot place TNT but may break or activate TNT -->
+    <zone place="deny-tnt" region="monument-purp">
+      <message>^f^lYOU can't place TNT here.</message>
+    </zone>
+    <zone modify="never" region="void-deny">
+      <message>^f^lYou can't build over the void.</message>
+    </zone>
+    <zone place="deny-tnt" region="monument-oran">
+      <message>^f^lYOU can't place TNT here.</message>
+    </zone>
+  </zones>
+  <items>
+    <keep-items>
+      <any>
+        <material>bow</material>
+        <material>iron pickaxe</material>
+        <material>diamond chestplate</material>
+        <material>iron leggings</material>
+        <material>dispenser</material>
+      </any>
+    </keep-items>
+    <remove-drops>
+      <any>
+        <material>iron pickaxe</material>
+        <material>diamond chestplate</material>
+        <material>iron leggings</material>
+        <material>leather helmet</material>
+        <material>chainmail chestplate</material>
+        <material>leather leggings</material>
+        <material>leather boots</material>
+        <material>stone pickaxe</material>
+        <material>stained clay</material>
+        <material>stained glass</material>
+        <material>tnt</material>
+        <material>redstone torch on</material>
+        <material>dispenser</material>
+        <material>water bucket</material>
+        <material>redstone comparator</material>
+        <material>redstone</material>
+        <material>stone plate</material>
+        <material>stone button</material>
+        <material>nether fence</material>
+        <material>diode</material>
+        <material>bow</material>
+        <material>arrow</material>
+        <material>wood sword</material>
+      </any>
+    </remove-drops>
+  </items>
+  <projectiles>
+    <!-- Projectile that players shoot in general -->
+    <projectile damage="3.5" id="railgun" name="^f^la Snow Sabot" type="snowball" velocity="4.5"/>
+  </projectiles>
+  <loadouts>
+    <loadout id="default">
+      <helmet material="leather helmet" team-color="true" unbreakable="true"/>
+      <chestplate material="chainmail chestplate" unbreakable="true">
+        <enchantment level="5">protection explosions</enchantment>
+      </chestplate>
+      <leggings material="leather leggings" team-color="true" unbreakable="true"/>
+      <boots material="leather boots" team-color="true" unbreakable="true"/>
+      <effect amplifier="5" duration="10s">damage resistance</effect>
+      <effect duration="20s" level="2">speed</effect>
+      <effect>night vision</effect>
+      <effect amplifier="1">regeneration</effect>
+      <item material="stone pickaxe" slot="0" unbreakable="true">
+        <enchantment level="2">damage all</enchantment>
+      </item>
+      <item material="bow" name="^9^lSnow Accelerator" projectile="railgun" slot="1"
+        unbreakable="true">
+        <enchantment>arrow infinite</enchantment>
+      </item>
+      <item amount="64" material="bread" slot="2"/>
+      <item amount="64" material="tnt" slot="3"/>
+      <item amount="64" material="stained clay" slot="4" team-color="true"/>
+      <item material="water bucket" slot="5"/>
+      <item amount="64" damage="7" material="step" slot="6"/>
+      <item amount="64" material="redstone comparator" slot="7"/>
+      <item amount="16" material="lever" slot="8"/>
+      <item material="arrow" slot="9"/>
+      <item amount="64" material="tnt" slot="12"/>
+      <item amount="64" material="stained glass" slot="13" team-color="true"/>
+      <item material="water bucket" slot="14"/>
+      <item amount="64" material="sign" slot="15"/>
+      <item amount="64" material="redstone torch on" slot="16"/>
+      <item amount="4" material="dispenser" slot="17"/>
+      <item amount="8" material="slime block" slot="18"/>
+      <item amount="64" material="tnt" slot="21"/>
+      <item amount="64" material="stained clay" slot="22" team-color="true"/>
+      <item amount="64" material="water bucket" slot="23"/>
+      <item amount="64" material="nether fence" slot="24"/>
+      <item material="redstone" slot="25"/>
+      <item amount="64" damage="7" material="stone button" slot="26"/>
+      <item material="wood sword" name="^9^lIcarus Sword!" slot="27"/>
+      <item amount="64" material="tnt" slot="30"/>
+      <item amount="64" material="stained glass" slot="31" team-color="true"/>
+      <item amount="64" material="water bucket" slot="32"/>
+      <item amount="64" material="ladder" slot="33"/>
+      <item amount="64" material="diode" slot="34"/>
+      <item amount="64" material="stone plate" slot="35"/>
+    </loadout>
+    <loadout id="orange-wool">
+      <effect duration="3s">blindness</effect>
+      <item damage="1" material="wool"/>
+    </loadout>
+    <loadout id="purple-wool">
+      <effect duration="3s">blindness</effect>
+      <item damage="10" material="wool"/>
+    </loadout>
+    <loadout id="spec">
+      <effect>night vision</effect>
+    </loadout>
+    <loadout id="kill-reward">
+      <item amount="1" material="dispenser"/>
+      <item amount="16" material="tnt"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="kill-reward"/>
+    </rewards>
+  </kills>
+</map>

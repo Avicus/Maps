@@ -1,0 +1,152 @@
+﻿<?xml version="1.0"?>
+<map name="The Dojo 5: The Revenge of the Surprise Keyloggers" spec="1.0.2" version="1.0.1">
+  <include src="defaults.xml"/>
+  <include src="Shared/phases-dtc.xml"/>
+  <authors>
+    <author uuid="3cce00809faa48f982cf64410305822a"/> <!-- EDNAS -->
+    <author uuid="c2a4c847653e482ab62ed7f8b64330cb"/> <!-- Alm -->
+  </authors>
+  <teams>
+    <team color="orange" id="orange" max="100" min="1">{colors.orange}</team>
+    <team color="red" id="red" max="100" min="1">{colors.red}</team>
+  </teams>
+  <gametype>dtc</gametype>
+  <gametype>dtm</gametype>
+  <spawns>
+    <spawn>
+      <regions>
+        <point yaw="180">0, 90, 60</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="red">
+      <regions>
+        <point yaw="-90">-84, 69, 0</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="orange">
+      <regions>
+        <point yaw="90">85, 69, 0</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <loadouts>
+    <loadout id="default">
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="gold chestplate"/>
+      <boots material="leather boots" team-color="true"/>
+      <item material="iron sword" slot="0"/>
+      <item material="bow" slot="1">
+        <enchantment>arrow infinite</enchantment>
+      </item>
+      <item material="diamond pickaxe" slot="2"/>
+      <item amount="3" material="golden apple" slot="3"/>
+      <item amount="64" material="log" slot="4"/>
+      <item amount="64" material="glass" slot="5"/>
+      <item amount="48" material="bread" slot="6"/>
+      <item amount="64" material="arrow" slot="28"/>
+    </loadout>
+    <loadout id="kill-reward">
+      <item material="golden apple"/>
+    </loadout>
+  </loadouts>
+  <objectives>
+    <leakables first-phase="gold" materials="obsidian">
+      <leakables owner="orange">
+        <leakable leak-distance="1" name="コア (Core)" repairable="true">
+          <region>
+            <cuboid max="41, 77, 2" min="37, 71, -2"/>
+          </region>
+        </leakable>
+      </leakables>
+      <leakables owner="red">
+        <leakable leak-distance="1" name="コア (Core)" repairable="true">
+          <region>
+            <cuboid max="-41, 77, 2" min="-37, 71, -2"/>
+          </region>
+        </leakable>
+      </leakables>
+    </leakables>
+    <monuments destroyable="true" materials="emerald block" repairable="true">
+      <monuments owner="red">
+        <monument name="Left">
+          <region>
+            <cuboid max="-55, 79, 50" min="-53, 73, 48"/>
+          </region>
+        </monument>
+      </monuments>
+    </monuments>
+    <monuments destroyable="true" materials="emerald block" repairable="true">
+      <monuments owner="red">
+        <monument name="Right">
+          <region>
+            <cuboid max="-55, 79, -50" min="-53, 73, -48"/>
+          </region>
+        </monument>
+      </monuments>
+    </monuments>
+    <monuments destroyable="true" materials="emerald block" repairable="true">
+      <monuments owner="orange">
+        <monument name="Left">
+          <region>
+            <cuboid max="55, 79, -48" min="53, 73, -50"/>
+          </region>
+        </monument>
+      </monuments>
+    </monuments>
+    <monuments destroyable="true" materials="emerald block" repairable="true">
+      <monuments owner="orange">
+        <monument name="Right">
+          <region>
+            <cuboid max="53, 73, 48" min="55, 79, 50"/>
+          </region>
+        </monument>
+      </monuments>
+    </monuments>
+  </objectives>
+  <world>
+    <storm>false</storm>
+    <weather check="always"/>
+  </world>
+  <kills>
+    <rewards>
+      <reward loadout="kill-reward"/>
+    </rewards>
+  </kills>
+  <zones>
+    <zone modify="never">
+      <region>
+        <cuboid max="92, 68, 10" min="75, 94, -10"/>
+      </region>
+      <message>{errors.cannot-build}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid max="-92, 68, 10" min="-75, 92, -10"/>
+      </region>
+      <message>{errors.cannot-build}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <above y="90"/>
+      </region>
+    </zone>
+  </zones>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>gold chestplate</material>
+        <material>leather boots</material>
+        <material>bread</material>
+        <material>golden apple</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>iron sword</material>
+        <material>bow</material>
+        <material>diamond pickaxe</material>
+      </any>
+    </repair-tools>
+  </items>
+</map>

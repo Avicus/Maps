@@ -1,0 +1,331 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<map name="Chilled Caverns" spec="1.0.4" version="1.0.0">
+  <include src="defaults.xml"/>
+  <include src="Shared/reward-one-gap.xml"/>
+  <include src="Shared/tutorials/ctw.xml"/>
+  <tutorial>
+    <step countdown="5s" freeze="true" location="0.5,2,-148.5" pitch="0" yaw="180">
+      <chat>
+        <line>^r • {tutorial.generic.team-spawns}</line>
+      </chat>
+    </step>
+    <step countdown="5s" freeze="true" location="13.5,21,-82.5" pitch="0" yaw="0">
+      <chat>
+        <line>^r • {tutorial.ctw.wool-area}</line>
+      </chat>
+    </step>
+    <step countdown="5s" freeze="true" location="0.5,2,-143.5" pitch="-36" yaw="0">
+      <chat>
+        <line>^r • {tutorial.ctw.wool-monument}</line>
+      </chat>
+    </step>
+  </tutorial>
+  <authors>
+    <author uuid="f876b863-1ccd-4ae2-acad-8a09e2209e81"/> <!-- _DISTRACTION_ -->
+    <author uuid="c1d94f18-6ea3-495a-8d1b-7d9eaf393f64"/> <!-- JapaneseSquid -->
+    <author uuid="47b15675-a048-4e8f-863a-0cbf86ba22dc"/> <!-- profbananaslug -->
+    <author uuid="63b88dff-c6b4-4e08-bd17-aae089b12e95"/> <!-- AussieOctopus -->
+    <author uuid="282f4bab-54bb-4e2a-8345-9583c8d533ce"/> <!-- EDJM9 -->
+    <author uuid="3cce0080-9faa-48f9-82cf-64410305822a"/> <!-- ProfessorUtonium -->
+  </authors>
+  <gametype>ctw</gametype>
+  <teams>
+    <load-group id="teams.red-blue" max="32" min="1"/>
+  </teams>
+  <spawns>
+    <spawn>
+      <regions>
+        <point yaw="0">0.5,-0.2,-0.7</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="blue">
+      <regions>
+        <point yaw="0">0.5,3,-157.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="red">
+      <regions>
+        <point yaw="180">0.5,3,158.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <world>
+    <gamerules>
+      <doDaylightCycle>false</doDaylightCycle>
+    </gamerules>
+  </world>
+  <loadouts>
+    <loadout id="default">
+      <effect amplifier="10" duration="5s">damage resistance</effect>
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="leather leggings" team-color="true"/>
+      <boots material="leather boots" team-color="true"/>
+      <item material="iron sword" slot="0"/>
+      <item material="bow" slot="1"/>
+      <item material="diamond pickaxe" slot="2">
+        <enchantments>
+          <enchantment level="2">dig speed</enchantment>
+        </enchantments>
+      </item>
+      <item material="iron axe" slot="3"/>
+      <item amount="32" damage="2" material="log" slot="4"/>
+      <item amount="64" material="glass" slot="5"/>
+      <item amount="64" material="golden carrot" slot="6"/>
+      <item material="golden apple" slot="7"/>
+      <item amount="64" material="arrow" slot="28"/>
+    </loadout>
+    <loadout id="reward-get">
+      <item amount="12" material="arrow"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="reward-get"/>
+    </rewards>
+  </kills>
+  <objectives>
+    <wools pickup="true" team="blue">
+      <wool color="lime">
+        <source>
+          <block>-11,67,109</block>
+        </source>
+        <destination>
+          <block>1,6,-140</block>
+        </destination>
+      </wool>
+      <wool color="orange">
+        <source>
+          <block>-21,43,65</block>
+        </source>
+        <destination>
+          <block>-1,6,-140</block>
+        </destination>
+      </wool>
+    </wools>
+    <wools pickup="true" team="red">
+      <wool color="yellow">
+        <source>
+          <block>11,67,-109</block>
+        </source>
+        <destination>
+          <block>-1,6,140</block>
+        </destination>
+      </wool>
+      <wool color="cyan">
+        <source>
+          <block>21,43,-65</block>
+        </source>
+        <destination>
+          <block>1,6,140</block>
+        </destination>
+      </wool>
+    </wools>
+  </objectives>
+  <regions>
+    <subtract id="void-outer">
+      <everywhere/>
+      <!-- Wool -->
+      <cuboid max="21,43,-62" min="29,49,-68"/> <!-- Cyan -->
+      <cuboid max="8,67,-109" min="14,73,-117"/> <!-- Yellow -->
+      <cuboid max="-21,43,62" min="-29,49,68"/> <!-- Orange -->
+      <cuboid max="-8,67,109" min="-14,73,117"/> <!-- Lime -->
+      <!-- Wool Monuments -->
+      <block>1,6,140</block>
+      <block>-1,6,140</block>
+      <block>1,6,-140</block>
+      <block>-1,6,-140</block>
+      <!-- Middle -->
+      <cuboid max="40,14,-54" min="-40,0,54"/>
+      <!-- Red Side (Positive Z) -->
+      <!-- Non Flippable -->
+      <cuboid max="-38,10,110" min="38,1,97"/> <!-- Lane Connecting Tunnel -->
+      <cuboid max="-4,11,122" min="4,8,111"/> <!-- More Important Secret Room -->
+      <cuboid max="-4,7,82" min="4,2,74"/> <!-- Iron -->
+      <!-- Flippable -->
+      <cuboid max="38,10,129"
+        min="24,1,55"/> <!-- Entrance to Turn (Additional Height Not Included) -->
+      <cuboid max="31,21,129" min="19,1,119"/> <!-- Main Passage to Wool Passage Connection -->
+      <cuboid max="7,16,125" min="6,13,123"/> <!-- Less Important Secret Room -->
+      <cuboid max="18,28,129" min="8,13,79"/> <!-- Wool Lane -->
+      <!-- Flipped -->
+      <cuboid max="-38,10,129"
+        min="-24,1,55"/> <!-- Entrance to Turn (Additional Height Not Included) -->
+      <cuboid max="-31,21,129" min="-19,1,119"/> <!-- Main Passage to Wool Passage Connection -->
+      <cuboid max="-7,16,125" min="-6,13,123"/> <!-- Less Important Secret Room -->
+      <cuboid max="-18,28,129" min="-8,13,79"/> <!-- Wool Lane -->
+      <!-- Blue Side (Negative Z) -->
+      <!-- Non Flippable -->
+      <cuboid max="-38,10,-110" min="38,1,-97"/> <!-- Lane Connecting Tunnel -->
+      <cuboid max="-4,11,-122" min="4,8,-111"/> <!-- More Important Secret Room -->
+      <cuboid max="-4,7,-82" min="4,2,-74"/> <!-- Iron -->
+      <!-- Flippable -->
+      <cuboid max="38,10,-129"
+        min="24,1,-55"/> <!-- Entrance to Turn (Additional Height Not Included) -->
+      <cuboid max="31,21,-129" min="19,1,-119"/> <!-- Main Passage to Wool Passage Connection -->
+      <cuboid max="7,16,-125" min="6,13,-123"/> <!-- Less Important Secret Room -->
+      <cuboid max="18,28,-129" min="8,13,-79"/> <!-- Wool Lane -->
+      <!-- Flipped -->
+      <cuboid max="-38,10,-129"
+        min="-24,1,-55"/> <!-- Entrance to Turn (Additional Height Not Included) -->
+      <cuboid max="-31,21,-129" min="-19,1,-119"/> <!-- Main Passage to Wool Passage Connection -->
+      <cuboid max="-7,16,-125" min="-6,13,-123"/> <!-- Less Important Secret Room -->
+      <cuboid max="-18,28,-129" min="-8,13,-79"/> <!-- Wool Lane -->
+    </subtract>
+    <join id="minecarts">
+      <block>11,67,-101</block>
+      <block>-13,21,-63</block>
+      <block>13,43,-65</block>
+      <block>13,21,-63</block>
+      <block>-11,67,101</block>
+      <block>-13,21,63</block>
+      <block>-13,43,65</block>
+      <block>13,21,63</block>
+    </join>
+    <cuboid id="cyan-wool-block" max="21,43,-62" min="29,49,-68"/> <!-- Cyan -->
+    <cuboid id="yellow-wool-block" max="8,67,-109" min="14,73,-117"/> <!-- Yellow -->
+    <cuboid id="orange-wool-block" max="-21,43,62" min="-29,49,68"/> <!-- Orange -->
+    <cuboid id="lime-wool-block" max="-8,67,109" min="-14,73,117"/> <!-- Lime -->
+  </regions>
+  <zones>
+    <zone enter="never"> <!-- Red Attacking Wool -->
+      <modify>
+        <all>
+          <team>red</team>
+          <material>wool</material>
+        </all>
+      </modify>
+      <region>
+        <join>
+          <cuboid max="21,43,-62" min="29,49,-68"/> <!-- Cyan -->
+          <cuboid max="8,67,-109" min="14,73,-117"/> <!-- Yellow -->
+        </join>
+      </region>
+      <message>You cannot enter the wool block.</message>
+    </zone>
+    <zone enter="never"> <!-- Blue Attacking Wool -->
+      <modify>
+        <all>
+          <team>blue</team>
+          <material>wool</material>
+        </all>
+      </modify>
+      <region>
+        <join>
+          <cuboid max="-21,43,62" min="-29,49,68"/> <!-- Orange -->
+          <cuboid max="-8,67,109" min="-14,73,117"/> <!-- Lime -->
+        </join>
+      </region>
+      <message>You cannot enter the wool block.</message>
+    </zone>
+    <zone> <!-- Red Attacking Cobwebs -->
+      <enter>
+        <team>red</team>
+      </enter>
+      <modify>
+        <team>red</team>
+      </modify>
+      <region>
+        <join>
+          <cuboid max="12,23,-77" min="14,28,-77"/>
+          <cuboid max="-12,23,-77" min="-14,28,-77"/>
+        </join>
+      </region>
+      <message>{errors.cannot-build}</message>
+    </zone>
+    <zone> <!-- Blue Attacking Cobwebs -->
+      <enter>
+        <team>blue</team>
+      </enter>
+      <modify>
+        <team>blue</team>
+      </modify>
+      <region>
+        <join>
+          <cuboid max="12,23,77" min="14,28,77"/>
+          <cuboid max="-12,23,77" min="-14,28,77"/>
+        </join>
+      </region>
+      <message>{errors.cannot-build}</message>
+    </zone>
+    <zone> <!-- Red Attacking Wool Room -->
+      <enter>
+        <team>red</team>
+      </enter>
+      <region>
+        <join>
+          <cuboid max="9,21,-68" min="17,28,-78"/>
+          <cuboid max="-9,21,-68" min="-17,28,-78"/>
+        </join>
+      </region>
+      <message>{errors.own-wool-room}</message>
+    </zone>
+    <zone> <!-- Blue Attacking Wool Room -->
+      <enter>
+        <team>blue</team>
+      </enter>
+      <region>
+        <join>
+          <cuboid max="9,21,68" min="17,28,78"/>
+          <cuboid max="-9,21,68" min="-17,28,78"/>
+        </join>
+      </region>
+      <message>{errors.own-wool-room}</message>
+    </zone>
+    <zone modify="never" region="void-outer">
+      <message>{errors.cannot-build}</message>
+    </zone>
+  </zones>
+  <executors>
+    <executor check="always" id="fix-wools">
+      <execution-group>
+        <replace-block find="air" region="cyan-wool-block" replace="wool:9"/>
+        <replace-block find="air" region="yellow-wool-block" replace="wool:4"/>
+        <replace-block find="air" region="orange-wool-block" replace="wool:1"/>
+        <replace-block find="air" region="lime-wool-block" replace="wool:5"/>
+      </execution-group>
+    </executor>
+    <executor check="always">
+      <loop check="always" execute="fix-wools" id="wool-loop" interval="10s" stop="never"/>
+    </executor>
+  </executors>
+  <triggers>
+    <trigger execute="wool-loop" on="match-start"/>
+  </triggers>
+  <chests>
+    <generator allow-duplicates="true" max="1" min="1"
+      regenerate-count="2147483647" regenerate-countdown="1s" region="minecarts">
+      <chest-items max="27" min="27">
+        <item material="minecart"/>
+      </chest-items>
+    </generator>
+  </chests>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>leather leggings</material>
+        <material>leather boots</material>
+        <material>glass</material>
+        <material>wood:2</material>
+        <material>ender stone</material>
+        <material>sandstone stairs</material>
+        <material>emerald ore</material>
+        <material>coal ore</material>
+        <material>double step</material>
+        <material>golden carrot</material>
+        <material>arrow</material>
+        <material>minecart</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>iron sword</material>
+        <material>bow</material>
+        <material>diamond pickaxe</material>
+        <material>iron axe</material>
+      </any>
+    </repair-tools>
+  </items>
+</map>

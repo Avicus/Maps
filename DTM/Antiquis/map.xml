@@ -1,0 +1,150 @@
+<?xml version="1.0"?>
+<map name="Antiquis" spec="1.0.4" version="1.1.0">
+  <include src="defaults.xml"/>
+  <authors>
+    <author uuid="060baa18285240d8afcbe61607c04be3"/> <!-- PepsiDog -->
+  </authors>
+  <teams>
+    <load-group id="teams.red-blue" max="22" min="1"/>
+  </teams>
+  <spawns>
+    <spawn>
+      <regions>
+        <cylinder base="-70, 19, 0" height="4" radius="5" yaw="-90"/>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="red">
+      <regions>
+        <point yaw="180">0.5, 12, 68.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="blue">
+      <regions>
+        <point yaw="0">0.5, 12, -67.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <loadouts>
+    <loadout id="default">
+      <item material="stone sword" slot="0"/>
+      <item material="bow" slot="1">
+        <enchantments>
+          <enchantment level="1">arrow infinite</enchantment>
+        </enchantments>
+      </item>
+      <item material="wood pickaxe" slot="2"/>
+      <item material="stone axe" slot="3">
+        <enchantments>
+          <enchantment level="3">durability</enchantment>
+        </enchantments>
+      </item>
+      <item amount="32" material="wood" slot="4"/>
+      <item amount="1" material="golden apple" slot="7"/>
+      <item amount="32" material="cooked beef" slot="8"/>
+      <item amount="1" material="arrow" slot="28"/>
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true">
+        <enchantments>
+          <enchantment level="2">protection projectile</enchantment>
+        </enchantments>
+      </chestplate>
+      <leggings material="leather leggings" team-color="true"/>
+      <boots material="leather boots" team-color="true"/>
+    </loadout>
+    <loadout id="star">
+      <item amount="1" material="nether star" name="^4Infused Shard"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="star"/>
+    </rewards>
+  </kills>
+  <objectives>
+    <monuments destroyable="true" materials="obsidian">
+      <monuments owner="red">
+        <monument name="Monument">
+          <region>
+            <cuboid max="1, 10, 42" min="0, 8, 41"/>
+          </region>
+        </monument>
+      </monuments>
+      <monuments owner="blue">
+        <monument name="Monument">
+          <region>
+            <cuboid max="1, 10, -40" min="0, 8, -41"/>
+          </region>
+        </monument>
+      </monuments>
+    </monuments>
+  </objectives>
+  <items>
+    <remove-drops>
+      <any>
+        <material>wood</material>
+        <material>wood pickaxe</material>
+        <material>stone sword</material>
+        <material>stone axe</material>
+        <material>bow</material>
+        <material>log</material>
+        <material>golden apple</material>
+        <material>arrow</material>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>leather leggings</material>
+        <material>leather boots</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>stone sword</material>
+        <material>stone axe</material>
+        <material>bow</material>
+      </any>
+    </repair-tools>
+    <keep-items>
+      <any>
+        <material>nether star</material>
+      </any>
+    </keep-items>
+    <keep-armor>
+      <any>
+        <material>gold helmet</material>
+        <material>gold chestplate</material>
+        <material>gold leggings</material>
+        <material>gold boots</material>
+      </any>
+    </keep-armor>
+  </items>
+  <regions>
+    <above id="height-limit" y="35"/>
+    <cylinder base="0, 1, 0" height="36" id="playable" radius="51"/>
+    <cuboid id="redSpawnReg" max="32, 256, 84" min="-31, 0, 52"/>
+    <cuboid id="blueSpawnReg" max="32, 256,-52" min="-31, 0,-84"/>
+  </regions>
+  <zones>
+    <zone modify="never" region="height-limit">
+      <message>{errors.height-limit} ^e(^a35^e)</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <invert>
+          <region id="playable"/>
+        </invert>
+      </region>
+      <message>{errors.outside-map}</message>
+    </zone>
+    <zone modify="never" region="blueSpawnReg">
+      <enter>
+        <team>blue</team>
+      </enter>
+      <message>You may not enter the enemy spawn!</message>
+    </zone>
+    <zone modify="never" region="redSpawnReg">
+      <enter>
+        <team>red</team>
+      </enter>
+      <message>You may not enter the enemy spawn!</message>
+    </zone>
+  </zones>
+</map>

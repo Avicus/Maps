@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="BerryLandMC DTC" spec="1.0.0" version="1.0.0">
+  <include src="defaults.xml"/>
+  <include src="Shared/reward-one-gap.xml"/>
+  <include src="Shared/phases-dtc.xml"/>
+  <authors>
+    <author uuid="e16d0672-23c7-4a02-bd22-965e38521c35"/>
+    <!-- 99250  -->
+    <author uuid="1865ac01-271f-4f69-b979-b43a78c39989"/>
+    <!--  Zintenka -->
+    <author uuid="bf331953-4f92-43ee-8abc-7544b8234936"/>
+    <!--  ViceWatercolour  -->
+  </authors>
+  <gametype>dtc</gametype>
+  <teams>
+    <load-group id="teams.red-blue" max="25" min="1"/>
+  </teams>
+  <spawns>
+    <!--  Spectator spawn  -->
+    <spawn>
+      <regions>
+        <point yaw="0">-52, 163, 1</point>
+      </regions>
+    </spawn>
+    <!--  Team Spawns  -->
+    <spawn loadout="default" team="red" yaw="90">
+      <regions>
+        <point yaw="0">19, 94, -87</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="blue" yaw="-90">
+      <regions>
+        <point yaw="180">18, 94, 100</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <objectives>
+    <leakables destroyable="true" first-phase="gold" materials="obsidian">
+      <leakables owner="blue">
+        <leakable leak-distance="3" name="Core" repairable="true">
+          <region>
+            <sphere origin="18, 81, 54" radius="4"/>
+          </region>
+        </leakable>
+      </leakables>
+      <leakables owner="red">
+        <leakable leak-distance="3" name="Core" repairable="true">
+          <region>
+            <sphere origin="18, 81, -42" radius="4"/>
+          </region>
+        </leakable>
+      </leakables>
+    </leakables>
+  </objectives>
+  <loadouts>
+    <loadout id="default">
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="iron leggings"/>
+      <boots material="leather boots" team-color="true"/>
+      <item material="iron sword" slot="0"/>
+      <item material="bow" slot="1">
+        <enchantment>arrow infinite</enchantment>
+      </item>
+      <item material="diamond pickaxe" slot="2">
+        <enchantment level="2">dig speed</enchantment>
+      </item>
+      <item material="iron axe" slot="3"/>
+      <item amount="3" material="golden apple" slot="4"/>
+      <item amount="64" material="log" slot="5"/>
+      <item amount="64" material="glass" slot="6"/>
+      <item material="bucket" slot="7"/>
+      <item amount="16" material="bread" slot="8"/>
+      <item amount="1" material="arrow" slot="28"/>
+    </loadout>
+    <loadout id="kill-reward">
+      <item material="golden apple"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="kill-reward"/>
+    </rewards>
+  </kills>
+  <zones>
+    <zone modify="never">
+      <region>
+        <cuboid max="2, 102, -93" min="34, 83, -80"/>
+      </region>
+      <enter>
+        <team>red</team>
+      </enter>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid max="34, 102, 104" min="2, 83, 92"/>
+      </region>
+      <enter>
+        <team>blue</team>
+      </enter>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+  </zones>
+  <world>
+    <storm>false</storm>
+    <weather check="always"/>
+  </world>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>iron leggings</material>
+        <material>leather boots</material>
+        <material>bread</material>
+        <material>bucket</material>
+        <material>golden apple</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>iron sword</material>
+        <material>bow</material>
+        <material>diamond pickaxe</material>
+        <material>iron axe</material>
+      </any>
+    </repair-tools>
+  </items>
+</map>

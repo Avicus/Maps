@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="Reindeers" spec="1.0.0" version="1.1.0">
+  <include src="defaults.xml"/>
+  <include src="Shared/reward-one-gap.xml"/>
+  <authors>
+    <author uuid="ae5c1e91745b4a6fa33711484ede6957"/>  <!-- Clijmart -->
+    <author uuid="7ee8570e63ff4eef9f6c340b857292df"/>  <!--Mels159 -->
+  </authors>
+  <teams>
+    <team color="red" id="red" max="25" min="1">{colors.red}</team>
+    <team color="green" id="green" max="25" min="1">{colors.green}</team>
+  </teams>
+  <spawns>
+    <spawn yaw="0">
+      <regions>
+        <circle center="0, 71, 0" radius="1"/>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="green" yaw="90">
+      <regions>
+        <circle center="63, 15, 0" radius="1"/>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="red" yaw="-90">
+      <regions>
+        <circle center="-62, 15, 0" radius="1"/>
+      </regions>
+    </spawn>
+  </spawns>
+  <objectives>
+    <monuments materials="obsidian">
+      <monuments owner="red">
+        <monument name="{directions.mid-right}">
+          <region>
+            <block>-91, 17, -35</block>
+          </region>
+        </monument>
+        <monument name="{directions.right}">
+          <region>
+            <block>-94, 17, -71</block>
+          </region>
+        </monument>
+        <monument name="{directions.mid-left}">
+          <region>
+            <block>-91, 17, 35</block>
+          </region>
+        </monument>
+        <monument name="{directions.left}">
+          <region>
+            <block>-94, 17, 71</block>
+          </region>
+        </monument>
+      </monuments>
+      <monuments owner="green">
+        <monument name="{directions.mid-right}">
+          <region>
+            <block>91, 17, 35</block>
+          </region>
+        </monument>
+        <monument name="{directions.right}">
+          <region>
+            <block>-94, 17, 71</block>
+          </region>
+        </monument>
+        <monument name="{directions.mid-left}">
+          <region>
+            <block>91, 17, -35</block>
+          </region>
+        </monument>
+        <monument name="{directions.left}">
+          <region>
+            <block>94, 17, -71</block>
+          </region>
+        </monument>
+      </monuments>
+    </monuments>
+  </objectives>
+  <loadouts>
+    <loadout id="default">
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="iron chestplate" team-color="false"/>
+      <boots material="leather boots" team-color="true"/>
+      <item material="stone sword" slot="0"/>
+      <item material="bow" slot="1"/>
+      <item material="diamond pickaxe" slot="2"/>
+      <item amount="1" material="golden apple" slot="3"/>
+      <item amount="32" material="glass" slot="4"/>
+      <item amount="16" material="log" slot="5"/>
+      <item amount="64" material="cooked beef" slot="7"/>
+      <item amount="64" material="arrow" slot="28"/>
+    </loadout>
+    <loadout id="kill-reward">
+      <item material="exp_bottle"/>
+    </loadout>
+  </loadouts>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>log</material>
+        <material>arrow</material>
+        <material>cooked beef</material>
+        <material>glass</material>
+        <material>iron chestplate</material>
+        <material>leather chestplate</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>stone sword</material>
+        <material>bow</material>
+        <material>wood pickaxe</material>
+      </any>
+    </repair-tools>
+  </items>
+  <zones>
+    <zone modify="never">
+      <region>
+        <cuboid max="-72, 31, 7" min="-53, 10, -8"/>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid max="72, 31, -7" min="55, 10, 8"/>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+  </zones>
+  <kills>
+    <rewards>
+      <reward loadout="kill-reward"/>
+    </rewards>
+  </kills>
+</map>

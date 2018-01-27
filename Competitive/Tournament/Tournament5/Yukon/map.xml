@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="Yukon" spec="1.0.0" version="1.0.0">
+  <include src="defaults.xml"/>
+  <include src="Shared/reward-one-gap.xml"/>
+  <authors>
+    <author uuid="54964b606ce749229a4c2b981d8c2ed7"/> <!-- Spoookeh -->
+    <author uuid="7dcb1605a6414f6f99efea04278b6f7c"/> <!-- Lgmatias -->
+  </authors>
+  <teams>
+    <load-group id="teams.red-blue" max="8" min="1"/>
+  </teams>
+  <spawns>
+    <!-- Spectator spawn -->
+    <spawn>
+      <regions>
+        <point yaw="0">5.5, 57, 69.5</point>
+      </regions>
+    </spawn>
+    <!-- Team spawns -->
+    <spawn loadout="default" team="red" yaw="0">
+      <regions>
+        <point yaw="0">6.5, 34, 27.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="blue" yaw="-180">
+      <regions>
+        <point yaw="-180">4.5, 34, 111.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <zones>
+    <zones>
+      <load-group id="no-build"/>
+    </zones>
+    <!-- Posts -->
+    <zone id="red-post">
+      <region>
+        <block>33, 39, 69</block>
+      </region>
+      <post yaw="90"/>
+    </zone>
+    <zone id="blue-post">
+      <region>
+        <block>-23, 39, 69</block>
+      </region>
+      <post yaw="-90"/>
+    </zone>
+    <!-- Nets -->
+    <zone>
+      <region>
+        <cuboid max="34, 41, 70" min="32, 39, 68"/>
+      </region>
+      <net points="1">
+        <capture-check>
+          <team>red</team>
+        </capture-check>
+      </net>
+    </zone>
+    <zone>
+      <region>
+        <cuboid max="-24, 41, 68" min="-22, 39, 70"/>
+      </region>
+      <net points="1">
+        <capture-check>
+          <team>blue</team>
+        </capture-check>
+      </net>
+    </zone>
+    <!-- red spawn -->
+    <zone modify="always">
+      <enter>
+        <team>red</team>
+      </enter>
+      <region>
+        <cuboid max="9, 39, 29" min="3, 34, 30"/>
+      </region>
+      <message>{errors.enemy-base}</message>
+    </zone>
+    <!-- blue spawn -->
+    <zone modify="always">
+      <enter>
+        <team>blue</team>
+      </enter>
+      <region>
+        <cuboid max="1, 39, 110" min="7, 34, 108"/>
+      </region>
+      <message>{errors.enemy-base}</message>
+    </zone>
+  </zones>
+  <world>
+    <gamerules>
+      <doDaylightCycle>true</doDaylightCycle>
+    </gamerules>
+  </world>
+  <loadouts>
+    <loadout id="default">
+      <effect duration="5s">damage resistance</effect>
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="chainmail leggings" team-color="true"/>
+      <boots material="iron boots" team-color="true"/>
+      <item material="iron sword" slot="0"/>
+      <item material="bow" slot="1"/>
+      <item amount="1" material="golden apple" slot="2"/>
+      <item amount="32" material="cooked beef" slot="3"/>
+      <item amount="16" material="arrow" slot="8"/>
+    </loadout>
+    <loadout id="four-arrow">
+      <item amount="4" material="arrow"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="four-arrow"/>
+    </rewards>
+  </kills>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>chainmail leggings</material>
+        <material>iron boots</material>
+        <material>cooked beef</material>
+        <material>golden apple</material>
+        <material>arrow</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>iron sword</material>
+        <material>bow</material>
+      </any>
+    </repair-tools>
+  </items>
+  <objectives>
+    <scores limit="3">
+      <score team="red"/>
+      <score team="blue"/>
+    </scores>
+    <flag color="blue" owner="blue" post="blue-post" recover-time="15s"/>
+    <flag color="red" owner="red" post="red-post" recover-time="15s"/>
+  </objectives>
+</map>

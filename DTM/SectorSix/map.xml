@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="Sector Six" spec="1.0.0" version="1.1.0">
+  <include src="defaults.xml"/>
+  <gametype>dtm</gametype>
+  <include src="Shared/reward-one-gap.xml"/>
+  <authors>
+    <author uuid="da98a2f1673c4cecb547e0a342abfde4"/> <!-- timaeusTestified  -->
+  </authors>
+  <tutorial>
+    <step countdown="5s" freeze="false" location="0, 41, -4" pitch="53" yaw="0">
+      <chat>
+        <line>^r • {tutorial.generic.team-spawns}</line>
+      </chat>
+    </step>
+    <step countdown="10s" freeze="false" location="-67, 37, 7" pitch="20.5" yaw="136.1">
+      <chat>
+        <line>^r • {tutorial.dtm.monument-area}</line>
+        <line>^r • {tutorial.dtm.monument-objective}</line>
+      </chat>
+    </step>
+  </tutorial>
+  <teams>
+    <team color="cyan" id="cyan" max="25" min="1">{colors.cyan}</team>
+    <team color="orange" id="orange" max="25" min="1">{colors.orange}</team>
+  </teams>
+  <spawns>
+    <spawn yaw="90">
+      <regions>
+        <circle center="107, 83, -74" radius="1"/>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="cyan" yaw="180">
+      <regions>
+        <circle center="0, 35, 0" radius="2"/>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="orange" yaw="0">
+      <regions>
+        <circle center="0, 35, -154" radius="2"/>
+      </regions>
+    </spawn>
+  </spawns>
+  <objectives>
+    <monuments materials="obsidian">
+      <monuments owner="cyan">
+        <monument name="{directions.left}">
+          <region>
+            <block>71, 38, 0</block>
+          </region>
+        </monument>
+        <monument name="{directions.back}">
+          <region>
+            <block>0, 38, 71</block>
+          </region>
+        </monument>
+        <monument name="{directions.right}">
+          <region>
+            <block>-71, 38, 0</block>
+          </region>
+        </monument>
+      </monuments>
+      <monuments owner="orange">
+        <monument name="{directions.left}">
+          <region>
+            <block>-71, 38, -155</block>
+          </region>
+        </monument>
+        <monument name="{directions.back}">
+          <region>
+            <block>0, 38, -226</block>
+          </region>
+        </monument>
+        <monument name="{directions.right}">
+          <region>
+            <block>71, 38, -155</block>
+          </region>
+        </monument>
+      </monuments>
+    </monuments>
+  </objectives>
+  <loadouts>
+    <loadout id="default">
+      <helmet material="leather helmet" team-color="true"/>
+      <item material="stone sword" slot="0"/>
+      <item material="bow" slot="1">
+        <enchantment>arrow infinite</enchantment>
+      </item>
+      <item material="diamond pickaxe" slot="2"/>
+      <item amount="3" material="golden apple" slot="3"/>
+      <item amount="32" material="log" slot="4"/>
+      <item amount="64" material="glass" slot="5"/>
+      <item amount="24" material="baked potato" slot="6"/>
+      <item amount="1" material="arrow" slot="9"/>
+    </loadout>
+  </loadouts>
+  <zones>
+    <zone modify="never">
+      <region>
+        <cuboid max="39, 37, 39" min="39, 37, 39"/>
+      </region>
+      <message>{errors.cannot-break-enchanting}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid max="-39, 37, 39" min="-39, 37, 39"/>
+      </region>
+      <message>{errors.cannot-break-enchanting}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid max="-39, 37, -194" min="-39, 37, -194"/>
+      </region>
+      <message>{errors.cannot-break-enchanting}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid max="39, 37, -194" min="39, 37, -194"/>
+      </region>
+      <message>{errors.cannot-break-enchanting}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cylinder base="0, 34, 0" height="15" radius="15"/>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cylinder base="0, 34, -155" height="15" radius="15"/>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid max="-39, 36, -194" min="-39, 36, -194"/>
+      </region>
+      <message>{errors.cannot-build}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid max="39, 36, -194" min="39, 36, -194"/>
+      </region>
+      <message>{errors.cannot-build}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid max="39, 36, 39" min="-39, 36, 39"/>
+      </region>
+      <message>{errors.cannot-build}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid max="-39, 36, 39" min="-39, 36, 39"/>
+      </region>
+      <message>{errors.cannot-build}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid max="-200, 70, 200" min="200, 70, -200"/>
+      </region>
+      <message>{errors.cannot-build}</message>
+    </zone>
+  </zones>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>glass</material>
+        <material>arrow</material>
+        <material>log</material>
+        <material>baked potato</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>stone sword</material>
+        <material>bow</material>
+        <material>diamond pickaxe</material>
+      </any>
+    </repair-tools>
+  </items>
+</map>

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="Flush Holiday" spec="1.0.4" version="1.0.0">
+  <include src="defaults.xml"/>
+  <include src="Shared/reward-one-gap.xml"/>
+  <authors>
+    <author uuid="2958ea4c3501404e88cc12e8632f68cc"/> <!-- NixaniaXi -->
+    <author uuid="621b2aa84e5f4ed8bd360ae2f8952a06"/> <!-- Strangey -->
+    <author uuid="6bec5c3a49344b199aa8c7c569820f7d"/> <!-- Claf -->
+  </authors>
+  <teams>
+    <team color="red" id="red" max="8" min="1">{colors.red}</team>
+    <team color="green" id="green" max="8" min="1">{colors.green}</team>
+  </teams>
+  <spawns>
+    <!-- Spectator spawn -->
+    <spawn>
+      <regions>
+        <point yaw="-90">-37.5, 70, -73.5</point>
+      </regions>
+    </spawn>
+    <!-- Team spawns -->
+    <spawn loadout="default" respawn-delay="3s" respawn-freeze="true" team="red" yaw="-180">
+      <regions>
+        <point yaw="90">-20.5,40,-105.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" respawn-delay="3s" respawn-freeze="true" team="green" yaw="0">
+      <regions>
+        <point yaw="-90">-55.5,40,-41.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <objectives>
+    <scores limit="100">
+      <score team="red"/>
+      <score team="green"/>
+    </scores>
+    <flag color="green" owner="green" post="green-post" recover-time="15s"/>
+    <flag color="red" owner="red" post="red-post" recover-time="15s"/>
+  </objectives>
+  <zones>
+    <zone modify="never" region="everywhere">
+      <message>{errors.cannot-build-map}</message>
+    </zone>
+    <!-- Posts -->
+    <zone id="red-post">
+      <region>
+        <block>-41,10,-111</block>
+      </region>
+      <post yaw="-45"/>
+    </zone>
+    <zone id="green-post">
+      <region>
+        <block>-36,10,-37</block>
+      </region>
+      <post yaw="135"/>
+    </zone>
+    <!-- Nets -->
+    <zone>
+      <region>
+        <cuboid max="-42,9,-112" min="-40,12,-110"/>
+      </region>
+      <net points="1">
+        <capture-check>
+          <team>red</team>
+        </capture-check>
+      </net>
+    </zone>
+    <zone>
+      <region>
+        <cuboid max="-35,9,-36" min="-37,12,-38"/>
+      </region>
+      <net points="1">
+        <capture-check>
+          <team>green</team>
+        </capture-check>
+      </net>
+    </zone>
+  </zones>
+  <world>
+    <gamerules>
+      <doDaylightCycle>true</doDaylightCycle>
+    </gamerules>
+  </world>
+  <loadouts>
+    <loadout id="default">
+      <effect duration="5s">damage resistance</effect>
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="gold chestplate" team-color="true"/>
+      <leggings material="leather leggings" team-color="true"/>
+      <boots material="gold boots" team-color="true"/>
+      <item material="stone sword" slot="0"/>
+      <item material="bow" slot="1"/>
+      <item amount="1" material="golden apple" slot="2"/>
+      <item amount="32" material="cooked beef" slot="3"/>
+      <item amount="16" material="arrow" slot="8"/>
+    </loadout>
+    <loadout id="four-arrow">
+      <item amount="4" material="arrow"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="four-arrow"/>
+    </rewards>
+  </kills>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>gold chestplate</material>
+        <material>leather leggings</material>
+        <material>gold boots</material>
+        <material>cooked beef</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>stone sword</material>
+        <material>bow</material>
+      </any>
+    </repair-tools>
+  </items>
+  <results>
+    <win scenario="objectives">
+      <check>
+        <any>
+          <time>12m</time>
+        </any>
+      </check>
+    </win>
+  </results>
+</map>

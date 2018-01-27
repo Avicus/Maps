@@ -1,0 +1,211 @@
+<?xml version="1.0"?>
+<map name="Wahiz CTW" version="1.0.0" description="Once a stale map, now a great map since Legoche helped fix it!!!" spec="1.0.0">
+    <include src="defaults.xml"/>
+
+    <authors>
+        <author uuid="9116d3fa14004adaaecd2eae1d73e383" role="The author of the map."/> <!-- Xuph -->
+        <author uuid="1c74c43029a0471fb30bcc2d9031ebcb" role="Map Layout"/> <!-- Tazz -->
+        <author uuid="e3c3f34f49d742279b9db29d9a3b97f8" role="WorldEdit"/> <!-- Jiveh -->
+        <author uuid="c29bef37d8e242a9b74604f2df78f374" role="Map Gameplay Edits"/> <!-- Legoche -->
+        <author uuid="0b8f95fa0f404f289fd0b8e243bb6800" role="XML/YML"/> <!-- Fouled -->
+    </authors>
+
+    <teams>
+        <team id="blue" color="blue" min="2" max="20">{colors.blue}</team>
+        <team id="red" color="red" min="2" max="20">{colors.red}</team>
+    </teams>
+
+    <spawns>
+        <spawn team="spectators" yaw="180">
+            <regions>
+                <block>8, 74, -23</block>
+            </regions>
+        </spawn>
+        <spawn team="blue" yaw="90" loadout="default">
+            <regions>
+                <circle center="124, 3, -74" radius="1"/>
+            </regions>
+        </spawn>
+        <spawn team="red" yaw="-90" loadout="default">
+            <regions>
+                <circle center="-107, 3, -74" radius="1"/>
+            </regions>
+        </spawn>
+    </spawns>
+
+    <regions>
+        <subtract id="void-outer"> <!-- All blocks of void minus the mid region -->
+            <void/>
+            <cuboid min="-86, 0 , -72" max="-79, 30, -78"/>
+            <cuboid min="102, 0, -78" max="95, 30, -72"/>
+            <cuboid min="-52, 0, -80" max="68, 30, -70"/>
+            <cuboid min="-124, 0, -92" max="140, 30, -102"/>
+            <cuboid min="140, 0, -58" max="-124, 30, -48"/>
+            <cuboid min="94, 0, -60" max="84, 30, -90"/>
+            <cuboid min="-78, 0, -60" max="-68, 30, -90"/>
+        </subtract>
+        <above id="height-limit" y="30"/>
+    </regions>
+
+    <zones>
+        <zone modify="never">
+            <region>
+                <sphere origin="8, 73, -24" radius="6" height="4"/> <!-- Spectator Spawn Region -->
+                <cuboid min="-109, 8, -91" max="-124, 26, -103"/> <!-- Room is Wool Orange -->
+                <cuboid min="-109, 8, -47" max="-124, 26, -59"/> <!-- Room is Wool Yellow -->
+                <cuboid min="125, 8, -103" max="140, 26, -91"/> <!-- Room is Wool Pink -->
+                <cuboid min="125, 8, -59" max="140, 26, -47"/> <!-- Room is Wool Purple -->
+             </region>
+        <zone modify="never">
+            <region>
+        <subtract><!-- All of the blocks minus the monument (blue) -->
+            <cuboid min="103, 0, -80" max="129, 30, -70"/>
+            <block>128, 3, -76</block>
+            <block>128, 3, -74</block>
+        </subtract>
+            </region>
+            <message>{errors.spawn-restricted}</message>
+        </zone>
+        <zone modify="never">
+            <region>
+        <subtract> <!-- All of the blocks minus the monument (red) -->
+            <cuboid min="-87, 0, -70" max="-113, 30, -80"/>
+            <block>-112, 3, -74</block>
+            <block>-112, 3, -76</block>
+        </subtract>
+            </region>
+            <message>{errors.spawn-restricted}</message>
+        </zone>
+        </zone>
+        <!-- red woolrooms -->
+        <zone modify="always">
+            <enter>
+                <team>red</team>
+            </enter>
+            <region>
+                <cuboid min="125, 8, -103" max="140, 26, -91"/> <!-- Room is Wool Pink -->
+                <cuboid min="125, 8, -59" max="140, 26, -47"/> <!-- Room is Wool Purple -->
+            </region>
+            <message>{errors.own-wool-room}</message>
+        </zone>
+
+        <!-- blue woolrooms -->
+        <zone modify="always">
+            <enter>
+                <team>blue</team>
+            </enter>
+            <region>
+                <cuboid min="-109, 8, -103" max="-124, 26, -91"/> <!-- Room is Wool Orange -->
+                <cuboid min="-109, 8, -47" max="-124, 26, -59"/> <!-- Room is Wool Yellow -->
+            </region>
+            <message>{errors.own-wool-room}</message>
+        </zone>
+
+        <zone modify="never" region="void-outer">
+            <message>{errors.outside-map}</message>
+        </zone>
+        <zone modify="never" region="height-limit">
+            <message>{errors.height-limit}</message>
+        </zone>
+    </zones>
+
+    <loadouts>
+        <loadout id="default">
+            <effect duration="5s">damage resistance</effect>
+            <helmet material="leather helmet" team-color="true">
+                <enchantment level="1">protection environmental</enchantment>
+            </helmet>
+            <chestplate material="leather chestplate" team-color="true">
+                <enchantment level="1">protection environmental</enchantment>
+            </chestplate>
+            <leggings material="leather leggings" team-color="true">
+                <enchantment level="1">protection environmental</enchantment>
+            </leggings>
+            <boots material="leather boots" team-color="true">
+                <enchantment level="1">protection environmental</enchantment>
+            </boots>
+            <item slot="0" material="stone sword"/>
+            <item slot="1" material="bow"/>
+            <item slot="2" material="iron pickaxe">
+                <enchantment level="2">durability</enchantment>
+                <enchantment level="2">dig speed</enchantment>
+            </item>
+            <item slot="3" material="stone axe">
+                <enchantment level="2">durability</enchantment>
+                <enchantment level="1">dig speed</enchantment>
+            </item>
+            <item slot="4" material="golden apple" amount="2"/>
+            <item slot="5" material="log" damage="1" amount="64"/>
+            <item slot="6" material="glass" amount="64"/>
+            <item slot="7" material="bucket"/>
+            <item slot="8" material="cooked beef" amount="32"/>
+            <item slot="27" material="arrow" amount="32"/>
+        </loadout>
+        <loadout id="kill-reward">
+            <item material="golden apple"/>
+            <item material="arrow" amount="16"/>
+        </loadout>
+    </loadouts>
+
+    <kills>
+        <rewards>
+            <reward loadout="kill-reward"/>
+        </rewards>
+    </kills>
+
+    <items>
+        <remove-drops>
+            <any>
+                <material>stone sword</material>
+                <material>leather helmet</material>
+                <material>leather chestplate</material>
+                <material>leather leggings</material>
+                <material>leather boots</material>
+                <material>bucket</material>
+                <material>bow</material>
+                <material>cooked beef</material>
+                <material>iron pickaxe</material>
+            </any>
+        </remove-drops>
+    </items>
+
+    <objectives>
+        <wools team="blue" pickup="false">
+            <wool color="orange">
+                <source>
+                    <block>-123, 16, -97</block>
+                </source>
+                <destination>
+                    <block>128, 3, -76</block>
+                </destination>
+            </wool>
+            <wool color="yellow">
+                <source>
+                    <block>-123, 16, -53</block>
+                </source>
+                <destination>
+                    <block>128, 3, -74</block>
+                </destination>
+            </wool>
+        </wools>
+
+        <wools team="red" pickup="false">
+            <wool color="pink">
+                <source>
+                    <block>139,16,-97</block>
+                </source>
+                <destination>
+                    <block>-112,3,-76</block>
+                </destination>
+            </wool>
+            <wool color="purple">
+                <source>
+                    <block>139,16,-53</block>
+                </source>
+                <destination>
+                    <block>-112,3,-74</block>
+                </destination>
+            </wool>
+        </wools>
+    </objectives>
+</map>

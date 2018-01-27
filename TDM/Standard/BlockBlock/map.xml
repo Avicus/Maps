@@ -1,0 +1,146 @@
+<map description="Be the team with the most points after 7 minutes." name="BlockBlock"
+  spec="1.0.0"
+  version="1.0.1">
+  <include src="defaults.xml"/>
+  <include src="Shared/conquest-shop.xml"/>
+  <authors>
+    <author uuid="5986da63a54649c5812dd5c41a42510a"/>
+    <!-- Lyzak -->
+  </authors>
+  <teams>
+    <team color="red" id="red" max="24" min="1">{colors.red}</team>
+    <team color="blue" id="blue" max="24" min="1">{colors.blue}</team>
+  </teams>
+  <kills>
+    <rewards>
+      <reward loadout="potion"/>
+    </rewards>
+  </kills>
+  <loadouts>
+    <loadout id="potion">
+      <item material="potion" damage="16373"/>
+    </loadout>
+  </loadouts>
+  <!-- No Score Limit -->
+  <objectives>
+    <scores kills="1">
+      <score team="red"/>
+      <score team="blue"/>
+    </scores>
+  </objectives>
+  <gametype>score</gametype>
+  <results>
+    <win scenario="objectives">
+      <check>
+        <time>7m</time>
+      </check>
+    </win>
+  </results>
+  <spawns>
+    <spawn>
+      <regions>
+        <point yaw="90">-49.5, 27, 0.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="red">
+      <regions>
+        <point yaw="-90">-25.5, 1, -26.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="blue">
+      <regions>
+        <point yaw="90">25.5, 1, 26.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <regions>
+    <join id="red-base">
+      <cuboid max="-22, 7, -23" min="-28, 1, -29"/>
+    </join>
+    <join id="blue-base">
+      <cuboid max="22, 7, 29" min="28, 1, 23"/>
+    </join>
+  </regions>
+  <broadcasts>
+    <broadcast format="tip" interval="2m">Scoreboxes are worth 10 points, and kills are worth 1 point!</broadcast>
+  </broadcasts>
+  <loadouts>
+    <loadout id="default">
+      <effect duration="3s">damage resistance</effect>
+      <helmet material="leather helmet" team-color="true" unbreakable="true"/>
+      <chestplate material="gold chestplate" unbreakable="true"/>
+      <leggings material="leather leggings" unbreakable="true" team-color="true"/>
+      <boots material="leather boots" unbreakable="true" team-color="true"/>
+      <item material="stone sword" unbreakable="true" slot="0"/>
+      <item material="bow" slot="1" unbreakable="true">
+          <enchantments>
+            <enchantment level="1">arrow infinite</enchantment>
+          </enchantments>
+      </item>
+      <item material="arrow" slot="28"/>
+      <item material="golden apple" slot="6"/>
+      <item material="potion" slot="3" damage="16373"/>
+      <item amount="32" material="pumpkin pie" slot="2"/>
+    </loadout>
+  </loadouts>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>gold chestplate</material>
+        <material>leather leggings</material>
+        <material>leather boots</material>
+        <material>glass bottle</material>
+        <material>pumpkin pie</material>
+        <material>arrow</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>stone sword</material>
+        <material>bow</material>
+      </any>
+    </repair-tools>
+  </items>
+  <zones>
+    <!-- Disable Build -->
+    <load-group id="no-build"/>
+    <!-- Blue Scorebox -->
+    <zone>
+      <region>
+        <cuboid max="-8, 3, -42" min="-2, 1, -44"/>
+      </region>
+      <enter>
+        <team>blue</team>
+      </enter>
+      <scorebox points="10"/>
+      <portal yaw="90">
+        <destination>
+          <point>25.5, 1, 26.5</point>
+        </destination>
+      </portal>
+      <message>{errors.wrong-scorebox}</message>
+    </zone>
+    <!-- Red Scorebox -->
+    <zone>
+      <region>
+        <cuboid max="2, 1, 44" min="8, 3, 42"/>
+      </region>
+      <enter>
+        <team>red</team>
+      </enter>
+      <scorebox points="10"/>
+      <portal yaw="-90">
+        <destination>
+          <point>-25.5, 1, -26.5</point>
+        </destination>
+      </portal>
+      <message>{errors.wrong-scorebox}</message>
+    </zone>
+  </zones>
+  <world>
+    <gamerules>
+      <doDaylightCycle>false</doDaylightCycle>
+    </gamerules>
+  </world>
+</map>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="Feral Paradise" spec="1.0.0" version="1.1.0">
+  <include src="defaults.xml"/>
+  <include src="Shared/nexus-kits.xml"/>
+  <include src="Shared/reward-one-gap.xml"/>
+  <authors>
+    <author uuid="378952b5808f4a33911e39c7ba153b38"/>
+  </authors>
+  <teams>
+    <team color="orange" id="orange" max="8" min="1">Orange</team>
+    <load-group id="teams.lime-cyan" max="8" min="1"/>
+    <team color="red" id="red" max="8" min="1">Red</team>
+  </teams>
+  <broadcasts>
+    <broadcast format="alert" interval="2m">{broadcasts.map-kits}</broadcast>
+    <broadcast format="alert" interval="2m">{broadcasts.map-kits-2}</broadcast>
+  </broadcasts>
+  <objectives>
+    <scores kills="1" limit="100">
+      <score team="orange"/>
+      <score team="cyan"/>
+      <score team="red"/>
+      <score team="lime"/>
+    </scores>
+  </objectives>
+  <results>
+    <win scenario="objectives">
+      <check>
+        <time>8m</time>
+      </check>
+    </win>
+  </results>
+  <spawns>
+    <spawn yaw="90">
+      <regions>
+        <block>59, 211, -18</block>
+      </regions>
+    </spawn>
+    <spawn team="cyan" yaw="-45">
+      <regions>
+        <block>-46, 152, -61</block>
+      </regions>
+    </spawn>
+    <spawn team="red" yaw="45">
+      <regions>
+        <block>37, 152, -60</block>
+      </regions>
+    </spawn>
+    <spawn team="lime" yaw="-135">
+      <regions>
+        <block>-47, 152, 22</block>
+      </regions>
+    </spawn>
+    <spawn team="orange" yaw="135">
+      <regions>
+        <block>36, 152, 24</block>
+      </regions>
+    </spawn>
+  </spawns>
+  <zones>
+    <zones>
+      <zone modify="never" region="everywhere"/>
+    </zones>
+  </zones>
+  <world>
+    <gamerules>
+      <doTileDrops>false</doTileDrops>
+    </gamerules>
+  </world>
+</map>

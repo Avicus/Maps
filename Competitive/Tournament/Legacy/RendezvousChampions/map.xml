@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="Rendezvous Champions" spec="1.0.0" version="1.1.0">
+  <include src="defaults.xml"/>
+  <authors>
+    <author uuid="44df6b20168f4389b7ac434518207c2f"/> <!-- ParaPenguin -->
+    <author uuid="d9b4ffbc11d0453aa93f82dc59fca4b6"/> <!-- Spidercell-->
+    <author uuid="c29bef37d8e242a9b74604f2df78f374"/> <!-- Legoche -->
+    <author uuid="0b8f95fa0f404f289fd0b8e243bb6800"/> <!-- Fouled -->
+  </authors>
+  <teams>
+    <load-group id="teams.green-blue" max="8" min="1"/>
+  </teams>
+  <spawns>
+    <!-- Spectator spawn -->
+    <spawn>
+      <regions>
+        <point yaw="180">-245.5, 30, 56.5</point>
+      </regions>
+    </spawn>
+    <!-- Team spawns -->
+    <spawn loadout="default" team="blue" yaw="-90">
+      <regions>
+        <point yaw="-90">-333.5, 12, -13.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="green" yaw="90">
+      <regions>
+        <point yaw="90">-157.5, 12, -13.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <objectives>
+    <monuments materials="obsidian">
+      <monuments owner="blue">
+        <monument name="{directions.left}">
+          <region>
+            <block>-404, 16, 15</block>
+          </region>
+        </monument>
+        <monument name="{directions.right}">
+          <region>
+            <block>-404, 16, -43</block>
+          </region>
+        </monument>
+      </monuments>
+      <monuments owner="green">
+        <monument name="{directions.left}">
+          <region>
+            <block>-88, 16, -43</block>
+          </region>
+        </monument>
+        <monument name="{directions.right}">
+          <region>
+            <block>-88, 16, 15</block>
+          </region>
+        </monument>
+      </monuments>
+    </monuments>
+  </objectives>
+  <results>
+    <win scenario="objectives">
+      <check>
+        <time>45m</time>
+      </check>
+    </win>
+  </results>
+  <loadouts>
+    <loadout id="default">
+      <helmet material="leather helmet" team-color="true">
+        <enchantment level="1">protection environmental</enchantment>
+      </helmet>
+      <item material="iron sword" slot="0"/>
+      <item material="bow" slot="1">
+        <enchantment>arrow infinite</enchantment>
+      </item>
+      <item material="diamond pickaxe" slot="2"/>
+      <item amount="3" material="golden apple" slot="3"/>
+      <item amount="64" material="log" slot="4"/>
+      <item amount="48" material="glass" slot="5"/>
+      <item amount="48" material="apple" slot="6"/>
+      <item amount="1" material="arrow" slot="27"/>
+    </loadout>
+    <loadout id="kill-reward">
+      <item material="golden apple"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="kill-reward"/>
+    </rewards>
+  </kills>
+  <zones>
+    <zone modify="never">
+      <region>
+        <invert>
+          <cuboid max="-414, 30, -48" min="-78, 0, 20"/>
+        </invert>
+      </region>
+      <message>{errors.outside-map}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid max="-385, 30, 9" min="-414, 0, -37"/>
+      </region>
+      <message>{errors.outside-map}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid max="-107, 30, -37" min="-78, 0, 9"/>
+      </region>
+      <message>{errors.outside-map}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid max="-343, 30, -20" min="-325, 0, -8"/>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid max="-149, 30, -8" min="-167, 0, -20"/>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+  </zones>
+  <items>
+    <remove-drops>
+      <any>
+        <material>glass</material>
+        <material>log</material>
+        <material>apple</material>
+        <material>arrow</material>
+        <material>glass</material>
+        <material>leather helmet</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>iron sword</material>
+        <material>bow</material>
+        <material>diamond pickaxe</material>
+      </any>
+    </repair-tools>
+  </items>
+</map>

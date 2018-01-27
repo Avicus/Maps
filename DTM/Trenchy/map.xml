@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map spec="1.0.5" name="Trenchy" version="1.0.0" genre="nebula">
+  <gametype>dtm</gametype>
+  <authors>
+    <author uuid="54730967f52f43df824980af6738c59f" /> <!-- Merlinmaster -->
+    <author uuid="bf3319534f9243ee8abc7544b8234936" /> <!-- ViceWatercolour -->
+  </authors>
+  <spawns>
+    <spawn>
+      <regions>
+        <point yaw="90">73.5, 107.0, 84.5</point>
+      </regions>
+    </spawn>
+    <spawn team="red" loadout="default">
+      <regions>
+        <point>0.5, 78.0, -6.5</point>
+      </regions>
+    </spawn>
+    <spawn team="yellow" loadout="default">
+      <regions>
+        <point yaw="180">0.5, 78.0, 177.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>leather leggings</material>
+        <material>leather boots</material>
+        <material>iron sword</material>
+        <material>bow</material>
+        <material>cooked beef</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>iron sword</material>
+        <material>diamond pickaxe</material>
+        <material>bow</material>
+      </any>
+    </repair-tools>
+  </items>
+  <zones>
+    <zone modify="never">
+      <region>
+        <cuboid min="-7, 71, -11" max="-7, 88, -11"/>
+      </region>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid min="7,71,3" max="-10,89,-13"/>
+      </region>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid min="-7, 71, 167" max="7, 87, 181"/>
+      </region>
+    </zone>
+  </zones>
+  <objectives>
+    <monuments materials="obsidian">
+      <monuments owner="yellow">
+        <monument name="Left">
+          <region>
+            <block>35, 81, 118</block>
+          </region>
+        </monument>
+        <monument name="Right">
+          <region>
+            <block>-35, 81, 118</block>
+          </region>
+        </monument>
+      </monuments>
+      <monuments owner="red">
+        <monument name="Left">
+          <region>
+            <block>-35, 81, 52</block>
+          </region>
+        </monument>
+        <monument name="Right">
+          <region>
+            <block>35, 81, 52</block>
+          </region>
+        </monument>
+      </monuments>
+    </monuments>
+  </objectives>
+  <teams>
+    <team id="red" color="red" min="3" max="25" max-overfill="31">Red Team</team>
+    <team id="yellow" color="yellow" min="3" max="25" max-overfill="31">Yellow Team</team>
+  </teams>
+  <loadouts>
+    <loadout id="default">
+      <item slot="0" material="iron_sword" />
+      <item slot="1" material="bow">
+        <enchantments>
+          <enchantment level="1">arrow infinite</enchantment>
+        </enchantments>
+      </item>
+      <item slot="2" material="diamond_pickaxe">
+        <enchantments>
+          <enchantment level="1">dig_speed</enchantment>
+        </enchantments>
+      </item>
+      <item slot="3" material="golden_apple" amount="2" />
+      <item slot="4" material="log" amount="64" />
+      <item slot="5" material="glass" amount="64" />
+      <item slot="6" material="cooked beef" amount="32" />
+      <item slot="27" material="arrow" />
+      <chestplate team-color="true" material="leather_chestplate" />
+      <helmet team-color="true" material="leather_helmet" />
+      <boots team-color="true" material="leather_boots" />
+      <leggings team-color="true" material="leather_leggings" />
+      <effect duration="100" level="4">damage resistance</effect>
+    </loadout>
+  </loadouts>
+</map>

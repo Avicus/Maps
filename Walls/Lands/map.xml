@@ -1,0 +1,108 @@
+<?xml version="1.0"?>
+<map name="Lands" spec="1.0.5" version="1.0.0">
+  <include src="defaults.xml"/>
+  <include src="Shared/walls.xml"/>
+  <include src="Shared/tutorials/walls.xml"/>
+  <gametype>walls</gametype>
+  <authors>
+    <author uuid="7041fe1f5d344373b6dc8a7d4605033b"/> <!-- Polar_Express -->
+    <author uuid="3893a242cc17447e9b1c774fc8941af8"/> <!-- G_SKIPPY -->
+  </authors>
+  <teams>
+    <team color="red" id="red" max="20" min="1">Ruins Team</team>
+    <team color="blue" id="blue" max="20" min="1">Windmill Team</team>
+    <team color="green" id="green" max="20" min="1">Forest Team</team>
+    <team color="yellow" id="yellow" max="20" min="1">Oasis Team</team>
+  </teams>
+  <tutorial>
+    <step countdown="5s" freeze="true" location="173,157,41" pitch="15" yaw="-62">
+      <chat>
+        <line>^r • {tutorial.generic.team-spawns}</line>
+      </chat>
+    </step>
+    <step countdown="5s" freeze="true" location="57,220,91" pitch="20" yaw="-151">
+      <chat>
+        <line>^r • {tutorial.walls.wall-area}</line>
+      </chat>
+    </step>
+    <step countdown="5s" freeze="true" location="106,158,88" pitch="27" yaw="45">
+      <chat>
+        <line>^r • {tutorial.walls.wall-mid-loot}</line>
+      </chat>
+    </step>
+  </tutorial>
+  <spawns>
+    <spawn>
+      <regions>
+        <cuboid max="84, 181, 78" min="116, 175, 110" yaw="-45"/>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="red">
+      <regions>
+        <point yaw="90">183.5, 155, 47.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="blue">
+      <regions>
+        <point yaw="90">183.5, 155, 141.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="green">
+      <regions>
+        <point yaw="-90">17.5, 155, 47.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="yellow">
+      <regions>
+        <point yaw="-90">17.5, 155, 141.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <zones>
+    <zone modify="never">
+      <region>
+        <invert>
+          <cuboid max="179, 230, 173" min="21, 1, 15"/>
+        </invert>
+      </region>
+    </zone>
+    <zone modify="never" region="height-limit"/>
+    <zone modify="never">
+      <region>
+        <cuboid max="116, 230, 17" min="116, 215, 171"/>
+        <cuboid max="84, 230, 17" min="84, 215, 171"/>
+        <cuboid max="23, 230, 78" min="177, 215, 78"/>
+        <cuboid max="23, 230, 110" min="177, 215, 110"/>
+      </region>
+    </zone>
+    <zone enter="never" modify="never">
+      <region>
+        <cuboid max="84,230,173" min="116,0,172"/>
+        <cuboid max="22,230,110" min="21,0,78"/>
+        <cuboid max="116,230,15" min="84,0,16"/>
+        <cuboid max="178,230,78" min="179,0,110"/>
+      </region>
+    </zone>
+  </zones>
+  <regions>
+    <above id="height-limit" y="215"/>
+  </regions>
+  <walls end-time="30m" fall-time="10m">
+    <wall>
+      <region>
+        <cuboid max="116, 154, 17" min="116, 230, 171"/>
+        <cuboid max="84, 154, 17" min="84, 230, 171"/>
+        <cuboid max="23, 154, 78" min="177, 230, 78"/>
+        <cuboid max="23, 154, 110" min="177, 230, 110"/>
+      </region>
+    </wall>
+  </walls>
+  <loadouts>
+    <loadout id="default">
+      <helmet material="leather helmet" team-color="true"/>
+      <item amount="1" material="wood sword" slot="0"/>
+      <item amount="1" material="compass" slot="7"/>
+      <item amount="12" material="cooked beef" slot="8"/>
+    </loadout>
+  </loadouts>
+</map>

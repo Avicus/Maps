@@ -1,0 +1,140 @@
+﻿<?xml version="1.0"?>
+<map name="Ravanged" spec="1.0.0" version="1.0.0">
+  <include src="defaults.xml"/>
+  <gametype>dtm</gametype>
+  <include src="Shared/reward-one-gap.xml"/>
+  <include src="Shared/tutorials/dtm.xml"/>
+  <authors>
+    <author uuid="af9c1942af6642d189f99b677c281e03"/> <!-- Brumlington -->
+    <author uuid="aad7dc7b5b2b4eb5bf14cfa6c1d09eef"/> <!-- neseril -->
+  </authors>
+  <tutorial>
+    <step countdown="5s" freeze="false" location="931, 32, 745" pitch="28" yaw="-90">
+      <chat>
+        <line>^r • {tutorial.generic.team-spawns}</line>
+      </chat>
+    </step>
+    <step countdown="4s" freeze="false" location="937, 65, 795" pitch="17" yaw="-90">
+      <chat>
+        <line>^r • {tutorial.dtm.monument-area}</line>
+        <line>^r • {tutorial.dtm.monument-objective}</line>
+      </chat>
+    </step>
+  </tutorial>
+  <teams>
+    <load-group id="teams.red-blue" max="25" min="1"/>
+  </teams>
+  <spawns>
+    <spawn id="default" team="spectators" yaw="180">
+      <regions>
+        <block>784, 76, 840</block>
+      </regions>
+    </spawn>
+    <spawn id="red" loadout="default" team="red" yaw="-90">
+      <regions>
+        <block>630, 31, 754</block>
+      </regions>
+    </spawn>
+    <spawn id="blue" loadout="default" team="blue" yaw="90">
+      <regions>
+        <block>936, 31, 745</block>
+      </regions>
+    </spawn>
+  </spawns>
+  <objectives>
+    <monuments materials="obsidian">
+      <monuments owner="blue">
+        <monument name="Antenna">
+          <region>
+            <block>940, 63, 701</block>
+          </region>
+        </monument>
+        <monument name="Energy">
+          <region>
+            <block>941, 65, 795</block>
+          </region>
+        </monument>
+      </monuments>
+      <monuments owner="red">
+        <monument name="Antenna">
+          <region>
+            <block>626, 63, 797</block>
+          </region>
+        </monument>
+        <monument name="Energy">
+          <region>
+            <block>625, 65, 703</block>
+          </region>
+        </monument>
+      </monuments>
+    </monuments>
+  </objectives>
+  <regions>
+    <above id="height-limit" y="68"/>
+  </regions>
+  <zones>
+    <zone modify="never">
+      <enter>
+        <team>blue</team>
+      </enter>
+      <region>
+        <subtract>
+          <cuboid max="943, 35, 738" min="930, 26, 751"/>
+        </subtract>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never">
+      <enter>
+        <team>red</team>
+      </enter>
+      <region>
+        <subtract>
+          <cuboid max="623, 35, 760" min="636, 26, 747"/>
+        </subtract>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+  </zones>
+  <items>
+    <repair-tools>
+      <any>
+        <material>iron sword</material>
+        <material>diamond pickaxe</material>
+        <material>bow</material>
+      </any>
+    </repair-tools>
+    <remove-drops>
+      <any>
+        <material>cooked fish</material>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>leather leggings</material>
+        <material>leather boots</material>
+        <material>log</material>
+        <material>glass</material>
+        <material>golden apple</material>
+      </any>
+    </remove-drops>
+  </items>
+  <loadouts>
+    <loadout id="default">
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="leather leggings" team-color="true"/>
+      <boots material="leather boots" team-color="true"/>
+      <effect duration="8s">damage resistance</effect>
+      <item material="iron sword" slot="0"/>
+      <item material="bow" slot="1"/>
+      <item material="diamond pickaxe" slot="2">
+        <enchantment level="2">dig speed</enchantment>
+        <enchantment level="2">durability</enchantment>
+      </item>
+      <item amount="3" material="golden apple" slot="3"/>
+      <item amount="64" material="glass" slot="4"/>
+      <item amount="32" material="log" slot="5"/>
+      <item amount="32" material="cooked fish" slot="6"/>
+      <item amount="64" material="arrow" slot="27"/>
+    </loadout>
+  </loadouts>
+</map>

@@ -1,0 +1,188 @@
+<?xml version="1.0"?>
+<map description="Find and kill the blocks, or survive as a block to win."
+  name="Block Hunt: Boneyard"
+  spec="1.0.0" version="1.0.0">
+  <!-- This map is not functional until a developer adds support for a module where the kit selection is narrowed down to a specific team. Until then, this is not expected to be set or tested until that feature is available. -->
+  <include src="defaults.xml"/>
+  <authors>
+    <author uuid="bf3319534f9243ee8abc7544b8234936"/> <!-- ViceWatercolour -->
+  </authors>
+  <teams>
+    <team color="orange" id="orange" max="10" min="1">Hiders</team>
+    <team color="lime" id="lime" max="10" min="1">Attackers</team>
+  </teams>
+  <loadouts>
+    <loadout id="attackers">
+      <walk-speed action="add">1</walk-speed>
+      <effect>slow digging</effect>
+      <effect>speed</effect>
+      <effect>jump</effect>
+      <effect>saturation</effect>
+      <effect duration="5s">blindness</effect>
+      <effect duration="6s">confusion</effect>
+      <helmet material="diamond helmet" unbreaking="true"/>
+      <chestplate material="leather chestplate" team-color="true" unbreaking="true"/>
+      <leggings material="leather leggings" team-color="true" unbreaking="true"/>
+      <boots material="diamond boots" unbreaking="true"/>
+      <item material="iron axe" slot="0" unbreaking="true"/>
+      <item material="bow" slot="1" unbreaking="true"/>
+      <item material="compass" slot="2"/>
+      <item material="fishing rod" slot="3"/>
+      <item amount="16" material="arrow" slot="28"/>
+    </loadout>
+    <loadout id="hiders">
+      <effect>absorption</effect>
+      <effect>saturation</effect>
+      <effect duration="10s">speed</effect>
+      <effect duration="15s">invisibility</effect>
+      <effect>water breathing</effect>
+      <item material="wood sword" slot="0" unbreaking="true">
+        <enchantment level="2">knockback</enchantment>
+      </item>
+    </loadout>
+  </loadouts>
+  <spawns>
+    <spawn>
+      <regions>
+        <point yaw="45">1416.5, 9, 509.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="hiders" respawn-delay="5s" team="orange" yaw="0">
+      <regions>
+        <point yaw="-45">1332.5, 4, 477.5</point>
+        <point yaw="45">1414.5, 4, 477.5</point>
+        <point yaw="0">1358.5, 4, 459.5</point>
+        <point yaw="0">1388.5, 4, 461.5</point>
+        <point yaw="126">1425.5, 6, 498.5</point>
+        <point yaw="137">1393.5, 14, 521.5</point>
+      </regions>
+    </spawn>
+    <spawn auto-respawn="true" loadout="attackers" team="lime" yaw="0">
+      <regions>
+        <point yaw="-45">1331.5, 19, 456.5</point>
+        <point yaw="45">1415.5, 19, 456.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <!-- Disguises -->
+  <kits>
+    <kit description="^eSuit yourself up as a hay block." name="Hay Block">
+      <icon material="hay block"/>
+      <loadout>
+        <disguise material="hay block">falling block</disguise>
+      </loadout>
+    </kit>
+    <kit description="^2Suit yourself up as leaves." name="Leaves">
+      <icon material="leaves"/>
+      <loadout>
+        <disguise material="leaves">falling block</disguise>
+      </loadout>
+    </kit>
+    <kit description="^6Suit yourself up as a coal ore." name="Coal Ore">
+      <icon material="coal ore"/>
+      <loadout>
+        <disguise material="coal ore">falling block</disguise>
+      </loadout>
+    </kit>
+    <kit description="^6Suit yourself up as an iron ore." name="Iron Ore">
+      <icon material="iron ore"/>
+      <loadout>
+        <disguise material="iron ore">falling block</disguise>
+      </loadout>
+    </kit>
+    <kit description="^6Suit yourself up as a golden ore." name="Golden Ore">
+      <icon material="gold ore"/>
+      <loadout>
+        <disguise material="gold ore">falling block</disguise>
+      </loadout>
+    </kit>
+    <kit description="^aSuit yourself up as a cactus." name="Cactus">
+      <icon material="cactus"/>
+      <loadout>
+        <disguise material="cactus">falling block</disguise>
+      </loadout>
+    </kit>
+  </kits>
+  <broadcasts>
+    <broadcast format="alert" interval="2m">^3You are playing ^bBlock Hunt^3. Your goal is to either
+      ^asurvive^3, or ^ckill ^3the enemy blocks around the map. You have ^b3 lives^3.
+    </broadcast>
+  </broadcasts>
+  <objectives>
+    <last-team-standing team="orange"/>
+    <last-team-standing team="lime"/>
+  </objectives>
+  <elimination lives="3"/>
+  <results>
+    <win scenario="objectives">
+      <check>
+        <time>7m</time>
+      </check>
+    </win>
+  </results>
+  <compasses>
+    <compass target="enemy"/>
+  </compasses>
+  <zones>
+    <load-group id="no-build"/>
+    <zone>
+      <loadout>
+        <health action="subtract">20</health>
+      </loadout>
+      <region>
+        <below y="0"/>
+      </region>
+    </zone>
+  </zones>
+  <damage>
+    <disable>
+      <damage>fall</damage>
+    </disable>
+  </damage>
+  <world>
+    <gamerules>
+      <doDaylightCycle>false</doDaylightCycle>
+      <doTileDrops>false</doTileDrops>
+    </gamerules>
+  </world>
+  <remove-drops>
+    <any>
+      <material>diamond helmet</material>
+      <material>leather chestplate</material>
+      <material>leather leggings</material>
+      <material>diamond boots</material>
+      <material>iron axe</material>
+      <material>wood sword</material>
+      <material>compass</material>
+      <material>bow</material>
+      <material>arrow</material>
+      <material>fishing rod</material>
+    </any>
+  </remove-drops>
+  <tutorial>
+    <step countdown="5s" freeze="false" location="1373, 6, 494" pitch="0" yaw="-180">
+      <chat>
+        <line>^3Welcome to ^aBlock Hunt</line>
+      </chat>
+    </step>
+    <step countdown="4s" location="1385, 7, 462" pitch="0" yaw="-171">
+      <chat>
+        <line>^3As a ^6hider^3, you must blend in with your environment.</line>
+      </chat>
+    </step>
+    <step countdown="4s" location="1385, 7, 462" pitch="0" yaw="-171">
+      <chat>
+        <line>^3As an ^aattacker^3, you must find the blocks and kill them. You have ^athree
+          lives^3.
+        </line>
+      </chat>
+    </step>
+    <step countdown="4s" location="1334, 21, 458" pitch="0" yaw="135">
+      <chat>
+        <line>^3Attackers spawn here, with hiders getting a grace period to hide so they are not
+          ^aimmediately caught^3.
+        </line>
+      </chat>
+    </step>
+  </tutorial>
+</map>

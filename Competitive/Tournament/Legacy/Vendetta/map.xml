@@ -1,0 +1,178 @@
+<?xml version="1.0"?>
+<map name="Vendetta" spec="1.0.0" version="1.0.0">
+  <include src="defaults.xml"/>
+  <include src="Shared/reward-one-gap.xml"/>
+  <authors>
+    <author role="The author of the map."
+      uuid="6d64acd8b64044ed94ebca2058e49c3b"/> <!-- awesome_apricot -->
+    <author role="The author of the map."
+      uuid="23a6fcb47af04690b59ea308cc3c1ca1"/> <!-- ULTIMATE7FALCON -->
+    <author role="The author of the map."
+      uuid="54964b606ce749229a4c2b981d8c2ed7"/> <!-- Spoookeh -->
+    <author role="Map Edits" uuid="c29bef37d8e242a9b74604f2df78f374"/> <!-- Legoche -->
+    <author role="XML/Map Edits" uuid="0b8f95fa0f404f289fd0b8e243bb6800"/> <!-- Fouled -->
+  </authors>
+  <contributors>
+    <author uuid="9116d3fa14004adaaecd2eae1d73e383"/> <!-- awesome_apricot -->
+    <author uuid="809c9222049e4086881113f3c4686be5"/> <!-- Zegita -->
+    <author uuid="89f514e1f0f549778ddc77ef030a8b46"/> <!-- Posighdun -->
+    <author uuid="20017ca515fe4708893563db33af58ef"/> <!-- Iron -->
+  </contributors>
+  <teams>
+    <team color="blue" id="blue" max="8" min="1">{colors.blue}</team>
+    <team color="red" id="red" max="8" min="1">{colors.red}</team>
+  </teams>
+  <spawns>
+    <!-- Spectator spawn -->
+    <spawn>
+      <regions>
+        <point yaw="-90">-9.5, 90, -36.5</point>
+      </regions>
+    </spawn>
+    <!-- Team spawns -->
+    <spawn loadout="default" team="blue" yaw="0">
+      <regions>
+        <point yaw="0">3.5, 5, -33.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="red" yaw="-180">
+      <regions>
+        <point yaw="-180">3.5, 5, -39.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <regions>
+    <subtract id="void-outer"> <!-- All blocks of void minus the mid region -->
+      <void/>
+      <cuboid max="36, 25, -4" min="85, 0, -70"/>
+      <cuboid max="49, 25, -5" min="36, 0, 7"/>
+      <cuboid max="54, 25, 15" min="47, 0, 7"/>
+      <cuboid max="67, 25, -4" min="58, 0, 7"/>
+      <cuboid max="36, 25, -70" min="49, 0, -80"/>
+      <cuboid max="54, 25, -89" min="47, 0, -81"/>
+      <cuboid max="67, 25, -70" min="58, 0, -81"/>
+    </subtract>
+    <above id="height-limit" y="25"/>
+  </regions>
+  <zones>
+    <zone modify="never">
+      <region>
+        <cuboid max="76, 25, 69" min="86, 0, 60"/> <!-- Room is Wool Orange -->
+        <cuboid max="86, 25, -143" min="76, 0, -134"/> <!-- Room is Wool Purple -->
+      </region>
+      <zone modify="never">
+        <region>
+          <subtract><!-- All of the blocks minus the monument (blue) -->
+            <cuboid max="-5, 25, -37" min="26, 0, 18"/>
+            <block>8, 6, -35</block>
+          </subtract>
+        </region>
+        <message>{errors.spawn-restricted}</message>
+      </zone>
+      <zone modify="never">
+        <region>
+          <subtract> <!-- All of the blocks minus the monument (red) -->
+            <cuboid max="-5, 25, -37" min="26, 0, -100"/>
+            <block>8, 6, -39</block>
+          </subtract>
+        </region>
+        <message>{errors.spawn-restricted}</message>
+      </zone>
+    </zone>
+    <!-- red woolrooms -->
+    <zone modify="always">
+      <enter>
+        <team>red</team>
+      </enter>
+      <region>
+        <cuboid max="76, 25, 69" min="86, 0, 57"/> <!-- Room is Wool Orange -->
+      </region>
+      <message>{errors.enemy-base}</message>
+    </zone>
+    <!-- blue woolrooms -->
+    <zone modify="always">
+      <enter>
+        <team>blue</team>
+      </enter>
+      <region>
+        <cuboid max="86, 25, -143" min="76, 0, -131"/> <!-- Room is Wool Purple -->
+      </region>
+      <message>{errors.enemy-base}</message>
+    </zone>
+    <zone modify="never" region="void-outer">
+      <message>{errors.outside-map}</message>
+    </zone>
+    <zone modify="never" region="height-limit">
+      <message>{errors.height-limit}</message>
+    </zone>
+  </zones>
+  <loadouts>
+    <loadout id="default">
+      <effect duration="5s">damage resistance</effect>
+      <chestplate material="leather chestplate" team-color="true">
+        <enchantment level="1">protection environmental</enchantment>
+      </chestplate>
+      <item material="stone sword" slot="0"/>
+      <item material="bow" slot="1"/>
+      <item material="iron pickaxe" slot="2">
+        <enchantment level="2">durability</enchantment>
+        <enchantment level="2">dig speed</enchantment>
+      </item>
+      <item material="stone axe" slot="3"/>
+      <item amount="2" material="golden apple" slot="4"/>
+      <item amount="32" material="log" slot="6"/>
+      <item amount="16" material="glass" slot="7"/>
+      <item amount="32" material="cooked beef" slot="8"/>
+      <item amount="32" material="arrow" slot="27"/>
+    </loadout>
+    <loadout id="kill-reward">
+      <item material="golden apple"/>
+      <item amount="4" material="arrow"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="kill-reward"/>
+    </rewards>
+  </kills>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather chestplate</material>
+        <material>cooked beef</material>
+        <material>golden apple</material>
+        <material>arrow</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>stone sword</material>
+        <material>bow</material>
+        <material>iron pickaxe</material>
+        <material>stone axe</material>
+      </any>
+    </repair-tools>
+  </items>
+  <objectives>
+    <wools pickup="false" team="blue">
+      <wool color="purple">
+        <source>
+          <block>81, 8, -141</block>
+        </source>
+        <destination>
+          <block>8, 6, -35</block>
+        </destination>
+      </wool>
+    </wools>
+    <wools pickup="false" team="red">
+      <wool color="orange">
+        <source>
+          <block>81, 8, 67</block>
+        </source>
+        <destination>
+          <block>8, 6, -39</block>
+        </destination>
+      </wool>
+    </wools>
+  </objectives>
+</map>

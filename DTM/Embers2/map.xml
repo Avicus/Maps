@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="Embers 2" spec="1.0.0" version="1.1.0">
+  <include src="defaults.xml"/>
+  <include src="Shared/tutorials/dtm.xml"/>
+  <gametype>dtm</gametype>
+  <authors>
+    <author uuid="da98a2f1673c4cecb547e0a342abfde4"/> <!-- timaeusTestified -->
+    <author uuid="0b8f95fa0f404f289fd0b8e243bb6800"/> <!-- Fouled -->
+    <author uuid="ec00f0bb1c4548768f112b033b35c7e2"/> <!-- Arigenn -->
+    <author uuid="3cce00809faa48f982cf64410305822a"/> <!-- ProfessorUtonium -->
+  </authors>
+  <tutorial>
+    <step countdown="5s" freeze="false" location="-10,77,21" pitch="0" yaw="-90">
+      <chat>
+        <line>^r • {tutorial.generic.team-spawns}</line>
+      </chat>
+    </step>
+    <step countdown="4s" location="-62,77,5" pitch="-30" yaw="-180">
+      <chat>
+        <line>^r • {tutorial.dtm.monument-area}</line>
+      </chat>
+    </step>
+    <step countdown="5s" location="-79,81,-47" pitch="-20" yaw="0">
+      <chat>
+        <line>^r • {tutorial.dtm.monument-objective}</line>
+      </chat>
+    </step>
+  </tutorial>
+  <teams>
+    <load-group id="teams.red-blue" max="20" min="1"/>
+  </teams>
+  <spawns>
+    <!-- Spectator spawn -->
+    <spawn>
+      <regions>
+        <circle center="-123, 138, -89" radius="3"/>
+      </regions>
+    </spawn>
+    <!-- Team spawns -->
+    <spawn loadout="default" team="red" yaw="90">
+      <regions>
+        <circle center="-1, 77, 21" radius="2"/>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="blue" yaw="-90">
+      <regions>
+        <circle center="-247, 77, 21" radius="2"/>
+      </regions>
+    </spawn>
+  </spawns>
+  <objectives>
+    <monuments materials="obsidian">
+      <monuments owner="red">
+        <monument name="{directions.left}">
+          <region>
+            <block>-79, 85, -39</block>
+          </region>
+        </monument>
+        <monument name="{directions.left}">
+          <region>
+            <block>-62, 81, -2</block>
+          </region>
+        </monument>
+        <monument name="{directions.right}">
+          <region>
+            <block>-62, 81, 44</block>
+          </region>
+        </monument>
+        <monument name="{directions.right}">
+          <region>
+            <block>-79, 85, 81</block>
+          </region>
+        </monument>
+      </monuments>
+      <monuments owner="blue">
+        <monument name="{directions.left}">
+          <region>
+            <block>-171, 85, 81</block>
+          </region>
+        </monument>
+        <monument name="{directions.left}">
+          <region>
+            <block>-188, 81, 44</block>
+          </region>
+        </monument>
+        <monument name="{directions.right}">
+          <region>
+            <block>-188, 81, -2</block>
+          </region>
+        </monument>
+        <monument name="{directions.right}">
+          <region>
+            <block>-171, 85, -39</block>
+          </region>
+        </monument>
+      </monuments>
+    </monuments>
+  </objectives>
+  <loadouts>
+    <loadout id="default">
+      <effect duration="5s">damage resistance</effect>
+      <helmet material="leather helmet" team-color="true"/>
+      <item material="stone sword" slot="0"/>
+      <item material="bow" slot="1">
+        <enchantment>arrow infinite</enchantment>
+      </item>
+      <item material="diamond pickaxe" slot="2"/>
+      <item amount="2" material="golden apple" slot="3"/>
+      <item amount="64" material="log 2" slot="4"/>
+      <item amount="64" material="stained glass" slot="5"/>
+      <item amount="32" material="golden carrot" slot="6"/>
+      <item material="arrow" slot="28"/>
+    </loadout>
+    <loadout id="kill-reward">
+      <item material="golden apple"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="kill-reward"/>
+    </rewards>
+  </kills>
+  <zones>
+    <zone modify="never">
+      <region>
+        <join>
+          <block>-100, 78, -18</block>
+          <block>-100, 78, 60</block>
+          <block>-150, 78, 60</block>
+          <block>-150, 78, -18</block>
+        </join>
+      </region>
+      <message>{errors.cannot-break-enchanting}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cylinder base="-248, 76, 21" height="25" radius="10"/>
+      </region>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cylinder base="-2, 76, 21" height="25" radius="10"/>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cylinder base="22, 131, 118" height="4" radius="9"/>
+      </region>
+      <message>{errors.cannot-build}</message>
+    </zone>
+  </zones>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>golden carrot</material>
+        <material>stained glass</material>
+        <material>log 2</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>stone sword</material>
+        <material>bow</material>
+        <material>diamond pickaxe</material>
+      </any>
+    </repair-tools>
+  </items>
+</map>

@@ -1,0 +1,166 @@
+<?xml version="1.0"?>
+<map description="A rocky landscape ready for warfare." name="Sandstorm" spec="1.0.0"
+  version="1.0.1">
+  <include src="defaults.xml"/>
+  <gametype>dtm</gametype>
+  <include src="Shared/tutorials/dtm.xml"/>
+  <authors>
+    <author uuid="6ceda19d312c4b42aee3acbdf9c9fc13"/> <!-- Awarrior -->
+    <author uuid="0b8f95fa0f404f289fd0b8e243bb6800"/> <!-- Fouled -->
+    <author uuid="9ce7d3ac70c24517bd29ee731464dc33"/> <!-- Lavish -->
+  </authors>
+  <tutorial>
+    <step countdown="5s" freeze="true" location="436, 15, 661" pitch="40" yaw="-179">
+      <chat>
+        <line>^r • {tutorial.generic.team-spawns}</line>
+      </chat>
+    </step>
+    <step countdown="5s" freeze="true" location="463, 16, 639" pitch="17" yaw="-129">
+      <chat>
+        <line>^r • {tutorial.dtm.monument-area}</line>
+      </chat>
+    </step>
+    <step countdown="5s" freeze="true" location="436, 30, 687" pitch="31" yaw="-180">
+      <chat>
+        <line>^r • {tutorial.dtm.monument-objective}</line>
+      </chat>
+    </step>
+  </tutorial>
+  <teams>
+    <team color="yellow" id="yellow" max="25" min="1">{colors.yellow}</team>
+    <team color="red" id="red" max="25" min="1">{colors.red}</team>
+  </teams>
+  <spawns>
+    <spawn yaw="90">
+      <regions>
+        <block>292, 77, 691</block>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="yellow" yaw="-180">
+      <regions>
+        <block>434, 12, 809</block>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="red" yaw="0">
+      <regions>
+        <block>437, 12, 657</block>
+      </regions>
+    </spawn>
+  </spawns>
+  <objectives>
+    <monuments materials="obsidian">
+      <monuments owner="red">
+        <monument name="{directions.left} Monument">
+          <region>
+            <join>
+              <block>401, 16, 637</block>
+              <block>401, 17, 637</block>
+            </join>
+          </region>
+        </monument>
+        <monument name="{directions.right} Monument">
+          <region>
+            <join>
+              <block>467, 16, 636</block>
+              <block>467, 17, 636</block>
+            </join>
+          </region>
+        </monument>
+      </monuments>
+      <monuments owner="yellow">
+        <monument name="{directions.left} Monument">
+          <region>
+            <join>
+              <block>470, 16, 829</block>
+              <block>470, 17, 829</block>
+            </join>
+          </region>
+        </monument>
+        <monument name="{directions.right} Monument">
+          <region>
+            <join>
+              <block>404, 16, 830</block>
+              <block>404, 17, 830</block>
+            </join>
+          </region>
+        </monument>
+      </monuments>
+    </monuments>
+  </objectives>
+  <zones>
+    <zone modify="never">
+      <region>
+        <cylinder base="437, 10, 657" height="25" radius="11"/>
+      </region>
+      <enter>
+        <team>red</team>
+      </enter>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cylinder base="434, 10, 809" height="25" radius="11"/>
+      </region>
+      <enter>
+        <team>yellow</team>
+      </enter>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <above y="54"/>
+      </region>
+      <message>{errors.outside-map}</message>
+    </zone>
+  </zones>
+  <items>
+    <repair-tools>
+      <any>
+        <material>iron sword</material>
+        <material>bow</material>
+        <material>diamond pickaxe</material>
+        <material>iron axe</material>
+      </any>
+    </repair-tools>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>iron leggings</material>
+        <material>leather boots</material>
+        <material>pumpkin pie</material>
+        <material>log</material>
+        <material>wood</material>
+        <material>sandstone</material>
+        <material>arrow</material>
+      </any>
+    </remove-drops>
+  </items>
+  <loadouts>
+    <loadout id="default">
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="iron leggings"/>
+      <boots material="leather boots" team-color="true"/>
+      <effect duration="3s">damage resistance</effect>
+      <item material="iron sword" slot="0"/>
+      <item material="bow" slot="1"/>
+      <item material="diamond pickaxe" slot="2"/>
+      <item material="iron axe" slot="3"/>
+      <item amount="32" material="log" slot="4"/>
+      <item amount="64" material="sandstone" slot="5"/>
+      <item amount="16" material="pumpkin pie" slot="6"/>
+      <item amount="2" material="golden apple" slot="7"/>
+      <item amount="32" material="arrow" slot="27"/>
+    </loadout>
+    <loadout id="kill-reward">
+      <item material="golden apple"/>
+      <item amount="4" material="arrow"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="kill-reward"/>
+    </rewards>
+  </kills>
+</map>

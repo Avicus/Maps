@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+<map name="Injustice" spec="1.0.0" version="1.1.0">
+  <include src="defaults.xml"/>
+  <authors>
+    <author uuid="7dcb1605a6414f6f99efea04278b6f7c"/> <!-- Lgmatias -->
+  </authors>
+  <teams>
+    <load-group id="teams.red-blue" max="8" min="1"/>
+  </teams>
+  <spawns>
+    <spawn look="-39, 25, -39">
+      <regions>
+        <cuboid max="-40, 24, -40" min="-42, 24, -42"/>
+      </regions>
+    </spawn>
+    <spawn loadout="default" region="red-spawn" team="red"/>
+    <spawn loadout="default" region="blue-spawn" team="blue" yaw="-180"/>
+  </spawns>
+  <regions>
+    <cuboid id="red-spawn" max="-43, 6, -88" min="-41, 6, -86"/>
+    <cuboid id="blue-spawn" max="-41, 6, 4" min="-43, 6, 2"/>
+  </regions>
+  <objectives>
+    <scores kills="1">
+      <score team="blue"/>
+      <score team="red"/>
+    </scores>
+  </objectives>
+  <results>
+    <win scenario="objectives">
+      <check>
+        <time>12m</time>
+      </check>
+    </win>
+  </results>
+  <loadouts>
+    <loadout id="default">
+      <effect duration="5s">damage resistance</effect>
+      <effect>night vision</effect>
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="leather leggings" team-color="true"/>
+      <boots material="leather boots" team-color="true"/>
+      <item material="stone sword" slot="0"/>
+      <item material="bow" slot="1"/>
+      <item amount="16" material="arrow" slot="2"/>
+      <item amount="32" material="cooked beef" slot="8"/>
+    </loadout>
+    <loadout id="k-r">
+      <item material="golden apple"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="k-r"/>
+    </rewards>
+  </kills>
+  <items>
+    <remove-drops>
+      <any>
+        <material>stone sword</material>
+        <material>bow</material>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>leather leggings</material>
+        <material>leather boots</material>
+        <material>cooked beef</material>
+        <material>golden apple</material>
+        <material>arrow</material>
+      </any>
+    </remove-drops>
+  </items>
+  <zones>
+    <!-- Disable Build -->
+    <load-group id="no-build"/>
+    <!-- Red Scorebox -->
+    <zone>
+      <region>
+        <cuboid max="-41, 8, -19" min="-43, 6, -18"/>
+      </region>
+      <enter>
+        <team>red</team>
+      </enter>
+      <scorebox points="2"/>
+      <portal destination="red-spawn"/>
+      <message>{errors.wrong-scorebox}</message>
+    </zone>
+    <!-- Blue Scorebox -->
+    <zone>
+      <region>
+        <cuboid max="-43, 8, -65" min="-41, 6, -66"/>
+      </region>
+      <enter>
+        <team>blue</team>
+      </enter>
+      <scorebox points="2"/>
+      <portal destination="blue-spawn"/>
+      <message>{errors.wrong-scorebox}</message>
+    </zone>
+  </zones>
+  <world>
+    <gamerules>
+      <doDaylightCycle>false</doDaylightCycle>
+    </gamerules>
+  </world>
+</map>

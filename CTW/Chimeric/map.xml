@@ -1,0 +1,358 @@
+<?xml version="1.0"?>
+<map description="Capture the other 3 teams' wools." name="Chimeric IV Gold" spec="1.0.4"
+  version="1.0.0">
+  <include src="defaults.xml"/>
+  <authors>
+    <author uuid="f876b8631ccd4ae2acad8a09e2209e81"/> <!-- _DISTRACTION_ -->
+    <author uuid="5951eb64d04b4917967e57551860ed34"/> <!-- xXBatManXx -->
+    <author uuid="fad4e447f26c45c6a356c87b7d4bcc02"/> <!-- PotatoStealer_ -->
+  </authors>
+  <teams>
+    <team color="yellow" id="yellow" max="10" min="1">{colors.yellow}</team>
+    <team color="orange" id="orange" max="10" min="1">{colors.orange}</team>
+    <load-group id="teams.lime-cyan" max="10" min="1"/>
+  </teams>
+  <spawns>
+    <!-- Spectator spawn -->
+    <spawn>
+      <regions>
+        <point yaw="0">0.5, 60, 0.5</point>
+      </regions>
+    </spawn>
+    <!-- Team spawns -->
+    <spawn loadout="default" team="yellow" yaw="90">
+      <regions>
+        <point yaw="90">125.5, 17, 0.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="lime" yaw="-90">
+      <regions>
+        <point yaw="-90">-125.5, 17, 0.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="orange" yaw="-180">
+      <regions>
+        <point yaw="-180">0.5, 17, 125.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="cyan" yaw="0">
+      <regions>
+        <point yaw="0">0.5, 17, -125.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <zones>
+    <zone modify="never">
+      <region>
+        <cuboid max="-4, 61, 3" min="3, 59, -4"/> <!-- Spectator Spawn Region -->
+        <cuboid max="182, 43, 5" min="171, 28, -6"/> <!-- Room is Wool Yellow -->
+        <cuboid max="5, 43, -183" min="-6, 28, -172"/> <!-- Room is Wool Cyan -->
+        <cuboid max="-183, 43, -6" min="-172, 28, 5"/> <!-- Room is Wool Lime -->
+        <cuboid max="-6, 43, 182" min="5, 28, 171"/> <!-- Room is Wool Orange -->
+      </region>
+    </zone>
+    <zone modify="never">
+      <region>
+        <join>
+          <!-- Spawns 1 -->
+          <cuboid max="128,21,-15" min="123,16,15"/>
+          <cuboid max="123,21,9" min="121,16,14"/>
+          <cuboid max="123,21,-9" min="121,16,-14"/>
+          <cuboid max="130,37,10" min="126,16,14"/>
+          <cuboid max="130,37,-10" min="126,16,-14"/>
+          <!-- Spawns 2 -->
+          <cuboid max="-128,21,-15" min="-123,16,15"/>
+          <cuboid max="-123,21,9" min="-121,16,14"/>
+          <cuboid max="-123,21,-9" min="-121,16,-14"/>
+          <cuboid max="-130,37,10" min="-126,16,14"/>
+          <cuboid max="-130,37,-10" min="-126,16,-14"/>
+          <!-- Spawns 3 -->
+          <cuboid max="-15,21,-128" min="15,16,-123"/>
+          <cuboid max="9,21,-123" min="14,16,-121"/>
+          <cuboid max="-9,21,-123" min="-14,16,-121"/>
+          <cuboid max="10,37,-130" min="14,16,-126"/>
+          <cuboid max="-10,37,-130" min="-14,16,-126"/>
+          <!-- Spawns 4 -->
+          <cuboid max="-15,21,128" min="15,16,123"/>
+          <cuboid max="9,21,123" min="14,16,121"/>
+          <cuboid max="-9,21,123" min="-14,16,121"/>
+          <cuboid max="10,37,130" min="14,16,126"/>
+          <cuboid max="-10,37,130" min="-14,16,126"/>
+        </join>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <!-- cyan woolroom -->
+    <zone modify="never">
+      <enter>
+        <any>
+          <team>lime</team>
+          <team>orange</team>
+          <team>yellow</team>
+        </any>
+      </enter>
+      <region>
+        <cuboid max="-2, 31, -179" min="1, 29, -176"/>
+      </region>
+      <message>{errors.own-wool-room}</message>
+    </zone>
+    <!-- lime woolrooms -->
+    <zone modify="never">
+      <enter>
+        <any>
+          <team>cyan</team>
+          <team>orange</team>
+          <team>yellow</team>
+        </any>
+      </enter>
+      <region>
+        <cuboid max="-179, 31, 1" min="-176, 29, -2"/>
+      </region>
+      <message>{errors.own-wool-room}</message>
+    </zone>
+    <!-- orange woolroom -->
+    <zone modify="never">
+      <enter>
+        <any>
+          <team>cyan</team>
+          <team>lime</team>
+          <team>yellow</team>
+        </any>
+      </enter>
+      <region>
+        <cuboid max="1, 31, 178" min="-2, 29, 175"/>
+      </region>
+      <message>{errors.own-wool-room}</message>
+    </zone>
+    <!-- yellow woolroom -->
+    <zone modify="never">
+      <enter>
+        <any>
+          <team>cyan</team>
+          <team>lime</team>
+          <team>orange</team>
+        </any>
+      </enter>
+      <region>
+        <cuboid max="178, 31, -2" min="175, 29, 1"/>
+      </region>
+      <message>{errors.own-wool-room}</message>
+    </zone>
+    <!-- Lime Wool Teleportation -->
+    <zone>
+      <region>
+        <cuboid max="-178, 31, 0" min="-177, 30, -1"/>
+      </region>
+      <enter>
+        <any>
+          <team>cyan</team>
+          <team>orange</team>
+          <team>yellow</team>
+        </any>
+      </enter>
+      <portal yaw="-90">
+        <destination>
+          <point>-177, 40, 0</point>
+        </destination>
+      </portal>
+      <message>{errors.own-wool-room}</message>
+    </zone>
+    <!-- Cyan Wool Teleportation -->
+    <zone>
+      <region>
+        <cuboid max="-1, 31, -178" min="0, 30, -177"/>
+      </region>
+      <enter>
+        <any>
+          <team>lime</team>
+          <team>orange</team>
+          <team>yellow</team>
+        </any>
+      </enter>
+      <portal yaw="0">
+        <destination>
+          <point>0, 40, -177</point>
+        </destination>
+      </portal>
+      <message>{errors.own-wool-room}</message>
+    </zone>
+    <!-- Orange Wool Teleportation -->
+    <zone>
+      <region>
+        <cuboid max="0, 31, 177" min="-1, 30, 176"/>
+      </region>
+      <enter>
+        <any>
+          <team>cyan</team>
+          <team>lime</team>
+          <team>yellow</team>
+        </any>
+      </enter>
+      <portal yaw="180">
+        <destination>
+          <point>0, 40, 177</point>
+        </destination>
+      </portal>
+      <message>{errors.enemy-base}</message>
+    </zone>
+    <!-- Yellow Wool Teleportation -->
+    <zone>
+      <region>
+        <cuboid max="177, 31, -1" min="176, 30, 0"/>
+      </region>
+      <enter>
+        <any>
+          <team>cyan</team>
+          <team>orange</team>
+          <team>lime</team>
+        </any>
+      </enter>
+      <portal yaw="90">
+        <destination>
+          <point>177, 40, 0</point>
+        </destination>
+      </portal>
+      <message>{errors.enemy-base}</message>
+    </zone>
+  </zones>
+  <loadouts>
+    <loadout id="default">
+      <effect duration="5s">damage resistance</effect>
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="leather leggings" team-color="true"/>
+      <boots material="leather boots" team-color="true"/>
+      <item material="stone sword" slot="0"/>
+      <item material="bow" slot="1">
+        <enchantments>
+          <enchantment>arrow infinite</enchantment>
+        </enchantments>
+      </item>
+      <item material="diamond pickaxe" slot="2"/>
+      <item material="stone axe" slot="3">
+        <enchantments>
+          <enchantment level="2">dig speed</enchantment>
+        </enchantments>
+      </item>
+      <item amount="32" material="cooked fish" slot="4"/>
+      <item amount="2" material="golden apple" slot="5"/>
+      <item amount="64" material="wood" slot="6"/>
+      <item amount="32" material="glass" slot="7"/>
+      <item material="arrow" slot="28"/>
+    </loadout>
+    <loadout id="kill-reward">
+      <item material="golden apple"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="kill-reward"/>
+    </rewards>
+  </kills>
+  <objectives>
+    <wools pickup="false" team="cyan">
+      <wool color="yellow">
+        <source>
+          <block>174, 41, 0</block>
+        </source>
+        <destination>
+          <block>-1, 31, -170</block>
+        </destination>
+      </wool>
+      <wool color="lime">
+        <source>
+          <block>-175, 41, -1</block>
+        </source>
+        <destination>
+          <block>-1, 30, -170</block>
+        </destination>
+      </wool>
+      <wool color="orange">
+        <source>
+          <block>-1, 41, 174</block>
+        </source>
+        <destination>
+          <block>-1, 29, -170</block>
+        </destination>
+      </wool>
+    </wools>
+    <wools pickup="false" team="yellow">
+      <wool color="cyan">
+        <source>
+          <block>0, 41, -175</block>
+        </source>
+        <destination>
+          <block>169, 31, -1</block>
+        </destination>
+      </wool>
+      <wool color="lime">
+        <source>
+          <block>-175, 41, -1</block>
+        </source>
+        <destination>
+          <block>169, 30, -1</block>
+        </destination>
+      </wool>
+      <wool color="orange">
+        <source>
+          <block>-1, 41, 174</block>
+        </source>
+        <destination>
+          <block>169, 29, -1</block>
+        </destination>
+      </wool>
+    </wools>
+    <wools pickup="false" team="orange">
+      <wool color="yellow">
+        <source>
+          <block>174, 41, 0</block>
+        </source>
+        <destination>
+          <block>0, 31, 169</block>
+        </destination>
+      </wool>
+      <wool color="cyan">
+        <source>
+          <block>0, 41, -175</block>
+        </source>
+        <destination>
+          <block>0, 30, 169</block>
+        </destination>
+      </wool>
+      <wool color="lime">
+        <source>
+          <block>-175, 41, -1</block>
+        </source>
+        <destination>
+          <block>0, 29, 169</block>
+        </destination>
+      </wool>
+    </wools>
+    <wools pickup="false" team="lime">
+      <wool color="yellow">
+        <source>
+          <block>174, 41, 0</block>
+        </source>
+        <destination>
+          <block>-170, 31, 0</block>
+        </destination>
+      </wool>
+      <wool color="cyan">
+        <source>
+          <block>0, 41, -175</block>
+        </source>
+        <destination>
+          <block>-170, 30, 0</block>
+        </destination>
+      </wool>
+      <wool color="orange">
+        <source>
+          <block>-1, 41, 174</block>
+        </source>
+        <destination>
+          <block>-170, 29, 0</block>
+        </destination>
+      </wool>
+    </wools>
+  </objectives>
+</map>

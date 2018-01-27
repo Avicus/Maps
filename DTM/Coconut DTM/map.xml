@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map spec="1.0.5" name="Coconut: DTM" version="1.0.0" genre="nebula">
+  <include src="defaults.xml"/>
+  <gametype>dtm</gametype>
+  <authors>
+    <author uuid="ec00f0bb1c4548768f112b033b35c7e2" />
+  </authors>
+  <spawns>
+    <spawn>
+      <regions>
+        <point yaw="90">146.5, 158.0, -224.5</point>
+      </regions>
+    </spawn>
+    <spawn team="red" loadout="default">
+      <regions>
+        <point>72.5, 81.0, -368.5</point>
+      </regions>
+    </spawn>
+    <spawn team="green" loadout="default">
+      <regions>
+        <point yaw="-180">72.5, 81.0, -79.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <items>
+    <remove-drops>
+      <any>
+        <material>iron helmet</material>
+        <material>leather chestplate</material>
+        <material>leather leggings</material>
+        <material>iron boots</material>
+        <material>stone</material>
+        <material>log:3</material>
+        <material>glass</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>bow</material>
+        <material>iron sword</material>
+        <material>diamond pickaxe</material>
+      </any>
+    </repair-tools>
+  </items>
+  <zones>
+    <zone modify="never">
+      <region>
+        <cylinder base="72,80,369" radius="13" height="17"/>
+      </region>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cylinder base="72,80,-80" radius="13" height="17"/>
+      </region>
+    </zone>
+  </zones>
+  <objectives>
+    <monuments materials="obsidian">
+      <monuments owner="green">
+        <monument name="Left-A">
+          <region>
+            <block>122, 84, -159</block>
+          </region>
+        </monument>
+        <monument name="Right-A">
+          <region>
+            <block>23, 84, -159</block>
+          </region>
+        </monument>
+        <monument name="Left-B">
+          <region>
+            <block>122, 84, -133</block>
+          </region>
+        </monument>
+        <monument name="Right-B">
+          <region>
+            <block>23, 84, -133</block>
+          </region>
+        </monument>
+      </monuments>
+      <monuments owner="red">
+        <monument name="Left-A">
+          <region>
+            <block>22, 84, -290</block>
+          </region>
+        </monument>
+        <monument name="Right-A">
+          <region>
+            <block>121, 84, -290</block>
+          </region>
+        </monument>
+        <monument name="Left-B">
+          <region>
+            <block>22, 84, -316</block>
+          </region>
+        </monument>
+        <monument name="Right-B">
+          <region>
+            <block>121, 84, -316</block>
+          </region>
+        </monument>
+      </monuments>
+    </monuments>
+  </objectives>
+  <teams>
+    <team id="red" color="red" min="3" max="20" max-overfill="25">Red Team</team>
+    <team id="green" color="green" min="3" max="20" max-overfill="25">Green Team</team>
+  </teams>
+  <loadouts>
+    <loadout id="default">
+      <item slot="0" material="stone sword" />
+      <item slot="1" material="bow">
+        <enchantments>
+          <enchantment level="5">arrow infinite</enchantment>
+        </enchantments>
+      </item>
+      <item slot="2" material="diamond pickaxe">
+        <enchantments>
+          <enchantment level="3">dig speed</enchantment>
+          <enchantment level="2">durability</enchantment>
+        </enchantments>
+      </item>
+      <item slot="3" material="golden apple" amount="2" />
+      <item slot="4" material="apple" amount="32" />
+      <item slot="5" material="stone" amount="32" />
+      <item slot="6" material="glass" amount="32" />
+      <item slot="7" material="log" amount="32" damage="3" />
+      <item slot="28" material="arrow" />
+      <chestplate material="iron chestplate" />
+      <helmet team-color="true" material="leather helmet" />
+      <boots team-color="true" material="leather boots" />
+      <leggings team-color="true" material="leather leggings" />
+      <effect duration="100" level="4">damage resistance</effect>
+    </loadout>
+  </loadouts>
+</map>

@@ -1,0 +1,240 @@
+<map name="Floe" spec="1.0.0" version="1.1.0">
+  <include src="defaults.xml"/>
+  <gametype>dtm</gametype>
+  <include src="Shared/tutorials/dtm.xml"/>
+  <authors>
+    <author uuid="63b88dff-c6b4-4e08-bd17-aae089b12e95"/>
+    <!--    Rilo    -->
+  </authors>
+  <tutorial>
+    <step countdown="5s" freeze="false" location="20.5,93,-35.5" pitch="90" yaw="23">
+      <chat>
+        <line>^r • {tutorial.generic.team-spawns}</line>
+      </chat>
+    </step>
+    <step countdown="4s" location="28.5,92,-72.5" pitch="24" yaw="-180">
+      <chat>
+        <line>^r • {tutorial.dtm.monument-area}</line>
+        <line>^r • {tutorial.dtm.monument-objective}</line>
+      </chat>
+    </step>
+  </tutorial>
+  <teams>
+    <team color="green" id="green" max="20" min="1">{colors.green}</team>
+    <team color="red" id="red" max="20" min="1">{colors.red}</team>
+  </teams>
+  <spawns>
+    <!--    Spectator Spawn    -->
+    <spawn>
+      <regions>
+        <point yaw="180">93.5,123,-34.5</point>
+      </regions>
+    </spawn>
+    <!--    Green & Red Team Spawns    -->
+    <spawn loadout="green-kit" team="green" yaw="-90">
+      <regions>
+        <point yaw="-90">10.5,93,-35.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="red-kit" team="red" yaw="90">
+      <regions>
+        <point yaw="90">176.5,93,-35.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <world>
+    <gamerules>
+      <doDaylightCycle>false</doDaylightCycle>
+    </gamerules>
+  </world>
+  <regions>
+    <subtract id="void-outer">
+      <!--    Parts where people can build    -->
+      <void/>
+      <join>
+        <cuboid max="-12,78,-52" min="-4,110,-20"/>
+        <cuboid max="5,78,-32" min="-3,110,-40"/>
+        <cuboid max="23,78,-32" min="15,110,-40"/>
+        <cuboid max="32,81,23" min="24,110,-95"/>
+        <cuboid max="41,81,23" min="59,110,15"/>
+        <cuboid max="59,80,10" min="50,110,14"/>
+        <cuboid max="51,79,9" min="59,110,4"/>
+        <cuboid max="33,78,-4" min="50,110,-12"/>
+        <cuboid max="51,79,-4" min="59,110,-31"/>
+        <cuboid max="50,78,-31" min="33,110,-23"/>
+        <cuboid max="33,78,-41" min="50,110,-49"/>
+        <cuboid max="59,79,-41" min="51,110,-68"/>
+        <cuboid max="50,78,-68" min="33,110,-60"/>
+        <cuboid max="41,81,-87" min="59,110,-95"/>
+        <cuboid max="59,80,-86" min="51,110,-82"/>
+        <cuboid max="51,79,-81" min="59,110,-76"/>
+        <cuboid max="60,80,-22" min="87,110,-12"/>
+        <cuboid max="60,80,-59" min="87,110,-50"/>
+        <cuboid max="88,80,-68" min="98,110,-4"/>
+        <cuboid max="99,80,-60" min="126,110,-50"/>
+        <cuboid max="99,80,-22" min="126,110,-12"/>
+        <cuboid max="127,79,-4" min="135,110,-68"/>
+        <cuboid max="136,78,-4" min="153,110,-12"/>
+        <cuboid max="136,78,-23" min="153,110,-31"/>
+        <cuboid max="136,78,-41" min="153,110,-49"/>
+        <cuboid max="136,78,-60" min="153,110,-68"/>
+        <cuboid max="154,110,-95" min="162,80,23"/>
+        <cuboid max="163,78,-32" min="171,110,-40"/>
+        <cuboid max="181,78,-40" min="189,110,-32"/>
+        <cuboid max="198,78,-20" min="190,110,-52"/>
+        <cuboid max="127,79,-76" min="135,110,-81"/>
+        <cuboid max="135,80,-86" min="127,110,-82"/>
+        <cuboid max="127,81,-87" min="145,110,-95"/>
+        <cuboid max="146,81,-95" min="154,110,-87"/>
+        <cuboid max="127,79,4" min="135,110,9"/>
+        <cuboid max="135,80,10" min="127,110,14"/>
+        <cuboid max="127,81,23" min="153,110,15"/>
+        <cuboid max="59,79,-40" min="51,110,-32"/>
+        <cuboid max="40,81,23" min="33,110,15"/>
+        <cuboid max="40,81,-87" min="33,110,-95"/>
+        <cuboid max="59,79,-76" min="51,110,-68"/>
+        <cuboid max="51,79,-4" min="59,110,4"/>
+        <cuboid max="127,79,4" min="135,110,-4"/>
+        <cuboid max="127,79,-68" min="135,110,-76"/>
+      </join>
+    </subtract>
+    <above id="height-limit" y="110"/>
+  </regions>
+  <objectives>
+    <monuments materials="obsidian">
+      <monuments owner="green">
+        <monument name="{directions.left}">
+          <region>
+            <join>
+              <block>28,91,16</block>
+              <block>28,92,16</block>
+            </join>
+          </region>
+        </monument>
+        <monument name="{directions.right}">
+          <region>
+            <join>
+              <block>28,91,-88</block>
+              <block>28,92,-88</block>
+            </join>
+          </region>
+        </monument>
+      </monuments>
+      <monuments owner="red">
+        <monument name="{directions.left}">
+          <region>
+            <join>
+              <block>158,92,-88</block>
+              <block>158,91,-88</block>
+            </join>
+          </region>
+        </monument>
+        <monument name="{directions.right}">
+          <region>
+            <join>
+              <block>158,92,16</block>
+              <block>158,91,16</block>
+            </join>
+          </region>
+        </monument>
+      </monuments>
+    </monuments>
+  </objectives>
+  <loadouts>
+    <loadout id="green-kit">
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="chainmail leggings" team-color="true"/>
+      <boots material="leather boots" team-color="true"/>
+      <item material="iron sword" slot="0"/>
+      <item material="bow" slot="1">
+        <enchantment level="1">arrow infinite</enchantment>
+      </item>
+      <item material="diamond pickaxe" slot="2">
+        <enchantment level="1">dig speed</enchantment>
+      </item>
+      <item material="wood spade" slot="3">
+        <enchantment level="1">dig speed</enchantment>
+      </item>
+      <item amount="3" material="golden apple" slot="4"/>
+      <item amount="48" material="log" slot="5"/>
+      <item amount="64" material="glass" slot="16"/>
+      <item amount="32" material="cooked beef" slot="8"/>
+      <item amount="1" material="arrow" slot="9"/>
+    </loadout>
+    <loadout id="red-kit">
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="chainmail leggings" team-color="true"/>
+      <boots material="leather boots" team-color="true"/>
+      <item material="iron sword" slot="0"/>
+      <item material="bow" slot="1">
+        <enchantment level="1">arrow infinite</enchantment>
+      </item>
+      <item material="diamond pickaxe" slot="2">
+        <enchantment level="1">dig speed</enchantment>
+      </item>
+      <item material="wood spade" slot="3">
+        <enchantment level="1">dig speed</enchantment>
+      </item>
+      <item amount="3" material="golden apple" slot="4"/>
+      <item amount="48" material="log" slot="5"/>
+      <item amount="64" material="glass" slot="16"/>
+      <item amount="32" material="cooked beef" slot="8"/>
+      <item amount="1" material="arrow" slot="9"/>
+    </loadout>
+    <loadout id="kill-reward">
+      <item material="golden apple"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="kill-reward"/>
+    </rewards>
+  </kills>
+  <zones>
+    <zone modify="never">
+      <region>
+        <cuboid max="180,79,-32" min="172,110,-40"/>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid max="6,79,-40" min="14,110,-32"/>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid max="-23,110,-106" min="209,147,-33"/>
+      </region>
+      <message>{errors.outside-map}</message>
+    </zone>
+    <zone modify="never" region="void-outer" water-rule="no-flow">
+      <message>{errors.outside-map}</message>
+    </zone>
+  </zones>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>chainmail leggings</material>
+        <material>leather boots</material>
+        <material>log</material>
+        <material>glass</material>
+        <material>arrow</material>
+        <material>cooked beef</material>
+        <material>golden apple</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>iron sword</material>
+        <material>bow</material>
+        <material>diamond pickaxe</material>
+      </any>
+    </repair-tools>
+  </items>
+</map>

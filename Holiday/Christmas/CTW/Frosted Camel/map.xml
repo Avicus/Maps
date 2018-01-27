@@ -1,0 +1,220 @@
+﻿<?xml version="1.0"?>
+<map name="Frosted Camel" spec="1.0.4" version="1.0.2">
+  <include src="defaults.xml"/>
+  <include src="Shared/tutorials/ctw.xml"/>
+  <tutorial>
+    <step countdown="5s" freeze="true" location="0,11,77" pitch="0" yaw="0">
+      <chat>
+        <line>^r • {tutorial.generic.team-spawns}</line>
+      </chat>
+    </step>
+    <step countdown="5s" freeze="true" location="-31,15,95" pitch="0" yaw="0">
+      <chat>
+        <line>^r • {tutorial.ctw.wool-area}</line>
+      </chat>
+    </step>
+    <step countdown="5s" freeze="true" location="-32,16,106" pitch="20" yaw="0">
+      <chat>
+        <line>^r • {tutorial.ctw.wool-chest}</line>
+      </chat>
+    </step>
+    <step countdown="5s" freeze="true" location="1,12,92" pitch="0" yaw="180">
+      <chat>
+        <line>^r • {tutorial.ctw.wool-monument}</line>
+      </chat>
+    </step>
+  </tutorial>
+  <authors>
+    <author uuid="c26e7a7f-b4ce-4ebc-ac4d-f60691915d23"/> <!-- Kroest -->
+  </authors>
+  <teams>
+    <team color="red" id="red" max="16" min="1">Red</team>
+    <team color="green" id="green" max="16" min="1">Green</team>
+  </teams>
+  <gametype>ctw</gametype>
+  <spawns>
+    <!-- Spectator spawn -->
+    <spawn>
+      <regions>
+        <point yaw="90">0.5, 42, 0.5</point>
+      </regions>
+    </spawn>
+    <!-- Team spawns -->
+    <spawn loadout="default" team="red" yaw="0">
+      <regions>
+        <point yaw="0">0.5, 12, -90.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="green" yaw="180">
+      <regions>
+        <point yaw="180">0.5, 12, 91.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <world>
+    <gamerules>
+      <doDaylightCycle>true</doDaylightCycle>
+    </gamerules>
+  </world>
+  <regions>
+    <subtract id="void-outer"> <!-- All blocks of void minus the mid region -->
+      <void/>
+      <cuboid max="-41, 34, 69" min="41, 0, -69"/>
+    </subtract>
+    <above id="height-limit" y="34"/>
+  </regions>
+  <loadouts>
+    <loadout id="default">
+      <effect duration="5s">damage resistance</effect>
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true">
+        <enchantments>
+          <enchantment level="1">protection environmental</enchantment>
+        </enchantments>
+      </chestplate>
+      <leggings material="leather leggings" team-color="true"/>
+      <boots material="leather boots" team-color="true"/>
+      <item material="iron sword" slot="0"/>
+      <item material="bow" slot="1"/>
+      <item material="iron pickaxe" slot="2">
+        <enchantments>
+          <enchantment level="2">durability</enchantment>
+          <enchantment level="1">dig speed</enchantment>
+        </enchantments>
+      </item>
+      <item material="iron spade" slot="3"/>
+      <item material="stone axe" slot="4"/>
+      <item amount="32" material="bread" slot="5"/>
+      <item amount="3" material="golden apple" slot="6"/>
+      <item amount="32" material="glass" slot="7"/>
+      <item amount="48" material="wood" slot="8"/>
+      <item amount="32" material="arrow" slot="28"/>
+    </loadout>
+    <loadout id="kill-reward">
+      <item material="golden apple"/>
+      <item amount="4" material="arrow"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="kill-reward"/>
+    </rewards>
+  </kills>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>leather leggings</material>
+        <material>leather boots</material>
+        <material>iron pickaxe</material>
+        <material>iron sword</material>
+        <material>bow</material>
+        <material>iron spade</material>
+        <material>stone axe</material>
+        <material>golden apple</material>
+        <material>arrow</material>
+        <material>wool</material>
+        <material>string</material>
+      </any>
+    </remove-drops>
+  </items>
+  <zones>
+    <zone modify="never">
+      <region>
+        <subtract id="monument-enter"> <!-- All of the blocks minus the monument -->
+          <cuboid max="-9, 34, 97" min="9, 0, 85"/>
+          <block>-1, 13, 89</block>
+          <block>1, 13, 89</block>
+        </subtract>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <subtract id="monument-enter"> <!-- All of the blocks minus the monument -->
+          <cuboid max="9, 34, -97" min="-9, 0, -85"/>
+          <block>-1, 13, -89</block>
+          <block>1, 13, -89</block>
+        </subtract>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid max="39, 34, 111" min="25, 15, 103"/> <!-- Room is Wool Lime -->
+        <cuboid max="-39, 34, 111" min="-25, 15, 103"/> <!-- Room is Wool Green -->
+        <cuboid max="-39, 34, -111" min="-25, 15, -103"/> <!-- Room is Wool Red -->
+        <cuboid max="39, 34, -111" min="25, 15, -103"/> <!-- Room is Wool Pink -->
+      </region>
+    </zone>
+    <!-- red woolrooms -->
+    <zone modify="never">
+      <enter>
+        <team>green</team>
+      </enter>
+      <region>
+        <cuboid max="-22, 45, -100" min="42, 0, -113"/>
+        <cuboid max="23, 45, -100" min="-41, 0, -113"/>
+      </region>
+      <message>{errors.own-wool-room}</message>
+    </zone>
+    <!-- green woolrooms -->
+    <zone modify="never">
+      <enter>
+        <team>red</team>
+      </enter>
+      <region>
+        <cuboid max="-22, 45, 101" min="42, 0, 114"/>
+        <cuboid max="23, 45, 101" min="-41, 0, 114"/>
+      </region>
+      <message>{errors.own-wool-room}</message>
+    </zone>
+    <zone modify="never" region="void-outer">
+      <message>{errors.outside-map}</message>
+    </zone>
+    <zone modify="never" region="height-limit">
+      <message>{errors.height-limit}</message>
+    </zone>
+  </zones>
+  <objectives>
+    <wools>
+      <wools refill="true" team="green">
+        <wool color="red">
+          <source>
+            <block>-32,16,-109</block>
+          </source>
+          <destination>
+            <block>-1, 13, 89</block>
+          </destination>
+        </wool>
+        <wool color="pink">
+          <source>
+            <block>32,16,-109</block>
+          </source>
+          <destination>
+            <block>1, 13, 89</block>
+          </destination>
+        </wool>
+      </wools>
+      <wools refill="true" team="red">
+        <wool color="lime">
+          <source>
+            <block>32,16,109</block>
+          </source>
+          <destination>
+            <block>1, 13, -89</block>
+          </destination>
+        </wool>
+        <wool color="green">
+          <source>
+            <block>-32,16,109</block>
+          </source>
+          <destination>
+            <block>-1, 13, -89</block>
+          </destination>
+        </wool>
+      </wools>
+    </wools>
+  </objectives>
+</map>

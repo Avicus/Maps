@@ -1,0 +1,65 @@
+<!-- Default shop used for all maps under the Conquest gamemode (KoTH, TDM, CTF) -->
+
+<map>
+  <shops>
+    <shop id="conquest-shop" name="Conquest Shop" open-check="always">
+      <point-config>
+        <player-kill>1</player-kill>
+        <flag-pickup>2</flag-pickup>
+        <flag-capture>5</flag-capture>
+        <monument-destroy>5</monument-destroy>
+      </point-config>
+      <items>
+        <item check="always" name="Instant Health I" prestige="0" price="2">
+          <description>
+            <line>Heal yourself instantly with this potion!</line>
+          </description>
+          <stack damage="8261" material="potion"/>
+        </item>
+        <item check="always" name="Instant Health II" prestige="0" price="4">
+          <description>
+            <line>Heal yourself instantly (x2) with this potion!</line>
+          </description>
+          <stack damage="8229" material="potion"/>
+        </item>
+        <item check="always" name="Instant Health II Splash" prestige="0" price="8">
+          <description>
+            <line>Heal yourself and your friends!</line>
+          </description>
+          <stack damage="16421" material="potion"/>
+        </item>
+        <item check="always" name="Regeneration I" prestige="0" price="10">
+          <description>
+            <line>Nothing in your way!</line>
+          </description>
+          <stack damage="8193" material="potion"/>
+        </item>
+        <item check="always" name="Speed I" prestige="0" price="15">
+          <description>
+            <line>Obtain three minutes of pure speed!</line>
+          </description>
+          <stack damage="8194" material="potion"/>
+        </item>
+        <item check="always" name="Jump Boost II" prestige="0" price="15">
+          <description>
+            <line>Reach for the sky!</line>
+          </description>
+          <stack damage="8235" material="potion"/>
+        </item>
+      </items>
+    </shop>
+  </shops>
+  <loadouts>
+    <loadout id="default">
+       <shop-opener shop-id="conquest-shop" slot="8"/>
+    </loadout>
+  </loadouts>
+  <items>
+    <remove-drops>
+      <any>
+        <material>potion</material>
+        <material>glass bottle</material>
+      </any>
+    </remove-drops>
+  </items>
+</map>

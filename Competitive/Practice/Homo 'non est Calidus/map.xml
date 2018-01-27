@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="Homo 'non est Calidus" spec="1.0.4" version="1.0.0">
+  <include src="defaults.xml"/>
+  <include src="Shared/reward-one-gap.xml"/>
+  <authors>
+    <author uuid="9116d3fa14004adaaecd2eae1d73e383"/> <!-- Xuph -->
+    <author uuid="bee1fadc3ff844c99258e08d3fa03fff"/> <!-- SeuthY -->
+    <author uuid="54964b606ce749229a4c2b981d8c2ed7"/> <!-- Spoookeh -->
+    <author uuid="5ecdf615b1424cd797fb4ede125da843" role="contributor"/> <!-- mench -->
+    <author uuid="99522edd5edf40658861f7e280b7ff09" role="contributor"/> <!-- Bloodoh -->
+  </authors>
+  <teams>
+    <load-group id="teams.red-blue" max="8" min="1"/>
+  </teams>
+  <spawns>
+    <spawn>
+      <regions>
+        <point yaw="0">77.5,45,-73.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="blue">
+      <regions>
+        <point yaw="-90">7.5,10,-56.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="red">
+      <regions>
+        <point yaw="90">147.5,10,-56.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <world>
+    <gamerules>
+      <doDaylightCycle>false</doDaylightCycle>
+    </gamerules>
+  </world>
+  <loadouts>
+    <loadout id="default">
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="leather leggings" team-color="true"/>
+      <boots material="leather boots" team-color="true"/>
+      <item material="iron sword" slot="0"/>
+      <item material="bow" slot="1"/>
+      <item material="iron pickaxe" slot="2"/>
+      <item material="iron axe" slot="3"/>
+      <item amount="64" damage="5" material="wood" slot="4"/>
+      <item amount="32" material="glass" slot="5"/>
+      <item amount="64" material="cooked beef" slot="6"/>
+      <item material="golden apple" slot="7"/>
+      <item amount="24" material="arrow" slot="28"/>
+    </loadout>
+    <loadout id="reward-get">
+      <item amount="1" material="golden apple"/>
+      <item amount="8" material="arrow"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="reward-get"/>
+    </rewards>
+  </kills>
+  <results>
+    <win scenario="objectives">
+      <check>
+        <time>45m</time>
+      </check>
+    </win>
+  </results>
+  <objectives>
+    <wools team="red">
+      <wool color="purple">
+        <source>
+          <block>10, 14, -59</block>
+        </source>
+        <destination>
+          <block>149, 11, -57</block>
+        </destination>
+      </wool>
+    </wools>
+    <wools team="blue">
+      <wool color="orange">
+        <source>
+          <block>144, 14, -59</block>
+        </source>
+        <destination>
+          <block>5, 11, -57</block>
+        </destination>
+      </wool>
+    </wools>
+  </objectives>
+  <regions>
+    <above id="height-limit" y="24"/>
+    <join id="redgold">
+      <cuboid min="15,5,-54" max="14,8,-60"/>
+      <cuboid min="8,5,-54" max="7,8,-60"/>
+    </join>
+    <join id="bluegold">
+      <cuboid min="146,5,-54" max="147,8,-60"/>
+      <cuboid min="140,5,-54" max="139,8,-60"/>
+    </join>
+  </regions>
+  <zones>
+    <zone>
+      <region>
+        <cuboid max="19, 8, -61" min="19, 8, -61"/>
+      </region>
+      <modify>
+        <material>gold block</material>
+      </modify>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone>
+      <region>
+        <cuboid max="135, 8, -53" min="148, 12, -61"/>
+      </region>
+      <modify>
+        <material>gold block</material>
+      </modify>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <subtract id="monument-1">
+          <cuboid max="149, 12, -60" min="159, 10, -54"/>
+          <cuboid max="149, 11, -57" min="149, 11, -57"/>
+        </subtract>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <subtract id="monument-2">
+          <cuboid max="5, 12, -57" min="5, 10, -60"/>
+          <cuboid max="5, 11, -57" min="5, 11, -57"/>
+        </subtract>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+         <invert>
+           <cuboid max="4,4,-28" min="150,24,-80"/>
+        </invert>
+      </region>
+    </zone>
+    <zone modify="never">
+      <region>
+        <join>
+          <cuboid max="36, 0, -52" min="16, 30, -40"/>
+          <cuboid max="36, 0, -62" min="5, 30, -68"/>
+          <cuboid max="138, 0, -52" min="118, 30, -40"/>
+          <cuboid max="118, 0, -68" min="149, 30, -68"/>
+          <cuboid max="74, 24, -29" min="80, 16, -34"/>
+        </join>
+      </region>
+      <message>{cannot-build}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <subtract id="wool-room-modify">
+          <cuboid max="139, 15, -51" min="150, 25, -64"/>
+          <cuboid max="143, 17, -54" min="145, 17, -54"/>
+          <cuboid max="144, 15, -59" min="144, 15, -59"/>
+        </subtract>
+      </region>
+      <message>{errors.cannot-build}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+          <cuboid max="140, 0, -80" min="139, 30, -80"/>
+      </region>
+      <message>{errors.cannot-build}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <subtract id="wool-room-modify2">
+          <cuboid max="5, 15, -51" min="16, 31, -64"/>
+          <cuboid max="9, 17, -54" min="11, 17, -54"/>
+          <cuboid max="10, 15, -59" min="10, 15, -59"/>
+        </subtract>
+      </region>
+      <message>{errors.cannot-build}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <subtract>
+          <cuboid max="15, 4, -69" min="5, 26, -79"/>
+          <cuboid max="6, 13, -70" min="14, 13, -78"/>
+        </subtract>
+      </region>
+      <enter>
+          <team>red</team>
+      </enter>
+      <message>{errors.cannot-build}</message>
+    </zone>
+    <zone modify="always">
+      <enter>
+        <team>red</team>
+      </enter>
+      <region>
+        <join>
+          <cuboid max="5, 15, -51" min="16, 31, -64"/>
+          <cuboid max="15, 4, -69" min="5, 26, -79"/>
+        </join>
+      </region>
+      <message>{errors.own-wool-room}</message>
+    </zone>
+    <zone modify="always">
+      <enter>
+        <team>blue</team>
+      </enter>
+      <region>
+        <join>
+          <cuboid max="139, 15, -51" min="150, 25, -64"/>
+          <cuboid max="140, 0, -80" min="139, 30, -80"/>
+        </join>
+      </region>
+      <message>{errors.own-wool-room}</message>
+    </zone>
+    <zone modify="never" region="height-limit">
+      <message>{errors.height-limit}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <subtract>
+         <cuboid max="149,3,-29" min="139,31,-69"/>
+         <cuboid max="140, 13, -78" min="148, 13, -70"/>
+        </subtract>
+      </region>
+      <message>{errors.cannot-build}</message>
+    </zone>
+  </zones>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>leather leggings</material>
+        <material>leather boots</material>
+        <material>glass</material>
+        <material>cooked beef</material>
+        <material>dirt</material>
+        <material>grass</material>
+        <material>seeds</material>
+        <material>sandstone</material>
+        <material>cobblestone</material>
+        <material>stone</material>
+        <material>log</material>
+        <material>fence</material>
+        <material>redstone</material>
+        <material>sand</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>iron sword</material>
+        <material>bow</material>
+        <material>diamond pickaxe</material>
+        <material>iron axe</material>
+      </any>
+    </repair-tools>
+  </items>
+  <executors>
+    <executor check="always" id="goldrefill">
+      <execution-group>
+        <replace-block find="air" region="redgold" replace="gold block"/>
+        <replace-block find="air" region="bluegold" replace="gold block"/>
+      </execution-group>
+    </executor>
+    <executor check="always">
+      <loop check="always" execute="goldrefill" id="loop-gold" interval="30s" stop="never"/>
+    </executor>
+  </executors>
+  <triggers>
+    <trigger execute="loop-gold" on="match-start"/>
+  </triggers>
+</map>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map genre="arcade" name="Aura" spec="1.0.0" version="1.1.0">
+  <include src="defaults.xml"/>
+  <include src="Shared/red-alert.xml"/>
+  <authors>
+    <author uuid="8242e55ecc6a458ab272a2b34918045f"/> <!-- KJT -->
+  </authors>
+  <regions>
+    <circle center="19, 131, -786" id="spawn" radius="23"/>
+    <cylinder base="19, 60, -786" height="90" id="map" radius="100"/>
+  </regions>
+  <channels global-chat="false" team-chat="true"/>
+  <spawns>
+    <spawn team="spectators">
+      <regions>
+        <point yaw="-90">-19, 130, -785</point>
+      </regions>
+    </spawn>
+    <spawn check-air="true" region="spawn">
+    </spawn>
+  </spawns>
+</map>

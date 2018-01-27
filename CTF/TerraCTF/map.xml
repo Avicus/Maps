@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="Terra CTF" spec="1.0.4" version="1.0.0">
+  <include src="defaults.xml"/>
+  <include src="Shared/reward-one-gap.xml"/>
+  <include src="Shared/conquest-shop.xml"/>
+  <authors>
+    <author role="The author of the map." uuid="0b8f95fa0f404f289fd0b8e243bb6800"/> <!-- Fouled -->
+  </authors>
+  <contributors>
+    <contributor uuid="0b8f95fa0f404f289fd0b8e243bb6800"/> <!-- Spidercell -->
+  </contributors>
+  <teams>
+    <team color="blue" id="blue" max="20" max-overfill="25" min="1">{colors.blue}</team>
+    <team color="purple" id="purple" max="20" max-overfill="25" min="1">{colors.purple}</team>
+  </teams>
+  <spawns>
+    <!-- Spectator spawn -->
+    <spawn>
+      <regions>
+        <point yaw="-90">-101.5, 86, -63.5</point>
+      </regions>
+    </spawn>
+    <!-- Team spawns -->
+    <spawn loadout="default" team="blue" yaw="0">
+      <regions>
+        <point yaw="0">-33.5, 42, -151.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="purple" yaw="180">
+      <regions>
+        <point yaw="180">-33.5, 42, 24</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <zones>
+    <zones>
+      <!-- Disable Build -->
+      <load-group id="no-build"/>
+    </zones>
+    <!-- Posts -->
+    <zone id="blue-post">
+      <region>
+        <block>-34, 39, -121</block>
+      </region>
+      <post yaw="0"/>
+    </zone>
+    <zone id="purple-post">
+      <region>
+        <block>-34, 39, -7</block>
+      </region>
+      <post yaw="180"/>
+    </zone>
+    <!-- Nets -->
+    <zone>
+      <region>
+        <cuboid max="-33, 42, -122" min="-35, 38, -120"/>
+      </region>
+      <net points="1">
+        <capture-check>
+          <team>blue</team>
+        </capture-check>
+      </net>
+    </zone>
+    <zone>
+      <region>
+        <cuboid max="-35, 42, -6" min="-33, 38, -8"/>
+      </region>
+      <net points="1">
+        <capture-check>
+          <team>purple</team>
+        </capture-check>
+      </net>
+    </zone>
+    <!-- blue spawn -->
+    <zone modify="always">
+      <enter>
+        <team>blue</team>
+      </enter>
+      <region>
+        <cuboid max="-31, 50, -155" min="-37, 41, -144"/>
+      </region>
+      <message>{errors.enemy-base}</message>
+    </zone>
+    <!-- purple spawn -->
+    <zone modify="always">
+      <enter>
+        <team>purple</team>
+      </enter>
+      <region>
+        <cuboid max="-37, 50, 27" min="-31, 41, 16"/>
+      </region>
+      <message>{errors.enemy-base}</message>
+    </zone>
+  </zones>
+  <loadouts>
+    <loadout id="default">
+      <effect duration="5s">damage resistance</effect>
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="chainmail leggings" team-color="true"/>
+      <boots material="iron boots" team-color="true"/>
+      <item material="iron sword" slot="0"/>
+      <item material="bow" slot="1"/>
+      <item amount="1" material="golden apple" slot="2"/>
+      <item amount="32" material="cooked beef" slot="3"/>
+      <item amount="16" material="arrow" slot="7"/>
+    </loadout>
+    <loadout id="bonus">
+      <effect amplifier="1" duration="5s">speed</effect>
+      <item amount="4" material="arrow"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="bonus"/>
+    </rewards>
+  </kills>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>chainmail leggings</material>
+        <material>iron boots</material>
+        <material>cooked beef</material>
+        <material>golden apple</material>
+        <material>arrow</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>iron sword</material>
+        <material>bow</material>
+      </any>
+    </repair-tools>
+  </items>
+  <results>
+    <win scenario="objectives">
+      <check>
+        <time>7m</time>
+      </check>
+    </win>
+  </results>
+  <objectives>
+    <scores limit="5">
+      <score team="blue"/>
+      <score team="purple"/>
+    </scores>
+    <flag color="blue" owner="blue" post="blue-post" recover-time="15s"/>
+    <flag color="purple" owner="purple" post="purple-post" recover-time="15s"/>
+  </objectives>
+</map>

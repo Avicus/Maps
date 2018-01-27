@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="Scizor" spec="1.0.0" version="1.0.0">
+  <include src="defaults.xml"/>
+  <include src="Shared/conquest-shop.xml"/>
+  <authors>
+    <author role="Map maker" uuid="309bd365f87b4077b5621aebdc7d3db3"/> <!-- Pizza334 -->
+    <author role="Map maker" uuid="d8af9a92cc854eb091a187669a2136a6"/> <!-- TwentyOneBusters -->
+    <author role="Map maker" uuid="fb4900805ca04f6597ccf62d1468b193"/> <!-- ImRaging -->
+    <author role="Contributor" uuid="99d1680d4e484f53af0e68d1e22696bc"/> <!-- Mango_ -->
+  </authors>
+  <gametype>score</gametype>
+  <spawns>
+    <spawn yaw="0">
+      <regions>
+        <circle center="4, 102, -15" radius="1"/>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="lime" yaw="180">
+      <regions>
+        <circle center="4, 75, 83" radius="1"/>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="purple" yaw="0">
+      <regions>
+        <circle center="4, 75, 1" radius="1"/>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="cyan" yaw="-90">
+      <regions>
+        <circle center="-36, 75, 42" radius="1"/>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="yellow" yaw="90">
+      <regions>
+        <circle center="45, 75, 42" radius="1"/>
+      </regions>
+    </spawn>
+  </spawns>
+  <zones>
+    <zone modify="never">
+      <region>
+        <cylinder base="4, 75, 83" height="5" radius="5"/>
+      </region>
+      <enter>
+        <team>lime</team>
+      </enter>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cylinder base="4, 45, 1" height="5" radius="5"/>
+      </region>
+      <enter>
+        <team>purple</team>
+      </enter>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cylinder base="-36, 75, 42" height="5" radius="5"/>
+      </region>
+      <enter>
+        <team>cyan</team>
+      </enter>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cylinder base="45, 75, 42" height="5" radius="5"/>
+      </region>
+      <enter>
+        <team>yellow</team>
+      </enter>
+    </zone>
+  </zones>
+  <teams>
+    <team color="purple" id="purple" max="10" min="1">{colors.purple}</team>
+    <load-group id="teams.cyan-lime" max="10" min="1"/>
+    <team color="yellow" id="yellow" max="10" min="1">{colors.yellow}</team>
+  </teams>
+  <objectives>
+    <scores kills="1">
+      <score team="lime"/>
+      <score team="cyan"/>
+      <score team="purple"/>
+      <score team="yellow"/>
+    </scores>
+  </objectives>
+  <results>
+    <win scenario="objectives">
+      <check>
+        <time>7m</time>
+      </check>
+    </win>
+  </results>
+  <items>
+    <remove-drops>
+      <any>
+        <material>gold helmet</material>
+        <material>leather chestplate</material>
+        <material>leather leggings</material>
+        <material>gold boots</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>iron sword</material>
+        <material>diamond pickaxe</material>
+        <material>iron axe</material>
+      </any>
+    </repair-tools>
+  </items>
+  <loadouts>
+    <loadout id="default">
+      <helmet material="gold helmet"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="leather leggings" team-color="true"/>
+      <boots material="gold boots"/>
+      <item material="iron sword" slot="0"/>
+      <item material="diamond pickaxe" slot="1"/>
+      <item material="iron axe" slot="2"/>
+      <item amount="2" material="golden apple" slot="3"/>
+    </loadout>
+    <loadout id="kill-reward">
+      <item material="golden apple"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="kill-reward"/>
+    </rewards>
+  </kills>
+</map>

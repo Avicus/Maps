@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="Fossil Canyon" spec="1.0.0" version="1.1.0">
+  <include src="defaults.xml"/>
+  <gametype>dtm</gametype>
+  <authors>
+    <author uuid="da98a2f1673c4cecb547e0a342abfde4"/> <!-- Kagayamas -->
+  </authors>
+  <teams>
+    <load-group id="teams.red-blue" max="20" min="1"/>
+  </teams>
+  <spawns>
+    <!-- Spectator spawn -->
+    <spawn>
+      <regions>
+        <point yaw="90">22.5, 122, 4.5</point>
+      </regions>
+    </spawn>
+    <!-- Team spawns -->
+    <spawn loadout="default" team="blue" yaw="135">
+      <regions>
+        <point yaw="135">-7.5, 72, 91.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="red" yaw="-45">
+      <regions>
+        <point yaw="-45">-65.5, 72, -84.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <objectives>
+    <monuments materials="obsidian">
+      <monuments owner="blue">
+        <monument name="{directions.front}">
+          <region>
+            <block>-40, 73, 39</block>
+          </region>
+        </monument>
+        <monument name="{directions.right}">
+          <region>
+            <block>-66, 72, 88</block>
+          </region>
+        </monument>
+        <monument name="{directions.left}">
+          <region>
+            <block>-9, 76, 59</block>
+          </region>
+        </monument>
+      </monuments>
+      <monuments owner="red">
+        <monument name="{directions.front}">
+          <region>
+            <block>-34, 73, -33</block>
+          </region>
+        </monument>
+        <monument name="{directions.right}">
+          <region>
+            <block>-8, 72, -82</block>
+          </region>
+        </monument>
+        <monument name="{directions.left}">
+          <region>
+            <block>-65, 76, -53</block>
+          </region>
+        </monument>
+      </monuments>
+    </monuments>
+  </objectives>
+  <loadouts>
+    <loadout id="default">
+      <helmet material="leather helmet" team-color="true"/>
+      <item material="iron sword" slot="0"/>
+      <item material="bow" slot="1">
+        <enchantment>arrow infinite</enchantment>
+      </item>
+      <item material="diamond pickaxe" slot="2"/>
+      <item amount="3" material="golden apple" slot="3"/>
+      <item amount="48" material="stained clay" slot="4"/>
+      <item amount="32" material="log" slot="5"/>
+      <item amount="16" material="cooked fish" slot="6"/>
+      <item material="iron axe" slot="7"/>
+      <item amount="1" material="arrow" slot="27"/>
+    </loadout>
+    <loadout id="kill-reward">
+      <item material="golden apple"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="kill-reward"/>
+    </rewards>
+  </kills>
+  <zones>
+    <zone modify="never">
+      <region>
+        <cylinder base="-66, 71, -85" height="4" radius="5"/>
+      </region>
+      <enter>
+        <team>red</team>
+      </enter>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cylinder base="-8, 71, 91" height="4" radius="5"/>
+      </region>
+      <enter>
+        <team>blue</team>
+      </enter>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+  </zones>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>cooked fish</material>
+        <material>stained clay</material>
+        <material>arrow</material>
+        <material>iron axe</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>iron sword</material>
+        <material>bow</material>
+        <material>diamond pickaxe</material>
+      </any>
+    </repair-tools>
+  </items>
+</map>

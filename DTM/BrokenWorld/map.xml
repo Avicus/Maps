@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="Broken World" spec="1.0.0" version="1.1.0">
+  <include src="defaults.xml"/>
+  <gametype>dtm</gametype>
+  <include src="Shared/reward-one-gap.xml"/>
+  <authors>
+    <author uuid="8140193825d1437ebb70d2828a7a6aac"/> <!-- Shirokamii -->
+    <author uuid="b93149ea306e4369a276a2fc64d3c448 "/> <!-- JUBBINATOR -->
+    <author uuid="98a9c8d58f384a93bea164f1a1538d53"/> <!-- Storm997 -->
+  </authors>
+  <teams>
+    <team color="lime" id="lime" max="25" min="1">{colors.lime}</team>
+    <team color="red" id="red" max="25" min="1">{colors.red}</team>
+  </teams>
+  <spawns>
+    <!-- Spectator spawn -->
+    <spawn>
+      <regions>
+        <point yaw="-180">29.5, 86, -697.5</point>
+      </regions>
+    </spawn>
+    <!-- Team spawns -->
+    <spawn loadout="default" team="lime" yaw="0">
+      <regions>
+        <point yaw="0">30.5, 48, -854.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="red" yaw="180">
+      <regions>
+        <point yaw="180">33.5, 48, -564.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <objectives>
+    <monuments materials="obsidian">
+      <monuments owner="lime">
+        <monument name="{directions.right}">
+          <region>
+            <block>42, 70, -849</block>
+          </region>
+        </monument>
+        <monument name="{directions.middle}">
+          <region>
+            <block>26, 65, -857</block>
+          </region>
+        </monument>
+        <monument name="{directions.left}">
+          <region>
+            <block>19, 57, -836</block>
+          </region>
+        </monument>
+      </monuments>
+      <monuments owner="red">
+        <monument name="{directions.right}">
+          <region>
+            <block>20, 70, -569</block>
+          </region>
+        </monument>
+        <monument name="{directions.middle}">
+          <region>
+            <block>36, 65, -561</block>
+          </region>
+        </monument>
+        <monument name="{directions.left}">
+          <region>
+            <block>43, 57, -582</block>
+          </region>
+        </monument>
+      </monuments>
+    </monuments>
+  </objectives>
+  <loadouts>
+    <loadout id="default">
+      <boots material="leather boots" team-color="true"/>
+      <item material="stone sword" slot="0"/>
+      <item material="bow" slot="1"/>
+      <item material="diamond pickaxe" slot="2">
+        <enchantment level="1">dig speed</enchantment>
+      </item>
+      <item amount="2" material="golden apple" slot="3"/>
+      <item amount="16" material="cooked beef" slot="4"/>
+      <item material="ender pearl" slot="5"/>
+      <item amount="32" damage="3" material="log" slot="6"/>
+      <item amount="32" material="glass" slot="7"/>
+      <item amount="16" material="arrow" slot="27"/>
+    </loadout>
+    <loadout id="four-arrow">
+      <item amount="4" material="arrow"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="four-arrow"/>
+    </rewards>
+  </kills>
+  <zones>
+    <zone modify="never">
+      <region>
+        <cylinder base="-30, 47, -855" height="4" radius="12"/>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cylinder base="33, 47, -564" height="4" radius="12"/>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+  </zones>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather boots</material>
+        <material>cooked beef</material>
+        <material>arrow</material>
+        <material>golden apple</material>
+        <material>ender pearl</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>stone sword</material>
+        <material>bow</material>
+        <material>diamond pickaxe</material>
+      </any>
+    </repair-tools>
+  </items>
+</map>

@@ -1,0 +1,152 @@
+<map name="The Mines" version="1.3.1" spec="1.0.0">
+    <include src="defaults.xml"/>
+    <include src="Shared/reward-one-gap.xml"/>
+    <authors>
+        <author uuid="3cce00809faa48f982cf64410305822a"/> <!-- EDNAS -->
+        <author uuid="c2a4c847653e482ab62ed7f8b64330cb"/> <!-- Alm -->
+    </authors>
+    <teams>
+        <team id="red" color="red" min="1" max="30">{colors.red}</team>
+        <team id="blue" color="blue" min="1" max="30">{colors.blue}</team>
+    </teams>
+    <gametype>dtm</gametype>
+    <spawns>
+        <!-- Spectator Spawn -->
+        <spawn>
+            <regions>
+                <point yaw="0">121,62,28</point>
+            </regions>
+        </spawn>
+        <!-- Team Spawn -->
+        <spawn team="red" loadout="default" yaw="45">
+            <regions>
+                <point yaw="45">195,14,-97</point>
+            </regions>
+        </spawn>
+        <spawn team="blue" loadout="default" yaw="-135">
+            <regions>
+                <point yaw="-135">47.5,14,152.5</point>
+            </regions>
+        </spawn>
+    </spawns>
+    <objectives>
+
+        <monuments destroyable="true">
+            <monuments owner="blue">
+                <monument materials="obsidian" name="Obsidian Monument">
+                    <region>
+                        <block>55,24,69</block>
+                    </region>
+                </monument>
+                <monument materials="coal block" name="Coal Monument">
+                    <region>
+                        <cuboid min="65,16,97" max="63,12,99"/>
+                    </region>
+                </monument>
+                <monument materials="emerald block" name="Emerald Monument">
+                    <region>
+                        <cuboid min="63,19,115" max="61,25,117"/>
+                    </region>
+                </monument>
+            </monuments>
+            <monuments owner="red">
+                <monument materials="obsidian" name="Obsidian Monument">
+                    <region>
+                        <block>187,24,-15</block>
+                    </region>
+                </monument>
+                <monument materials="coal block" name="Coal Monument">
+                    <region>
+                        <cuboid min="179,13,-45" max="177,15,-43"/>
+                    </region>
+                </monument>
+                <monument materials="emerald block" name="Emerald Monument">
+                    <region>
+                        <cuboid min="179,19,-61" max="181,25,-63"/>
+                    </region>
+                </monument>
+            </monuments>
+        </monuments>
+    </objectives>
+    <loadouts>
+        <loadout id="default">
+            <helmet team-color="true" material="leather helmet"/>
+            <item slot="0" material="iron sword"/>
+            <item slot="1" material="bow"/>
+            <item slot="2" material="diamond pickaxe"/>
+            <item slot="3" material="iron axe"/>
+            <item slot="4" material="golden apple" amount="2"/>
+            <item slot="5" material="log" amount="32"/>
+            <item slot="6" material="glass" amount="64"/>
+            <item slot="8" material="bread" amount="32"/>
+            <item slot="28" material="arrow" amount="48"/>
+        </loadout>
+        <loadout id="kill-reward">
+            <item material="golden apple"/>
+            <item material="arrow" amount="6"/>
+        </loadout>
+    </loadouts>
+    <kills>
+        <rewards>
+            <reward loadout="kill-reward"/>
+        </rewards>
+    </kills>
+    <regions>
+        <above id="height-limit" y="36"/>
+    </regions>
+    <zones>
+        <zone modify="never" region="height-limit">
+            <message>{errors.height-limit}</message>
+        </zone>
+        <zone modify="never">
+            <region>
+                <cuboid min="197,13,-100" max="187,22,-93"/>
+            </region>
+            <message>{errors.spawn-restricted}</message>
+        </zone>
+        <zone modify="never">
+            <region>
+               <cuboid min="45,13,154" max="55,18,145"/>
+            </region>
+            <message>{errors.spawn-restricted}</message>
+        </zone>
+    </zones>
+    <world>
+        <storm>false</storm>
+        <weather check="always"/>
+    </world>
+    <items>
+        <remove-drops>
+            <any>
+                <material>golden apple</material>
+                <material>bread</material>
+                <material>iron axe</material>
+                <material>leather helmet</material>
+                <material>arrow</material>
+                <material>obsidian</material>
+            </any>
+        </remove-drops>
+        <repair-tools>
+            <any>
+                <material>iron sword</material>
+                <material>bow</material>
+                <material>diamond pickaxe</material>
+                <material>iron axe</material>
+            </any>
+        </repair-tools>
+    </items>
+    <executors>
+        <executor check="always" id="remove-op-chest">
+          <execution-group>
+            <replace-block find="chest" replace="sea lantern">
+                <region>
+                    <cuboid min="122,6,28" max="120,9,26"/>
+                </region>
+            </replace-block>
+          </execution-group>
+        </executor>
+    </executors>
+    <triggers>
+      <trigger execute="remove-op-chest" on="match-open"/>
+    </triggers>
+</map>

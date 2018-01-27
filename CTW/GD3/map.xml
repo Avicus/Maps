@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map description="Capture the wool and return it to your victory monument."
+  name="Golden Drought III"
+  spec="1.0.4" version="1.2.4">
+  <include src="defaults.xml"/>
+  <include src="Shared/tutorials/ctw.xml"/>
+  <include src="Shared/reward-one-gap.xml"/>
+  <authors>
+    <author uuid="459fd9190d58401a96016cab1eb721ab"/> <!-- Reshif -->
+    <author contributor="true" role="Building Help"
+      uuid="2ca8072f74be479885b8bbce03aa91af"/> <!-- Tywnis -->
+    <author contributor="true" role="XML Conversion"
+      uuid="c2a4c847653e482ab62ed7f8b64330cb"/> <!-- ALM -->
+  </authors>
+  <gametype>ctw</gametype>
+  <teams>
+    <load-group id="teams.red-blue" max="16" min="1"/>
+  </teams>
+  <spawns>
+    <!-- Spectator spawn -->
+    <spawn yaw="-180">
+      <region>
+        <cuboid max="1,20,47" min="-1,20,49"/>
+      </region>
+    </spawn>
+    <!-- Team spawns -->
+    <spawn loadout="spawn" team="red" yaw="-90">
+      <regions>
+        <point>-119,14,0</point>
+      </regions>
+    </spawn>
+    <spawn loadout="spawn" team="blue" yaw="90">
+      <regions>
+        <point>114,14,0</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <objectives>
+    <wools>
+      <wools pickup="false" team="blue">
+        <wool color="magenta">
+          <destination>
+            <block>66,15,0</block>
+          </destination>
+          <source>
+            <region id="magenta-wool-location"/>
+          </source>
+        </wool>
+        <wool color="pink">
+          <destination>
+            <block>66,15,-1</block>
+          </destination>
+          <source>
+            <region id="pink-wool-location"/>
+          </source>
+        </wool>
+      </wools>
+      <wools pickup="false" team="red">
+        <wool color="green">
+          <destination>
+            <block>-67,15,-1</block>
+          </destination>
+          <source>
+            <region id="green-wool-location"/>
+          </source>
+        </wool>
+        <wool color="lime">
+          <destination>
+            <block>-67,15,0</block>
+          </destination>
+          <source>
+            <region id="lime-wool-location"/>
+          </source>
+        </wool>
+      </wools>
+    </wools>
+  </objectives>
+  <loadouts>
+    <loadout id="spawn">
+      <item material="stone sword" slot="0"/>
+      <item material="bow" slot="1">
+        <enchantments>
+          <enchantment>arrow infinite</enchantment>
+        </enchantments>
+      </item>
+      <item material="iron pickaxe" slot="2">
+        <enchantments>
+          <enchantment level="4">durability</enchantment>
+          <enchantment>dig speed</enchantment>
+        </enchantments>
+      </item>
+      <item amount="64" material="sandstone" slot="3"/>
+      <item amount="64" material="sandstone" slot="4"/>
+      <item amount="64" damage="2" material="wood" slot="5"/>
+      <item amount="32" material="ladder" slot="6"/>
+      <item amount="3" material="golden apple" slot="7"/>
+      <item amount="32" material="cooked chicken" slot="8"/>
+      <item amount="1" material="arrow" slot="28"/>
+      <item amount="64" material="sandstone" slot="30"/>
+      <item amount="64" material="sandstone" slot="31"/>
+      <item amount="4" material="web" slot="31"/>
+      <effect amplifier="3" duration="5">heal</effect>
+    </loadout>
+  </loadouts>
+  <regions>
+    <join id="main-map">
+      <cuboid id="main" max="-130, oo, 29" min="129, 0, -30"/>
+      <cuboid id="mid-island" max="6, oo, -31" min="-7, 0, 30"/>
+    </join>
+    <join id="no-build-bases">
+      <cuboid id="red-nb" max="-88, oo, 17" min="-130, 0, -18"/>
+      <cuboid id="blue-nb" max="87, oo, -18" min="129, 0, 17"/>
+    </join>
+    <join id="spawn-tubes">
+      <cuboid id="red-st" max="-123, 19, -4" min="-88, 12, 3"/>
+      <cuboid id="blue-st" max="122, 19, 3" min="87, 12, -4"/>
+    </join>
+    <cuboid id="int-red-base" max="-66, oo, -11" min="-87, 0, 10"/>
+    <cuboid id="int-blue-base" max="65, oo, 10" min="86, 0, -11"/>
+    <join id="bases">
+      <cuboid id="red-base" max="-87, oo, 10" min="-66, 0, -11"/>
+      <cuboid id="blue-base" max="86, oo, -11" min="65, 0, 10"/>
+    </join>
+    <join id="blue-wool-rooms">
+      <cuboid id="green-wool" max="130,oo,-18" min="118,0,-30"/>
+      <cuboid id="lime-wool" max="130,oo,30" min="118,0,18"/>
+    </join>
+    <join id="red-wool-rooms">
+      <cuboid id="pink-wool" max="-130,oo,18" min="-118,0,30"/>
+      <cuboid id="magenta-wool" max="-130,oo,-30" min="-118,0,-18"/>
+    </join>
+    <join id="pink-wool-location">
+      <block>-122, 10, -26</block>
+      <block>-122, 10, -23</block>
+    </join>
+    <join id="magenta-wool-location">
+      <block>-122, 10, 22</block>
+      <block>-122, 10, 25</block>
+    </join>
+    <join id="green-wool-location">
+      <block>121, 10, -23</block>
+      <block>121, 10, -26</block>
+    </join>
+    <join id="lime-wool-location">
+      <block>121, 10, 25</block>
+      <block>121, 10, 22</block>
+    </join>
+    <join id="all-wool-location">
+      <block>-122, 10, -26</block>
+      <block>-122, 10, -23</block>
+      <block>-122, 10, 22</block>
+      <block>-122, 10, 25</block>
+      <block>121, 10, -23</block>
+      <block>121, 10, -26</block>
+      <block>121, 10, 25</block>
+      <block>121, 10, 22</block>
+    </join>
+    <above id="height-limit" y="32"/>
+  </regions>
+  <checks>
+    <allow id="allow-gold-block">
+      <all>
+        <material>gold block</material>
+      </all>
+    </allow>
+  </checks>
+  <zones>
+    <zone>
+      <region>
+        <subtract>
+          <region id="bases"/>
+          <block>66,15,0</block>
+          <block>66,15,-1</block>
+          <block>-67,15,-1</block>
+          <block>-67,15,0</block>
+        </subtract>
+      </region>
+      <modify>
+        <material>gold block</material>
+      </modify>
+    </zone>
+    <zone break="allow-gold-block" modify="never" water-rule="no-flow">
+      <region>
+        <invert>
+          <cuboid max="-130, oo, 29" min="129, 0, -30"/>
+          <cuboid max="6, oo, -31" min="-7, 0, 30"/>
+        </invert>
+      </region>
+      <message>{errors.outside-map}</message>
+    </zone>
+    <zone modify="never" region="no-build-bases" water-rule="no-flow">
+      <message>{errors.outside-map}</message>
+    </zone>
+    <zone message="You cannot enter the enemy base!" region="int-red-base">
+      <enter>
+        <team>red</team>
+      </enter>
+    </zone>
+    <zone message="You cannot enter the enemy base!" region="int-blue-base">
+      <enter>
+        <team>blue</team>
+      </enter>
+    </zone>
+    <zone region="blue-wool-rooms">
+      <enter>
+        <team>red</team>
+      </enter>
+      <modify>
+        <team>red</team>
+      </modify>
+    </zone>
+    <zone region="red-wool-rooms">
+      <enter>
+        <team>blue</team>
+      </enter>
+      <modify>
+        <team>blue</team>
+      </modify>
+    </zone>
+    <zone modify="never" region="height-limit">
+      <message format="warning">{errors.height-limit}</message>
+    </zone>
+    <zone modify="never" region="all-wool-location">
+      <message format="warning">You may not destroy your wool chests!</message>
+    </zone>
+  </zones>
+  <world>
+    <storm>false</storm>
+    <weather check="always"/>
+  </world>
+  <items>
+    <remove-drops>
+      <any>
+        <material>sandstone</material>
+        <material>ladder</material>
+        <material>wood</material>
+        <material>string</material>
+        <material>chainmail chestplate</material>
+        <material>web</material>
+        <material>cooked chicken</material>
+        <material>golden apple</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>stone sword</material>
+        <material>bow</material>
+        <material>iron pickaxe</material>
+      </any>
+    </repair-tools>
+  </items>
+  <tutorial>
+    <step countdown="5s" freeze="true" location="54,20,0" pitch="10" yaw="-90">
+      <chat>
+        <line>^r • {tutorial.generic.team-spawns}</line>
+      </chat>
+    </step>
+    <step countdown="5s" freeze="true" location="-83,18,45" pitch="10" yaw="125">
+      <chat>
+        <line>^r • {tutorial.ctw.wool-chest}</line>
+      </chat>
+    </step>
+    <step countdown="5s" freeze="true" location="70,13,0" yaw="90">
+      <chat>
+        <line>^r • {tutorial.ctw.wool-monument}</line>
+      </chat>
+    </step>
+  </tutorial>
+</map>

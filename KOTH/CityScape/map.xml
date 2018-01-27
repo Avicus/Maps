@@ -1,0 +1,161 @@
+﻿<?xml version="1.0"?>
+<map name="City Scape" spec="1.0.4" version="1.0.0">
+  <include src="Shared/tutorials/koth.xml"/>
+  <include src="defaults.xml"/>
+  <include src="Shared/reward-one-gap.xml"/>
+  <include src="Shared/conquest-shop.xml"/>
+  <authors>
+    <author uuid="0b8f95fa0f404f289fd0b8e243bb6800"/>  <!-- Fouled -->
+  </authors>
+  <gametype>hill</gametype>
+  <teams>
+    <team color="cyan" id="cyan" max="15" min="1">{colors.cyan}</team>
+    <team color="purple" id="purple" max="15" min="1">{colors.purple}</team>
+  </teams>
+  <spawns>
+    <spawn team="spectators" yaw="90">
+      <regions>
+        <circle center="48, 69, 49" radius="1"/>
+      </regions>
+    </spawn>
+    <spawn loadout="default" respawn-delay="10s" respawn-freeze="true" team="cyan" yaw="180">
+      <regions>
+        <circle center="-10, 39, 100" radius="1"/>
+      </regions>
+    </spawn>
+    <spawn loadout="default" respawn-delay="10s" respawn-freeze="true" team="purple" yaw="0">
+      <regions>
+        <circle center="-12, 39, -1" radius="1"/>
+      </regions>
+    </spawn>
+  </spawns>
+  <objectives>
+    <hill capture-time="7s" earn-points="always" id="cyan-1" name="Point A" points="1">
+      <capture>
+        <cylinder base="-41, 40, 77" height="2" radius="4"/>
+      </capture>
+      <progress>
+        <cylinder base="-41, 40, 77" height="2" radius="4"/>
+      </progress>
+    </hill>
+    <hill capture-time="12s" earn-points="always" id="capture-center" name="Center" points="2">
+      <capture>
+        <cylinder base="-12, 36, 49" height="2" radius="4"/>
+      </capture>
+      <progress>
+        <cylinder base="-12, 36, 49" height="2" radius="4"/>
+      </progress>
+    </hill>
+    <hill capture-time="7s" earn-points="always" id="purple-1" name="Point B" points="1">
+      <capture>
+        <cylinder base="17, 40, 21" height="2" radius="4"/>
+      </capture>
+      <progress>
+        <cylinder base="17, 40, 21" height="2" radius="4"/>
+      </progress>
+    </hill>
+    <scores limit="750">
+      <score id="cscore" team="cyan"/>
+      <score id="pscore" team="purple"/>
+    </scores>
+  </objectives>
+  <results>
+    <win scenario="team" team="cyan">
+      <check>
+        <any>
+          <objective team="cyan">cscore</objective>
+        </any>
+      </check>
+    </win>
+    <win scenario="team" team="purple">
+      <check>
+        <any>
+          <objective team="purple">pscore</objective>
+        </any>
+      </check>
+    </win>
+  </results>
+  <loadouts>
+    <loadout id="default">
+      <effect duration="5s">damage resistance</effect>
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="iron leggings" team-color="true"/>
+      <boots material="leather boots" team-color="true"/>
+      <item material="iron sword" slot="0"/>
+      <item material="bow" slot="1"/>
+      <item amount="2" material="golden apple" slot="2"/>
+      <item amount="16" material="cooked beef" slot="7"/>
+      <item amount="16" material="arrow" slot="7"/>
+    </loadout>
+    <loadout id="four-arrows">
+      <item amount="4" material="arrow"/>
+    </loadout>
+    <loadout id="one-golden apple">
+      <item material="golden apple"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="one-golden apple"/>
+      <reward loadout="four-arrows"/>
+    </rewards>
+  </kills>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>iron leggings</material>
+        <material>leather boots</material>
+        <material>cooked beef</material>
+        <material>arrow</material>
+        <material>golden apple</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>iron sword</material>
+        <material>bow</material>
+      </any>
+    </repair-tools>
+  </items>
+  <zones>
+    <zone>
+      <region>
+        <cuboid max="-16, 44, 94" min="-6, 39, 94"/>
+      </region>
+      <enter>
+        <team>cyan</team>
+      </enter>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone>
+      <region>
+        <cuboid max="-8, 44, 4" min="-18, 39, 4"/>
+      </region>
+      <enter>
+        <team>purple</team>
+      </enter>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <load-group id="no-build"/>
+  </zones>
+  <world>
+    <gamerules>
+      <doDaylightCycle>true</doDaylightCycle>
+    </gamerules>
+  </world>
+  <tutorial>
+    <step countdown="5s" freeze="true" location="-10.5, 45, 94.5" pitch="45" yaw="180">
+      <chat>
+        <line>^r • {tutorial.generic.team-spawns}</line>
+      </chat>
+    </step>
+    <step countdown="4s" freeze="true" location="-19.5, 44, 40.5" pitch="29" yaw="-37">
+      <chat>
+        <line>^r • {tutorial.koth.hill-area}</line>
+      </chat>
+    </step>
+  </tutorial>
+</map>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="Senex III" version="1.1.0" spec="1.0.0">
+    <include src="defaults.xml"/>
+    <authors>
+        <author uuid="44df6b20168f4389b7ac434518207c2f"/> <!-- ParaPenguin -->
+        <author uuid="d9b4ffbc11d0453aa93f82dc59fca4b6"/> <!-- Wulfcaspice -->
+    </authors>
+    <teams>
+        <team id="purple" color="purple" min="2" max="25">{colors.purple}</team>
+        <team id="orange" color="orange" min="2" max="25">{colors.orange}</team>
+    </teams>
+    <spawns>
+        <spawn yaw="180">
+            <regions>
+                <circle center="82, 37, -809" radius="1"/>
+            </regions>
+        </spawn>
+        <spawn team="purple" loadout="default" yaw="-90">
+            <regions>
+                <circle center="128, 18, -878" radius="2"/>
+            </regions>
+        </spawn>
+        <spawn team="orange" loadout="default" yaw="90">
+            <regions>
+                <circle center="36, 18, -878" radius="2"/>
+            </regions>
+        </spawn>
+    </spawns>
+    <objectives>
+        <monuments materials="obsidian">
+            <monuments owner="purple">
+                <monument name="{directions.left}">
+                    <region>
+                        <block>128, 13, -919</block>
+                    </region>
+                </monument>
+                <monument name="{directions.right}">
+                    <region>
+                        <block>128, 13, -839</block>
+                    </region>
+                </monument>
+            </monuments>
+            <monuments owner="orange">
+                <monument name="{directions.left}">
+                    <region>
+                        <block>36, 13, -839</block>
+                    </region>
+                </monument>
+                <monument name="{directions.right}">
+                    <region>
+                        <block>36, 13, -919</block>
+                    </region>
+                </monument>
+            </monuments>
+        </monuments>
+    </objectives>
+    <loadouts>
+        <loadout id="default">
+            <helmet team-color="true" material="leather helmet"/>
+            <item slot="0" material="iron sword"/>
+            <item slot="1" material="bow">
+                <enchantment>arrow infinite</enchantment>
+            </item>
+            <item slot="2" material="diamond pickaxe"/>
+            <item slot="3" material="golden apple" amount="3"/>
+            <item slot="4" material="log" amount="64"/>
+            <item slot="5" material="sandstone" amount="32"/>
+            <item slot="6" material="apple" amount="12"/>
+            <item slot="9" material="arrow" amount="1"/>
+        </loadout>
+    </loadouts>
+    <zones>
+        <zone modify="never">
+            <region>
+                <cylinder base="36, 17, -879" radius="16" height="8"/>
+            </region>
+            <message>{errors.spawn-restricted}</message>
+        </zone>
+        <zone modify="never">
+            <region>
+                <cylinder base="128, 17, -879" radius="16" height="8"/>
+            </region>
+            <message>{errors.spawn-restricted}</message>
+        </zone>
+        <zone modify="never">
+            <region>
+                <cuboid min="76, 31, -815" max="88, 40, -805"/>
+            </region>
+            <message>{errors.cannot-build}</message>
+        </zone>
+    </zones>
+    <items>
+        <remove-drops>
+            <any>
+                <material>leather helmet</material>
+                <material>sandstone</material>
+                <material>arrow</material>
+                <material>apple</material>
+                <material>log</material>
+            </any>
+        </remove-drops>
+        <repair-tools>
+            <any>
+                <material>iron sword</material>
+                <material>bow</material>
+                <material>diamond pickaxe</material>
+            </any>
+        </repair-tools>
+    </items>
+</map>

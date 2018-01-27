@@ -1,0 +1,389 @@
+<?xml version="1.0"?>
+<map name="Foundry" spec="1.0.3" version="2.0.3">
+  <include src="defaults.xml"/>
+  <authors>
+    <author uuid="2958ea4c-3501-404e-88cc-12e8632f68cc"/> <!--  NixaniaXi  -->
+    <author contributor="true" role="XML Conversion"
+      uuid="47b15675-a048-4e8f-863a-0cbf86ba22dc"/> <!-- profbananaslug -->
+  </authors>
+  <teams>
+    <load-group id="teams.red-blue" max="8" min="1"/>
+  </teams>
+  <spawns auto-respawn="true" respawn-delay="5s" respawn-freeze="true">
+    <spawn team="spectators">
+      <regions>
+        <point>-1,26,-24</point>
+      </regions>
+    </spawn>
+    <!-- Red Spawns -->
+    <spawn check="spawn1" loadout="default" team="red" yaw="180">
+      <regions>
+        <point>-64.5,56,-.5</point>
+      </regions>
+    </spawn>
+    <spawn check="spawn2" loadout="default" team="red" yaw="180">
+      <regions>
+        <point>-64.5,95,-.5</point>
+      </regions>
+    </spawn>
+    <spawn check="spawn3" loadout="default" team="red" yaw="180">
+      <regions>
+        <point>-64.5,134,-.5</point>
+      </regions>
+    </spawn>
+    <spawn check="spawn4" loadout="default" team="red" yaw="180">
+      <regions>
+        <point>-64.5,173,-.5</point>
+      </regions>
+    </spawn>
+    <spawn check="spawn5" loadout="default" team="red" yaw="180">
+      <regions>
+        <point>-64.5,212,-.5</point>
+      </regions>
+    </spawn>
+    <spawn check="spawn6" loadout="default" team="red" yaw="180">
+      <regions>
+        <point>-64.5,251,-.5</point>
+      </regions>
+    </spawn>
+    <!-- Blue Spawns -->
+    <spawn check="spawn1" loadout="default" team="blue" yaw="0">
+      <regions>
+        <point>65.5,56,1.5</point>
+      </regions>
+    </spawn>
+    <spawn check="spawn2" loadout="default" team="blue" yaw="0">
+      <regions>
+        <point>65.5,95,1.5</point>
+      </regions>
+    </spawn>
+    <spawn check="spawn3" loadout="default" team="blue" yaw="0">
+      <regions>
+        <point>65.5,134,1.5</point>
+      </regions>
+    </spawn>
+    <spawn check="spawn4" loadout="default" team="blue" yaw="0">
+      <regions>
+        <point>65.5,173,1.5</point>
+      </regions>
+    </spawn>
+    <spawn check="spawn5" loadout="default" team="blue" yaw="0">
+      <regions>
+        <point>65.5,212,1.5</point>
+      </regions>
+    </spawn>
+    <spawn check="spawn6" loadout="default" team="blue" yaw="0">
+      <regions>
+        <point>65.5,251,1.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <checks>
+    <!-- Spawn Checks -->
+    <all id="spawn1">
+      <time compare="less than">2m</time>
+    </all>
+    <all id="spawn2">
+      <time compare="less than">4m</time>
+      <not>
+        <time compare="less than">2m</time>
+      </not>
+    </all>
+    <all id="spawn3">
+      <time compare="less than">6m</time>
+      <not>
+        <time compare="less than">4m</time>
+      </not>
+    </all>
+    <all id="spawn4">
+      <time compare="less than">8m</time>
+      <not>
+        <time compare="less than">6m</time>
+      </not>
+    </all>
+    <all id="spawn5">
+      <time compare="less than">10m</time>
+      <not>
+        <time compare="less than">8m</time>
+      </not>
+    </all>
+    <all id="spawn6">
+      <not>
+        <time compare="less than">10m</time>
+      </not>
+    </all>
+    <!-- Portal Checks -->
+    <all id="red-uses-the-red-2nd-portal">
+      <objective team="red">red-2nd</objective>
+      <not>
+        <all>
+          <objective team="red">mid</objective>
+        </all>
+      </not>
+    </all>
+    <all id="red-uses-the-mid-portal">
+      <objective team="red">mid</objective>
+      <not>
+        <all>
+          <objective team="red">blue-2nd</objective>
+        </all>
+      </not>
+    </all>
+    <all id="red-uses-the-blue-2nd-portal">
+      <objective team="red">blue-2nd</objective>
+    </all>
+    <all id="blue-uses-the-red-2nd-portal">
+      <objective team="blue">red-2nd</objective>
+    </all>
+    <all id="blue-uses-the-mid-portal">
+      <objective team="blue">mid</objective>
+      <not>
+        <all>
+          <objective team="blue">red-2nd</objective>
+        </all>
+      </not>
+    </all>
+    <all id="blue-uses-the-blue-2nd-portal">
+      <objective team="blue">blue-2nd</objective>
+      <not>
+        <all>
+          <objective team="blue">mid</objective>
+        </all>
+      </not>
+    </all>
+  </checks>
+  <items>
+    <remove-drops>
+      <any>
+        <material>golden carrot</material>
+        <material>arrow</material>
+        <material>leather helmet</material>
+        <material>chainmail chestplate</material>
+        <material>iron leggings</material>
+        <material>leather boots</material>
+        <material>golden apple</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>stone sword</material>
+        <material>bow</material>
+      </any>
+    </repair-tools>
+  </items>
+  <results>
+    <win scenario="objectives">
+      <check>
+        <time>12m</time>
+      </check>
+    </win>
+    <win scenario="team" team="red">
+      <check>
+        <objective team="red">blue-last</objective>
+      </check>
+    </win>
+    <win scenario="team" team="blue">
+      <check>
+        <objective team="blue">red-last</objective>
+      </check>
+    </win>
+  </results>
+  <loadouts>
+    <loadout id="default">
+      <item material="stone sword" slot="0" unbreakable="true"/>
+      <item material="bow" slot="1" unbreakable="true"/>
+      <item material="golden apple" slot="6"/>
+      <item amount="16" material="golden carrot" slot="8"/>
+      <item amount="32" material="arrow" slot="7"/>
+      <chestplate material="chainmail chestplate" unbreakable="true">
+        <enchantments>
+          <enchantment level="3" type="protection projectile">protection projectile</enchantment>
+        </enchantments>
+      </chestplate>
+      <helmet material="leather helmet" team-color="true" unbreakable="true"/>
+      <leggings material="iron leggings" team-color="true" unbreakable="true"/>
+      <boots material="leather boots" team-color="true" unbreakable="true"/>
+    </loadout>
+    <loadout id="kill-reward">
+      <item amount="32" material="arrow"/>
+      <item material="golden apple"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="kill-reward"/>
+    </rewards>
+  </kills>
+  <regions>
+    <cuboid id="red-portal-red-2nd" max="-63,14,-9" min="-67,12,-9"/>
+    <cuboid id="red-portal-red-mid" max="-63,14,-8" min="-67,12,-8"/>
+    <cuboid id="red-portal-blue-2nd" max="-63,14,-7" min="-67,12,-7"/>
+    <cuboid id="blue-portal-blue-2nd" max="63,14,9" min="67,12,9"/>
+    <cuboid id="blue-portal-blue-mid" max="63,14,8" min="67,12,8"/>
+    <cuboid id="blue-portal-red-2nd" max="63,14,7" min="67,12,7"/>
+  </regions>
+  <zones>
+    <zone modify="never" region="everywhere"/>
+    <zone>
+      <region>
+        <cuboid max="67,15,16" min="69,12,19"/>
+      </region>
+      <enter>
+        <team>blue</team>
+      </enter>
+    </zone>
+    <zone>
+      <region>
+        <cuboid max="-66,15,-15" min="-68,12,-18"/>
+      </region>
+      <enter>
+        <team>red</team>
+      </enter>
+    </zone>
+    <!-- Red Portals -->
+    <zone region="red-portal-red-2nd">
+      <portal check="red-uses-the-red-2nd-portal" yaw="-90">
+        <destination>
+          <point>-55.5,13,-17.5</point>
+        </destination>
+      </portal>
+    </zone>
+    <zone region="red-portal-red-mid">
+      <portal check="red-uses-the-mid-portal" yaw="-90">
+        <destination>
+          <point>-32.5,13,-11.5</point>
+        </destination>
+      </portal>
+    </zone>
+    <zone region="red-portal-blue-2nd">
+      <portal check="red-uses-the-blue-2nd-portal" yaw="-90">
+        <destination>
+          <point>8.5,9,13.5</point>
+        </destination>
+      </portal>
+    </zone>
+    <!-- Blue Portals -->
+    <zone region="blue-portal-blue-2nd">
+      <portal check="blue-uses-the-blue-2nd-portal" yaw="90">
+        <destination>
+          <point>57,13,18</point>
+        </destination>
+      </portal>
+    </zone>
+    <zone region="blue-portal-blue-mid">
+      <portal check="blue-uses-the-mid-portal" yaw="90">
+        <destination>
+          <point>33.5,13,12.5</point>
+        </destination>
+      </portal>
+    </zone>
+    <zone region="blue-portal-red-2nd">
+      <portal check="blue-uses-the-red-2nd-portal" yaw="90">
+        <destination>
+          <point>-7.5,9,-12.5</point>
+        </destination>
+      </portal>
+    </zone>
+  </zones>
+  <objectives>
+    <hill capture-time="5s" id="red-last" initial-owner="red" name="Red Last">
+      <capture>
+        <cuboid max="-69,20,-30" min="-61,15,-22"/>
+      </capture>
+      <progress>
+        <cuboid max="-69,20,-30" min="-61,15,-22"/>
+      </progress>
+      <capture-check>
+        <any>
+          <team>red</team>
+          <all>
+            <team>blue</team>
+            <objective team="blue">red-2nd</objective>
+          </all>
+        </any>
+      </capture-check>
+    </hill>
+    <hill capture-time="5s" id="red-2nd" initial-owner="red" name="Red 2nd">
+      <capture>
+        <cuboid max="-31,18,-16" min="-23,10,-8"/>
+      </capture>
+      <progress>
+        <cuboid max="-31,18,-16" min="-23,10,-8"/>
+      </progress>
+      <capture-check>
+        <any>
+          <all>
+            <team>red</team>
+            <objective team="red">red-last</objective>
+          </all>
+          <all>
+            <team>blue</team>
+            <objective team="blue">mid</objective>
+          </all>
+        </any>
+      </capture-check>
+    </hill>
+    <hill capture-time="5s" id="mid" name="Mid">
+      <capture>
+        <cuboid max="4,12,4" min="-4,7,-4"/>
+      </capture>
+      <progress>
+        <cuboid max="4,12,4" min="-4,7,-4"/>
+      </progress>
+      <capture-check>
+        <any>
+          <all>
+            <team>blue</team>
+            <objective team="blue">blue-2nd</objective>
+          </all>
+          <all>
+            <team>red</team>
+            <objective team="red">red-2nd</objective>
+          </all>
+        </any>
+      </capture-check>
+    </hill>
+    <hill capture-time="5s" id="blue-2nd" initial-owner="blue" name="Blue 2nd">
+      <capture>
+        <cuboid max="31,18,16" min="23,10,8"/>
+      </capture>
+      <progress>
+        <cuboid max="31,18,16" min="23,10,8"/>
+      </progress>
+      <capture-check>
+        <any>
+          <all>
+            <team>blue</team>
+            <objective team="blue">blue-last</objective>
+          </all>
+          <all>
+            <team>red</team>
+            <objective team="red">mid</objective>
+          </all>
+        </any>
+      </capture-check>
+    </hill>
+    <hill capture-time="5s" id="blue-last" initial-owner="blue" name="Blue Last">
+      <capture>
+        <cuboid max="69,20,30" min="61,15,22"/>
+      </capture>
+      <progress>
+        <cuboid max="69,20,30" min="61,15,22"/>
+      </progress>
+      <capture-check>
+        <any>
+          <all>
+            <team>red</team>
+            <objective team="red">blue-2nd</objective>
+          </all>
+          <team>blue</team>
+        </any>
+      </capture-check>
+    </hill>
+  </objectives>
+  <world>
+    <gamerules>
+      <doDaylightCycle>false</doDaylightCycle>
+    </gamerules>
+  </world>
+</map>

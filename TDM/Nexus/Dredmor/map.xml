@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="Dredmor" spec="1.0.0" version="1.1.0">
+  <include src="defaults.xml"/>
+  <include src="Shared/nexus-kits.xml"/>
+  <include src="Shared/reward-one-gap.xml"/>
+  <authors>
+    <author uuid="da98a2f1673c4cecb547e0a342abfde4"/>
+    <author uuid="99d1680d4e484f53af0e68d1e22696bc"/>
+    <author uuid="97fa0d2faf67474cb8a1e1a5ab7c1af1"/>
+  </authors>
+  <teams>
+    <team color="orange" id="orange" max="25" min="1">Orange</team>
+    <team color="cyan" id="cyan" max="25" min="1">Cyan</team>
+  </teams>
+  <broadcasts>
+    <broadcast format="alert" interval="2m">{broadcasts.map-kits}</broadcast>
+    <broadcast format="alert" interval="2m">{broadcasts.map-kits-2}</broadcast>
+  </broadcasts>
+  <objectives>
+    <scores kills="1" limit="100">
+      <score team="orange"/>
+      <score team="cyan"/>
+    </scores>
+  </objectives>
+  <results>
+    <win scenario="objectives">
+      <check>
+        <time>8m</time>
+      </check>
+    </win>
+  </results>
+  <spawns>
+    <spawn yaw="135">
+      <regions>
+        <point yaw="135">93.5, 99, 65.5</point>
+      </regions>
+    </spawn>
+    <spawn team="cyan" yaw="-135">
+      <regions>
+        <point yaw="135">-16.5, 65, 83.5</point>
+      </regions>
+    </spawn>
+    <spawn team="orange" yaw="45">
+      <regions>
+        <point yaw="45">113.5, 65, -46.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <zones>
+    <zones>
+      <zone modify="never" region="everywhere"/>
+    </zones>
+  </zones>
+  <world>
+    <gamerules>
+      <doTileDrops>false</doTileDrops>
+    </gamerules>
+  </world>
+</map>

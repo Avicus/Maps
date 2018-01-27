@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="Worlds End" spec="1.0.0" version="1.1.0">
+  <include src="defaults.xml"/>
+  <include src="Shared/nexus-kits.xml"/>
+  <include src="Shared/reward-one-gap.xml"/>
+  <authors>
+    <author uuid="c13334fbf40540779e67c32c33a604eb"/>
+  </authors>
+  <teams>
+    <team color="orange" id="orange" max="8" min="1">Orange</team>
+    <load-group id="teams.lime-cyan" max="8" min="1"/>
+    <team color="gray" id="gray" max="8" min="1">Gray</team>
+  </teams>
+  <broadcasts>
+    <broadcast format="alert" interval="2m">{broadcasts.map-kits}</broadcast>
+    <broadcast format="alert" interval="2m">{broadcasts.map-kits-2}</broadcast>
+  </broadcasts>
+  <objectives>
+    <scores kills="1" limit="100">
+      <score team="orange"/>
+      <score team="cyan"/>
+      <score team="gray"/>
+      <score team="lime"/>
+    </scores>
+  </objectives>
+  <results>
+    <win scenario="objectives">
+      <check>
+        <time>8m</time>
+      </check>
+    </win>
+  </results>
+  <spawns>
+    <spawn yaw="90">
+      <regions>
+        <block>-655, 50, -1203</block>
+      </regions>
+    </spawn>
+    <spawn team="cyan" yaw="-45">
+      <regions>
+        <block>-727, 17, -1250</block>
+      </regions>
+    </spawn>
+    <spawn team="gray" yaw="45">
+      <regions>
+        <block>-613, 17, -1252</block>
+      </regions>
+    </spawn>
+    <spawn team="lime" yaw="-135">
+      <regions>
+        <block>-723, 17, -1142</block>
+      </regions>
+    </spawn>
+    <spawn team="orange" yaw="135">
+      <regions>
+        <block>-618, 17, -1140</block>
+      </regions>
+    </spawn>
+  </spawns>
+  <zones>
+    <zones>
+      <zone modify="never" region="everywhere"/>
+    </zones>
+  </zones>
+  <world>
+    <gamerules>
+      <doTileDrops>false</doTileDrops>
+    </gamerules>
+  </world>
+</map>

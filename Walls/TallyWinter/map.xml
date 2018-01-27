@@ -1,0 +1,88 @@
+<map name="Tally Winter" spec="1.0.5" version="1.0.0">
+  <include src="defaults.xml"/>
+  <include src="Shared/walls.xml"/>
+  <gametype>walls</gametype>
+  <authors>
+    <author uuid="fbd4b4d4-6186-4581-b408-666bb8a12df4"/>
+    <!--  Paige  -->
+    <author uuid="18056f66-5514-4dec-9cb8-85d052e1d54c"/>
+    <!-- Micah -->
+    <author uuid="63b88dff-c6b4-4e08-bd17-aae089b12e95"/>
+    <!-- Rilo -->
+    <author role="Creator of the cave." uuid="be49b1a8-600e-4751-9725-a8aead777363"/>
+    <!-- izjust4fun -->
+    <author role="Creator of the cave." uuid="297428a6-b482-4558-99f5-b413067ed48d"/>
+    <!-- CrazyClownz -->
+  </authors>
+  <teams>
+    <team color="blue" id="blue" max="16" min="1">Blue</team>
+    <team color="lime" id="lime" max="16" min="1">Lime</team>
+    <team color="cyan" id="cyan" max="16" min="1">Cyan</team>
+    <team color="red" id="red" max="16" min="1">Red</team>
+  </teams>
+  <walls end-time="30m" fall-time="10m">
+    <wall region="walls"/>
+  </walls>
+  <spawns>
+    <spawn yaw="-90">
+      <regions>
+        <block>14,150,-56</block>
+      </regions>
+    </spawn>
+    <spawn team="blue" yaw="0">
+      <regions>
+        <block>-19.5, 80, -112.5</block>
+      </regions>
+    </spawn>
+    <spawn team="lime" yaw="0">
+      <regions>
+        <block>47.5, 80, -112.5</block>
+      </regions>
+    </spawn>
+    <spawn team="cyan" yaw="-180">
+      <regions>
+        <block>47.5, 80, 0.5</block>
+      </regions>
+    </spawn>
+    <spawn team="red" yaw="-180">
+      <regions>
+        <block>19.5, 80, 0.5</block>
+      </regions>
+    </spawn>
+  </spawns>
+  <regions>
+    <join id="walls">
+      <cuboid max="73,120,-50" min="20,78,-50"/>
+      <cuboid max="20,78,-49" min="20,120,3"/>
+      <cuboid max="7,120,3" min="7,78,-50"/>
+      <cuboid max="6,78,-50" min="-46,120,-50"/>
+      <cuboid max="-46,120,-63" min="7,78,-63"/>
+      <cuboid max="7,78,-64" min="7,120,-116"/>
+      <cuboid max="20,120,-116" min="20,78,-63"/>
+      <cuboid max="21,78,-63" min="73,120,-63"/>
+    </join>
+    <above id="height-limit" y="117"/>
+  </regions>
+  <zones>
+    <zones>
+      <zone modify="never" region="walls"/>
+      <zone modify="never">
+        <region>
+          <invert>
+            <cuboid max="72, oo, 2" min="-45, 0, -115"/>
+          </invert>
+        </region>
+        <message>{errors.outside-map}</message>
+      </zone>
+    </zones>
+    <zone enter="never" modify="never">
+      <region>
+        <cuboid max="8,120,3" min="20,25,3"/>
+        <cuboid max="-46,120,-62" min="-46,25,-50"/>
+        <cuboid max="73,120,-51" min="73,25,-63"/>
+        <cuboid max="19,120,-116" min="7,25,-116"/>
+      </region>
+    </zone>
+    <zone modify="never" region="height-limit"/>
+  </zones>
+</map>

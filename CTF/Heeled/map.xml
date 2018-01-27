@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="Heeled" spec="1.0.4" version="1.0.0">
+   <include src="defaults.xml" />
+   <include src="Shared/conquest-shop.xml"/>
+   <authors>
+      <author uuid="bf3319534f9243ee8abc7544b8234936" />
+      <!--  Vice  -->
+   </authors>
+   <tutorial>
+      <step countdown="5s" freeze="false" location="-1,9,-126" pitch="0" yaw="45">
+      <chat>
+         <line>^r • {tutorial.generic.team-spawns}</line>
+      </chat>
+      </step>
+      <step countdown="4s" location="-27,10,-115" pitch="27" yaw="130">
+      <chat>
+      <line>^r • ^7This is the ^bflag^7. You must capture it ^b3 times ^7to win.</line>
+      </chat>
+      </step>
+      <step countdown="5s" location="-9,7,-65" pitch="4" yaw="151">
+      <chat>
+      <line>^r • ^7These are the ^egold mounds^7. You must ^bdestroy these ^7to win.</line>
+      </chat>
+      </step>
+   </tutorial>
+   <teams>
+      <team color="red" id="red" max="12" min="1">{colors.red}</team>
+      <team color="yellow" id="yellow" max="12" min="1">{colors.yellow}</team>
+   </teams>
+   <spawns>
+      <!--  Spectator spawn  -->
+      <spawn>
+         <regions>
+            <point yaw="-90">-39.5, 18, -43.5</point>
+         </regions>
+      </spawn>
+      <!--  Team spawns  -->
+      <spawn loadout="default" team="red" yaw="45">
+         <regions>
+            <point yaw="45">-1.5, 8, -126.5</point>
+            <point yaw="45">-1.5, 8, -126.5</point>
+         </regions>
+      </spawn>
+      <spawn loadout="default" team="yellow" yaw="135">
+         <regions>
+            <point yaw="135">-1.5, 8, 40.5</point>
+            <point yaw="135">-1.5, 8, 40.5</point>
+         </regions>
+      </spawn>
+   </spawns>
+   <zones>
+      <!--  Posts  -->
+      <zone id="red-post">
+         <region>
+            <block>-30, 8, -119</block>
+         </region>
+         <post yaw="0" />
+      </zone>
+      <zone id="yellow-post">
+         <region>
+            <block>-30, 8, 33</block>
+         </region>
+         <post yaw="180" />
+      </zone>
+      <!--  Nets  -->
+      <zone id="yellow-net">
+         <region>
+            <cuboid max="-29, 7, 32" min="-33, 9, 34" />
+         </region>
+         <net owner="yellow" points="1" />
+      </zone>
+      <zone id="red-net">
+         <region>
+            <cuboid max="-29, 7, -118" min="-33, 9, -120" />
+         </region>
+         <net owner="red" points="1" />
+      </zone>
+      <zone modify="never">
+          <region>
+              <invert>
+                  <cuboid max="-42, 0, 43" min="2, 18, -129" />
+              </invert>
+          </region>
+          <tnt>
+             <yield>0</yield>
+             <instant-ignite />
+             <fuse>6s</fuse>
+             <power>70</power>
+          </tnt>
+      </zone>
+      <!--  Keeping Nets Safe  -->
+      <zone modify="never">
+          <region>
+               <cuboid max="-27, 5, -116" min="-35, 11, -122" />
+          </region>
+      </zone>
+      <zone modify="never">
+          <region>
+               <cuboid max="-35, 5, 30" min="-27, 11, 36" />
+          </region>
+      </zone>
+      <!--  Keeping Spawns Safe  -->
+      <zone modify="never">  <!--  Red  -->
+          <region>
+               <cuboid max="1, 0, -128" min="-15, 12, -104" />
+          </region>
+          <message>{errors.spawn-restricted}</message>
+      </zone>
+      <zone modify="never">  <!--  Yellow  -->
+          <region>
+               <cuboid max="-15, 0, 18" min="1, 12, 42" />
+          </region>
+          <message>{errors.spawn-restricted}</message>
+      </zone>
+
+      <zone modify="never">  <!--  Red Enter Protection  -->
+          <region>
+               <cuboid max="1, 13, -128" min="-7, 5, -120" />
+          </region>
+          <enter>
+             <team>red</team>
+          </enter>
+      </zone>
+      <zone modify="never">  <!--  Yellow Enter Protection  -->
+          <region>
+               <cuboid max="1, 13, 42" min="-7, 5, 34" />
+          </region>
+          <enter>
+             <team>yellow</team>
+          </enter>
+      </zone>
+      <!--  Keeping Gold Mons Safe  -->
+      <zone modify="never">  <!--  owned by red -->
+          <region>
+               <cylinder base="-30, 5, -79" radius="3" height="4" />
+          </region>
+      </zone>
+      <zone modify="never"> <!--  owned by red -->
+          <region>
+               <cylinder base="-9, 4, -73" radius="3" height="4" />
+          </region>
+      </zone>
+      <zone modify="never"> <!--  owned by red -->
+          <region>
+               <cylinder base="-39, 12, -107" radius="3" height="4" />
+          </region>
+      </zone>
+
+      <zone modify="never"> <!--  owned by yellow -->
+          <region>
+               <cylinder base="-9, 4, -13" radius="3" height="4" />
+          </region>
+      </zone>
+      <zone modify="never"> <!--  owned by yellow -->
+          <region>
+               <cylinder base="-30, 5, -7" radius="3" height="4" />
+          </region>
+      </zone>
+      <zone modify="never"> <!--  owned by yellow -->
+          <region>
+               <cylinder base="-39, 12, 21" radius="3" height="4" />
+          </region>
+      </zone>
+   </zones>
+   <broadcasts>
+      <broadcast format="alert" interval="3m">You must break the gold blocks and capture the enemy flag 3 times to win!</broadcast>
+   </broadcasts>
+   <loadouts>
+      <loadout id="default">
+         <effect duration="5s">damage resistance</effect>
+         <helmet material="leather helmet" team-color="true" />
+         <chestplate material="leather chestplate" team-color="true" />
+         <leggings material="leather leggings" team-color="true" />
+         <boots material="iron boots" team-color="true" />
+         <item material="stone sword" slot="0" />
+         <item material="bow" slot="1" />
+         <item material="diamond pickaxe" slot="2" />
+         <item material="iron spade" slot="3" />
+         <item amount="1" material="golden apple" slot="4" />
+         <item amount="8" material="log" slot="5" />
+         <item amount="16" material="glass" slot="5" />
+         <item amount="64" material="arrow" slot="27" />
+         <item amount="16" material="golden carrot" slot="7" />
+      </loadout>
+      <loadout id="kill-reward">
+         <item material="golden apple" />
+      </loadout>
+   </loadouts>
+   <mobs>
+      <any>
+         <entity>horse</entity>
+      </any>
+   </mobs>
+   <kills>
+      <rewards>
+         <reward loadout="kill-reward" />
+      </rewards>
+   </kills>
+   <items>
+      <remove-drops>
+         <any>
+            <material>stone sword</material>
+            <material>leather helmet</material>
+            <material>leather chestplate</material>
+            <material>leather leggings</material>
+            <material>iron boots</material>
+            <material>bow</material>
+            <material>arrow</material>
+            <material>golden carrot</material>
+            <material>log</material>
+            <material>wood</material>
+            <material>glass</material>
+            <material>saddle</material>
+            <material>sand</material>
+            <material>gold block</material>
+            <material>gravel</material>
+         </any>
+      </remove-drops>
+      <repair-tools>
+         <any>
+            <material>stone sword</material>
+            <material>bow</material>
+            <material>iron spade</material>
+            <material>diamond pickaxe</material>
+         </any>
+      </repair-tools>
+   </items>
+   <objectives>
+      <monuments destroyable="true" materials="gold block">
+         <monuments owner="yellow">
+            <monument name="Gold">
+               <region>
+                  <cuboid max="-41, 21, 22" min="-7, 4, -14" />
+               </region>
+            </monument>
+         </monuments>
+         <monuments owner="red">
+            <monument name="Gold">
+               <region>
+                  <cuboid max="-7, 4, -72" min="-40, 17, -108" />
+               </region>
+            </monument>
+         </monuments>
+      </monuments>
+      <scores limit="3">
+         <score team="red" />
+         <score team="yellow" />
+      </scores>
+      <flag color="yellow" owner="red" post="yellow-post" />
+      <flag color="red" owner="yellow" post="red-post" />
+   </objectives>
+</map>

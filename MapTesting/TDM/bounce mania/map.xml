@@ -1,0 +1,183 @@
+<map name="Bounce Mania" spec="1.0.0" version="1.0.0">
+  <include src="defaults.xml"/>
+  <authors>
+    <author uuid="47b15675a0484e8f863a0cbf86ba22dc"/>
+    <!-- profbananaslug -->
+  </authors>
+  <teams>
+    <team color="yellow" id="yellow" max="100" min="1">{colors.yellow}</team>
+    <team color="orange" id="orange" max="100" min="1">{colors.orange}</team>
+  </teams>
+  <spawns>
+    <spawn team="spectators" yaw="180">
+      <regions>
+        <point yaw="180">75, 93, 87</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="yellow" yaw="-135">
+      <regions>
+        <point yaw="-135">57, 80, 75</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="orange" yaw="45">
+      <regions>
+        <point yaw="45">90, 80, 38</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <loadouts>
+    <loadout id="default">
+      <helmet material="leather helmet" team-color="true"/>
+      <item material="iron sword" slot="0"/>
+      <item material="bow" slot="1"/>
+      <item amount="2" material="golden apple" slot="2"/>
+      <item amount="16" material="cooked fish" slot="3"/>
+      <item amount="23" material="arrow" slot="28"/>
+    </loadout>
+    <loadout id="kill-reward">
+      <item material="golden apple"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="kill-reward"/>
+    </rewards>
+  </kills>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>cooked fish</material>
+        <material>arrow</material>
+        <material>iron sword</material>
+      </any>
+    </remove-drops>
+  </items>
+  <objectives>
+    <scores kills="1" limit="100">
+      <score team="orange"/>
+      <score team="yellow"/>
+    </scores>
+  </objectives>
+  <results>
+    <win scenario="objectives">
+      <check>
+        <time>8m</time>
+      </check>
+    </win>
+  </results>
+  <module-group id="vel-zone">
+    <zone velocity="$vel">
+      <region>
+        <cuboid max="$max" min="$min"/>
+      </region>
+    </zone>
+  </module-group>
+  <zones>
+    <load-group id="no-build"/>
+    <load-group id="vel-zone" max="95, 66, 40" min="92, 65, 37" vel="0, 3.3, 0"/>
+    <load-group id="vel-zone" max="91, 66, 40" min="88, 65, 37" vel="0, 3.8, 0"/>
+    <load-group id="vel-zone" max="87, 66, 40" min="84, 65, 37" vel="0, 2.8, 0"/>
+    <load-group id="vel-zone" max="83, 66, 40" min="80, 65, 37" vel="0, 2.9, 0"/>
+    <load-group id="vel-zone" max="79, 66, 40" min="76, 65, 37" vel="0, 1.7, 0"/>
+    <load-group id="vel-zone" max="75, 66, 40" min="72, 65, 37" vel="0, 3.7, 0"/>
+    <load-group id="vel-zone" max="71, 66, 40" min="68, 65, 37" vel="0, 3.1, 0"/>
+    <load-group id="vel-zone" max="67, 66, 40" min="64, 65, 37" vel="0, 1.5, 0"/>
+    <load-group id="vel-zone" max="63, 66, 40" min="60, 65, 37" vel="0, 3.9, 0"/>
+    <load-group id="vel-zone" max="59, 66, 40" min="56, 65, 37" vel="0, 2.3, 0"/>
+    <load-group id="vel-zone" max="95, 66, 46" min="92, 65, 43" vel="0, 3.5, 0"/>
+    <load-group id="vel-zone" max="91, 66, 46" min="88, 65, 43" vel="0, 3.7, 0"/>
+    <load-group id="vel-zone" max="87, 66, 46" min="84, 65, 43" vel="0, 2.7, 0"/>
+    <load-group id="vel-zone" max="83, 66, 46" min="80, 65, 43" vel="0, 1.6, 0"/>
+    <load-group id="vel-zone" max="79, 66, 46" min="76, 65, 43" vel="0, 3.2, 0"/>
+    <load-group id="vel-zone" max="75, 66, 46" min="72, 65, 43" vel="0, 2.3, 0"/>
+    <load-group id="vel-zone" max="71, 66, 46" min="68, 65, 43" vel="0, 2.5, 0"/>
+    <load-group id="vel-zone" max="67, 66, 46" min="64, 65, 43" vel="0, 3.1, 0"/>
+    <load-group id="vel-zone" max="63, 66, 46" min="60, 65, 43" vel="0, 3.6, 0"/>
+    <load-group id="vel-zone" max="59, 66, 46" min="56, 65, 43" vel="0, 1.6, 0"/>
+    <load-group id="vel-zone" max="95, 66, 52" min="92, 65, 49" vel="0, 2.7, 0"/>
+    <load-group id="vel-zone" max="91, 66, 52" min="88, 65, 49" vel="0, 3.4, 0"/>
+    <load-group id="vel-zone" max="87, 66, 52" min="84, 65, 49" vel="0, 2.0, 0"/>
+    <load-group id="vel-zone" max="83, 66, 52 " min="80, 65, 49" vel="0, 3.8, 0"/>
+    <load-group id="vel-zone" max="79, 66, 52 " min="76, 65, 49" vel="0, 4.0, 0"/>
+    <load-group id="vel-zone" max="75, 66, 52 " min="72, 65, 49" vel="0, 1.5, 0"/>
+    <load-group id="vel-zone" max="71, 66, 52 " min="68, 65, 49" vel="0, 2.3, 0"/>
+    <load-group id="vel-zone" max="67, 66, 52 " min="64, 65, 49" vel="0, 3.7, 0"/>
+    <load-group id="vel-zone" max="63, 66, 52 " min="60, 65, 49" vel="0, 3.7, 0"/>
+    <load-group id="vel-zone" max="59, 66, 52 " min="56, 65, 49" vel="0, 3.5, 0"/>
+    <load-group id="vel-zone" max="95, 66, 58" min="92, 65, 55" vel="0, 3.9, 0"/>
+    <load-group id="vel-zone" max="91, 66, 58 " min="88, 65, 55" vel="0, 2.2, 0"/>
+    <load-group id="vel-zone" max="87, 66, 58 " min="84, 65, 55" vel="0, 3.6, 0"/>
+    <load-group id="vel-zone" max="83, 66, 58 " min="80, 65, 55" vel="0, 1.6, 0"/>
+    <load-group id="vel-zone" max="79, 66, 58 " min="76, 65, 55" vel="0, 3.1, 0"/>
+    <load-group id="vel-zone" max="75, 66, 58 " min="72, 65, 55" vel="0, 3.4, 0"/>
+    <load-group id="vel-zone" max="71, 66, 58 " min="68, 65, 55" vel="0, 2.1, 0"/>
+    <load-group id="vel-zone" max="67, 66, 58 " min="64, 65, 55" vel="0, 1.9, 0"/>
+    <load-group id="vel-zone" max="63, 66, 58 " min="60, 65, 55" vel="0, 2.2, 0"/>
+    <load-group id="vel-zone" max="59, 66, 58 " min="56, 65, 55" vel="0, 3.7, 0"/>
+    <load-group id="vel-zone" max="95, 66, 64" min="92, 65, 61" vel="0, 3.2, 0"/>
+    <load-group id="vel-zone" max="91, 66, 64 " min="88, 65, 61" vel="0, 2.8, 0"/>
+    <load-group id="vel-zone" max="87, 66, 64 " min="84, 65, 61" vel="0, 3.0, 0"/>
+    <load-group id="vel-zone" max="83, 66, 64 " min="80, 65, 61" vel="0, 2.2, 0"/>
+    <load-group id="vel-zone" max="79, 66, 64 " min="76, 65, 61" vel="0, 2.7, 0"/>
+    <load-group id="vel-zone" max="75, 66, 64 " min="72, 65, 61" vel="0, 1.6, 0"/>
+    <load-group id="vel-zone" max="71, 66, 64 " min="68, 65, 61" vel="0, 1.6, 0"/>
+    <load-group id="vel-zone" max="67, 66, 64 " min="64, 65, 61" vel="0, 2.9, 0"/>
+    <load-group id="vel-zone" max="63, 66, 64 " min="60, 65, 61" vel="0, 2.2, 0"/>
+    <load-group id="vel-zone" max="59, 66, 64 " min="56, 65, 61" vel="0, 4.0, 0"/>
+    <load-group id="vel-zone" max="95, 66, 70" min="92, 65, 67" vel="0, 2.6, 0"/>
+    <load-group id="vel-zone" max="91, 66, 70 " min="88, 65, 67" vel="0, 1.9, 0"/>
+    <load-group id="vel-zone" max="87, 66, 70 " min="84, 65, 67" vel="0, 1.8, 0"/>
+    <load-group id="vel-zone" max="83, 66, 70 " min="80, 65, 67" vel="0, 3.3, 0"/>
+    <load-group id="vel-zone" max="79, 66, 70 " min="76, 65, 67" vel="0, 2.2, 0"/>
+    <load-group id="vel-zone" max="75, 66, 70 " min="72, 65, 67" vel="0, 2.6, 0"/>
+    <load-group id="vel-zone" max="71, 66, 70 " min="68, 65, 67" vel="0, 3.7, 0"/>
+    <load-group id="vel-zone" max="67, 66, 70 " min="64, 65, 67" vel="0, 1.5, 0"/>
+    <load-group id="vel-zone" max="63, 66, 70 " min="60, 65, 67" vel="0, 3.1, 0"/>
+    <load-group id="vel-zone" max="59, 66, 70 " min="56, 65, 67" vel="0, 3.2, 0"/>
+    <load-group id="vel-zone" max="95, 66, 76" min="92, 65, 73" vel="0, 2.2, 0"/>
+    <load-group id="vel-zone" max="91, 66, 76 " min="88, 65, 73" vel="0, 2.6, 0"/>
+    <load-group id="vel-zone" max="87, 66, 76 " min="84, 65, 73" vel="0, 2.5, 0"/>
+    <load-group id="vel-zone" max="83, 66, 76 " min="80, 65, 73" vel="0, 3.3, 0"/>
+    <load-group id="vel-zone" max="79, 66, 76 " min="76, 65, 73" vel="0, 2.2, 0"/>
+    <load-group id="vel-zone" max="75, 66, 76 " min="72, 65, 73" vel="0, 3.0, 0"/>
+    <load-group id="vel-zone" max="71, 66, 76 " min="68, 65, 73" vel="0, 2.5, 0"/>
+    <load-group id="vel-zone" max="67, 66, 76 " min="64, 65, 73" vel="0, 2.1, 0"/>
+    <load-group id="vel-zone" max="63, 66, 76 " min="60, 65, 73" vel="0, 1.6, 0"/>
+    <load-group id="vel-zone" max="59, 66, 76 " min="56, 65, 73" vel="0, 2.4, 0"/>
+    <load-group id="vel-zone" max="95, 65, 72" min="56, 64, 71" vel="0, 1.1, 0"/>
+    <load-group id="vel-zone" max="95, 65, 66" min="56, 64, 65" vel="0, 1.1, 0"/>
+    <load-group id="vel-zone" max="95, 65, 60" min="56, 64, 59" vel="0, 1.1, 0"/>
+    <load-group id="vel-zone" max="95, 65, 54" min="56, 64, 53" vel="0, 1.1, 0"/>
+    <load-group id="vel-zone" max="95, 65, 48" min="56, 64, 47" vel="0, 1.1, 0"/>
+    <load-group id="vel-zone" max="95, 65, 42" min="56, 64, 41" vel="0, 1.1, 0"/>
+    <load-group id="vel-zone" max="95, 65, 36" min="56, 64, 36" vel="0, 1.1, 0"/>
+    <load-group id="vel-zone" max="95, 65, 77" min="56, 64, 77" vel="0, 1.1, 0"/>
+    <load-group id="vel-zone" max="96, 65, 76" min="96, 64, 37" vel="0, 1.1, 0"/>
+    <load-group id="vel-zone" max="95, 65, 72" min="56, 64, 71" vel="0, 1.1, 0"/>
+    <load-group id="vel-zone" max="55, 80, 76" min="55, 64, 37" vel="1.1, 0, 0"/>
+    <load-group id="vel-zone" max="95, 80, 76" min="96, 64, 37" vel="-1.1, 0, 0"/>
+    <load-group id="vel-zone" max="95, 80, 77" min="56, 64, 77" vel="0, 0, -1.1"/>
+    <load-group id="vel-zone" max="95, 80, 36" min="56, 64, 36" vel="0, 0, 1.1"/>
+  </zones>
+  <triggers>
+    <trigger execute="bounce-noise" on="toggle-on-ground"/>
+  </triggers>
+  <damage>
+    <disable>
+      <all>
+        <damage>fall</damage>
+        <inside>
+          <region>
+            <above y="-1"/>
+          </region>
+        </inside>
+      </all>
+    </disable>
+  </damage>
+  <executors>
+    <executor check="always" id="bounce-noise">
+      <play-sound pitch="1" sound="wither shoot" volume="4"/>
+    </executor>
+  </executors>
+</map>

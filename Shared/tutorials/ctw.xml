@@ -1,0 +1,16 @@
+﻿<!-- Base tutorial that should be included by all CTW maps. -->
+<map>
+  <include src="Shared/tutorials/main.xml"/>
+  <tutorial>
+    <prefix countdown="4s">
+      <title stay="3s" subtitle="^a^l{tutorial.ctw.title}"/>
+      <chat>
+        <line>^a^m--------------^f ^l{tutorial.ctw.title} ^a^m--------------</line>
+        <line>^r • {tutorial.ctw.desc1}</line>
+        <line>^r • {tutorial.ctw.desc2}</line>
+        <line>^r • {tutorial.ctw.desc3}</line>
+        <line>^a^m------------------------------------------</line>
+      </chat>
+    </prefix>
+  </tutorial>
+</map>

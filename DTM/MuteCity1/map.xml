@@ -1,0 +1,216 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<map name="Mute City 1" spec="1.0.0" version="1.1.0">
+  <include src="defaults.xml"/>
+  <gametype>dtm</gametype>
+  <include src="Shared/tutorials/dtm.xml"/>
+  <authors>
+    <author uuid="da98a2f1673c4cecb547e0a342abfde4"/> <!-- timaeusTestified -->
+  </authors>
+  <tutorial>
+    <step countdown="5s" freeze="false" location="64, 25, 45" pitch="18" yaw="125">
+      <chat>
+        <line>^r • {tutorial.four-teams}</line>
+        <line>^r • {tutorial.dtm.colored}</line>
+      </chat>
+    </step>
+    <step countdown="4s" location="91, 26, 39" pitch="30" yaw="112">
+      <chat>
+        <line>^r • {tutorial.dtm.monument-area}</line>
+      </chat>
+    </step>
+    <step countdown="5s" location="83.1, 22.1, 33.6" pitch="49.2" yaw="71">
+      <chat>
+        <line>^r • {tutorial.dtm.monument-objective}</line>
+      </chat>
+    </step>
+  </tutorial>
+  <results>
+    <win scenario="team" team="yellow">
+      <check>
+        <all>
+          <objective>yellow-left</objective>
+          <objective>yellow-right</objective>
+        </all>
+      </check>
+    </win>
+    <win scenario="team" team="blue">
+      <check>
+        <all>
+          <objective>blue-left</objective>
+          <objective>blue-right</objective>
+        </all>
+      </check>
+    </win>
+    <win scenario="team" team="red">
+      <check>
+        <all>
+          <objective>red-left</objective>
+          <objective>red-right</objective>
+        </all>
+      </check>
+    </win>
+    <win scenario="team" team="lime">
+      <check>
+        <all>
+          <objective>lime-left</objective>
+          <objective>lime-right</objective>
+        </all>
+      </check>
+    </win>
+  </results>
+  <teams>
+    <team color="yellow" id="yellow" max="10" min="1">{colors.yellow}</team>
+    \
+    <team color="lime" id="lime" max="10" min="1">{colors.lime}</team>
+    <load-group id="teams.red-blue" max="10" min="1"/>
+  </teams>
+  <spawns>
+    <!-- Spectator spawn -->
+    <spawn>
+      <regions>
+        <point yaw="90">114.5, 75, 21.5</point>
+      </regions>
+    </spawn>
+    <!-- Team spawns -->
+    <spawn loadout="spawn" team="yellow" yaw="-132">
+      <regions>
+        <point yaw="-132">-2.5, 16, 57.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="spawn" team="red" yaw="-45">
+      <regions>
+        <point yaw="-45">-2.5, 16, -14.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="spawn" team="lime" yaw="45">
+      <regions>
+        <point yaw="45">69.5, 16, -14.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="spawn" team="blue" yaw="135">
+      <regions>
+        <point yaw="135">69.5, 16, 57.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <checks>
+    <team id="only-red">red</team>
+    <team id="only-blue">blue</team>
+    <team id="only-lime">lime</team>
+    <team id="only-yellow">yellow</team>
+  </checks>
+  <objectives>
+    <monuments materials="obsidian">
+      <monument break-check="only-yellow" id="yellow-left" name="{directions.left}">
+        <region>
+          <block>20, 20, -26</block>
+        </region>
+      </monument>
+      <monument break-check="only-yellow" id="yellow-right" name="{directions.right}">
+        <region>
+          <block>80, 20, 34</block>
+        </region>
+      </monument>
+      <monument break-check="only-blue" id="blue-left" name="{directions.left}">
+        <region>
+          <block>-14, 20, 34</block>
+        </region>
+      </monument>
+      <monument break-check="only-blue" id="blue-right" name="{directions.right}">
+        <region>
+          <block>46, 20, -26</block>
+        </region>
+      </monument>
+      <monument break-check="only-red" id="red-left" name="{directions.left}">
+        <region>
+          <block>80, 20, 8</block>
+        </region>
+      </monument>
+      <monument break-check="only-red" id="red-right" name="{directions.right}">
+        <region>
+          <block>20, 20, 68</block>
+        </region>
+      </monument>
+      <monument break-check="only-lime" id="lime-left" name="{directions.left}">
+        <region>
+          <block>46, 20, 68</block>
+        </region>
+      </monument>
+      <monument break-check="only-lime" id="lime-right" name="{directions.right}">
+        <region>
+          <block>-14, 20, 8</block>
+        </region>
+      </monument>
+    </monuments>
+  </objectives>
+  <loadouts>
+    <loadout id="kill-reward">
+      <item amount="3" material="golden apple"/>
+    </loadout>
+    <loadout id="spawn">
+      <helmet material="leather helmet" team-color="true"/>
+      <effect duration="5s">damage resistance</effect>
+      <item material="stone sword" slot="0"/>
+      <item material="bow" slot="1">
+        <enchantment>arrow infinite</enchantment>
+      </item>
+      <item material="diamond pickaxe" slot="2">
+        <enchantment level="1">dig speed</enchantment>
+      </item>
+      <item amount="3" material="golden apple" slot="3"/>
+      <item amount="64" material="log" slot="4"/>
+      <item amount="64" material="stained glass" slot="5" team-color="true"/>
+      <item amount="64" material="stained clay" slot="6" team-color="true"/>
+      <item amount="32" material="cooked beef" slot="6"/>
+      <item amount="1" material="arrow" slot="27"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="kill-reward"/>
+    </rewards>
+  </kills>
+  <zones>
+    <zone modify="never">
+      <region>
+        <cuboid max="-7, 24, -19" min="4, 6, -8"/>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid max="4, 6, 50" min="-7, 24, 61"/>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid max="62, 6, 50" min="73, 24, 61"/>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid max="62, 6, -8" min="73, 24, -19"/>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+  </zones>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>cooked beef</material>
+        <material>log</material>
+        <material>golden apple</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>stone sword</material>
+        <material>bow</material>
+        <material>diamond pickaxe</material>
+      </any>
+    </repair-tools>
+  </items>
+</map>

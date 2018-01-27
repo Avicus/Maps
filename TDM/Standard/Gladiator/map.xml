@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="Gladiator" spec="1.0.3" version="1.0.0">
+  <include src="defaults.xml"/>
+  <authors>
+    <author role="Map maker" uuid="f391227e626f4076a38995e2b922d167"/> <!-- Haribo98 -->
+  </authors>
+  <gametype>score</gametype>
+  <spawns>
+    <spawn>
+      <regions>
+        <point yaw="-45">-41.5, 57, -862.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="lime">
+      <regions>
+        <point yaw="0">23.5, 57, -850.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="purple" yaw="0">
+      <regions>
+        <point yaw="-90">-29.5, 57, -797.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="cyan">
+      <regions>
+        <point yaw="90">76.5, 57, -797.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="red">
+      <regions>
+        <point yaw="180">23.5, 57, -744.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <zones>
+    <zone modify="never">
+      <region>
+        <cylinder base="23, 56, -851" height="4" radius="6"/>
+      </region>
+      <enter>
+        <team>lime</team>
+      </enter>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cylinder base="-30, 56, -798" height="4" radius="6"/>
+      </region>
+      <enter>
+        <team>purple</team>
+      </enter>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cylinder base="76, 56, -798" height="4" radius="6"/>
+      </region>
+      <enter>
+        <team>cyan</team>
+      </enter>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cylinder base="23, 56, -745" height="4" radius="6"/>
+      </region>
+      <enter>
+        <team>red</team>
+      </enter>
+    </zone>
+  </zones>
+  <teams>
+    <team color="purple" id="purple" max="10" min="1">{colors.purple}</team>
+    <load-group id="teams.lime-cyan" max="10" min="1"/>
+    <team color="red" id="red" max="10" min="1">{colors.red}</team>
+  </teams>
+  <objectives>
+    <scores kills="1" limit="100">
+      <score team="lime"/>
+      <score team="cyan"/>
+      <score team="purple"/>
+      <score team="red"/>
+    </scores>
+  </objectives>
+  <results>
+    <win scenario="objectives">
+      <check>
+        <time>7m</time>
+      </check>
+    </win>
+  </results>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>leather leggings</material>
+        <material>leather boots</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>iron sword</material>
+        <material>diamond pickaxe</material>
+        <material>iron axe</material>
+      </any>
+    </repair-tools>
+  </items>
+  <loadouts>
+    <loadout id="default">
+      <helmet material="leather helmet"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="leather leggings" team-color="true"/>
+      <boots material="leather boots"/>
+      <item material="iron sword" slot="0"/>
+      <item material="diamond pickaxe" slot="1"/>
+      <item material="iron axe" slot="2"/>
+      <item amount="2" material="golden apple" slot="3"/>
+      <item amount="16" material="log" slot="4"/>
+      <item amount="32" material="cobblestone" slot="5"/>
+    </loadout>
+    <loadout id="kill-reward">
+      <item material="golden apple"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="kill-reward"/>
+    </rewards>
+  </kills>
+</map>

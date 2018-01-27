@@ -1,0 +1,406 @@
+<!-- Default kits used for all maps in the nexus gamemode. -->
+<map>
+  <kits>
+    <kit description="{kits.medic-description}" loadout="medic" name="{kits.medic}">
+      <icon damage="16421" material="potion"/>
+    </kit>
+    <kit description="{kits.bunny-description}" loadout="bunny" name="{kits.bunny}">
+      <icon damage="16426" material="potion"/>
+    </kit>
+    <kit description="{kits.alchemist-description}" loadout="alchemist" name="{kits.alchemist}">
+      <icon material="golden apple"/>
+    </kit>
+    <kit description="{kits.marksman-description}" loadout="marksman" name="{kits.marksman}">
+      <icon material="bow"/>
+    </kit>
+    <kit default="true" description="{kits.swordsman-description}" loadout="swordsman"
+      name="{kits.swordsman}">
+      <icon material="iron sword"/>
+    </kit>
+    <kit description="{kits.pyromancer-description}" loadout="pyromancer" name="{kits.pyromancer}">
+      <icon material="gold chestplate"/>
+    </kit>
+    <kit description="{kits.scout-description}" loadout="scout" name="{kits.scout}">
+      <icon material="wood sword"/>
+    </kit>
+    <kit description="{kits.heavy-description}" loadout="heavy" name="{kits.heavy}">
+      <icon material="golden apple"/>
+    </kit>
+    <kit description="{kits.trainer-description}" loadout="trainer" name="{kits.trainer}">
+      <icon damage="95" material="monster_egg"/>
+    </kit>
+    <kit description="{kits.golem-description}" loadout="golem" name="{kits.golem}">
+      <icon material="stone sword"/>
+    </kit>
+    <kit description="{kits.shamon-description}" loadout="shamon" name="{kits.shamon}">
+      <icon material="stick"/>
+    </kit>
+    <kit description="{kits.marauder-description}" loadout="marauder" name="{kits.marauder}">
+      <icon material="iron axe"/>
+    </kit>
+    <kit description="{kits.barbarian-description}" loadout="barbarian" name="{kits.barbarian}">
+      <icon material="ender pearl"/>
+    </kit>
+    <kit description="{kits.ninja-description}" loadout="ninja" name="{kits.ninja}">
+      <icon damage="8238" material="potion"/>
+    </kit>
+    <kit description="{kits.lumberjack-description}" loadout="lumberjack" name="{kits.lumberjack}">
+      <icon material="diamond axe"/>
+    </kit>
+    <kit description="{kits.witch-description}" loadout="witch" name="{kits.witch}">
+      <icon material="potion"/>
+    </kit>
+  </kits>
+  <world>
+    <difficulty>easy</difficulty>
+    <mobs>
+      <any>
+        <entity>pig</entity>
+        <entity>spider</entity>
+        <entity>wolf</entity>
+        <entity>zombie</entity>
+        <entity>silverfish</entity>
+        <entity>skeleton</entity>
+        <entity>horse</entity>
+        <entity>pig zombie</entity>
+        <spawn>spawner egg</spawn>
+      </any>
+    </mobs>
+    <gamerules>
+      <doTileDrops>false</doTileDrops>
+    </gamerules>
+  </world>
+  <loadouts>
+    <loadout id="medic">
+      <player-head slot="103" uuid="1d37ee22666f48c581b69872308c898a"/>
+      <chestplate material="chainmail chestplate" team-color="true" unbreakable="true">
+        <enchantment level="4">PROTECTION_ENVIRONMENTAL</enchantment>
+      </chestplate>
+      <boots material="diamond boots" team-color="true" unbreakable="true"/>
+      <effect amplifier="3" duration="8s">damage resistance</effect>
+      <item material="wood sword" slot="0" unbreakable="true"/>
+      <item material="bow" slot="1" unbreakable="true"/>
+      <item amount="16" material="cooked beef" slot="2"/>
+      <item amount="3" damage="16421" material="potion" slot="3"/>
+      <item amount="3" damage="16421" material="potion" slot="4"/>
+      <item amount="3" damage="16421" material="potion" slot="5"/>
+      <item material="golden apple" slot="6"/>
+      <item amount="32" material="arrow" slot="27"/>
+      <kit-menu slot="7"/>
+    </loadout>
+    <loadout id="swordsman">
+      <player-head slot="103" uuid="9c42b14110184b278b49f0cf3ec0370a"/>
+      <chestplate material="chainmail chestplate" team-color="true" unbreakable="true">
+        <enchantment level="4">PROTECTION_ENVIRONMENTAL</enchantment>
+      </chestplate>
+      <leggings material="gold leggings" team-color="true" unbreakable="true"/>
+      <boots material="leather boots" team-color="true" unbreakable="true"/>
+      <effect amplifier="3" duration="8s">damage resistance</effect>
+      <item material="stone sword" slot="0" unbreakable="true"/>
+      <item material="bow" slot="1" unbreakable="true"/>
+      <item amount="16" material="cooked beef" slot="2"/>
+      <item material="golden apple" slot="6"/>
+      <item amount="16" material="arrow" slot="27"/>
+      <kit-menu slot="7"/>
+    </loadout>
+    <loadout id="bunny">
+      <player-head slot="103" uuid="1bc7270935f8462987fadd5fec9f7ec4"/>
+      <chestplate material="diamond chestplate" team-color="true" unbreakable="true">
+        <enchantment level="4">PROTECTION_ENVIRONMENTAL</enchantment>
+      </chestplate>
+      <boots material="leather boots" team-color="true" unbreakable="true">
+        <enchantment level="6">protection_fall</enchantment>
+      </boots>
+      <effect amplifier="3" duration="8s">damage resistance</effect>
+      <effect amplifier="2" duration="10m">jump</effect>
+      <effect duration="10m">speed</effect>
+      <item material="stone sword" slot="0" unbreakable="true"/>
+      <item amount="16" material="cooked beef" slot="2"/>
+      <item material="golden apple" slot="3"/>
+      <kit-menu slot="7"/>
+    </loadout>
+    <loadout id="alchemist">
+      <player-head slot="103" uuid="81b95e6b577943bd9c3c3863e35e36c6"/>
+      <chestplate material="diamond chestplate" team-color="true" unbreakable="true">
+        <enchantment level="4">PROTECTION_ENVIRONMENTAL</enchantment>
+      </chestplate>
+      <leggings material="gold leggings" team-color="true" unbreakable="true"/>
+      <boots material="gold boots" team-color="true" unbreakable="true"/>
+      <effect amplifier="3" duration="8s">damage resistance</effect>
+      <item material="stone sword" slot="0" unbreakable="true"/>
+      <item material="bow" slot="1" unbreakable="true"/>
+      <item amount="16" material="cooked beef" slot="2"/>
+      <item amount="4" damage="16426" material="potion" slot="3"/>
+      <item amount="4" damage="16388" material="potion" slot="4"/>
+      <item amount="4" damage="16424" material="potion" slot="5"/>
+      <item material="golden apple" slot="6"/>
+      <item amount="16" material="arrow" slot="27"/>
+      <kit-menu slot="7"/>
+    </loadout>
+    <loadout id="marksman">
+      <player-head slot="103" uuid="457b7d2c258f4a1b924378835e4f1e23"/>
+      <chestplate material="leather chestplate" team-color="true" unbreakable="true">
+        <enchantment level="4">PROTECTION_ENVIRONMENTAL</enchantment>
+      </chestplate>
+      <leggings material="leather leggings" team-color="true" unbreakable="true"/>
+      <boots material="gold boots" unbreakable="true">
+        <enchantment level="6">PROTECTION_FALL</enchantment>
+      </boots>
+      <effect amplifier="3" duration="8s">damage resistance</effect>
+      <effect duration="10m">speed</effect>
+      <effect amplifier="3" duration="10m">jump</effect>
+      <item material="wood sword" slot="0" unbreakable="true"/>
+      <item material="bow" slot="1" unbreakable="true">
+        <enchantment level="1">arrow damage</enchantment>
+      </item>
+      <item amount="16" material="cooked beef" slot="2"/>
+      <item material="golden apple" slot="3"/>
+      <item amount="64" material="arrow" slot="27"/>
+      <kit-menu slot="7"/>
+    </loadout>
+    <loadout id="pyromancer">
+      <player-head slot="103" uuid="fd3631836ef5418fb8bf257adb11cce5"/>
+      <chestplate material="leather chestplate" team-color="true" unbreakable="true">
+        <enchantment level="4">PROTECTION_ENVIRONMENTAL</enchantment>
+        <enchantment level="6">protection fire</enchantment>
+      </chestplate>
+      <leggings material="leather leggings" team-color="true" unbreakable="true"/>
+      <boots material="diamond boots" unbreakable="true"/>
+      <effect amplifier="3" duration="8s">damage resistance</effect>
+      <effect duration="10m">jump</effect>
+      <item material="wood sword" slot="0">
+        <enchantment level="1">FIRE_ASPECT</enchantment>
+      </item>
+      <item material="bow" slot="1" unbreakable="true">
+        <enchantment>arrow fire</enchantment>
+      </item>
+      <item material="blaze rod" slot="2">
+        <enchantment>fire aspect</enchantment>
+        <enchantment level="2">knockback</enchantment>
+      </item>
+      <item amount="16" material="cooked beef" slot="3"/>>
+      <item material="golden apple" slot="4"/>
+      <item amount="24" material="arrow" slot="27"/>
+      <kit-menu slot="7"/>
+    </loadout>
+    <loadout id="heavy">
+      <player-head slot="103" uuid="edea7e85568941b298ea87f8052f4ca7"/>
+      <chestplate material="gold chestplate" team-color="true" unbreakable="true">
+        <enchantment level="4">PROTECTION_ENVIRONMENTAL</enchantment>
+      </chestplate>
+      <leggings material="iron leggings" unbreakable="true"/>
+      <boots material="chainmail boots" team-color="true"/>
+      <effect amplifier="1" duration="3s">heal</effect>
+      <effect amplifier="2" duration="10m">slow</effect>
+      <effect amplifier="4" duration="10m">health boost</effect>
+      <effect amplifier="3" duration="8s">damage resistance</effect>
+      <item material="stone sword" slot="0" unbreakable="true"/>
+      <item amount="16" material="cooked beef" slot="2"/>
+      <item material="golden apple" slot="3"/>
+      <kit-menu slot="7"/>
+    </loadout>
+    <loadout id="trainer">
+      <player-head slot="103" uuid="8d2d1d6d80344c89bd86809a31fd5193"/>
+      <chestplate material="gold chestplate" unbreakable="true">
+        <enchantment level="4">PROTECTION_ENVIRONMENTAL</enchantment>
+      </chestplate>
+      <leggings material="iron leggings" team-color="true" unbreakable="true"/>
+      <boots material="leather boots" unbreakable="true"/>
+      <effect amplifier="3" duration="8s">damage resistance</effect>
+      <effect amplifier="1" duration="10m">speed</effect>
+      <item material="wood sword" slot="0" unbreakable="true"/>
+      <item material="bow" slot="1" unbreakable="true"/>
+      <item amount="5" damage="95" material="monster_egg" slot="2"/>
+      <item amount="50" material="bone" slot="3"/>
+      <item amount="16" material="cooked beef" slot="5"/>
+      <item material="golden apple" slot="4"/>
+      <item amount="16" material="arrow" slot="27"/>
+      <kit-menu slot="7"/>
+    </loadout>
+    <loadout id="golem">
+      <player-head slot="103" uuid="757f90b223444b8d8dac824232e2cece"/>
+      <chestplate material="iron chestplate" unbreakable="true">
+        <enchantment level="4">PROTECTION_ENVIRONMENTAL</enchantment>
+      </chestplate>
+      <leggings material="chainmail leggings" team-color="true" unbreakable="true"/>
+      <boots material="leather boots" unbreakable="true"/>
+      <effect amplifier="3" duration="8s">damage resistance</effect>
+      <effect amplifier="1" duration="10m">slow</effect>
+      <effect amplifier="5" duration="10m">health boost</effect>
+      <effect amplifier="1" duration="3s">heal</effect>
+      <item material="wood sword" slot="0" unbreakable="true">
+        <enchantment level="3">knockback</enchantment>
+      </item>
+      <item amount="16" material="cooked beef" slot="5"/>
+      <item material="golden apple" slot="4"/>
+      <kit-menu slot="7"/>
+    </loadout>
+    <loadout id="shamon">
+      <player-head slot="103" uuid="ef89a7f46add44e9ab46045486f94678"/>
+      <chestplate material="iron chestplate" team-color="true" unbreakable="true">
+        <enchantment level="2">PROTECTION_ENVIRONMENTAL</enchantment>
+      </chestplate>
+      <leggings material="leather leggings" team-color="true" unbreakable="true"/>
+      <boots material="chainmail boots" team-color="true" unbreakable="true"/>
+      <effect amplifier="3" duration="8s">damage resistance</effect>
+      <item material="stone sword" slot="0" unbreakable="true"/>
+      <item material="bow" slot="1" unbreakable="true"/>
+      <item amount="16" material="cooked beef" slot="2"/>
+      <item amount="4" damage="16426" material="potion" slot="3">
+        <effect amplifier="2" duration="3m">absorption</effect>
+      </item>
+      <item amount="4" damage="16426" material="potion" slot="4">
+        <effect amplifier="2" duration="3m">health_boost</effect>
+      </item>
+      <item amount="4" damage="16426" material="potion" slot="5">
+        <effect amplifier="1" duration="3m">damage_resistance</effect>
+      </item>
+      <item material="golden apple" slot="6"/>
+      <item amount="16" material="arrow" slot="27"/>
+      <kit-menu slot="7"/>
+    </loadout>
+    <loadout id="marauder">
+      <player-head slot="103" uuid="aaf383092ba4478a9b19f9b0123f4958"/>
+      <chestplate material="chainmail chestplate" team-color="true" unbreakable="true">
+        <enchantment level="4">PROTECTION_ENVIRONMENTAL</enchantment>
+        <enchantment level="6">PROTECTION_PROJECTILE</enchantment>
+      </chestplate>
+      <leggings material="leather leggings" team-color="true" unbreakable="true">
+        <enchantment level="6">PROTECTION_PROJECTILE</enchantment>
+      </leggings>
+      <effect amplifier="3" duration="8s">damage resistance</effect>
+      <effect amplifier="5" duration="10m">health boost</effect>
+      <effect amplifier="1" duration="3s">heal</effect>
+      <item material="stone axe" slot="0" unbreakable="true"/>
+      <item amount="16" material="cooked beef" slot="1"/>
+      <item material="golden apple" slot="2"/>
+      <kit-menu slot="7"/>
+    </loadout>
+    <loadout id="barbarian">
+      <player-head slot="103" uuid="c08344e8a45e42fe9f9ecc1d17872deb"/>
+      <chestplate material="chainmail chestplate" team-color="true" unbreakable="true">
+        <enchantment level="4">PROTECTION_ENVIRONMENTAL</enchantment>
+      </chestplate>
+      <leggings material="leather leggings" team-color="true" unbreakable="true"/>
+      <boots material="gold boots" unbreakable="true">
+        <enchantment level="6">PROTECTION_FALL</enchantment>
+      </boots>
+      <effect amplifier="3" duration="8s">damage resistance</effect>
+      <effect amplifier="1" duration="3s">heal</effect>
+      <item material="iron axe" slot="0" unbreakable="true"/>
+      <item amount="2" material="ender pearl" slot="1" unbreakable="true"/>
+      <item amount="16" material="cooked beef" slot="2"/>
+      <item material="golden apple" slot="3"/>
+      <kit-menu slot="7"/>
+    </loadout>
+    <loadout id="lumberjack">
+      <player-head slot="103" uuid="774108455ea34f4e82bf81c894611e61"/>
+      <chestplate material="iron chestplate" unbreakable="true">
+        <enchantment level="4">PROTECTION_ENVIRONMENTAL</enchantment>
+      </chestplate>
+      <leggings material="leather leggings" team-color="true" unbreakable="true"/>
+      <boots material="leather boots" team-color="true" unbreakable="true"/>
+      <effect amplifier="3" duration="8s">damage resistance</effect>
+      <effect amplifier="2" duration="10m">fast digging</effect>
+      <item material="diamond axe" slot="0" unbreakable="true"/>
+      <item amount="16" material="cooked beef" slot="6"/>
+      <item material="golden apple" slot="7"/>
+      <kit-menu slot="8"/>
+    </loadout>
+    <loadout id="ninja">
+      <effect duration="10m">jump</effect>
+      <effect amplifier="3" duration="8s">damage resistance</effect>
+      <effect duration="10m">fast digging</effect>
+      <item material="iron sword" slot="0" unbreakable="true"/>
+      <item amount="16" material="cooked beef" slot="2"/>
+      <item amount="8" damage="16426" material="potion" slot="3">
+        <effect duration="8s">blindness</effect>
+      </item>
+      <item amount="10" damage="16426" material="potion" slot="4">
+        <effect duration="1m">invisibility</effect>
+      </item>
+      <item material="golden apple" slot="6"/>
+      <kit-menu slot="7"/>
+    </loadout>
+    <loadout id="witch">
+      <player-head slot="103" uuid="c21c88ffb35a4a96932a3f8ba33cc5fe"/>
+      <chestplate material="iron chestplate" unbreakable="true">
+        <enchantment level="4">PROTECTION_ENVIRONMENTAL</enchantment>
+      </chestplate>
+      <boots material="iron boots" unbreakable="true"/>
+      <effect amplifier="3" duration="8s">damage resistance</effect>
+      <item material="stone sword" slot="0" unbreakable="true"/>
+      <item material="bow" slot="1" unbreakable="true"/>
+      <item amount="3" damage="16426" material="potion" slot="3">
+        <effect amplifier="1" duration="3m">speed</effect>
+      </item>
+      <item amount="3" damage="16426" material="potion" slot="4">
+        <effect amplifier="1" duration="3m">fire_resistance</effect>
+      </item>
+      <item amount="3" damage="16426" material="potion" slot="5">
+        <effect amplifier="1" duration="15s">regeneration</effect>
+      </item>
+      <item amount="16" material="cooked beef" slot="6"/>
+      <item material="golden apple" slot="7"/>
+      <item amount="32" material="arrow" slot="27"/>
+      <kit-menu slot="8"/>
+    </loadout>
+    <loadout id="scout">
+      <player-head slot="103" uuid="35dac918be1b4365b50ba302ba46b22d"/>
+      <chestplate material="leather chestplate" team-color="true" unbreakable="true">
+        <enchantment level="4">PROTECTION_ENVIRONMENTAL</enchantment>
+      </chestplate>
+      <leggings material="leather leggings" team-color="true" unbreakable="true"/>
+      <boots material="iron boots" unbreakable="true"/>
+      <effect amplifier="3" duration="8s">damage resistance</effect>
+      <effect amplifier="2" duration="10m">speed</effect>
+      <item material="stone sword" slot="0" unbreakable="true"/>
+      <item amount="16" material="cooked beef" slot="6"/>
+      <item material="golden apple" slot="7"/>
+      <kit-menu slot="8"/>
+    </loadout>
+  </loadouts>
+  <projectiles>
+    <projectile cooldown="3s" id="grenade" name="Grenade" type="primed tnt" velocity="1.6"/>
+  </projectiles>
+  <items>
+    <remove-drops>
+      <any>
+        <material>skull</material>
+        <material>skull item</material>
+        <material>leather chestplate</material>
+        <material>chainmail chestplate</material>
+        <material>iron chestplate</material>
+        <material>leather leggings</material>
+        <material>chainmail leggings</material>
+        <material>iron leggings</material>
+        <material>leather boots</material>
+        <material>chainmail boots</material>
+        <material>iron boots</material>
+        <material>blaze rod</material>
+        <material>diamond boots</material>
+        <material>bow</material>
+        <material>arrow</material>
+        <material>potion</material>
+        <material>stick</material>
+        <material>cooked beef</material>
+        <material>monster_egg</material>
+        <material>wood sword</material>
+        <material>stone sword</material>
+        <material>iron sword</material>
+        <material>gold chestplate</material>
+        <material>gold boots</material>
+        <material>gold leggings</material>
+        <material>rotten flesh</material>
+        <material>egg</material>
+        <material>diamond axe</material>
+        <material>iron axe</material>
+        <material>ender pearl</material>
+        <material>ender pearl</material>
+        <material>diamond leggings</material>
+        <material>diamond chestplate</material>
+        <material>wood axe</material>
+      </any>
+    </remove-drops>
+  </items>
+</map>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="New Heaven" spec="1.0.0" version="1.1.0">
+  <include src="defaults.xml"/>
+  <include src="Shared/nexus-kits.xml"/>
+  <include src="Shared/reward-one-gap.xml"/>
+  <authors>
+    <author uuid="6ceda19d312c4b42aee3acbdf9c9fc13"/>
+    <author uuid="97fa0d2faf67474cb8a1e1a5ab7c1af1"/>
+  </authors>
+  <teams>
+    <load-group id="teams.red-blue" max="25" min="1"/>
+  </teams>
+  <broadcasts>
+    <broadcast format="alert" interval="2m">{broadcasts.map-kits}</broadcast>
+    <broadcast format="alert" interval="2m">{broadcasts.map-kits-2}</broadcast>
+  </broadcasts>
+  <objectives>
+    <scores kills="1" limit="100">
+      <score team="blue"/>
+      <score team="red"/>
+    </scores>
+  </objectives>
+  <results>
+    <win scenario="objectives">
+      <check>
+        <time>8m</time>
+      </check>
+    </win>
+  </results>
+  <spawns>
+    <spawn yaw="90">
+      <regions>
+        <point yaw="90">366.5, 28, 637</point>
+      </regions>
+    </spawn>
+    <spawn team="blue" yaw="0">
+      <regions>
+        <point yaw="0">365.5, 19, 554.5</point>
+      </regions>
+    </spawn>
+    <spawn team="red" yaw="180">
+      <regions>
+        <point yaw="180">365.5, 19, 719.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <zones>
+    <zones>
+      <zone modify="never" region="everywhere"/>
+    </zones>
+  </zones>
+  <world>
+    <gamerules>
+      <doTileDrops>false</doTileDrops>
+    </gamerules>
+  </world>
+</map>

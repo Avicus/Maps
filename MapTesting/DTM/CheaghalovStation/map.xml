@@ -1,0 +1,259 @@
+<?xml version="1.0"?>
+<map description="Destroy the endstone pillars in the center and sides!" name="Cheaghalov Station"
+  spec="1.0.0"
+  version="1.0.0">
+  <include src="defaults.xml"/>
+  <authors>
+    <author uuid="1865ac01271f4f69b979b43a78c39989"/> <!-- Zintenka -->
+  </authors>
+  <world>
+    <gamerules>
+      <doDaylightCycle>false</doDaylightCycle>
+    </gamerules>
+    <difficulty>easy</difficulty>
+    <mobs>
+      <any>
+        <all>
+          <entity>zombie</entity>
+          <entity>creeper</entity>
+          <entity>skeleton</entity>
+          <spawn>spawner egg</spawn>
+        </all>
+      </any>
+    </mobs>
+  </world>
+  <teams>
+    <load-group id="teams.red-blue" max="25" min="1"/>
+  </teams>
+  <spawns>
+    <spawn id="default" loadout="spectator" team="spectators" yaw="90">
+      <regions>
+        <point yaw="90">1337.5, 103, 2103.5</point>
+      </regions>
+    </spawn>
+    <spawn id="red" loadout="default" team="red" yaw="180">
+      <regions>
+        <cuboid max="1336, 17, 2222" min="1338, 17, 2226"/>
+      </regions>
+    </spawn>
+    <spawn id="red" loadout="default" team="red" yaw="-90">
+      <regions>
+        <cuboid max="1288, 17, 2172" min="1284, 17, 2174"/>
+      </regions>
+    </spawn>
+    <spawn id="red" loadout="default" team="red" yaw="90">
+      <regions>
+        <cuboid max="1386, 17, 2174" min="1390, 17, 2172"/>
+      </regions>
+    </spawn>
+    <spawn id="blue" loadout="default" team="blue" yaw="0">
+      <regions>
+        <cuboid max="1338, 17, 1981" min="1336, 17, 1977"/>
+      </regions>
+    </spawn>
+    <spawn id="blue" loadout="default" team="blue" yaw="90">
+      <regions>
+        <cuboid max="1386, 17, 2031" min="1390, 17, 2029"/>
+      </regions>
+    </spawn>
+    <spawn id="blue" loadout="default" team="blue" yaw="-90">
+      <regions>
+        <cuboid max="1288, 17, 2029" min="1284, 17, 2031"/>
+      </regions>
+    </spawn>
+  </spawns>
+  <objectives>
+    <monuments completion="0.25" destroyable="true" fireworks="true"
+      materials="ender stone;wool:11;wool:14">
+      <monuments owner="blue">
+        <monument id="red-left" name="Left">
+          <region>
+            <cuboid max="1304, 39, 2064" min="1287, 10, 2081"/>
+          </region>
+        </monument>
+        <monument id="red-right" name="Right">
+          <region>
+            <cuboid max="1386, 39, 2083" min="1369, 10, 2064"/>
+          </region>
+        </monument>
+        <monument id="red-center" name="Center">
+          <region>
+            <cuboid max="1328, 62, 2021" min="1346, 33, 2038"/>
+          </region>
+        </monument>
+      </monuments>
+      <monuments owner="red">
+        <monument id="blue-left" name="Left">
+          <region>
+            <cuboid max="1386, 39, 2139" min="1367, 10, 2120"/>
+          </region>
+        </monument>
+        <monument id="blue-right" name="Right">
+          <region>
+            <cuboid max="1304, 39, 2139" min="1287, 10, 2119"/>
+          </region>
+        </monument>
+        <monument id="blue-center" name="Center">
+          <region>
+            <cuboid max="1328, 62, 2165" min="1346, 33, 2182"/>
+          </region>
+        </monument>
+      </monuments>
+    </monuments>
+  </objectives>
+  <zones>
+    <base build="false" team="red"> <!-- Red Base -->
+      <enter>
+        <team>red</team>
+      </enter>
+      <region>
+        <cuboid max="1295, 28, 2182" min="1280, 9, 2159"/>
+      </region>
+      <region>
+        <cuboid max="1328, 28, 2215" min="1350, 9, 2230"/>
+      </region>
+      <region>
+        <cuboid max="1379, 28, 2182" min="1396, 9, 2162"/>
+      </region>
+    </base>
+    <base modify="never" team="blue"> <!-- Blue Base -->
+      <enter>
+        <team>blue</team>
+      </enter>
+      <region>
+        <cuboid max="1346, 28, 1989" min="1326, 9, 1973"/>
+      </region>
+      <region>
+        <cuboid max="1379, 28, 2021" min="1394, 9, 2041"/>
+      </region>
+      <region>
+        <cuboid max="1295, 28, 2021" min="1280, 9, 2041"/>
+      </region>
+    </base>
+    <zone modify="never">
+      <region>
+        <cuboid max="1338, 15, 2127" min="1336, 15, 2125"/>
+        <cuboid max="1338, 15, 2076" min="1336, 15, 2078"/>
+      </region>
+    </zone>
+    <playable>
+      <region>
+        <cuboid max="1279, 102, 2231" min="1395, 0, 1972"/>
+      </region>
+    </playable>
+  </zones>
+  <items>
+    <repair-tools>
+      <any>
+        <material>wood sword</material>
+        <material>bow</material>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>leather leggings</material>
+        <material>leather boots</material>
+      </any>
+    </repair-tools>
+    <remove-drops>
+      <any>
+        <material>chainmail helmet</material>
+        <material>chainmail chestplate</material>
+        <material>chainmail leggings</material>
+        <material>chainmail boots</material>
+        <material>iron helmet</material>
+        <material>iron chestplate</material>
+        <material>iron leggings</material>
+        <material>iron boots</material>
+        <material>smooth brick</material>
+        <material>tnt</material>
+        <material>exp bottle</material>
+        <material>lapis block</material>
+        <material>arrow</material>
+        <material>diamond pickaxe</material>
+      </any>
+    </remove-drops>
+    <keep-armor>
+      <any>
+        <material>chainmail helmet</material>
+        <material>chainmail chestplate</material>
+        <material>chainmail leggings</material>
+        <material>chainmail boots</material>
+        <material>iron helmet</material>
+        <material>iron chestplate</material>
+        <material>iron leggings</material>
+        <material>iron boots</material>
+      </any>
+    </keep-armor>
+    <keep-items>
+      <any>
+        <material>stone sword</material>
+        <material>iron sword</material>
+        <material>diamond sword</material>
+        <material>nether star</material>
+        <material>tnt</material>
+        <material>redstone torch on</material>
+        <material>dispenser</material>
+        <material>water bucket</material>
+        <material>fireball</material>
+        <material>redstone</material>
+        <material>redstone block</material>
+        <material>stone plate</material>
+        <material>stone button</material>
+        <material>nether fence</material>
+        <material>diode</material>
+        <material>exp bottle</material>
+        <material>ender pearl</material>
+        <material>emerald block</material>
+        <material>prismarine</material>
+      </any>
+    </keep-items>
+    <modify-drops>
+      <item amount="64" material="tnt"/>
+      <item amount="64" material="tnt"/>
+      <item amount="64" material="tnt"/>
+      <item amount="64" material="redstone torch on"/>
+      <any>
+        <material>jack o lantern</material>
+      </any>
+    </modify-drops>
+  </items>
+  <loadouts>
+    <loadout id="default">
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="leather leggings" team-color="true"/>
+      <boots material="leather boots" team-color="true"/>
+      <effect amplifier="5" duration="10s">damage resistance</effect>
+      <effect amplifier="1">regeneration</effect>
+      <effect amplifier="1">night vision</effect>
+      <item material="wood sword" slot="0"/>
+      <item enchantment="arrow infinite:1" material="bow" slot="1"/>
+      <item enchantment="dig speed:2" material="diamond pickaxe" slot="2" unbreakable="true"/>
+      <item amount="64" material="pumpkin pie" slot="3"/>
+      <item amount="64" material="smooth brick" slot="4"/>
+      <item amount="64" material="smooth brick" slot="5"/>
+      <item amount="64" material="smooth brick" slot="6"/>
+      <item amount="64" material="ladder" slot="7"/>
+      <item amount="64" material="smooth brick" slot="8"/>
+      <item material="arrow" slot="9"/>
+      <item amount="64" material="smooth brick" slot="18"/>
+      <item amount="64" material="smooth brick" slot="19"/>
+      <item amount="64" material="smooth brick" slot="20"/>
+      <item amount="64" material="ladder" slot="21"/>
+      <item amount="64" material="wood" slot="22"/>
+      <item amount="5" material="lapis block" slot="23"/>
+      <item amount="5" material="workbench" slot="24"/>
+    </loadout>
+    <loadout id="kill-reward">
+      <item amount="2" material="pumpkin pie"/>
+      <item amount="2" material="nether star"/>
+    </loadout>
+    <loadout id="spectator">
+      <effect amplifier="1">night vision</effect>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="kill-reward"/>
+    </rewards>
+  </kills>
+</map>

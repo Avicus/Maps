@@ -1,0 +1,172 @@
+<map name="Victory" spec="1.0.0" version="1.1.0">
+  <include src="defaults.xml"/>
+  <gametype>dtm</gametype>
+  <include src="Shared/tutorials/dtm.xml"/>
+  <authors>
+    <author uuid="2fc285de-015e-4173-ac6a-04b388e496a5"/>
+    <!--  KomodoLord1  -->
+    <author uuid="e3126d17-61e4-4e30-b140-1e658035460b"/>
+    <!--  Alpp  -->
+    <author uuid="63b88dff-c6b4-4e08-bd17-aae089b12e95"/>
+    <!--  Rilo  -->
+  </authors>
+  <tutorial>
+    <step countdown="5s" freeze="false" location="76.5, 8, 0.5" pitch="10" yaw="-90">
+      <chat>
+        <line>^r • {tutorial.generic.team-spawns}</line>
+      </chat>
+    </step>
+    <step countdown="4s" location="-7, 10, -112" pitch="1" yaw="-90">
+      <chat>
+        <line>^r • {tutorial.dtm.monument-area}</line>
+        <line>^r • {tutorial.dtm.monument-objective}</line>
+      </chat>
+    </step>
+  </tutorial>
+  <teams>
+    <team color="blue" id="blue" max="20" min="1">{colors.blue}</team>
+    <team color="orange" id="orange" max="20" min="1">{colors.orange}</team>
+  </teams>
+  <spawns>
+    <!--  Spectator Spawn  -->
+    <spawn>
+      <regions>
+        <point yaw="180">0.5, 46, 1.5</point>
+      </regions>
+    </spawn>
+    <!--  Blue and Orange Team Spawns  -->
+    <spawn loadout="default-blue" team="blue" yaw="90">
+      <regions>
+        <point yaw="90">88.5, 5, 0.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default-orange" team="orange" yaw="-90">
+      <regions>
+        <point yaw="-90">-87.5, 5, 0.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <objectives>
+    <monuments materials="obsidian">
+      <monuments owner="blue">
+        <monument name="{directions.left}">
+          <region>
+            <block>90, 7, -38</block>
+          </region>
+        </monument>
+        <monument name="{directions.right}">
+          <region>
+            <block>90, 7, 38</block>
+          </region>
+        </monument>
+      </monuments>
+      <monuments owner="orange">
+        <monument name="{directions.left}">
+          <region>
+            <block>-90, 7, 38</block>
+          </region>
+        </monument>
+        <monument name="{directions.right}">
+          <region>
+            <block>-90, 7, -38</block>
+          </region>
+        </monument>
+      </monuments>
+    </monuments>
+  </objectives>
+  <loadouts>
+    <loadout id="default-blue">
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="chainmail leggings" team-color="true"/>
+      <boots material="leather boots" team-color="true"/>
+      <item material="iron sword" slot="0"/>
+      <item material="bow" slot="1">
+        <enchantment>arrow infinite</enchantment>
+      </item>
+      <item material="diamond pickaxe" slot="2">
+        <enchantment level="1">dig speed</enchantment>
+      </item>
+      <item amount="3" material="golden apple" slot="3"/>
+      <item amount="48" material="log" slot="4"/>
+      <item amount="64" material="glass" slot="7"/>
+      <item amount="32" material="cooked fish" slot="8"/>
+      <item amount="1" material="arrow" slot="18"/>
+    </loadout>
+    <loadout id="default-orange">
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="chainmail leggings" team-color="true"/>
+      <boots material="leather boots" team-color="true"/>
+      <item material="iron sword" slot="0"/>
+      <item material="bow" slot="1">
+        <enchantment>arrow infinite</enchantment>
+      </item>
+      <item material="diamond pickaxe" slot="2">
+        <enchantment level="1">dig speed</enchantment>
+      </item>
+      <item amount="3" material="golden apple" slot="3"/>
+      <item amount="48" material="log" slot="4"/>
+      <item amount="64" material="glass" slot="7"/>
+      <item amount="32" material="cooked fish" slot="8"/>
+      <item amount="1" material="arrow" slot="18"/>
+    </loadout>
+    <loadout id="kill-reward">
+      <item material="golden apple"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="kill-reward"/>
+    </rewards>
+  </kills>
+  <zones>
+    <zone modify="never">
+      <region>
+        <invert>
+          <cuboid max="-140, 71, 48" min="115, 1, -63"/>
+        </invert>
+      </region>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid max="-102, 1, 16" min="-76, 22, -16"/>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid max="102, 1, -16" min="75, 24, 16"/>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid max="-159, 185, 62" min="156, 50, -83"/>
+      </region>
+      <message>{errors.outside-map}</message>
+    </zone>
+  </zones>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>chainmail leggings</material>
+        <material>leather boots</material>
+        <material>log</material>
+        <material>glass</material>
+        <material>arrow</material>
+        <material>cooked fish</material>
+        <material>golden apple</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>iron sword</material>
+        <material>bow</material>
+        <material>diamond pickaxe</material>
+      </any>
+    </repair-tools>
+  </items>
+</map>

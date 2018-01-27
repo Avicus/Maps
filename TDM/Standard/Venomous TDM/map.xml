@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="Venomous TDM" spec="1.0.5" version="1.0.0">
+  <include src="defaults.xml"/>
+  <gametype>score</gametype>
+  <authors>
+    <author uuid="3893a242cc17447e9b1c774fc8941af8"/>
+    <!-- G_SKIPPY -->
+  </authors>
+  <teams>
+    <team color="lime" id="lime" max="16" min="1">{colors.lime}</team>
+    <team color="cyan" id="cyan" max="16" min="1">{colors.cyan}</team>
+  </teams>
+  <results>
+    <win scenario="objectives">
+      <check>
+        <time>7m</time>
+      </check>
+    </win>
+  </results>
+  <spawns>
+    <spawn yaw="90">
+      <regions>
+        <point>80.5,105,-684.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="lime" yaw="180">
+      <regions>
+        <point>-4.5,24,-681.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="cyan" yaw="0">
+      <regions>
+        <point>-4.5,24,-786.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <objectives>
+    <scores kills="1">
+      <score team="lime"/>
+      <score team="cyan"/>
+    </scores>
+  </objectives>
+  <loadouts>
+    <loadout id="default">
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="leather leggings" team-color="true"/>
+      <boots material="leather boots" team-color="true"/>
+      <item material="diamond sword" slot="0">
+        <enchantments>
+          <enchantment level="127">damage all</enchantment>
+        </enchantments>
+      </item>
+      <item material="bow" slot="1">
+        <enchantments>
+          <enchantment level="127">arrow damage</enchantment>
+        </enchantments>
+      </item>
+      <item material="diamond pickaxe" slot="2"/>
+      <item amount="2" material="golden apple" slot="3"/>
+      <item amount="32" material="cooked beef" slot="4"/>
+      <item amount="64" material="mossy cobblestone" slot="5"/>
+      <item amount="64" material="mossy cobblestone" slot="6"/>
+      <item amount="1" material="gold ingot" slot="7"/>
+      <item amount="1" material="arrow" slot="28"/>
+    </loadout>
+    <loadout id="kill-reward">
+      <item amount="1" material="golden apple"/>
+      <item amount="1" material="arrow"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="kill-reward"/>
+    </rewards>
+  </kills>
+  <world>
+    <storm>false</storm>
+    <weather check="always"/>
+    <doDaylightCycle>false</doDaylightCycle>
+  </world>
+  <checks>
+    <team id="only-lime">lime</team>
+    <team id="only-cyan">cyan</team>
+  </checks>
+  <regions>
+    <cuboid id="lime-spawn" max="2, oo, -675" min="-12, 0, -689"/>
+    <cuboid id="cyan-spawn" max="-12, oo, -793" min="2, 0, -780"/>
+  </regions>
+  <zones>
+    <zone enter="only-lime" modify="never" region="lime-spawn">
+      <message format="warning">{errors.spawn-restricted}</message>
+    </zone>
+    <zone enter="only-cyan" modify="never" region="cyan-spawn">
+      <message format="warning">{errors.spawn-restricted}</message>
+    </zone>
+  </zones>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>leather leggings</material>
+        <material>leather boots</material>
+        <material>mossy cobblestone</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>diamond sword</material>
+        <material>bow</material>
+        <material>diamond pickaxe</material>
+      </any>
+    </repair-tools>
+  </items>
+</map>

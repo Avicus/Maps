@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map genre="sky wars" name="Ranch Raid" spec="1.0.0" version="1.0.0">
+  <include src="defaults.xml"/>
+  <include src="Shared/skywars.xml"/>
+  <authors>
+    <!-- joelmce -->
+    <author uuid="ba601988d27b4349ae154b0a1424bfa8"/>
+  </authors>
+  <contributors>
+    <!-- Zintenka -->
+    <contributor uuid="1865ac01271f4f69b979b43a78c39989"/>
+  </contributors>
+  <ffa max="8" max-overfill="8" min="2"/>
+  <objectives>
+    <last-competitor-standing/>
+  </objectives>
+  <results>
+    <win scenario="objectives">
+      <check>
+        <time>8m</time>
+      </check>
+    </win>
+  </results>
+  <compasses>
+    <compass target="enemy"/>
+  </compasses>
+  <spawns>
+    <spawn team="spectators" yaw="0">
+      <regions>
+        <block>11, 220, -24</block>
+      </regions>
+    </spawn>
+    <spawn loadout="default" look="11, 195, -24" mode="safe">
+      <regions>
+        <block>43, 193, -58</block>
+        <block>10, 194, -59</block>
+        <block>-23, 193, -56</block>
+        <block>-23, 194, -23</block>
+        <block>-20, 193, 11</block>
+        <block>12, 194, 10</block>
+        <block>47, 193, 7</block>
+        <block>46, 194, -25</block>
+      </regions>
+    </spawn>
+  </spawns>
+  <elimination lives="1"/>
+  <loadouts>
+    <loadout id="default">
+      <chestplate material="leather chestplate" team-color="true"/>
+      <item material="wood sword" slot="0"/>
+      <item amount="5" material="carrot" slot="7"/>
+      <item material="compass" slot="8"/>
+    </loadout>
+  </loadouts>
+  <remove-drops>
+    <any>
+      <material>compass</material>
+    </any>
+  </remove-drops>
+</map>

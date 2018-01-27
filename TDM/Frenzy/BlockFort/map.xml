@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="Block Fort" spec="1.0.0" version="1.0.0">
+  <include src="defaults.xml"/>
+  <authors>
+    <author role="Built the map." uuid="da98a2f1673c4cecb547e0a342abfde4"/>
+    <author role="Wrote the XML." uuid="8242e55ecc6a458ab272a2b34918045f"/>
+  </authors>
+  <gametype>lts</gametype>
+  <compasses>
+    <compass target="enemy"/>
+  </compasses>
+  <ffa max="16" min="2"/>
+  <objectives>
+    <last-competitor-standing/>
+  </objectives>
+  <spawns>
+    <spawn team="spectators" yaw="180">
+      <regions>
+        <block>15, 101, 87</block>
+      </regions>
+    </spawn>
+    <spawn loadout="default">
+      <regions>
+        <!-- First Floor -->
+        <block>52, 92, -7</block> <!-- (45, 0) -->
+        <block>50, 92, 30</block> <!-- (90, 0) -->
+        <block>51, 92, 66</block> <!-- (135, 0) -->
+        <block>15, 92, 65</block> <!-- (180, 0) -->
+        <block>-21, 92, 66</block> <!-- (-135, 0) -->
+        <block>-19, 92, 30</block> <!-- (-90, 0) -->
+        <block>-21, 92, -6</block> <!-- (-45, 0) -->
+        <block>15, 92, -5</block> <!-- (0, 0) -->
+        <!-- Second Floor -->
+        <block>25, 97, 20</block> <!-- (45, 0) -->
+        <block>25, 97, 40</block> <!-- (135, 0) -->
+        <block>5, 97, 40</block> <!-- (-135, 0) -->
+        <block>5, 97, 20</block> <!-- (-45, 0) -->
+        <!-- Third Floor -->
+        <block>40, 102, 5</block> <!-- (45, 0) -->
+        <block>40, 102, 55</block> <!-- (135, 0) -->
+        <block>-10, 102, 55</block> <!-- (-145, 0) -->
+        <block>-9, 102, 5</block> <!-- (-145, 0) -->
+      </regions>
+    </spawn>
+  </spawns>
+  <elimination lives="1"/>
+  <damage>
+    <disable>
+      <any>
+        <damage>fall</damage>
+      </any>
+    </disable>
+  </damage>
+  <loadouts>
+    <loadout id="default">
+      <effect duration="5s">damage resistance</effect>
+      <helmet material="leather helmet" team-color="true">
+        <enchantment>durability</enchantment>
+      </helmet>
+      <chestplate material="leather chestplate" team-color="true">
+        <enchantment>durability</enchantment>
+      </chestplate>
+      <leggings material="chainmail leggings">
+        <enchantment>durability</enchantment>
+      </leggings>
+      <boots material="leather boots" team-color="true">
+        <enchantment>durability</enchantment>
+      </boots>
+      <item material="stone sword" slot="0"/>
+      <item material="bow" slot="1"/>
+      <item material="compass" slot="2"/>
+      <item amount="32" material="cooked chicken" slot="6"/>
+      <item material="golden apple" slot="7"/>
+      <item amount="16" material="arrow" slot="8"/>
+    </loadout>
+    <loadout id="one-golden-apple">
+      <item material="golden apple"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="one-golden-apple"/>
+    </rewards>
+  </kills>
+  <zones>
+    <zone modify="never">
+      <region>
+        <cuboid max="-24, 106, -9" min="54, 89, 69"/>
+      </region>
+    </zone>
+  </zones>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>chainmail leggings</material>
+        <material>compass</material>
+        <material>leather boots</material>
+        <material>golden apple</material>
+        <material>cooked beef</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>stone sword</material>
+        <material>bow</material>
+      </any>
+    </repair-tools>
+  </items>
+</map>

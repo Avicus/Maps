@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="Campi Erbosi 2" spec="1.0.0" version="1.1.0">
+  <include src="defaults.xml"/>
+  <gametype>dtm</gametype>
+  <include src="Shared/tutorials/dtm.xml"/>
+  <include src="Shared/reward-one-gap.xml"/>
+  <authors>
+    <author uuid="45455be9468f47988ebe035109608f4a"/> <!-- PrinceRelyt -->
+    <author uuid="0b8f95fa0f404f289fd0b8e243bb6800"/> <!-- Fouled -->
+    <author uuid="c29bef37d8e242a9b74604f2df78f374"/> <!-- Legoche -->
+  </authors>
+  <tutorial>
+    <step countdown="5s" freeze="false" location="-155,19,34" pitch="0" yaw="90">
+      <chat>
+        <line>^r • {tutorial.generic.team-spawns}</line>
+      </chat>
+    </step>
+    <step countdown="4s" location="-140,22,71" pitch="-15" yaw="0">
+      <chat>
+        <line>^r • {tutorial.dtm.monument-area}</line>
+      </chat>
+    </step>
+    <step countdown="5s" location="-136,22,-8" pitch="-15" yaw="115">
+      <chat>
+        <line>^r • {tutorial.dtm.monument-objective}</line>
+      </chat>
+    </step>
+  </tutorial>
+  <teams>
+    <load-group id="teams.red-blue" max="20" min="1"/>
+  </teams>
+  <spawns>
+    <!-- Spectator spawn -->
+    <spawn>
+      <regions>
+        <point yaw="180">-20.5, 113, 107.5</point>
+      </regions>
+    </spawn>
+    <!-- Team spawns -->
+    <spawn loadout="default" team="blue" yaw="-90">
+      <regions>
+        <point yaw="-90">-178.5, 14, 34.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="red" yaw="90">
+      <regions>
+        <point yaw="90">137.5, 14, 34.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <world>
+    <gamerules>
+      <doDaylightCycle>true</doDaylightCycle>
+    </gamerules>
+  </world>
+  <regions>
+    <subtract id="void-outer"> <!-- All blocks of void minus the mid region -->
+      <void/>
+      <cuboid max="-90, 40, 83" min="48, 0, -15"/>
+    </subtract>
+    <above id="height-limit" y="40"/>
+  </regions>
+  <objectives>
+    <monuments materials="obsidian">
+      <monuments owner="blue">
+        <monument name="{directions.left}">
+          <region>
+            <block>-141, 25, 78</block>
+          </region>
+        </monument>
+        <monument name="{directions.right}">
+          <region>
+            <block>-141, 25, -10</block>
+          </region>
+        </monument>
+      </monuments>
+      <monuments owner="red">
+        <monument name="{directions.left}">
+          <region>
+            <block>99, 25, -10</block>
+          </region>
+        </monument>
+        <monument name="{directions.right}">
+          <region>
+            <block>99, 25, 78</block>
+          </region>
+        </monument>
+      </monuments>
+    </monuments>
+  </objectives>
+  <loadouts>
+    <loadout id="default">
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="leather leggings" team-color="true"/>
+      <boots material="leather boots" team-color="true"/>
+      <item material="iron sword" slot="0"/>
+      <item material="bow" slot="1">
+        <enchantment>arrow infinite</enchantment>
+      </item>
+      <item material="diamond pickaxe" slot="2"/>
+      <item material="iron axe" slot="3"/>
+      <item amount="2" material="golden apple" slot="4"/>
+      <item amount="32" material="glass" slot="5"/>
+      <item amount="64" material="log" slot="6"/>
+      <item amount="16" material="cooked beef" slot="7"/>
+      <item material="iron spade" slot="27"/>
+      <item material="arrow" slot="28"/>
+    </loadout>
+  </loadouts>
+  <zones>
+    <zone modify="never">
+      <region>
+        <cuboid max="144, 40, 49" min="117, 0, 19"/>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid max="-186, 40, 19" min="-159, 0, 49"/>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never" region="void-outer">
+      <message>{errors.outside-map}</message>
+    </zone>
+    <zone modify="never" region="height-limit">
+      <message>{errors.height-limit}</message>
+    </zone>
+  </zones>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>leather leggings</material>
+        <material>leather boots</material>
+        <material>glass</material>
+        <material>cooked beef</material>
+        <material>golden apple</material>
+        <material>apple</material>
+        <material>log</material>
+        <material>arrow</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>iron sword</material>
+        <material>bow</material>
+        <material>diamond pickaxe</material>
+        <material>iron spade</material>
+        <material>iron axe</material>
+      </any>
+    </repair-tools>
+  </items>
+</map>

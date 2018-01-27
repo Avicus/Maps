@@ -1,0 +1,13 @@
+<!-- Helper file to reward seven arrows on a kill. -->
+<map>
+  <kills>
+    <rewards>
+      <reward loadout="seven-arrows"/>
+    </rewards>
+  </kills>
+  <loadouts>
+    <loadout id="seven-arrows">
+      <item amount="7" material="arrow"/>
+    </loadout>
+  </loadouts>
+</map>

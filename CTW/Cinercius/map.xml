@@ -1,0 +1,204 @@
+<?xml version="1.0"?>
+<map name="Cinercius" spec="1.0.4" version="1.0.0">
+  <include src="defaults.xml"/>
+  <authors>
+    <author uuid="bf3319534f9243ee8abc7544b8234936"/> <!-- Vice -->
+    <author uuid="282f4bab54bb4e2a83459583c8d533ce"/> <!-- EDJM9 -->
+  </authors>
+  <teams>
+    <team color="lime" id="lime" max="25" min="1">{colors.lime}</team>
+    <team color="yellow" id="yellow" max="25" min="1">{colors.yellow}</team>
+  </teams>
+  <spawns auto-respawn="false" respawn-delay="5s" respawn-freeze="true">
+    <spawn team="spectators">
+      <regions>
+        <point yaw="0">-67.5, 58, -32.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="lime" yaw="90">
+      <regions>
+        <point yaw="90">69.5, 44, 2.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="yellow" yaw="-90">
+      <regions>
+        <point yaw="-90">-203.5, 44, 2.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <regions>
+    <subtract id="void-outer"> <!-- All blocks of void minus the mid region -->
+      <void/>
+      <cuboid max="-184,57,0" min="-196,37,4"/> <!-- Yellow spawn -->
+      <cuboid max="62,57,4" min="50,37,0"/> <!-- Lime spawn -->
+      <cuboid max="23,57,-35" min="27,37,-23"/> <!-- Purple one -->
+      <cuboid max="13,57,-46" min="-4,37,-48"/> <!-- Purple two -->
+      <cuboid max="-9,57,-26" min="-7,37,-43"/> <!-- Purple three -->
+      <cuboid max="27,57,39" min="23,37,27"/> <!-- Orange one -->
+      <cuboid max="-4,57,52" min="13,37,50"/> <!-- Orange two -->
+      <cuboid max="-7,57,47" min="-9,37,30"/> <!-- Orange three -->
+      <cuboid max="-47,57,18" min="-87,37,-14"/> <!-- Middle island -->
+      <cuboid max="-127,57,47" min="-125,37,30"/> <!-- Red one -->
+      <cuboid max="-147,57,52" min="-130,37,50"/> <!-- Red two -->
+      <cuboid max="-161,57,27" min="-157,37,39"/> <!-- Red three -->
+      <cuboid max="-157,57,-35" min="-161,37,-23"/> <!-- Blue one -->
+      <cuboid max="-130,57,-48" min="-147,37,-46"/> <!-- Blue two -->
+      <cuboid max="-125,57,-26" min="-127,37,-43"/> <!-- Blue three -->
+      <cylinder base="-159, 40, -47" height="29" radius="9"/>
+      <cylinder base="-159, 40, 51" height="29" radius="9"/>
+      <cylinder base="25, 40, -47" height="29" radius="9"/>
+      <cylinder base="25, 40, 51" height="29" radius="9"/>
+      <cylinder base="69, 43, 2" height="29" radius="7"/>
+      <cylinder base="-203, 43, 2" height="29" radius="7"/>
+    </subtract>
+    <above id="height-limit" y="57"/>
+    <below id="bottom-limit" y="37"/>
+  </regions>
+  <loadouts>
+    <loadout id="default">
+      <effect duration="5s">damage resistance</effect>
+      <helmet material="iron helmet"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="leather leggings" team-color="true"/>
+      <boots material="leather boots" team-color="true"/>
+      <item material="iron sword" slot="0"/>
+      <item material="bow" slot="1">
+        <enchantments>
+          <enchantment>arrow infinite</enchantment>
+        </enchantments>
+      </item>
+      <item material="diamond pickaxe" slot="2">
+        <enchantments>
+          <enchantment level="3">durability</enchantment>
+        </enchantments>
+      </item>
+      <item material="stone axe" slot="3"/>
+      <item amount="16" material="golden carrot" slot="4"/>
+      <item material="golden apple" slot="5"/>
+      <item amount="32" material="glass" slot="7"/>
+      <item amount="48" material="log" slot="8"/>
+      <item amount="1" material="arrow" slot="27"/>
+    </loadout>
+    <loadout id="kill-reward">
+      <item material="golden apple"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="kill-reward"/>
+    </rewards>
+  </kills>
+  <items>
+    <remove-drops>
+      <any>
+        <material>iron helmet</material>
+        <material>leather chestplate</material>
+        <material>leather leggings</material>
+        <material>leather boots</material>
+        <material>arrow</material>
+        <material>golden carrot</material>
+        <material>glass</material>
+        <material>log</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>iron sword</material>
+        <material>stone axe</material>
+        <material>diamond pickaxe</material>
+        <material>bow</material>
+      </any>
+    </repair-tools>
+  </items>
+  <zones>
+    <zone modify="never"> <!-- Lime -->
+      <region>
+        <subtract>
+          <cylinder base="69, 43, 2" height="29" radius="7"/>
+          <point>69, 45, -5</point>
+          <point>69, 45, 9</point>
+        </subtract>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never"> <!-- Yellow -->
+      <region>
+        <subtract>
+          <cylinder base="-203, 43, 2" height="29" radius="7"/>
+          <point>-203, 45, 9</point>
+          <point>-203, 45, -5</point>
+        </subtract>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <!-- lime woolrooms -->
+    <zone modify="always">
+      <enter>
+        <team>lime</team>
+      </enter>
+      <region>
+        <cylinder base="-159, 40, -47" height="29" radius="9"/>
+        <cylinder base="-159, 40, 51" height="29" radius="9"/>
+      </region>
+      <message>{errors.own-wool-room}</message>
+    </zone>
+    <!-- yellow woolrooms -->
+    <zone modify="always">
+      <enter>
+        <team>yellow</team>
+      </enter>
+      <region>
+        <cylinder base="25, 40, -47" height="29" radius="9"/>
+        <cylinder base="25, 40, 51" height="29" radius="9"/>
+      </region>
+      <message>{errors.own-wool-room}</message>
+    </zone>
+    <zone modify="never" region="void-outer">
+      <message>{errors.outside-map}</message>
+    </zone>
+    <zone modify="never" region="height-limit">
+      <message>{errors.height-limit}</message>
+    </zone>
+    <zone modify="never" region="bottom-limit">
+      <message>{errors.outside-map}</message>
+    </zone>
+  </zones>
+  <objectives>
+    <wools pickup="false" team="yellow">
+      <wool color="orange">
+        <source>
+          <block>25, 44, 51</block>
+        </source>
+        <destination>
+          <block>-203, 45, -5</block>
+        </destination>
+      </wool>
+      <wool color="purple">
+        <source>
+          <block>25, 44, -47</block>
+        </source>
+        <destination>
+          <block>-203, 45, 9</block>
+        </destination>
+      </wool>
+    </wools>
+    <wools team="lime">
+      <wool color="red">
+        <source>
+          <block>-159, 44, 51</block>
+        </source>
+        <destination>
+          <block>69, 45, 9</block>
+        </destination>
+      </wool>
+      <wool color="blue">
+        <source>
+          <block>-159, 44, -47</block>
+        </source>
+        <destination>
+          <block>69, 45, -5</block>
+        </destination>
+      </wool>
+    </wools>
+  </objectives>
+</map>

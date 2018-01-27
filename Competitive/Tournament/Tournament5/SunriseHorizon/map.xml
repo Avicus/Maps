@@ -1,0 +1,331 @@
+<map name="Sunrise Horizon" spec="1.0.0" version="1.0.1">
+  <include src="defaults.xml"/>
+  <include src="Shared/reward-one-gap.xml"/>
+  <authors>
+    <author uuid="004e817d35fa47aeac7e4f37d70ed9ba"/>
+    <!-- Zicuri -->
+    <author uuid="4d10e1b13fcc4537a1620cca6754da2d"/>
+    <!-- karnyyy -->
+    <author uuid="8fb7e4dcb57540dbacd8754b1ba81aa5"/>
+    <!-- Walt -->
+  </authors>
+  <teams>
+    <load-group id="teams.red-blue" max="8" min="1"/>
+  </teams>
+  <spawns>
+    <spawn>
+      <regions>
+        <cuboid max="-1, 54, -1" min="1, 53, 1" yaw="0"/>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="red">
+      <regions>
+        <point yaw="45">58, 72, -40</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="blue">
+      <regions>
+        <point yaw="-135">-57, 72, 41</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <loadouts>
+    <loadout id="default">
+      <item material="stone sword" slot="0" unbreakable="true"/>
+      <item material="bow" slot="1" unbreakable="true"/>
+      <item amount="1" material="golden apple" slot="3"/>
+      <item amount="16" material="golden carrot" slot="8"/>
+      <item amount="16" material="arrow" slot="7"/>
+      <helmet material="chainmail helmet" unbreakable="true"/>
+      <chestplate material="leather chestplate" team-color="true" unbreakable="true"/>
+      <leggings material="iron leggings" unbreakable="true"/>
+      <boots material="leather boots" team-color="true" unbreakable="true"/>
+    </loadout>
+    <loadout id="four-arrow">
+      <item amount="4" material="arrow"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="four-arrow"/>
+    </rewards>
+  </kills>
+  <checks>
+    <all id="blue-to-2nd">
+      <objective team="blue">blue-2nd</objective>
+      <objective team="blue">blue-last</objective>
+      <team>blue</team>
+    </all>
+    <all id="red-to-2nd">
+      <objective team="red">red-2nd</objective>
+      <objective team="red">red-last</objective>
+      <team>red</team>
+    </all>
+    <all id="blue-to-mid">
+      <objective team="blue">mid</objective>
+      <objective team="blue">blue-2nd</objective>
+      <objective team="blue">blue-last</objective>
+      <team>blue</team>
+    </all>
+    <all id="red-to-mid">
+      <objective team="red">mid</objective>
+      <objective team="red">red-2nd</objective>
+      <objective team="red">red-last</objective>
+      <team>red</team>
+    </all>
+    <all id="blue-to-red2nd">
+      <objective team="blue">red-2nd</objective>
+      <objective team="blue">mid</objective>
+      <objective team="blue">blue-2nd</objective>
+      <objective team="blue">blue-last</objective>
+      <team>blue</team>
+    </all>
+    <all id="red-to-blue2nd">
+      <objective team="red">blue-2nd</objective>
+      <objective team="red">mid</objective>
+      <objective team="red">red-2nd</objective>
+      <objective team="red">red-last</objective>
+      <team>red</team>
+    </all>
+  </checks>
+  <zones>
+    <zone modify="never" region="everywhere"/>
+    <zone>
+      <region>
+        <cuboid max="-52, 14, 41" min="-52, 7, 42"/>
+        <cuboid max="-53, 14, 42" min="-52, 7, 42"/>
+      </region>
+      <portal check="blue-to-2nd" yaw="-90">
+        <destination>
+          <point>-54.5, 5, -4.5</point>
+        </destination>
+      </portal>
+    </zone>
+    <zone>
+      <region>
+        <cuboid max="53, 14, -40" min="53, 7, -41"/>
+        <cuboid max="54, 14, -41" min="53, 7, -41"/>
+      </region>
+      <portal check="red-to-2nd" yaw="90">
+        <destination>
+          <point>56.5, 5, 6.5</point>
+        </destination>
+      </portal>
+    </zone>
+    <zone>
+      <region>
+        <cuboid max="-60, 14, 44" min="-59, 7, 44"/>
+        <cuboid max="-60, 14, 43" min="-60, 7, 43"/>
+      </region>
+      <portal check="blue-to-mid" yaw="180">
+        <destination>
+          <point>-13.5, 4, 12.5</point>
+        </destination>
+      </portal>
+    </zone>
+    <zone>
+      <region>
+        <cuboid max="60, 14, -43" min="61, 7, -43"/>
+        <cuboid max="61, 14, -42" min="61, 7, -43"/>
+      </region>
+      <portal check="red-to-mid" yaw="0">
+        <destination>
+          <point>15.5, 4, -11.5</point>
+        </destination>
+      </portal>
+    </zone>
+    <zone>
+      <region>
+        <cuboid max="-58, 14, 37" min="-58, 7, 36"/>
+        <cuboid max="-57, 14, 36" min="-58, 7, 36"/>
+      </region>
+      <portal check="blue-to-red2nd" yaw="-60">
+        <destination>
+          <point>20.5, 5, -17.5</point>
+        </destination>
+      </portal>
+    </zone>
+    <zone>
+      <region>
+        <cuboid max="59, 14, -36" min="59, 7, -35"/>
+        <cuboid max="58, 14, -35" min="59, 7, -35"/>
+      </region>
+      <portal check="red-to-blue2nd" yaw="120">
+        <destination>
+          <point>-18.5, 5, 19.5</point>
+        </destination>
+      </portal>
+    </zone>
+  </zones>
+  <results>
+    <win scenario="objectives">
+      <check>
+        <time>12m</time>
+      </check>
+    </win>
+    <win scenario="team" team="red">
+      <check>
+        <all>
+          <objective team="red">red-2nd</objective>
+          <objective team="red">red-last</objective>
+          <objective team="red">mid</objective>
+          <objective team="red">blue-last</objective>
+          <objective team="red">blue-2nd</objective>
+        </all>
+      </check>
+    </win>
+    <win scenario="team" team="blue">
+      <check>
+        <all>
+          <objective team="blue">red-2nd</objective>
+          <objective team="blue">red-last</objective>
+          <objective team="blue">mid</objective>
+          <objective team="blue">blue-last</objective>
+          <objective team="blue">blue-2nd</objective>
+        </all>
+      </check>
+    </win>
+  </results>
+  <objectives>
+    <hill capture-time="5s" id="red-last" initial-owner="red" name="Red Last">
+      <capture>
+        <cuboid max="41, 13, -29" min="36, 9, -24"/>
+      </capture>
+      <progress>
+        <cuboid max="41, 13, -29" min="36, 9, -24"/>
+      </progress>
+      <capture-check>
+        <any>
+          <all>
+            <team>red</team>
+            <objective team="red">blue-last</objective>
+            <objective team="red">blue-2nd</objective>
+            <objective team="red">mid</objective>
+            <objective team="red">red-2nd</objective>
+          </all>
+        </any>
+      </capture-check>
+    </hill>
+    <hill capture-time="5s" id="red-2nd" initial-owner="red" name="Red 2nd">
+      <capture>
+        <cuboid max="29, 12, 9" min="34, 7, 14"/>
+      </capture>
+      <progress>
+        <cuboid max="29, 12, 9" min="34, 7, 14"/>
+      </progress>
+      <capture-check>
+        <any>
+          <all>
+            <team>blue</team>
+            <objective team="blue">blue-last</objective>
+            <objective team="blue">blue-2nd</objective>
+            <objective team="blue">mid</objective>
+          </all>
+          <all>
+            <team>red</team>
+            <objective team="red">red-last</objective>
+          </all>
+        </any>
+      </capture-check>
+    </hill>
+    <hill capture-time="5s" id="mid" name="Mid">
+      <capture>
+        <cuboid max="3, 13, 3" min="-2, 8, -2"/>
+      </capture>
+      <progress>
+        <cuboid max="3, 13, 3" min="-2, 8, -2"/>
+      </progress>
+      <capture-check>
+        <any>
+          <all>
+            <team>red</team>
+            <objective team="red">red-last</objective>
+            <objective team="red">red-2nd</objective>
+          </all>
+          <all>
+            <team>blue</team>
+            <objective team="blue">blue-last</objective>
+            <objective team="blue">blue-2nd</objective>
+          </all>
+        </any>
+      </capture-check>
+    </hill>
+    <hill capture-time="5s" id="blue-2nd" initial-owner="blue" name="Blue 2nd ">
+      <capture>
+        <cuboid max="-28, 12, -8" min="-33, 7, -13"/>
+      </capture>
+      <progress>
+        <cuboid max="-28, 12, -8" min="-33, 7, -13"/>
+      </progress>
+      <capture-check>
+        <any>
+          <all>
+            <team>red</team>
+            <objective team="red">red-2nd</objective>
+            <objective team="red">red-last</objective>
+            <objective team="red">mid</objective>
+          </all>
+          <all>
+            <team>blue</team>
+            <objective team="blue">blue-last</objective>
+          </all>
+        </any>
+      </capture-check>
+    </hill>
+    <hill capture-time="5s" id="blue-last" initial-owner="blue" name="Blue Last ">
+      <capture>
+        <cuboid max="-35, 10, 25" min="-40, 9, 30"/>
+      </capture>
+      <progress>
+        <cuboid max="-35, 10, 25" min="-40, 9, 30"/>
+      </progress>
+      <capture-check>
+        <any>
+          <all>
+            <team>red</team>
+            <objective team="red">red-last</objective>
+            <objective team="red">red-2nd</objective>
+            <objective team="red">mid</objective>
+            <objective team="red">blue-2nd</objective>
+          </all>
+        </any>
+      </capture-check>
+    </hill>
+  </objectives>
+  <items>
+    <remove-drops>
+      <any>
+        <material>stone sword</material>
+        <material>bow</material>
+        <material>golden carrot</material>
+        <material>arrow</material>
+        <material>chainmail helmet</material>
+        <material>leather chestplate</material>
+        <material>iron leggings</material>
+        <material>leather boots</material>
+      </any>
+    </remove-drops>
+  </items>
+  <world>
+    <storm>false</storm>
+    <weather check="always"/>
+    <gamerules>
+      <doDaylightCycle>false</doDaylightCycle>
+    </gamerules>
+  </world>
+  <damage>
+    <disable>
+      <all>
+        <damage>fall</damage>
+        <inside>
+          <region>
+            <join>
+              <cuboid max="60, 15, -42" min="56, 8, -38"/> <!-- red -->
+              <cuboid max="-59, 15, 43" min="-55, 8, 39"/> <!-- blue -->
+            </join>
+          </region>
+        </inside>
+      </all>
+    </disable>
+  </damage>
+</map>

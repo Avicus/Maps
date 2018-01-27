@@ -1,0 +1,203 @@
+﻿<?xml version="1.0"?>
+<map description="First 5CP map!" name="StoneShock(5CP)" spec="1.0.4" version="1.0.0">
+  <include src="Shared/tutorials/koth.xml"/>
+  <include src="defaults.xml"/>
+  <include src="Shared/reward-one-gap.xml"/>
+  <include src="Shared/conquest-shop.xml"/>
+  <authors>
+    <author uuid="54964b606ce749229a4c2b981d8c2ed7"/>  <!-- Spoookeh -->
+  </authors>
+  <teams>
+    <load-group id="teams.red-blue" max="15" min="1"/>
+  </teams>
+  <tutorial>
+    <step countdown="5s" freeze="true" location="-9.5, 30, -31.5" pitch="48" yaw="0">
+      <chat>
+        <line>^r • {tutorial.generic.team-spawns}</line>
+      </chat>
+    </step>
+    <step countdown="4s" freeze="true" location="-30, 28, -104" pitch="35" yaw="-119">
+      <chat>
+        <line>^r • {tutorial.koth.hill-area}</line>
+      </chat>
+    </step>
+  </tutorial>
+  <spawns>
+    <spawn yaw="-90">
+      <regions>
+        <block>-24, 50, -108</block>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="red" yaw="180">
+      <regions>
+        <block>-10, 22, -21</block>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="blue" yaw="0">
+      <regions>
+        <block>-39, 23, -197</block>
+      </regions>
+    </spawn>
+  </spawns>
+  <results>
+    <win scenario="objectives">
+      <check>
+        <time>12m</time>
+      </check>
+    </win>
+    <win scenario="team" team="blue">
+      <check>
+        <all>
+          <objective team="blue">capture-center</objective>
+          <objective team="blue">blue-1st</objective>
+          <objective team="blue">blue-2nd</objective>
+          <objective team="blue">red-1st</objective>
+          <objective team="blue">red-2nd</objective>
+        </all>
+      </check>
+    </win>
+    <win scenario="team" team="red">
+      <check>
+        <all>
+          <objective team="red">capture-center</objective>
+          <objective team="red">blue-1st</objective>
+          <objective team="red">blue-2nd</objective>
+          <objective team="red">red-1st</objective>
+          <objective team="red">red-2nd</objective>
+        </all>
+      </check>
+    </win>
+  </results>
+  <objectives>
+    <!-- Blue 1st -->
+    <hill capture-time="7s" id="blue-1st" initial-owner="blue" name="Blue Last">
+      <capture>
+        <cuboid max="-24, 26, -177" min="-20, 22, -181"/>
+      </capture>
+      <progress>
+        <cuboid max="-24, 26, -177" min="-20, 22, -181"/>
+      </progress>
+      <capture-check>
+        <any>
+          <all>
+            <team>red</team>
+            <objective team="red">red-1st</objective>
+            <objective team="red">red-2nd</objective>
+            <objective team="red">capture-center</objective>
+          </all>
+          <all>
+            <team>blue</team>
+            <objective team="blue">blue-2nd</objective>
+          </all>
+        </any>
+      </capture-check>
+    </hill>
+    <!-- Blue 2nd -->
+    <hill capture-time="7s" id="blue-2nd" initial-owner="blue" name="Blue 2nd">
+      <capture>
+        <cuboid max="-49, 39, -136" min="-54, 32, -141"/>
+      </capture>
+      <progress>
+        <cuboid max="-49, 39, -136" min="-54, 32, -141"/>
+      </progress>
+      <capture-check>
+        <any>
+          <all>
+            <team>red</team>
+            <objective team="red">red-1st</objective>
+            <objective team="red">red-2nd</objective>
+            <objective team="red">capture-center</objective>
+            <objective team="red">blue-2nd</objective>
+          </all>
+        </any>
+      </capture-check>
+    </hill>
+    <!-- Middle -->
+    <hill capture-time="10s" id="capture-center" name="Center">
+      <capture>
+        <cuboid max="-27, 27, -111" min="-22, 23, -106"/>
+      </capture>
+      <progress>
+        <cuboid max="-21, 27, -105" min="-28, 20, -112"/>
+      </progress>
+      <capture-check>
+        <any>
+          <all>
+            <team>red</team>
+            <objective team="red">red-1st</objective>
+            <objective team="red">red-2nd</objective>
+          </all>
+          <all>
+            <team>blue</team>
+            <objective team="blue">blue-1st</objective>
+            <objective team="blue">blue-2nd</objective>
+          </all>
+        </any>
+      </capture-check>
+    </hill>
+    <!-- Red 2nd -->
+    <hill capture-time="7s" id="red-2nd" initial-owner="red" name="Red 2nd">
+      <capture>
+        <cuboid max="5, 39, -82" min="0, 31, -77"/>
+      </capture>
+      <progress>
+        <cuboid max="5, 39, -82" min="0, 31, -77"/>
+      </progress>
+      <capture-check>
+        <any>
+          <all>
+            <team>blue</team>
+            <objective team="blue">blue-1st</objective>
+            <objective team="blue">blue-2nd</objective>
+            <objective team="blue">capture-center</objective>
+            <objective team="blue">red-1st</objective>
+          </all>
+        </any>
+      </capture-check>
+    </hill>
+    <!-- Red 1st -->
+    <hill capture-time="7s" id="red-1st" initial-owner="red" name="Red Last">
+      <capture>
+        <cuboid max="-25, 26, -41" min="-29, 20, -37"/>
+      </capture>
+      <progress>
+        <cuboid max="-25, 26, -41" min="-29, 20, -37"/>
+      </progress>
+      <capture-check>
+        <any>
+          <all>
+            <team>blue</team>
+            <objective team="blue">blue-1st</objective>
+            <objective team="blue">blue-2nd</objective>
+            <objective team="blue">capture-center</objective>
+          </all>
+          <all>
+            <team>red</team>
+            <objective team="red">red-2nd</objective>
+          </all>
+        </any>
+      </capture-check>
+    </hill>
+  </objectives>
+  <loadouts>
+    <loadout id="default">
+      <effect duration="5s">damage resistance</effect>
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate"/>
+      <leggings material="leather leggings" team-color="true"/>
+      <boots material="leather boots" team-color="true"/>
+      <item material="stone sword" slot="0"/>
+      <item material="bow" slot="1"/>
+      <item material="golden apple" slot="3"/>
+      <item amount="32" material="arrow" slot="7"/>
+    </loadout>
+  </loadouts>
+  <zones>
+    <zone modify="never" region="everywhere"/>
+  </zones>
+  <world>
+    <gamerules>
+      <doDaylightCycle>false</doDaylightCycle>
+    </gamerules>
+  </world>
+</map>

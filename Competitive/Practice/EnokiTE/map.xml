@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="Enoki" spec="1.0.0" version="1.0.0">
+  <include src="defaults.xml"/>
+  <include src="Shared/reward-one-gap.xml"/>
+  <include src="Shared/phases-dtc.xml"/>
+  <authors>
+    <author uuid="9929437a9b7d4d7ab05de22fe93ac042"/>
+    <!-- triplezko  -->
+    <author uuid="743ca453a4f54055937088694733b8d1"/>
+    <!--  Kenjirou -->
+    <author uuid="d9420f7f517b45e3bdf5e92f4cb93b98"/>
+    <!--  Narcolepsy  -->
+  </authors>
+  <teams>
+    <load-group id="teams.red-blue" max="8" min="1"/>
+  </teams>
+  <spawns>
+    <!--  Spectator spawn  -->
+    <spawn>
+      <regions>
+        <point yaw="90">92.5, 72, 48.5</point>
+      </regions>
+    </spawn>
+    <!--  Team Spawns  -->
+    <spawn loadout="default" team="red" yaw="90">
+      <regions>
+        <point yaw="180">0.5, 172, 184.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="blue" yaw="-90">
+      <regions>
+        <point yaw="0">0.5, 172, -82.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <objectives>
+    <leakables destroyable="true" first-phase="gold" materials="obsidian">
+      <leakables owner="red">
+        <leakable leak-distance="1" name="West" repairable="false">
+          <region>
+            <sphere origin="-42, 28, 88" radius="3"/>
+          </region>
+        </leakable>
+        <leakable leak-distance="1" name="East" repairable="false">
+          <region>
+            <sphere origin="42, 28, 88" radius="3"/>
+          </region>
+        </leakable>
+        <leakable leak-distance="1" name="Cave" repairable="false">
+          <region>
+            <sphere origin="0, 14, 114" radius="3"/>
+          </region>
+        </leakable>
+      </leakables>
+      <leakables owner="blue">
+        <leakable leak-distance="1" name="West" repairable="false">
+          <region>
+            <sphere origin="-42, 28, 14" radius="3"/>
+          </region>
+        </leakable>
+        <leakable leak-distance="1" name="East" repairable="false">
+          <region>
+            <sphere origin="42, 28, 14" radius="3"/>
+          </region>
+        </leakable>
+        <leakable leak-distance="1" name="Cave" repairable="false">
+          <region>
+            <sphere origin="0, 14, -12" radius="3"/>
+          </region>
+        </leakable>
+      </leakables>
+    </leakables>
+  </objectives>
+  <loadouts>
+    <loadout id="default">
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <item material="iron sword" slot="0"/>
+      <item material="bow" slot="1">
+        <enchantment>arrow infinite</enchantment>
+      </item>
+      <item material="diamond pickaxe" slot="2"/>
+      <item material="iron axe" slot="3"/>
+      <item amount="3" material="golden apple" slot="4"/>
+      <item amount="64" material="log" slot="5"/>
+      <item amount="64" material="glass" slot="6"/>
+      <item material="bucket" slot="7"/>
+      <item amount="16" material="bread" slot="8"/>
+      <item amount="64" material="redstone" slot="27"/>
+      <item amount="1" material="arrow" slot="28"/>
+    </loadout>
+    <loadout id="kill-reward">
+      <item material="golden apple"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="kill-reward"/>
+    </rewards>
+  </kills>
+  <zones>
+    <zone modify="never">
+      <region>
+        <cuboid max="-14, 0, 187" min="12, 256, 155"/>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid max="14, 0, -85" min="12, 256, -53"/>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+  </zones>
+  <world>
+    <storm>false</storm>
+    <weather check="always"/>
+  </world>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>bread</material>
+        <material>bucket</material>
+        <material>golden apple</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>iron sword</material>
+        <material>bow</material>
+        <material>diamond pickaxe</material>
+        <material>iron axe</material>
+      </any>
+    </repair-tools>
+  </items>
+</map>

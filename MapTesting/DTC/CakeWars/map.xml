@@ -1,0 +1,116 @@
+<?xml version="1.0"?>
+<map name="Cake Wars" spec="1.0.4" version="2.2.0">
+  <include src="defaults.xml"/>
+  <gametype>dtc</gametype>
+  <authors>
+    <author uuid="0ae466ffd3a14307a32389043643ace5"/> <!-- GammaRay_89 -->
+    <author uuid="98a4a81e439340418d4340a0196b5832"/> <!-- Thungon -->
+  </authors>
+  <teams>
+    <team color="blue" id="blue" max="24" min="1">{colors.blue}</team>
+    <team color="red" id="red" max="24" min="1">{colors.red}</team>
+  </teams>
+  <spawns>
+    <spawn>
+      <regions>
+        <cuboid max="-2, 85, -27" min="2, 85, -23" yaw="0"/>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="blue">
+      <regions>
+        <point yaw="0">27.5, 65, -40.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="red">
+      <regions>
+        <point yaw="0">-26.5, 65, -40.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <loadouts>
+    <loadout id="spawn">
+      <effect amplifier="20" duration="8s">damage resistance</effect>
+    </loadout>
+    <loadout id="default" parent="spawn">
+      <item material="iron sword" slot="0"/>
+      <item material="bow" slot="1"/>
+      <item material="stone pickaxe" slot="2"/>
+      <item amount="64" damage="1" material="wood" slot="5"/>
+      <item amount="64" damage="1" material="wood" slot="6"/>
+      <item amount="64" material="cooked fish" slot="4"/>
+      <item amount="24" material="arrow" slot="28"/>
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+    </loadout>
+    <loadout id="kill-reward">
+      <item material="golden apple"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="kill-reward"/>
+    </rewards>
+  </kills>
+  <objectives>
+    <leakables destroyable="true" materials="gold block">
+      <leakables owner="red">
+        <leakable leak-distance="5" name="Core" repairable="false">
+          <region>
+            <cuboid max="-29, 64, 18" min="-25, 69, 14"/>
+          </region>
+        </leakable>
+      </leakables>
+      <leakables owner="blue">
+        <leakable leak-distance="5" name="Core" repairable="false">
+          <region>
+            <cuboid max="25, 64, 18" min="29, 69, 14"/>
+          </region>
+        </leakable>
+      </leakables>
+    </leakables>
+  </objectives>
+  <regions>
+    <above id="height-limit" y="100"/>
+    <join id="spawntubes">
+      <cuboid max="24, 62, -44" min="30, 69, 0"/>
+      <cuboid max="-30, 62, -44" min="-24, 69, 0"/>
+    </join>
+  </regions>
+  <zones>
+    <zone modify="never">
+      <region>
+        <invert>
+          <join>
+            <cuboid max="-37, 104, 0" min="37, 59, 49"/>
+          </join>
+        </invert>
+      </region>
+      <message format="warning">{errors.outside-map}</message>
+    </zone>
+    <zone modify="never" region="height-limit">
+      <message format="warning">{errors.height-limit}</message>
+    </zone>
+    <zone enter="never" modify="never" region="spawntubes">
+      <message format="warning">You may not enter or destroy the spawn tunnel</message>
+    </zone>
+  </zones>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>obsidian</material>
+        <material>gold block</material>
+        <material>log</material>
+        <material>wood</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>iron sword</material>
+        <material>stone pickaxe</material>
+        <material>bow</material>
+      </any>
+    </repair-tools>
+  </items>
+</map>

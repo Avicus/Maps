@@ -1,0 +1,129 @@
+<?xml version="1.0"?>
+<map name="Palm Rust" version="1.0.0" description="A sandy, tropical paradise that lost serenity." spec="1.0.0">
+    <include src="defaults.xml"/>
+    <authors>
+        <author uuid="c7e1e82383c34070898b1dd5f5cd458e"/> <!-- GamerStu -->
+        <author uuid="93db9798b9954bdab70a23f5d33124a0"/> <!-- steven5703 -->
+        <author uuid="d9b4ffbc11d0453aa93f82dc59fca4b6"/> <!-- Wulfcaspice -->
+    </authors>
+    <teams>
+        <team id="green" color="green" min="2" max="21">{colors.green}</team>
+        <team id="orange" color="orange" min="2" max="21">{colors.orange}</team>
+    </teams>
+    <spawns>
+        <spawn yaw="-90">
+            <regions>
+                <block>18, 43, 58</block>
+            </regions>
+        </spawn>
+        <spawn id="orange" team="orange" loadout="default" yaw="135">
+            <regions>
+                <point>47, 36, 137</point>
+            </regions>
+        </spawn>
+        <spawn id="green" team="green" loadout="default" yaw="-45">
+            <regions>
+                <point>-56, 36, 33</point>
+            </regions>
+        </spawn>
+    </spawns>
+    <objectives>
+        <monuments materials="obsidian">
+            <monuments owner="green">
+                <monument name="{directions.left}">
+                    <region>
+                        <block>-47, 24, 83</block>
+                    </region>
+                </monument>
+                <monument name="{directions.right}">
+                    <region>
+                        <block>-7, 24, 43</block>
+                    </region>
+                </monument>
+            </monuments>
+            <monuments owner="orange">
+                <monument name="{directions.left}">
+                    <region>
+                        <block>37, 24, 87</block>
+                    </region>
+                </monument>
+                <monument name="{directions.right}">
+                    <region>
+                        <block>-3, 24, 127</block>
+                    </region>
+                </monument>
+            </monuments>
+        </monuments>
+    </objectives>
+    <zones>
+        <zone modify="never">
+            <region>
+                <sphere origin="-56, 36, 33" radius="8"/>
+            </region>
+            <enter>
+                <team>green</team>
+            </enter>
+            <message>{errors.spawn-restricted}</message>
+        </zone>
+        <zone modify="never">
+            <region>
+                <sphere origin="47, 36, 137" radius="8"/>
+            </region>
+            <enter>
+                <team>orange</team>
+            </enter>
+            <message>{errors.spawn-restricted}</message>
+        </zone>
+        <zone modify="never">
+            <region>
+                <cuboid min="1000, 55, 1000" max="-1000, 250, -1000"/>
+            </region>
+            <message>{errors.outside-map}</message>
+        </zone>
+    </zones>
+    <items>
+        <repair-tools>
+            <any>
+                <material>iron sword</material>
+                <material>bow</material>
+                <material>diamond pickaxe</material>
+                <material>iron spade</material>
+            </any>
+        </repair-tools>
+        <remove-drops>
+            <any>
+                <material>leather helmet</material>
+                <material>sandstone</material>
+                <material>log</material>
+                <material>wood</material>
+            </any>
+        </remove-drops>
+    </items>
+    <loadouts>
+        <loadout id="default">
+            <helmet material="leather helmet" team-color="true"/>
+            <effect duration="8s">damage resistance</effect>
+            <item slot="0" material="iron sword" unbreakable="true"/>
+            <item slot="1" material="bow" unbreakable="true">
+                <enchantment>arrow infinite</enchantment>
+            </item>
+            <item slot="2" material="diamond pickaxe">
+                <enchantment>dig speed</enchantment>
+            </item>
+            <item slot="3" material="iron spade" unbreakable="true"/>
+            <item slot="4" material="golden apple" amount="2"/>
+            <item slot="5" material="log" amount="64"/>
+            <item slot="6" material="sandstone" amount="64"/>
+            <item slot="7" material="bread" amount="16"/>
+            <item slot="27" material="arrow"/>
+        </loadout>
+        <loadout id="kill-reward">
+            <item material="golden apple"/>
+        </loadout>
+    </loadouts>
+    <kills>
+        <rewards>
+            <reward loadout="kill-reward"/>
+        </rewards>
+    </kills>
+</map>

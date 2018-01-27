@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<map name="Unix" spec="1.0.0" version="1.1.0">
+  <include src="defaults.xml"/>
+  <include src="Shared/tutorials/dtm.xml"/>
+  <gametype>dtm</gametype>
+  <authors>
+    <author uuid="c660918b400044d4b735d3fa6f166110"/> <!-- Red_Dead -->
+    <author uuid="21822ebaa4cb4f1eb8033871d5ac0ff3"/> <!-- Izjust4fun -->
+  </authors>
+  <tutorial>
+    <step countdown="5s" freeze="false" location="-665, 24, -1106" pitch="31" yaw="0">
+      <chat>
+        <line>^r • {tutorial.generic.team-spawns}</line>
+      </chat>
+    </step>
+    <step countdown="5s" freeze="false" location="-618, 28, -1099" pitch="3" yaw="-51">
+      <chat>
+        <line>^r • {tutorial.dtm.monument-area}</line>
+        <line>^r • {tutorial.dtm.monument-objective}</line>
+      </chat>
+    </step>
+  </tutorial>
+  <teams>
+    <team color="orange" id="orange" max="20" min="1">Cyprone</team>
+    <team color="cyan" id="cyan" max="20" min="1">Cynx</team>
+  </teams>
+  <spawns>
+    <spawn yaw="-90">
+      <regions>
+        <circle center="-666, 74, -1177" radius="1"/>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="orange">
+      <regions>
+        <circle center="-665, 19, -1258" radius="2"/>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="cyan" yaw="180">
+      <regions>
+        <circle center="-665, 19, -1096" radius="2"/>
+      </regions>
+    </spawn>
+  </spawns>
+  <objectives>
+    <monuments materials="obsidian">
+      <monuments owner="orange">
+        <monument name="{directions.left}">
+          <region>
+            <block>-718, 29, -1260</block>
+          </region>
+        </monument>
+        <monument name="{directions.right}">
+          <region>
+            <block>-614, 29, -1260</block>
+          </region>
+        </monument>
+      </monuments>
+      <monuments owner="cyan">
+        <monument name="{directions.left}">
+          <region>
+            <block>-614, 29, -1096</block>
+          </region>
+        </monument>
+        <monument name="{directions.right}">
+          <region>
+            <block>-718, 29, -1096</block>
+          </region>
+        </monument>
+      </monuments>
+    </monuments>
+  </objectives>
+  <loadouts>
+    <loadout id="default">
+      <item material="iron sword" slot="0"/>
+      <item material="bow" slot="1">
+        <enchantment>arrow infinite</enchantment>
+      </item>
+      <item material="diamond pickaxe" slot="2"/>
+      <item material="stone axe" slot="3"/>
+      <item amount="64" material="sandstone" slot="4"/>
+      <item amount="3" material="golden apple" slot="5"/>
+      <item amount="32" damage="3" material="log" slot="6"/>
+      <item amount="64" material="cooked fish" slot="7"/>
+      <item material="iron spade" slot="8"/>
+      <item amount="1" material="arrow" slot="28"/>
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="iron leggings"/>
+      <boots material="leather boots" team-color="true"/>
+    </loadout>
+    <loadout id="kill-reward">
+      <item material="golden apple"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="kill-reward"/>
+    </rewards>
+  </kills>
+  <regions>
+    <above id="height-limit" y="50"/>
+    <cylinder base="-666, 17, -1295" height="5" id="cyan-base" radius="7"/>
+    <cylinder base="-666, 17, -1097" height="5" id="orange-base" radius="7"/>
+    <join id="protected">
+      <region id="cyan-base"/>
+      <region id="orange-base"/>
+      <cuboid max="-671, 30, -1119" min="-662, 19, -1102"/> <!-- Cyan Path -->
+      <cuboid max="-661, 30, -1237" min="-670, 19, -1254"/> <!-- Orange Path -->
+    </join>
+    <join id="speed">
+      <cuboid max="-671, 28, -1237" min="-661, 24, -1237"/>
+      <cuboid max="-661, 28, -1119" min="-671, 24, -1119"/>
+    </join>
+    <join id="enchanting">
+      <block>-639, 22, -1217</block>
+      <block>-693, 22, -1217</block>
+      <block>-693, 22, -1139</block>
+      <block>-639, 22, -1139</block>
+    </join>
+  </regions>
+  <zones>
+    <zone modify="never" region="protected">
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone region="speed">
+      <loadout>
+        <effect duration="7s">speed</effect>
+      </loadout>
+    </zone>
+    <zone modify="never" region="enchanting">
+      <message>{errors.cannot-build}</message>
+    </zone>
+    <zone modify="never" region="height-limit">
+      <message>{errors.height-limit}</message>
+    </zone>
+  </zones>
+  <items>
+    <remove-drops>
+      <any>
+        <material>sandstone</material>
+        <material>ender stone</material>
+        <material>log</material>
+        <material>wood</material>
+        <material>cooked fish</material>
+        <material>golden apple</material>
+        <material>arrow</material>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>iron leggings</material>
+        <material>leather boots</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>iron sword</material>
+        <material>iron spade</material>
+        <material>stone axe</material>
+        <material>diamond pickaxe</material>
+        <material>bow</material>
+      </any>
+    </repair-tools>
+  </items>
+</map>

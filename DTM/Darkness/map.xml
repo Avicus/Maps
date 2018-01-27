@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="Darkness" spec="1.0.0" version="1.0.2">
+  <include src="defaults.xml"/>
+  <include src="Shared/tutorials/dtm.xml"/>
+  <gametype>dtm</gametype>
+  <authors>
+    <author uuid="ae5c1e91745b4a6fa33711484ede6957"/> <!-- Clijmart -->
+    <author uuid="e4b17b06b23640dbb98ece66d227edce"/> <!-- Stuxi -->
+    <author uuid="1865ac01271f4f69b979b43a78c39989"/> <!-- Zintenka -->
+  </authors>
+  <tutorial>
+    <step countdown="5s" freeze="false" location="-60,101,-3" pitch="10" yaw="72">
+      <chat>
+        <line>^r • {tutorial.generic.team-spawns}</line>
+      </chat>
+    </step>
+    <step countdown="4s" location="-81,101,23" pitch="0" yaw="90">
+      <chat>
+        <line>^r • {tutorial.dtm.monument-area}</line>
+      </chat>
+    </step>
+    <step countdown="5s" location="-76,102,-26" pitch="10" yaw="70">
+      <chat>
+        <line>^r • {tutorial.dtm.monument-objective}</line>
+      </chat>
+    </step>
+  </tutorial>
+  <teams>
+    <team color="red" id="red" max="16" min="1">{colors.red}</team>
+    <team color="yellow" id="yellow" max="16" min="1">{colors.yellow}</team>
+  </teams>
+  <spawns>
+    <!-- Spectator spawn -->
+    <spawn loadout="all">
+      <regions>
+        <point yaw="180">0.5, 142, 35.5</point>
+      </regions>
+    </spawn>
+    <!-- Team spawns -->
+    <spawn loadout="red-loadout" team="red" yaw="90">
+      <regions>
+        <point yaw="90">67.5, 101, 0.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="yellow-loadout" team="yellow" yaw="-90">
+      <regions>
+        <point yaw="-90">-67.5, 101, 0.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <objectives>
+    <monuments materials="obsidian">
+      <monuments owner="red">
+        <monument name="{directions.right}">
+          <region>
+            <join>
+              <block>84, 102, 23</block>
+              <block>84, 103, 23</block>
+            </join>
+          </region>
+        </monument>
+        <monument name="{directions.left}">
+          <region>
+            <join>
+              <block>84, 102, -23</block>
+              <block>84, 103, -23</block>
+            </join>
+          </region>
+        </monument>
+      </monuments>
+    </monuments>
+    <monuments materials="obsidian">
+      <monuments owner="yellow">
+        <monument name="{directions.right}">
+          <region>
+            <join>
+              <block>-84, 102, -23</block>
+              <block>-84, 103, -23</block>
+            </join>
+          </region>
+        </monument>
+        <monument name="{directions.left}">
+          <region>
+            <join>
+              <block>-84, 102, 23</block>
+              <block>-84, 103, 23</block>
+            </join>
+          </region>
+        </monument>
+      </monuments>
+    </monuments>
+  </objectives>
+  <loadouts>
+    <loadout id="all">
+      <effect amplifier="1" duration="1000000s">night vision</effect>
+    </loadout>
+    <loadout id="default" parent="all">
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="leather leggings" team-color="true"/>
+      <boots material="leather boots" team-color="true"/>
+      <item material="iron sword" slot="0"/>
+      <item material="bow" slot="1">
+        <enchantment>arrow infinite</enchantment>
+      </item>
+      <item material="diamond pickaxe" slot="2">
+        <enchantment level="1">dig speed</enchantment>
+      </item>
+      <item amount="2" material="golden apple" slot="3"/>
+      <item amount="32" material="log" slot="5"/>
+      <item amount="32" material="cooked fish" slot="7"/>
+      <item amount="1" material="arrow" slot="28"/>
+    </loadout>
+    <loadout id="red-loadout" parent="default">
+      <item amount="32" damage="14" material="stained glass" slot="4"/>
+    </loadout>
+    <loadout id="yellow-loadout" parent="default">
+      <item amount="32" damage="4" material="stained glass" slot="4"/>
+    </loadout>
+    <loadout id="kill-reward">
+      <item material="golden apple"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="kill-reward"/>
+    </rewards>
+  </kills>
+  <zones>
+    <zone modify="never">
+      <region>
+        <invert>
+          <cuboid max="-110, 130, -50" min="110, 94, 50"/>
+        </invert>
+      </region>
+      <message>{errors.outside-map}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid max="-62, 105, 10" min="-77, 100, -10"/>
+      </region>
+      <enter>
+        <team>yellow</team>
+      </enter>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid max="62, 105, 10" min="77, 100, -10"/>
+      </region>
+      <enter>
+        <team>red</team>
+      </enter>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+  </zones>
+  <world>
+    <storm>false</storm>
+    <weather check="always"/>
+  </world>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>leather leggings</material>
+        <material>leather boots</material>
+        <material>cooked fish</material>
+        <material>arrow</material>
+        <material>golden apple</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>iron sword</material>
+        <material>bow</material>
+        <material>diamond pickaxe</material>
+      </any>
+    </repair-tools>
+  </items>
+</map>

@@ -1,0 +1,181 @@
+﻿<?xml version="1.0"?>
+<map description="Capture the central hill and the enemy team's hill." name="ChimericIIITrio"
+  spec="1.0.4" version="1.1.1">
+  <include src="defaults.xml"/>
+  <include src="Shared/reward-one-gap.xml"/>
+  <include src="Shared/conquest-shop.xml"/>
+  <authors>
+    <author uuid="f876b863-1ccd-4ae2-acad-8a09e2209e81"/><!--  _DISTRACTION_  -->
+    <author uuid="5951eb64-d04b-4917-967e-57551860ed34"/><!--  xXBatManXx  -->
+  </authors>
+  <teams>
+    <load-group id="teams.pink-yellow" max="15" min="1"/>
+  </teams>
+  <results>
+    <win scenario="objectives">
+      <check>
+        <time>12m</time>
+      </check>
+    </win>
+    <win scenario="team" team="yellow">
+      <check>
+        <all>
+          <objective team="yellow">mid</objective>
+          <objective team="yellow">yellow-last</objective>
+          <objective team="yellow">pink-last</objective>
+        </all>
+      </check>
+    </win>
+    <win scenario="team" team="pink">
+      <check>
+        <all>
+          <objective team="pink">mid</objective>
+          <objective team="pink">pink-last</objective>
+          <objective team="pink">yellow-last</objective>
+        </all>
+      </check>
+    </win>
+  </results>
+  <spawns>
+    <spawn yaw="90">
+      <regions>
+        <point>2,60,0</point>
+      </regions>
+    </spawn>
+    <spawn id="yspawn" loadout="default" team="yellow" yaw="0">
+      <regions>
+        <cylinder base="0,50,191" height="2" radius="1"/>
+      </regions>
+    </spawn>
+    <spawn id="pspawn" loadout="default" team="pink" yaw="180">
+      <regions>
+        <cylinder base="0,50,-191" height="2" radius="1"/>
+      </regions>
+    </spawn>
+  </spawns>
+  <zones>
+    <zone enter="never">
+      <region>
+        <above y="27"/>
+      </region>
+      <message>{errors.outside-map}</message>
+    </zone>
+    <zone modify="never" region="everywhere">
+      <subtract>
+        <cuboid max="15,256,35" min="7,0,59"/>
+        <cuboid max="-15,256,35" min="-7,0,59"/>
+        <cuboid max="15,256,-35" min="7,0,-59"/>
+        <cuboid max="-15,256,-35" min="-7,0,-59"/>
+      </subtract>
+    </zone>
+  </zones>
+  <tutorial>
+    <step countdown="5s" freeze="true" location="5, 23, -1" pitch="62" yaw="80.3">
+      <chat>
+        <line>^r • {tutorial.koth.hill-area}</line>
+      </chat>
+    </step>
+    <step countdown="4s" freeze="true" location="3, 52, 195" pitch="39" yaw="129">
+      <chat>
+        <line>^r • {tutorial.generic.team-spawns}</line>
+      </chat>
+    </step>
+  </tutorial>
+  <objectives>
+    <hill capture-time="20s" id="yellow-last" initial-owner="yellow" name="{colors.yellow}">
+      <capture>
+        <cuboid max="6,14,128" min="-6,4,116"/>
+      </capture>
+      <progress>
+        <cuboid max="6,14,128" min="-6,4,116"/>
+      </progress>
+      <capture-check>
+        <any>
+          <all>
+            <team>pink</team>
+            <objective team="pink">pink-last</objective>
+            <objective team="pink">mid</objective>
+          </all>
+        </any>
+      </capture-check>
+    </hill>
+    <hill capture-time="30s" id="mid" name="{directions.center}">
+      <capture>
+        <cuboid max="5,25,5" min="-5,17,-5"/>
+      </capture>
+      <progress>
+        <join>
+          <cuboid max="5,17,5" min="-5,16,-5"/>
+          <cuboid max="10,19,10" min="-10,18,-10"/>
+        </join>
+      </progress>
+      <capture-check>
+        <any>
+          <all>
+            <team>pink</team>
+            <objective team="pink">pink-last</objective>
+          </all>
+          <all>
+            <team>yellow</team>
+            <objective team="yellow">yellow-last</objective>
+          </all>
+        </any>
+      </capture-check>
+    </hill>
+    <hill capture-time="20s" id="pink-last" initial-owner="pink" name="{colors.pink}">
+      <capture>
+        <cuboid max="6,14,-128" min="-6,4,-116"/>
+      </capture>
+      <progress>
+        <cuboid max="6,14,-128" min="-6,4,-116"/>
+      </progress>
+      <capture-check>
+        <any>
+          <all>
+            <team>yellow</team>
+            <objective team="yellow">yellow-last</objective>
+            <objective team="yellow">mid</objective>
+          </all>
+        </any>
+      </capture-check>
+    </hill>
+  </objectives>
+  <loadouts>
+    <loadout id="default">
+      <effect duration="5s">damage resistance</effect>
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate"/>
+      <leggings material="leather leggings" team-color="true"/>
+      <boots material="leather boots" team-color="true"/>
+      <item material="stone sword" slot="0"/>
+      <item material="bow" slot="1"/>
+      <item material="golden apple" slot="2"/>
+      <item amount="32" material="cooked fish" slot="3"/>
+      <item amount="8" material="wood" slot="4"/>
+      <item amount="32" material="arrow" slot="7"/>
+    </loadout>
+  </loadouts>
+  <items>
+    <remove-drops>
+      <any>
+        <material>stone sword</material>
+        <material>bow</material>
+        <material>diamond pickaxe</material>
+        <material>stone axe</material>
+        <material>arrow</material>
+      </any>
+    </remove-drops>
+  </items>
+  <world>
+    <gamerules>
+      <doDaylightCycle>false</doDaylightCycle>
+    </gamerules>
+  </world>
+  <damage>
+    <disable>
+      <any>
+        <damage>fall</damage>
+      </any>
+    </disable>
+  </damage>
+</map>

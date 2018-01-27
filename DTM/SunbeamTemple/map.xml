@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<map name="Sunbeam Temple" spec="1.0.0" version="1.1.0">
+  <include src="defaults.xml"/>
+  <gametype>dtm</gametype>
+  <include src="Shared/reward-one-gap.xml"/>
+  <include src="Shared/tutorials/dtm.xml"/>
+  <authors>
+    <author uuid="378952b5808f4a33911e39c7ba153b38"/> <!-- Pavlo -->
+    <author uuid="c29bef37d8e242a9b74604f2df78f374"/> <!-- Legoche -->
+  </authors>
+  <teams>
+    <team color="yellow" id="yellow" max="15" min="1">{colors.yellow}</team>
+    <team color="cyan" id="cyan" max="15" min="1">{colors.cyan}</team>
+  </teams>
+  <tutorial>
+    <step countdown="5s" freeze="false" location="0, 147, 143" pitch="56.8" yaw="-1.3">
+      <chat>
+        <line>^r • {tutorial.generic.team-spawns}</line>
+      </chat>
+    </step>
+    <step countdown="4s" location="45, 148, 150" pitch="3.8" yaw="0.6">
+      <chat>
+        <line>^r • {tutorial.dtm.monument-area}</line>
+        <line>^r • {tutorial.dtm.monument-objective}</line>
+      </chat>
+    </step>
+  </tutorial>
+  <spawns>
+    <!-- Spectator spawn -->
+    <spawn>
+      <regions>
+        <point yaw="-90">-87.5, 42, 69.5</point>
+      </regions>
+    </spawn>
+    <!-- Team spawns -->
+    <spawn loadout="default" team="cyan" yaw="0">
+      <regions>
+        <point yaw="0">-0.5, 4, -16.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="yellow" yaw="180">
+      <regions>
+        <point yaw="180">-0.5, 4, 155.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <objectives>
+    <monuments materials="obsidian">
+      <monuments owner="yellow">
+        <monument name="{directions.left}">
+          <region>
+            <block>44, 23, 153</block>
+          </region>
+        </monument>
+        <monument name="{directions.right}">
+          <region>
+            <block>-46, 23, 153</block>
+          </region>
+        </monument>
+      </monuments>
+      <monuments owner="cyan">
+        <monument name="{directions.left}">
+          <region>
+            <block>-46, 23, -15</block>
+          </region>
+        </monument>
+        <monument name="{directions.right}">
+          <region>
+            <block>44, 23, -15</block>
+          </region>
+        </monument>
+      </monuments>
+    </monuments>
+  </objectives>
+  <loadouts>
+    <loadout id="default">
+      <helmet material="leather helmet" team-color="true"/>
+      <item material="stone sword" slot="0"/>
+      <item material="bow" slot="1">
+        <enchantment>arrow infinite</enchantment>
+      </item>
+      <item material="diamond pickaxe" slot="2">
+        <enchantment>dig speed</enchantment>
+      </item>
+      <item amount="3" material="golden apple" slot="3"/>
+      <item amount="16" material="cooked chicken" slot="6"/>
+      <item amount="64" material="log" slot="4"/>
+      <item amount="64" material="glass" slot="5"/>
+      <item amount="1" material="arrow" slot="28"/>
+    </loadout>
+  </loadouts>
+  <zones>
+    <zone modify="never">
+      <region>
+        <cuboid max="-5, 18, -19" min="3, 0, 4"/>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid max="3, 18, 157" min="-5, 0, 134"/>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid max="-81, 34, 76" min="-98, 50, 61"/>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+  </zones>
+  <regions>
+    <above id="height-limit" y="40"/>
+  </regions>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>glass</material>
+        <material>log</material>
+        <material>cooked chicken</material>
+        <material>cobblestone</material>
+        <material>arrow</material>
+        <material>wool</material>
+        <material>diamond sword</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>stone sword</material>
+        <material>bow</material>
+        <material>diamond pickaxe</material>
+      </any>
+    </repair-tools>
+  </items>
+</map>

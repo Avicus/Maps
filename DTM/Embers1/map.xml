@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="Embers 1" spec="1.0.0" version="1.1.0">
+  <include src="defaults.xml"/>
+  <include src="Shared/tutorials/dtm.xml"/>
+  <gametype>dtm</gametype>
+  <authors>
+    <author uuid="da98a2f1673c4cecb547e0a342abfde4"/> <!-- timaeusTestified -->
+  </authors>
+  <teams>
+    <load-group id="teams.red-blue" max="25" min="1"/>
+  </teams>
+  <tutorial>
+    <step countdown="5s" freeze="false" location="-69,88,17" pitch="0" yaw="90">
+      <chat>
+        <line>^r • {tutorial.generic.team-spawns}</line>
+      </chat>
+    </step>
+    <step countdown="4s" location="-112,88,48" pitch="-30" yaw="60">
+      <chat>
+        <line>^r • {tutorial.dtm.monument-area}</line>
+      </chat>
+    </step>
+    <step countdown="5s" location="-36,88,-35" pitch="-10" yaw="-153">
+      <chat>
+        <line>^r • {tutorial.dtm.monument-objective}</line>
+      </chat>
+    </step>
+  </tutorial>
+  <spawns>
+    <!-- Spectator spawn -->
+    <spawn>
+      <regions>
+        <circle center="22, 132, 116" radius="3" yaw="180"/>
+      </regions>
+    </spawn>
+    <!-- Team spawns -->
+    <spawn loadout="default" team="red" yaw="-90">
+      <regions>
+        <circle center="-76, 88, 17" radius="3"/>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="blue" yaw="90">
+      <regions>
+        <circle center="119, 88, 17" radius="3"/>
+      </regions>
+    </spawn>
+  </spawns>
+  <objectives>
+    <monuments materials="obsidian">
+      <monuments owner="red">
+        <monument name="{directions.front-left}">
+          <region>
+            <block>-32, 90, 77</block>
+          </region>
+        </monument>
+        <monument name="{directions.front-right}">
+          <region>
+            <block>-32, 90, -43</block>
+          </region>
+        </monument>
+        <monument name="{directions.back-left}">
+          <region>
+            <block>-119, 90, 52</block>
+          </region>
+        </monument>
+        <monument name="{directions.back-right}">
+          <region>
+            <block>-119, 90, -18</block>
+          </region>
+        </monument>
+      </monuments>
+      <monuments owner="blue">
+        <monument name="{directions.front-left}">
+          <region>
+            <block>74, 90, -43</block>
+          </region>
+        </monument>
+        <monument name="{directions.front-right}">
+          <region>
+            <block>74, 90, 77</block>
+          </region>
+        </monument>
+        <monument name="{directions.back-left}">
+          <region>
+            <block>161, 90, -18</block>
+          </region>
+        </monument>
+        <monument name="{directions.back-right}">
+          <region>
+            <block>161, 90, 52</block>
+          </region>
+        </monument>
+      </monuments>
+    </monuments>
+  </objectives>
+  <loadouts>
+    <loadout id="default">
+      <helmet material="leather helmet" team-color="true"/>
+      <item material="stone sword" slot="0"/>
+      <item material="bow" slot="1">
+        <enchantment>arrow infinite</enchantment>
+      </item>
+      <item material="diamond pickaxe" slot="2"/>
+      <item amount="2" material="golden apple" slot="3"/>
+      <item amount="64" material="log 2" slot="4"/>
+      <item amount="64" material="stained glass" slot="5"/>
+      <item amount="32" material="golden carrot" slot="6"/>
+      <item material="arrow" slot="28"/>
+    </loadout>
+    <loadout id="kill-reward">
+      <item material="golden apple"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="kill-reward"/>
+    </rewards>
+  </kills>
+  <zones>
+    <zone modify="never">
+      <region>
+        <cylinder base="119, 87, 17" height="25" radius="10"/>
+      </region>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cylinder base="-77, 87, 17" height="25" radius="10"/>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cylinder base="22, 131, 118" height="4" radius="9"/>
+      </region>
+      <message>{errors.cannot-build}</message>
+    </zone>
+  </zones>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>golden carrot</material>
+        <material>stained glass</material>
+        <material>log 2</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>stone sword</material>
+        <material>bow</material>
+        <material>diamond pickaxe</material>
+      </any>
+    </repair-tools>
+  </items>
+</map>

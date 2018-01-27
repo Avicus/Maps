@@ -1,0 +1,151 @@
+<?xml version="1.0"?>
+<map name="Midnight Relic" spec="1.0.0" version="1.0.0">
+  <include src="Shared/phases-dtm.xml"/>
+  <include src="defaults.xml"/>
+  <authors>
+    <author uuid="ed8e620279ef46febc33224b7f54ef88"/> <!-- Slicorn -->
+  </authors>
+  <teams>
+    <team color="red" id="red" max="25" min="1">{colors.red} Team</team>
+    <team color="orange" id="orange" max="25" min="1">{colors.orange} Team</team>
+  </teams>
+  <spawns>
+    <spawn loadout="all">
+      <regions>
+        <point yaw="-90">-106.5, 109, -142.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="spawnkit" team="red">
+      <regions>
+        <cuboid max="-74, 66, -23" min="-76, 66, -21" yaw="180"/>
+      </regions>
+    </spawn>
+    <spawn loadout="spawnkit" team="orange">
+      <regions>
+        <cuboid max="-76, 66, -262" min="-74, 66, -264" yaw="0"/>
+      </regions>
+    </spawn>
+  </spawns>
+  <loadouts>
+    <loadout id="all">
+      <effect duration="10000s">night vision</effect>
+    </loadout>
+    <loadout id="spawnkit" parent="all">
+      <item material="iron sword" slot="0"/>
+      <item material="bow" slot="1">
+        <enchantment level="1">arrow infinite</enchantment>
+      </item>
+      <item material="diamond pickaxe" slot="2">
+        <enchantment level="1">dig speed</enchantment>
+      </item>
+      <item amount="2" material="golden apple" slot="3"/>
+      <item amount="64" material="glass" slot="4"/>
+      <item amount="32" material="log" slot="5"/>
+      <item amount="16" material="golden carrot" slot="6"/>
+      <item amount="1" material="arrow" slot="28"/>
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="leather leggings" team-color="true"/>
+      <boots material="leather boots" team-color="true"/>
+    </loadout>
+    <loadout id="kill-reward">
+      <item material="golden apple"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="kill-reward"/>
+    </rewards>
+  </kills>
+  <objectives>
+    <monuments materials="obsidian">
+      <monuments owner="orange">
+        <monument name="{directions.right}">
+          <region>
+            <point>-54, 68, -288</point>
+          </region>
+        </monument>
+        <monument name="{directions.left}">
+          <region>
+            <point>-97, 68, -288</point>
+          </region>
+        </monument>
+      </monuments>
+      <monuments owner="red">
+        <monument name="{directions.right}">
+          <region>
+            <point>-97, 68, 2</point>
+          </region>
+        </monument>
+        <monument name="{directions.left}">
+          <region>
+            <point>-54, 68, 2</point>
+          </region>
+        </monument>
+      </monuments>
+    </monuments>
+  </objectives>
+  <results>
+    <win scenario="objectives">
+      <check>
+        <time>1h</time>
+      </check>
+    </win>
+  </results>
+  <items>
+    <remove-drops>
+      <any>
+        <material>glass</material>
+        <material>log</material>
+        <material>wood</material>
+        <material>golden carrot</material>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>leather leggings</material>
+        <material>leather boots</material>
+        <material>arrow</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>iron sword</material>
+        <material>diamond pickaxe</material>
+        <material>bow</material>
+      </any>
+    </repair-tools>
+  </items>
+  <regions>
+    <above id="height-limit" y="98"/>
+  </regions>
+  <zones>
+    <zone modify="never" region="height-limit">
+      <message>{errors.height-limit}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <invert>
+          <cuboid max="-115, 256, 6" min="-35, 1, -291"/>
+        </invert>
+      </region>
+      <message>{errors.outside-map}</message>
+    </zone>
+    <zone modify="never">
+      <enter>
+        <team>red</team>
+      </enter>
+      <region>
+        <cuboid max="-86, 64, -30" min="-65, 69, -18"/>
+      </region>
+      <message>{errors.enemy-base}</message>
+    </zone>
+    <zone modify="never">
+      <enter>
+        <team>orange</team>
+      </enter>
+      <region>
+        <cuboid max="-86, 64, -256" min="-65, 69, -268"/>
+      </region>
+      <message>{errors.enemy-base}</message>
+    </zone>
+  </zones>
+</map>

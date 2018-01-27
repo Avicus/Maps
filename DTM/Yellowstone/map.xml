@@ -1,0 +1,155 @@
+<?xml version="1.0"?>
+<map name="Yellowstone" spec="1.0.0" version="1.2.0">
+  <include src="defaults.xml"/>
+  <gametype>dtm</gametype>
+  <include src="Shared/reward-one-gap.xml"/>
+  <authors>
+    <author uuid="da98a2f1673c4cecb547e0a342abfde4"/> <!-- timaeusTestified -->
+  </authors>
+  <tutorial>
+    <step countdown="4s" freeze="false" location="0, 13, -7" pitch="23" yaw="0">
+      <chat>
+        <line>^r • {tutorial.generic.team-spawns}</line>
+      </chat>
+    </step>
+    <step countdown="7s" freeze="false" location="-63, 22, -24" pitch="17" yaw="46">
+      <chat>
+        <line>^r • {tutorial.dtm.monument-area}</line>
+        <line>^r • {tutorial.dtm.monument-objective}</line>
+      </chat>
+    </step>
+  </tutorial>
+  <teams>
+    <team color="cyan" id="moon" max="25" min="1">Moon Tribe</team>
+    <team color="yellow" id="sun" max="25" min="1">Sun Tribe</team>
+  </teams>
+  <objectives>
+    <monuments materials="obsidian">
+      <monuments owner="moon">
+        <monument name="{directions.left}">
+          <region>
+            <block>-29, 28, -193</block>
+          </region>
+        </monument>
+        <monument name="{directions.right}">
+          <region>
+            <block>29, 28, -193</block>
+          </region>
+        </monument>
+        <monument name="{directions.back-left}">
+          <region>
+            <block>-69, 22, -234</block>
+          </region>
+        </monument>
+        <monument name="{directions.back-right}">
+          <region>
+            <block>69, 22, -234</block>
+          </region>
+        </monument>
+      </monuments>
+      <monuments owner="sun">
+        <monument name="{directions.left}">
+          <region>
+            <block>29, 28, -61</block>
+          </region>
+        </monument>
+        <monument name="{directions.right}">
+          <region>
+            <block>-29, 28, -61</block>
+          </region>
+        </monument>
+        <monument name="{directions.back-left}">
+          <region>
+            <block>69, 22, -20</block>
+          </region>
+        </monument>
+        <monument name="{directions.back-right}">
+          <region>
+            <block>-69, 22, -20</block>
+          </region>
+        </monument>
+      </monuments>
+    </monuments>
+  </objectives>
+  <spawns>
+    <spawn yaw="90">
+      <regions>
+        <block>97, 60, -126</block>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="moon">
+      <regions>
+        <circle center="0, 8, -260" radius="2"/>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="sun" yaw="180">
+      <regions>
+        <circle center="0, 8, 7" radius="2"/>
+      </regions>
+    </spawn>
+  </spawns>
+  <zones>
+    <zone modify="never">
+      <region>
+        <cylinder base="0, 5, -258" height="7" radius="9"/>
+      </region>
+      <enter>
+        <team>moon</team>
+      </enter>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cylinder base="0, 5, 4" height="7" radius="9"/>
+      </region>
+      <enter>
+        <team>sun</team>
+      </enter>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <join>
+          <cuboid max="-46, 36, -90" min="-44, 27, -92"/>
+          <cuboid max="46, 36, -162" min="44, 27, -164"/>
+          <cuboid max="46, 36, -92" min="44, 27, -90"/>
+          <cuboid max="-46, 36, -162" min="-44, 27, 164"/>
+        </join>
+      </region>
+      <message>{errors.cannot-build}</message>
+    </zone>
+  </zones>
+  <loadouts>
+    <loadout id="default">
+      <effect amplifier="5" duration="5s">damage resistance</effect>
+      <helmet material="leather helmet" team-color="true"/>
+      <item material="stone sword" slot="0"/>
+      <item material="bow" slot="1"/>
+      <item material="diamond pickaxe" slot="2"/>
+      <item amount="3" material="golden apple" slot="3"/>
+      <item amount="64" material="cobblestone" slot="4"/>
+      <item amount="32" damage="1" material="log" slot="5"/>
+      <item amount="12" material="golden carrot" slot="6"/>
+      <item amount="4" material="exp bottle" slot="7"/>
+      <item amount="32" material="arrow" slot="27"/>
+      <item material="lapis block" slot="28"/>
+    </loadout>
+  </loadouts>
+  <items>
+    <repair-tools>
+      <any>
+        <material>stone sword</material>
+        <material>bow</material>
+        <material>diamond pickaxe</material>
+      </any>
+    </repair-tools>
+    <remove-drops>
+      <any>
+        <material>log</material>
+        <material>wood</material>
+        <material>leather helmet</material>
+        <material>golden carrot</material>
+      </any>
+    </remove-drops>
+  </items>
+</map>

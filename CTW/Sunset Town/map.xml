@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="Sunset Town" spec="1.0.4" version="1.0.1">
+  <include src="defaults.xml"/>
+  <authors>
+    <author uuid="f876b863-1ccd-4ae2-acad-8a09e2209e81"/>
+    <!--  _DISTRACTION_  -->
+    <author uuid="63b88dff-c6b4-4e08-bd17-aae089b12e95"/>
+    <!--  Riilo  -->
+    <author uuid="0b8f95fa-0f40-4f28-9fd0-b8e243bb6800"/>
+    <!--  Fouled  -->
+    <author uuid="89f514e1-f0f5-4977-8ddc-77ef030a8b46"/>
+    <!--  Posighdun  -->
+  </authors>
+  <gametype>ctw</gametype>
+  <teams>
+    <team color="yellow" id="yellow" max="12" min="1">{colors.yellow}</team>
+    <load-group id="teams.red-blue" max="12" min="1"/>
+    <team color="lime" id="lime" max="12" min="1">{colors.lime}</team>
+  </teams>
+  <spawns>
+    <!-- Spectator spawn -->
+    <spawn yaw="0">
+      <regions>
+        <point>0.5,75,-0.5</point>
+      </regions>
+    </spawn>
+    <!-- Team spawns -->
+    <spawn loadout="teams-default" team="yellow" yaw="180">
+      <regions>
+        <point>0.5,13,117.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="teams-default" team="red" yaw="90">
+      <regions>
+        <point>117.5,13,0.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="teams-default" team="blue" yaw="-90">
+      <regions>
+        <point>-116.5,13,0.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="teams-default" team="lime" yaw="0">
+      <regions>
+        <point>0.5,13,-116.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <objectives>
+    <wools pickup="false" refill="true" team="yellow">
+      <wool color="red">
+        <source>
+          <block>2,22,0</block>
+        </source>
+        <destination>
+          <block>0,14,119</block>
+        </destination>
+      </wool>
+      <wool color="blue">
+        <source>
+          <block>-2,22,0</block>
+        </source>
+        <destination>
+          <block>1,14,119</block>
+        </destination>
+      </wool>
+      <wool color="lime">
+        <source>
+          <block>0,22,-2</block>
+        </source>
+        <destination>
+          <block>-1,14,119</block>
+        </destination>
+      </wool>
+    </wools>
+    <wools pickup="false" refill="true" team="red">
+      <wool color="yellow">
+        <source>
+          <block>0,22,2</block>
+        </source>
+        <destination>
+          <block>119,14,0</block>
+        </destination>
+      </wool>
+      <wool color="blue">
+        <source>
+          <block>-2,22,0</block>
+        </source>
+        <destination>
+          <block>119,14,-1</block>
+        </destination>
+      </wool>
+      <wool color="lime">
+        <source>
+          <block>0,22,-2</block>
+        </source>
+        <destination>
+          <block>119,14,1</block>
+        </destination>
+      </wool>
+    </wools>
+    <wools pickup="false" refill="true" team="blue">
+      <wool color="yellow">
+        <source>
+          <block>0,22,2</block>
+        </source>
+        <destination>
+          <block>-119,14,1</block>
+        </destination>
+      </wool>
+      <wool color="red">
+        <source>
+          <block>2,22,0</block>
+        </source>
+        <destination>
+          <block>-119,14,0</block>
+        </destination>
+      </wool>
+      <wool color="lime">
+        <source>
+          <block>0,22,-2</block>
+        </source>
+        <destination>
+          <block>-119,14,-1</block>
+        </destination>
+      </wool>
+    </wools>
+    <wools pickup="false" refill="true" team="lime">
+      <wool color="yellow">
+        <source>
+          <block>0,22,2</block>
+        </source>
+        <destination>
+          <block>0,14,-119</block>
+        </destination>
+      </wool>
+      <wool color="red">
+        <source>
+          <block>2,22,0</block>
+        </source>
+        <destination>
+          <block>1,14,-119</block>
+        </destination>
+      </wool>
+      <wool color="blue">
+        <source>
+          <block>-2,22,0</block>
+        </source>
+        <destination>
+          <block>-1,14,-119</block>
+        </destination>
+      </wool>
+    </wools>
+  </objectives>
+  <loadouts>
+    <loadout id="teams-default">
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="leather leggings" team-color="true"/>
+      <boots material="leather boots" team-color="true"/>
+      <item material="iron sword" slot="0"/>
+      <item material="bow" slot="1"/>
+      <item material="diamond pickaxe" slot="2"/>
+      <item material="iron axe" slot="3"/>
+      <item amount="16" material="glass" slot="4"/>
+      <item amount="24" material="log" slot="5"/>
+      <item amount="64" material="cooked fish" slot="6"/>
+      <item amount="2" material="golden apple" slot="7"/>
+      <item material="iron spade" slot="8"/>
+      <item material="flint and steel" slot="26">
+        <enchantments>
+          <enchantment level="10">durability</enchantment>
+        </enchantments>
+      </item>
+      <item amount="64" material="arrow" slot="27"/>
+    </loadout>
+  </loadouts>
+  <zones>
+    <zone modify="never">
+      <region>
+        <cuboid max="-6,255,-6" min="6,0,6"/>
+      </region>
+      <message>{errors.cannot-build}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <above y="26"/>
+      </region>
+      <message>{errors.height-limit}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <void/>
+      </region>
+      <message>{errors.outside-map}</message>
+    </zone>
+    <!-- yellow Spawn -->
+    <zone modify="never">
+      <region>
+        <subtract>
+          <cuboid max="-5,255,120" min="5,0,99"/>
+          <block>0,14,119</block>
+          <block>1,14,119</block>
+          <block>-1,14,119</block>
+        </subtract>
+      </region>
+      <enter>
+        <team>yellow</team>
+      </enter>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <!-- red Spawn -->
+    <zone modify="never">
+      <region>
+        <subtract>
+          <cuboid max="120,255,5" min="99,0,-5"/>
+          <block>119,14,0</block>
+          <block>119,14,1</block>
+          <block>119,14,-1</block>
+        </subtract>
+      </region>
+      <enter>
+        <team>red</team>
+      </enter>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <!-- blue Spawn -->
+    <zone modify="never">
+      <region>
+        <subtract>
+          <cuboid max="-120,255,-5" min="-99,0,5"/>
+          <block>-119,14,0</block>
+          <block>-119,14,1</block>
+          <block>-119,14,-1</block>
+        </subtract>
+      </region>
+      <enter>
+        <team>blue</team>
+      </enter>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <!-- lime Spawn -->
+    <zone modify="never">
+      <region>
+        <subtract>
+          <cuboid max="5,255,-120" min="-5,0,-99"/>
+          <block>0,14,-119</block>
+          <block>1,14,-119</block>
+          <block>-1,14,-119</block>
+        </subtract>
+      </region>
+      <enter>
+        <team>lime</team>
+      </enter>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <!-- yellow Wool Rooms -->
+    <zone modify="never">
+      <region>
+        <join>
+          <cuboid max="5,255,6" min="-5,0,6"/>
+          <cuboid max="4,255,5" min="-4,0,5"/>
+          <cuboid max="3,255,4" min="-3,0,4"/>
+          <cuboid max="2,255,3" min="-2,0,3"/>
+          <cuboid max="1,255,2" min="-1,0,2"/>
+          <cuboid max="0,255,1" min="0,0,1"/>
+        </join>
+      </region>
+      <enter>
+        <not>
+          <team>yellow</team>
+        </not>
+      </enter>
+      <message>{errors.own-wool-room}</message>
+    </zone>
+    <!-- red Wool Rooms -->
+    <zone modify="never">
+      <region>
+        <join>
+          <cuboid max="6,255,-5" min="6,0,5"/>
+          <cuboid max="5,255,-4" min="5,0,4"/>
+          <cuboid max="4,255,-3" min="4,0,3"/>
+          <cuboid max="3,255,-2" min="3,0,2"/>
+          <cuboid max="2,255,-1" min="2,0,1"/>
+          <cuboid max="1,255,0" min="1,0,0"/>
+        </join>
+      </region>
+      <enter>
+        <not>
+          <team>red</team>
+        </not>
+      </enter>
+      <message>{errors.own-wool-room}</message>
+    </zone>
+    <!-- blue Wool Rooms -->
+    <zone modify="never">
+      <region>
+        <join>
+          <cuboid max="-6,255,-5" min="-6,0,5"/>
+          <cuboid max="-5,255,-4" min="-5,0,4"/>
+          <cuboid max="-4,255,-3" min="-4,0,3"/>
+          <cuboid max="-3,255,-2" min="-3,0,2"/>
+          <cuboid max="-2,255,-1" min="-2,0,1"/>
+          <cuboid max="-1,255,0" min="-1,0,0"/>
+        </join>
+      </region>
+      <enter>
+        <not>
+          <team>blue</team>
+        </not>
+      </enter>
+      <message>{errors.own-wool-room}</message>
+    </zone>
+    <!-- lime Wool Rooms -->
+    <zone modify="never">
+      <region>
+        <join>
+          <cuboid max="5,255,-6" min="-5,0,-6"/>
+          <cuboid max="4,255,-5" min="-4,0,-5"/>
+          <cuboid max="3,255,-4" min="-3,0,-4"/>
+          <cuboid max="2,255,-3" min="-2,0,-3"/>
+          <cuboid max="1,255,-2" min="-1,0,-2"/>
+          <cuboid max="0,255,-1" min="0,0,-1"/>
+        </join>
+      </region>
+      <enter>
+        <not>
+          <team>lime</team>
+        </not>
+      </enter>
+      <message>{errors.own-wool-room}</message>
+    </zone>
+  </zones>
+  <world>
+    <storm>false</storm>
+    <weather check="always"/>
+  </world>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>leather leggings</material>
+        <material>leather boots</material>
+        <material>cooked fish</material>
+        <material>golden apple</material>
+        <material>glass</material>
+        <material>log</material>
+        <material>wood</material>
+        <material>arrow</material>
+        <material>wool</material>
+        <material>flint and steel</material>
+        <material>iron sword</material>
+        <material>iron chestplate</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>bow</material>
+        <material>diamond pickaxe</material>
+        <material>iron axe</material>
+        <material>iron spade</material>
+      </any>
+    </repair-tools>
+  </items>
+</map>

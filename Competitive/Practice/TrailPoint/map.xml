@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="Trail Point" spec="1.0.0" version="1.0.3">
+  <include src="defaults.xml"/>
+  <include src="Shared/reward-one-gap.xml"/>
+  <authors>
+    <author uuid="0b8f95fa0f404f289fd0b8e243bb6800"/> <!-- Fouled -->
+  </authors>
+  <teams>
+    <team color="purple" id="purple" max="8" min="1">{colors.purple}</team>
+    <team color="yellow" id="yellow" max="8" min="1">{colors.yellow}</team>
+  </teams>
+  <spawns>
+    <spawn>
+      <regions>
+        <point yaw="180">-95.5, 57, -148.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="purple">
+      <regions>
+        <point yaw="90">64.5, 12, -56.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="yellow">
+      <regions>
+        <point yaw="-90">-255.5, 12, -56.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <world>
+    <gamerules>
+      <doDaylightCycle>false</doDaylightCycle>
+    </gamerules>
+  </world>
+  <loadouts>
+    <loadout id="default">
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="leather leggings" team-color="true"/>
+      <boots material="leather boots" team-color="true"/>
+      <item material="iron sword" slot="0"/>
+      <item material="bow" slot="1"/>
+      <item material="diamond pickaxe" slot="2"/>
+      <item material="iron axe" slot="3"/>
+      <item amount="32" material="log" slot="4"/>
+      <item amount="32" material="glass" slot="5"/>
+      <item amount="16" material="cooked beef" slot="6"/>
+      <item material="golden apple" slot="7"/>
+      <item amount="32" material="arrow" slot="28"/>
+    </loadout>
+    <loadout id="reward-get">
+      <item amount="4" material="arrow"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="reward-get"/>
+    </rewards>
+  </kills>
+  <results>
+    <win scenario="objectives">
+      <check>
+        <time>45m</time>
+      </check>
+    </win>
+  </results>
+  <objectives>
+    <wools team="purple">
+      <wool color="blue">
+        <source>
+          <block>-190, 12, -57</block>
+        </source>
+        <destination>
+          <block>42, 11, -57</block>
+        </destination>
+      </wool>
+    </wools>
+    <wools team="yellow">
+      <wool color="orange">
+        <source>
+          <block>-2, 12, -57</block>
+        </source>
+        <destination>
+          <block>-234, 11, -57</block>
+        </destination>
+      </wool>
+    </wools>
+  </objectives>
+  <regions>
+    <subtract id="void-outer"> <!-- All blocks of void minus the mid region -->
+      <void/>
+      <cuboid max="-8, 28, -102" min="6, 0, -12"/>
+      <cuboid max="-203, 28, -11" min="11, 0, 3"/>
+      <cuboid max="-184, 28, -102" min="-198, 0, -12"/>
+      <cuboid max="11, 28, -103" min="-203, 0, -117"/>
+      <cuboid max="-54, 28, -87" min="-40, 0, -103"/>
+      <cuboid max="-54, 28, -27" min="-40, 0, -12"/>
+      <cuboid max="-55, 28, -86" min="-69, 0, -28"/>
+      <cuboid max="-123, 28, -28" min="-137, 0, -86"/>
+      <cuboid max="-138, 28, -27" min="-152, 0, 3"/>
+      <cuboid max="-138, 28, -117" min="-152, 0, -87"/>
+      <cuboid max="-54, 28, -87" min="-40, 0, -117"/>
+      <cuboid max="-54, 28, 3" min="-40, 0, -27"/>
+    </subtract>
+    <above id="height-limit" y="28"/>
+  </regions>
+  <zones>
+    <zone modify="never">
+      <enter>
+        <team>purple</team>
+      </enter>
+      <region>
+        <cuboid max="66, 28, -71" min="51, 0, -43"/>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never">
+      <enter>
+        <team>yellow</team>
+      </enter>
+      <region>
+        <cuboid max="-258, 28, -43" min="-243, 0, -71"/>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never">
+      <modify>
+        <team>purple</team>
+      </modify>
+      <region>
+        <subtract id="wool-room-modify"> <!-- All of the blocks minus the monument -->
+          <cuboid max="-198, 28, -66" min="-184, 0, -48"/>
+          <cuboid max="-190, 12, -51" min="-192, 12, -51"/>
+          <cuboid max="-192, 12, -63" min="-190, 12, -63"/>
+        </subtract>
+      </region>
+      <message>{errors.cannot-build}</message>
+    </zone>
+    <zone modify="never">
+      <modify>
+        <team>yellow</team>
+      </modify>
+      <region>
+        <subtract id="wool-room-modify"> <!-- All of the blocks minus the monument -->
+          <cuboid max="-8, 28, -48" min="6, 0, -66"/>
+          <cuboid max="-2, 12, -63" min="0, 12, -63"/>
+          <cuboid max="0, 12, -51" min="-2, 12, -51"/>
+        </subtract>
+      </region>
+      <message>{errors.cannot-build}</message>
+    </zone>
+    <zone modify="always">
+      <enter>
+        <team>purple</team>
+      </enter>
+      <region>
+        <cuboid max="-198, 28, -66" min="-184, 0, -48"/>
+      </region>
+      <message>{errors.own-wool-room}</message>
+    </zone>
+    <zone modify="always">
+      <enter>
+        <team>yellow</team>
+      </enter>
+      <region>
+        <cuboid max="-8, 28, -48" min="6, 0, -66"/>
+      </region>
+      <message>{errors.own-wool-room}</message>
+    </zone>
+    <zone modify="never" region="void-outer">
+      <message>{errors.outside-map}</message>
+    </zone>
+    <zone modify="never" region="height-limit">
+      <message>{errors.height-limit}</message>
+    </zone>
+  </zones>
+  <executors>
+    <executor check="always" id="match-start-regions">
+      <replace-block find="stained glass" replace="air">
+        <region>
+          <cuboid max="11, 0, -117" min="-203, 0, 3"/>
+        </region>
+      </replace-block>
+    </executor>
+  </executors>
+  <triggers>
+    <trigger execute="match-start-regions" on="match-start"/>
+  </triggers>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>leather leggings</material>
+        <material>leather boots</material>
+        <material>glass</material>
+        <material>cooked beef</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>iron sword</material>
+        <material>bow</material>
+        <material>diamond pickaxe</material>
+        <material>iron axe</material>
+      </any>
+    </repair-tools>
+  </items>
+</map>

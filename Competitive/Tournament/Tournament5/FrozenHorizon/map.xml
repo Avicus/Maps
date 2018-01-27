@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="Frozen Horizon" spec="1.0.2" version="1.0.0">
+  <include src="defaults.xml"/>
+  <include src="Shared/reward-one-gap.xml"/>
+  <authors>
+    <!-- Map Leads -->
+    <author uuid="004e817d-35fa-47ae-ac7e-4f37d70ed9ba"/>  <!-- Zicuri -->
+    <author uuid="4d10e1b1-3fcc-4537-a162-0cca6754da2d"/>  <!-- Karnyyy -->
+    <!-- Contributors -->
+    <author contributor="true" uuid="fa83f6f2-ef21-4dc3-b11a-2b21d16e2b8c"/>  <!-- Rombeyy -->
+    <author contributor="true" uuid="04b454b5-686f-4464-9c6f-67c1df698ec3"/>  <!-- Paji -->
+    <author contributor="true" uuid="70d2e97a-cd93-474c-83d4-85233621b453"/>  <!-- ZicuriAssasin -->
+    <author contributor="true" uuid="8fb7e4dc-b575-40db-acd8-754b1ba81aa5"/>  <!-- Walt -->
+    <author contributor="true" role="XML and Spawners"
+      uuid="c2a4c847-653e-482a-b62e-d7f8b64330cb"/>  <!-- ALM -->
+  </authors>
+  <teams>
+    <load-group id="teams.red-blue" max="8" min="1"/>
+  </teams>
+  <spawns>
+    <!-- Spectator spawn -->
+    <spawn>
+      <regions>
+        <point yaw="47">25, 95, 15</point>
+      </regions>
+    </spawn>
+    <!-- Team spawns -->
+    <spawn loadout="default" team="red" yaw="90">
+      <regions>
+        <point yaw="90">63, 149, 8</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="blue" yaw="-90">
+      <regions>
+        <point yaw="-90">-61, 148, -7</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <zones>
+    <zones>
+      <load-group id="no-build"/>
+    </zones>
+    <zone>
+      <region>
+        <cuboid max="72, 50, 15" min="71, 46, 21"/>
+      </region>
+      <enter>
+        <team>red</team>
+      </enter>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone>
+      <region>
+        <cuboid max="-29, 50, 10" min="-28, 46, 4"/>
+      </region>
+      <enter>
+        <team>blue</team>
+      </enter>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <!-- Posts -->
+    <zone id="red-post">
+      <region>
+        <block>36, 11, 10</block>
+      </region>
+      <post yaw="90"/>
+    </zone>
+    <zone id="blue-post">
+      <region>
+        <block>-35, 11, -10</block>
+      </region>
+      <post yaw="-90"/>
+    </zone>
+    <!-- Nets -->
+    <zone id="red-net">
+      <region>
+        <cuboid max="37, 12, 11" min="35, 10, 9"/>
+      </region>
+      <net owner="red" points="1"/>
+    </zone>
+    <zone id="blue-net">
+      <region>
+        <cuboid max="-36, 12, -11" min="-34, 10, -9"/>
+      </region>
+      <net owner="blue" points="1"/>
+    </zone>
+  </zones>
+  <loadouts>
+    <loadout id="default">
+      <effect amplifier="5" duration="6s">damage resistance</effect>
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true">
+        <enchantment>protection projectile</enchantment>
+      </chestplate>
+      <leggings material="iron leggings"/>
+      <boots material="leather boots" team-color="true"/>
+      <item material="stone sword" slot="0"/>
+      <item material="bow" slot="1"/>
+      <item amount="25" material="cooked beef" slot="2"/>
+      <item amount="16" material="arrow" slot="8"/>
+    </loadout>
+    <loadout id="four-arrow">
+      <item amount="4" material="arrow"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="four-arrow"/>
+    </rewards>
+  </kills>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>iron chestplate</material>
+        <material>leather leggings</material>
+        <material>leather boots</material>
+        <material>cooked beef</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>stone sword</material>
+        <material>bow</material>
+      </any>
+    </repair-tools>
+  </items>
+  <objectives>
+    <scores limit="3">
+      <score team="red"/>
+      <score team="blue"/>
+    </scores>
+    <flag color="blue" owner="blue" post="blue-post"/>
+    <flag color="red" owner="red" post="red-post"/>
+  </objectives>
+  <world>
+    <difficulty>easy</difficulty>
+    <gamerules>
+      <doDaylightCycle>false</doDaylightCycle>
+    </gamerules>
+  </world>
+</map>

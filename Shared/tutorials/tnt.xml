@@ -1,0 +1,15 @@
+﻿<!-- Base tutorial that should be included by all maps that use TNT. -->
+<map>
+  <include src="Shared/tutorials/main.xml"/>
+  <tutorial>
+    <prefix countdown="4s">
+      <title stay="3s" subtitle="^a^l{tutorial.tnt.title}"/>
+      <chat>
+        <line>^a^m--------------^f ^l{tutorial.tnt.title} ^a^m--------------</line>
+        <line>^r • {tutorial.tnt.desc1}</line>
+        <line>^r • {tutorial.tnt.desc2}</line>
+        <line>^a^m------------------------------------------</line>
+      </chat>
+    </prefix>
+  </tutorial>
+</map>

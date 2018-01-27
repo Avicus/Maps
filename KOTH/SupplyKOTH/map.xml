@@ -1,0 +1,163 @@
+﻿<?xml version="1.0"?>
+<map name="Supply KOTH" spec="1.0.4" version="1.0.0">
+  <include src="Shared/tutorials/koth.xml"/>
+  <include src="defaults.xml"/>
+  <include src="Shared/reward-one-gap.xml"/>
+  <include src="Shared/conquest-shop.xml"/>
+  <authors>
+    <author uuid="c29bef37d8e242a9b74604f2df78f374"/> <!-- Legoche -->
+    <author uuid="9116d3fa14004adaaecd2eae1d73e383"/> <!-- Xuph -->
+    <author uuid="1c74c43029a0471fb30bcc2d9031ebcb"/> <!-- Tazz -->
+  </authors>
+  <gametype>hill</gametype>
+  <teams>
+    <team color="cyan" id="cyan" max="15" min="1">{colors.cyan}</team>
+    <team color="red" id="red" max="15" min="1">{colors.red}</team>
+  </teams>
+  <tutorial>
+    <step countdown="5s" freeze="true" location="53, 14, 40" pitch="44" yaw="32">
+      <chat>
+        <line>^r • {tutorial.generic.team-spawns}</line>
+      </chat>
+    </step>
+    <step countdown="2s" freeze="true" location="25, 15, -6.5" pitch="43" yaw="-38">
+      <chat>
+        <line>^r • {tutorial.koth.hill-area}</line>
+      </chat>
+    </step>
+    <step countdown="2s" freeze="true" location="35.5, 7, -4.5" pitch="32" yaw="51">
+      <chat>
+        <line>^r • {tutorial.koth.hill-area}</line>
+      </chat>
+    </step>
+  </tutorial>
+  <spawns>
+    <spawn team="spectators" yaw="90">
+      <regions>
+        <point yaw="90">0.5, 35, -0.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" respawn-delay="5s" respawn-freeze="true" team="cyan" yaw="-180">
+      <regions>
+        <point yaw="-180">53.5, 19, 50.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" respawn-delay="5s" respawn-freeze="true" team="red" yaw="0">
+      <regions>
+        <point yaw="0">7.5, 19, -51.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <objectives>
+    <hill capture-time="10s" id="capture-top-middle" name="{directions.top-middle}" points="2">
+      <capture>
+        <cylinder base="30, 9, -1" height="2" radius="4"/>
+      </capture>
+      <progress>
+        <cylinder base="30, 9, -1" height="2" radius="4"/>
+      </progress>
+    </hill>
+    <hill capture-time="8s" id="capture-bottom-middle" name="{directions.bottom-middle}" points="1">
+      <capture>
+        <cylinder base="30, 4, -1" height="2" radius="4"/>
+      </capture>
+      <progress>
+        <cylinder base="30, 4, -1" height="2" radius="4"/>
+      </progress>
+    </hill>
+    <scores limit="400">
+      <score team="cyan"/>
+      <score team="red"/>
+    </scores>
+  </objectives>
+  <results>
+    <win scenario="objectives">
+      <check>
+        <time>10m</time>
+      </check>
+    </win>
+  </results>
+  <loadouts>
+    <loadout id="default">
+      <effect duration="5s">damage resistance</effect>
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="iron leggings" team-color="true"/>
+      <boots material="leather boots" team-color="true"/>
+      <item material="iron sword" slot="0"/>
+      <item material="bow" slot="1"/>
+      <item amount="2" material="golden apple" slot="2"/>
+      <item amount="16" material="cooked beef" slot="7"/>
+      <item amount="16" material="arrow" slot="27"/>
+    </loadout>
+    <loadout id="four-arrows">
+      <item amount="4" material="arrow"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="four-arrows"/>
+    </rewards>
+  </kills>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>iron leggings</material>
+        <material>leather boots</material>
+        <material>cooked beef</material>
+        <material>golden apple</material>
+        <material>iron sword</material>
+        <material>bow</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>iron sword</material>
+        <material>bow</material>
+      </any>
+    </repair-tools>
+  </items>
+  <damage>
+    <disable>
+      <all>
+        <damage>fall</damage>
+        <inside>
+          <region>
+            <join>
+              <cuboid max="52, 10, 51" min="54, 7, 49"/>
+              <cuboid max="8, 10, -53" min="6, 7, -51"/>
+            </join>
+          </region>
+        </inside>
+      </all>
+    </disable>
+  </damage>
+  <zones>
+    <zone>
+      <region>
+        <cuboid max="49, 22, 38" min="49, 5, 52"/>
+      </region>
+      <enter>
+        <team>cyan</team>
+      </enter>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone>
+      <region>
+        <cuboid max="11, 22, -40" min="11, 5, -54"/>
+      </region>
+      <enter>
+        <team>red</team>
+      </enter>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <load-group id="no-build"/>
+  </zones>
+  <world>
+    <gamerules>
+      <doDaylightCycle>true</doDaylightCycle>
+    </gamerules>
+  </world>
+</map>

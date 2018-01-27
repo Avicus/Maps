@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map genre="sky wars" name="Operation: Winter Storm" spec="1.0.0" version="1.0.0">
+  <include src="defaults.xml"/>
+  <include src="Shared/skywars.xml"/>
+  <authors>
+    <author uuid="3cce00809faa48f982cf64410305822a"/>  <!-- ProfessorUtonium -->
+  </authors>
+  <ffa max="8" max-overfill="8" min="2"/>
+  <objectives>
+    <last-competitor-standing/>
+  </objectives>
+  <results>
+    <win scenario="objectives">
+      <check>
+        <time>7m</time>
+      </check>
+    </win>
+  </results>
+  <compasses>
+    <compass target="enemy"/>
+  </compasses>
+  <spawns>
+    <spawn team="spectators" yaw="0">
+      <regions>
+        <block>-51, 108, -49</block>
+      </regions>
+    </spawn>
+    <spawn loadout="default" look="-51, 79, 13" mode="safe">
+      <regions>
+        <block>-51, 79, -31</block>
+        <block>-17, 79, -21</block>
+        <block>-6, 79, 13</block>
+        <block>-16, 79, 47</block>
+        <block>-51, 79, 58</block>
+        <block>-86, 79, -20</block>
+        <block>-85, 79, 48</block>
+        <block>-96, 79, 13</block>
+      </regions>
+    </spawn>
+  </spawns>
+  <elimination lives="1"/>
+  <loadouts>
+    <loadout id="default">
+      <helmet material="leather helmet" team-color="true"/>
+      <item material="wood sword" slot="0"/>
+      <item amount="4" material="cooked chicken" slot="7"/>
+      <item material="compass" slot="8"/>
+    </loadout>
+  </loadouts>
+  <remove-drops>
+    <any>
+      <material>compass</material>
+    </any>
+  </remove-drops>
+</map>

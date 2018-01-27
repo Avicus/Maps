@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="Salvo: DTE" spec="1.0.3" version="1.0.0">
+  <include src="defaults.xml"/>
+  <authors>
+    <author uuid="8242e55ecc6a458ab272a2b34918045f"/> <!-- funkystudios -->
+    <author uuid="c2a4c847653e482ab62ed7f8b64330cb"/> <!-- Alm -->
+  </authors>
+  <teams>
+    <load-group id="teams.pink-yellow" max="15" min="1"/>
+  </teams>
+  <objectives>
+    <monuments completion="0.75" destroyable="true" materials="stained clay;stained glass"
+      owner="pink">
+      <monument name="{directions.left}">
+        <region>
+          <cuboid max="-4,9,1" min="-16,1,-16"/>
+        </region>
+      </monument>
+      <monument name="{directions.right}">
+        <region>
+          <cuboid max="21,9,1" min="8,1,-16"/>
+        </region>
+      </monument>
+    </monuments>
+    <monuments completion="0.75" destroyable="true" materials="stained clay;stained glass"
+      owner="yellow">
+      <monument name="{directions.left}">
+        <region>
+          <cuboid max="21,9,52" min="8,1,35"/>
+        </region>
+      </monument>
+      <monument name="{directions.right}">
+        <region>
+          <cuboid max="-4,9,52" min="-16,1,35"/>
+        </region>
+      </monument>
+    </monuments>
+  </objectives>
+  <spawns>
+    <spawn look="0, 0, 18">
+      <regions>
+        <cuboid max="-15, 26, 52" min="21, 26, -15"/>
+      </regions>
+    </spawn>
+    <spawn loadout="default" region="yellow-spawn" team="yellow" yaw="180"/>
+    <spawn loadout="default" region="pink-spawn" team="pink"/>
+  </spawns>
+  <regions>
+    <join id="pink-spawn">
+      <cuboid max="-1,10,-1" min="-2,10,-14"/>
+      <cuboid max="3,11,-1" min="1,11,-14"/>
+      <cuboid max="6,10,-1" min="5,10,-14"/>
+    </join>
+    <join id="yellow-spawn">
+      <cuboid max="6,10,50" min="5,10,37"/>
+      <cuboid max="3,11,50" min="1,11,37"/>
+      <cuboid max="-1,10,50" min="-2,10,37"/>
+    </join>
+  </regions>
+  <zones>
+    <zone break="never" build="never">
+      <region>
+        <join>
+          <cuboid max="21, 1, 34" min="-16, 9, 2"/>
+          <translate offset="0, -1, 0">
+            <region id="pink-spawn"/>
+            <region id="yellow-spawn"/>
+          </translate>
+        </join>
+      </region>
+    </zone>
+  </zones>
+  <projectiles>
+    <projectile cooldown="1s" id="tnt-bow" name="TNT Bow" type="primed tnt"/>
+  </projectiles>
+  <loadouts>
+    <loadout id="default">
+      <item material="bow" projectile="tnt-bow" slot="0"/>
+      <item material="golden apple" slot="1"/>
+      <item amount="64" material="arrow" slot="2"/>
+      <item amount="64" material="arrow" slot="3"/>
+      <item amount="64" material="arrow" slot="4"/>
+    </loadout>
+  </loadouts>
+</map>

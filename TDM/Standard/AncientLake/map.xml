@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<map name="Ancient Lake" spec="1.0.0" version="1.1.0">
+  <include src="defaults.xml"/>
+  <include src="Shared/reward-one-gap.xml"/>
+  <include src="Shared/conquest-shop.xml"/>
+  <authors>
+    <author uuid="da98a2f1673c4cecb547e0a342abfde4"/> <!-- timaeusTestified -->
+  </authors>
+  <teams>
+    <load-group id="teams.red-blue" max="20" min="1"/>
+  </teams>
+  <gametype>score</gametype>
+  <!-- No Score Limit -->
+  <objectives>
+    <scores kills="1" limit="100">
+      <score team="blue"/>
+      <score team="red"/>
+    </scores>
+  </objectives>
+  <results>
+    <win scenario="objectives">
+      <check>
+        <time>7m</time>
+      </check>
+    </win>
+  </results>
+  <spawns>
+    <spawn>
+      <regions>
+        <point yaw="-90">-36.5, 128, 72.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="blue">
+      <regions>
+        <point yaw="180">29.5, 80, 154.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="red">
+      <regions>
+        <point yaw="0">25.5, 80, -9.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <zones>
+    <!-- Blue Spawn -->
+    <zone modify="never">
+      <build>
+        <team>red</team>
+      </build>
+      <region>
+        <cylinder base="29, 79, 154" height="8" radius="10"/>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <!-- Red Spawn -->
+    <zone modify="never">
+      <build>
+        <team>blue</team>
+      </build>
+      <region>
+        <cylinder base="25,79,-10" height="8" radius="10"/>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+  </zones>
+  <loadouts>
+    <loadout id="default">
+      <effect duration="5s">damage resistance</effect>
+      <helmet material="leather helmet" team-color="true">
+        <enchantment level="1">protection environmental</enchantment>
+      </helmet>
+      <chestplate material="leather chestplate" team-color="true">
+        <enchantment level="1">protection environmental</enchantment>
+      </chestplate>
+      <leggings material="leather leggings" team-color="true">
+        <enchantment level="1">protection environmental</enchantment>
+      </leggings>
+      <boots material="leather boots" team-color="true">
+        <enchantment level="1">protection environmental</enchantment>
+      </boots>
+      <item material="iron sword" slot="0"/>
+      <item material="bow" slot="1">
+        <enchantment>arrow infinite</enchantment>
+      </item>
+      <item material="diamond pickaxe" slot="2"/>
+      <item material="golden apple" slot="3"/>
+      <item amount="48" material="cobblestone" slot="4"/>
+      <item amount="32" damage="1" material="log" slot="5"/>
+      <item amount="32" material="cooked fish" slot="6"/>
+      <item material="iron axe" slot="7"/>
+      <item amount="1" material="arrow" slot="28"/>
+    </loadout>
+  </loadouts>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>cobblestone</material>
+        <material>log</material>
+        <material>leaves</material>
+        <material>cooked fish</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>iron sword</material>
+        <material>bow</material>
+        <material>iron axe</material>
+        <material>diamond axe</material>
+      </any>
+    </repair-tools>
+  </items>
+</map>

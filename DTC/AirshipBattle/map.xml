@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="Airship Battle" spec="1.0.4" version="1.0.4">
+  <include src="defaults.xml"/>
+  <authors>
+    <author uuid="30e273660b1440768f550819ece49ce3"/> <!--  Dewtroid  -->
+  </authors>
+  <gametype>dtc</gametype>
+  <world>
+    <storm>false</storm>
+    <weather check="always"/>
+  </world>
+  <teams>
+    <team color="blue" id="blue" max="24" min="1">{colors.blue}</team>
+    <team color="red" id="red" max="24" min="1">{colors.red}</team>
+  </teams>
+  <spawns>
+    <spawn loadout="obs">
+      <regions>
+        <cuboid max="-14, 90, -35" min="-10, 90, -31" yaw="0"/>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="blue">
+      <regions>
+        <point yaw="-90">5, 92, -33</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="red">
+      <regions>
+        <point yaw="90">-29, 92, -33</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <loadouts>
+    <loadout id="obs">
+      <effect duration="10000s">night vision</effect>
+    </loadout>
+    <loadout id="default" parent="obs">
+      <helmet material="leather helmet" team-color="true"/>
+    </loadout>
+    <loadout id="kill-reward">
+      <item material="golden apple"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="kill-reward"/>
+    </rewards>
+  </kills>
+  <objectives>
+    <leakables destroyable="true" first-phase="gold" materials="obsidian">
+      <leakables owner="red">
+        <leakable leak-distance="10" name="Core" repairable="false">
+          <region>
+            <cuboid max="-41, 85, 29" min="-37, 91, 23"/>
+          </region>
+        </leakable>
+      </leakables>
+      <leakables owner="blue">
+        <leakable leak-distance="10" name="Core" repairable="false">
+          <region>
+            <cuboid max="13, 85, 29" min="17, 91, 23"/>
+          </region>
+        </leakable>
+      </leakables>
+    </leakables>
+  </objectives>
+  <phases countdown-message="{phases.transition}" fail-message="{phases.cores.fail}">
+    <phase delay="15m" id="gold" pass-phase="packedice" success-message="GOLD CORE MODE">
+      ^eGOLD
+      <materials>
+        <material find="obsidian" replace="gold block"/>
+      </materials>
+    </phase>
+    <phase delay="25m" id="packedice" success-message="PACKED ICE CORE MODE">
+      PACKED ICE
+      <materials>
+        <material find="gold block" replace="packed ice"/>
+      </materials>
+    </phase>
+  </phases>
+  <regions>
+    <above id="height-limit" y="125"/>
+    <cuboid id="blue-spawn" max="17, 88, -10" min="13, 92, -1"/>
+    <cuboid id="red-spawn" max="-37, 88, -12" min="-41, 92, -1"/>
+    <join id="supplychest">
+      <!--  Blue  -->
+      <cuboid max="10, 89, 17" min="12, 88, 20"/>
+      <cuboid max="20, 89, 20" min="18, 88, 17"/>
+      <cuboid max="20, 89, 62" min="18, 88, 59"/>
+      <cuboid max="10, 89, 59" min="12, 88, 62"/>
+      <cuboid max="20, 84, 63" min="18, 83, 60"/>
+      <cuboid max="10, 84, 60" min="12, 83, 63"/>
+      <cuboid max="22, 85, 16" min="20, 84, 13"/>
+      <cuboid max="8, 85, 13" min="10, 84, 16"/>
+      <!--  Red  -->
+      <cuboid max="-34, 89, 62" min="-36, 88, 59"/>
+      <cuboid max="-44, 89, 59" min="-42, 88, 62"/>
+      <cuboid max="-44, 89, 17" min="-42, 88, 20"/>
+      <cuboid max="-34, 89, 20" min="-36, 88, 17"/>
+      <cuboid max="-46, 85, 13" min="-44, 84, 16"/>
+      <cuboid max="-32, 85, 16" min="-34, 84, 13"/>
+      <cuboid max="-34, 84, 63" min="-36, 83, 60"/>
+      <cuboid max="-44, 84, 60" min="-42, 83, 63"/>
+    </join>
+  </regions>
+  <zones>
+    <zone modify="never">
+      <region>
+        <invert>
+          <join>
+            <cuboid max="-57, 256, 96" min="33, 70, -2"/>
+          </join>
+        </invert>
+      </region>
+      <message format="warning">{errors.outside-map}</message>
+    </zone>
+    <zone modify="never">
+      <enter>
+        <team>blue</team>
+      </enter>
+      <region id="blue-spawn"/>
+      <message format="warning">{errors.enemy-base}</message>
+    </zone>
+    <zone modify="never">
+      <enter>
+        <team>red</team>
+      </enter>
+      <region id="red-spawn"/>
+      <message format="warning">{errors.enemy-base}</message>
+    </zone>
+    <zone modify="never" region="height-limit">
+      <message format="warning">{errors.height-limit}</message>
+    </zone>
+    <zone modify="never" region="supplychest">
+      <message format="warning">You may not destroy supply chests!</message>
+    </zone>
+  </zones>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>obsidian</material>
+        <material>gold block</material>
+      </any>
+    </remove-drops>
+  </items>
+</map>

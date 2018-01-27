@@ -1,0 +1,226 @@
+﻿<map name="Snow Woods" spec="1.0.4" version="1.1.0">
+  <include src="defaults.xml"/>
+  <gametype>ctw</gametype>
+  <include src="Shared/tutorials/dtm.xml"/>
+  <authors>
+    <author uuid="50a34639-abb3-4cf1-b182-204756c49f49"/>
+    <!--   Sam   -->
+  </authors>
+  <tutorial>
+    <step countdown="5s" freeze="true" location="-114.5,67,-27" pitch="14" yaw="90">
+      <chat>
+        <line>^r • {tutorial.generic.team-spawns}</line>
+      </chat>
+    </step>
+    <step countdown="5s" freeze="true" location="-106.5,63,-3" pitch="17" yaw="45">
+      <chat>
+        <line>^r • {tutorial.ctw.wool-area}</line>
+      </chat>
+    </step>
+    <step countdown="5s" freeze="true" location="-117.5,58,8.5" pitch="90" yaw="-133">
+      <chat>
+        <line>^r • {tutorial.ctw.wool-chest}</line>
+      </chat>
+    </step>
+    <step countdown="5s" freeze="true" location="83.5,60,-27.5" pitch="0" yaw="-90">
+      <chat>
+        <line>^r • {tutorial.ctw.wool-monument}</line>
+      </chat>
+    </step>
+  </tutorial>
+  <teams>
+    <team color="green" id="green" max="20" min="1">{colors.green}</team>
+    <team color="blue" id="blue" max="20" min="1">{colors.blue}</team>
+  </teams>
+  <spawns>
+    <!--    Spectator Spawn    -->
+    <spawn>
+      <regions>
+        <point yaw="180">-20.5,79.06,31.5</point>
+      </regions>
+    </spawn>
+    <!--    Green & Blue Team Spawns    -->
+    <spawn loadout="teams-loadout" team="green" yaw="-90">
+      <regions>
+        <point yaw="-90">-124.5,70,-27.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="teams-loadout" team="blue" yaw="90">
+      <regions>
+        <point yaw="90">83.5,70,-27.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <world>
+    <gamerules>
+      <doDaylightCycle>false</doDaylightCycle>
+    </gamerules>
+  </world>
+  <regions>
+    <subtract id="void-outer">
+      <void/>
+      <cuboid max="-48, 49, 2" min="6, 256, -58"/>
+    </subtract>
+  </regions>
+  <objectives>
+    <wools>
+      <wools pickup="false" team="blue">
+        <wool color="red">
+          <source>
+            <join>
+              <block>-118,55,8</block>
+            </join>
+          </source>
+          <destination>
+            <block>86,61,-30</block>
+          </destination>
+        </wool>
+        <wool color="pink">
+          <source>
+            <join>
+              <block>-118,55,-64</block>
+            </join>
+          </source>
+          <destination>
+            <block>86,61,-26</block>
+          </destination>
+        </wool>
+      </wools>
+      <wools pickup="false" team="green">
+        <wool color="purple">
+          <source>
+            <join>
+              <block>76,55,8</block>
+            </join>
+          </source>
+          <destination>
+            <block>-128,61,-26</block>
+          </destination>
+        </wool>
+        <wool color="yellow">
+          <source>
+            <join>
+              <block>76,55,-64</block>
+            </join>
+          </source>
+          <destination>
+            <block>-128,61,-30</block>
+          </destination>
+        </wool>
+      </wools>
+    </wools>
+  </objectives>
+  <loadouts>
+    <loadout id="teams-loadout">
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="iron chestplate" team-color="true"/>
+      <item material="iron sword" slot="0"/>
+      <item material="iron pickaxe" slot="2">
+        <enchantments>
+          <enchantment level="2">dig speed</enchantment>
+        </enchantments>
+      </item>
+      <item material="bow" slot="1">
+        <enchantments>
+          <enchantment level="1">arrow infinite</enchantment>
+        </enchantments>
+      </item>
+      <item material="iron axe" slot="3">
+        <enchantments>
+          <enchantment level="1">dig speed</enchantment>
+        </enchantments>
+      </item>
+      <item amount="64" material="cooked beef" slot="4"/>
+      <item amount="1" material="golden apple" slot="5"/>
+      <item amount="24" material="glass" slot="6"/>
+      <item amount="48" material="wood" slot="7"/>
+      <item amount="1" material="arrow" slot="10"/>
+    </loadout>
+    <loadout id="kill-reward">
+      <item material="golden apple"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="kill-reward"/>
+    </rewards>
+  </kills>
+  <zones>
+    <zone modify="never">
+      <region>
+        <subtract>
+          <cuboid max="-128,49,-40" min="-112,75,-16"/>
+          <block>-128,61,-30</block>
+          <block>-128,61,-26</block>
+        </subtract>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <subtract>
+          <cuboid max="86,49,-16" min="70,75,-40"/>
+          <block>86,61,-30</block>
+          <block>86,61,-26</block>
+        </subtract>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never" region="void-outer" water-rule="no-flow">
+      <message>{errors.outside-map}</message>
+    </zone>
+    <!--  Wool Rooms #1  -->
+    <zone>
+      <region>
+        <join>
+          <cuboid max="82,79,-58" min="70,49,-69"/>
+          <cuboid max="82,49,2" min="70,79,-13"/>
+        </join>
+      </region>
+      <enter>
+        <team>green</team>
+      </enter>
+      <modify>
+        <team>green</team>
+      </modify>
+      <message>{errors.own-wool-room}</message>
+    </zone>
+    <!--  Wool Rooms #2  -->
+    <zone>
+      <region>
+        <join>
+          <cuboid max="-112,49,13" min="-124,57,2"/>
+          <cuboid max="-124,49,-58" min="-112,57,-69"/>
+        </join>
+      </region>
+      <enter>
+        <team>blue</team>
+      </enter>
+      <modify>
+        <team>blue</team>
+      </modify>
+      <message>{errors.own-wool-room}</message>
+    </zone>
+  </zones>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>iron chestplate</material>
+        <material>cooked beef</material>
+        <material>golden apple</material>
+        <material>glass</material>
+        <material>wood</material>
+        <material>arrow</material>
+        <material>string</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>iron sword</material>
+        <material>bow</material>
+        <material>iron pickaxe</material>
+      </any>
+    </repair-tools>
+  </items>
+</map>

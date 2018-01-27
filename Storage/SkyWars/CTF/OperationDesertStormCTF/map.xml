@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map genre="sky wars" name="Operation: Desert Storm CTF" spec="1.0.0" version="1.0.0">
+  <include src="defaults.xml"/>
+  <include src="Shared/skywars.xml"/>
+  <authors>
+    <author uuid="3cce00809faa48f982cf64410305822a"/>  <!-- ProfessorUtonium -->
+    <author uuid="d9b4ffbc11d0453aa93f82dc59fca4b6"/>  <!-- Wulfcaspice -->
+  </authors>
+  <teams>
+    <team color="red" id="red" max="1" min="1">{colors.red}</team>
+    <team color="blue" id="blue" max="1" min="1">{colors.blue}</team>
+    <team color="purple" id="purple" max="1" min="1">{colors.purple}</team>
+    <team color="pink" id="pink" max="1" min="1">{colors.pink}</team>
+    <team color="lime" id="lime" max="1" min="1">{colors.lime}</team>
+    <team color="orange" id="orange" max="1" min="1">{colors.orange}</team>
+    <team color="cyan" id="cyan" max="1" min="1">{colors.cyan}</team>
+    <team color="yellow" id="yellow" max="1" min="1">{colors.yellow}</team>
+  </teams>
+  <objectives>
+    <scores limit="3">
+      <score team="red"/>
+      <score team="blue"/>
+      <score team="purple"/>
+      <score team="pink"/>
+      <score team="cyan"/>
+      <score team="yellow"/>
+      <score team="lime"/>
+      <score team="orange"/>
+    </scores>
+    <flag color="black" points="5" post="post">
+      <banner color="black">
+        <pattern color="red">skull</pattern>
+        <pattern color="silver">border</pattern>
+      </banner>
+    </flag>
+  </objectives>
+  <compasses>
+    <compass target="enemy"/>
+  </compasses>
+  <spawns>
+    <spawn>
+      <regions>
+        <point yaw="0">-27, 43, 28</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="red" yaw="-45">
+      <regions>
+        <block>-54, 28, 1</block>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="blue" yaw="-45">
+      <regions>
+        <block>-27, 28, 16</block>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="purple" yaw="-45">
+      <regions>
+        <block>0, 28, 1</block>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="pink" yaw="-45">
+      <regions>
+        <block>14, 28, -25</block>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="lime" yaw="-45">
+      <regions>
+        <block>0, 28, -52</block>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="orange" yaw="-45">
+      <regions>
+        <block>-27, 28, -67</block>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="cyan" yaw="-45">
+      <regions>
+        <block>-54, 28, -52</block>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="yellow" yaw="-45">
+      <regions>
+        <block>-69, 28, -25</block>
+      </regions>
+    </spawn>
+  </spawns>
+  <loadouts>
+    <loadout id="default">
+      <helmet material="leather helmet" team-color="true"/>
+      <item material="wood sword" slot="0"/>
+      <item amount="4" material="cooked chicken" slot="7"/>
+      <item material="compass" slot="8"/>
+    </loadout>
+  </loadouts>
+  <remove-drops>
+    <any>
+      <material>compass</material>
+    </any>
+  </remove-drops>
+  <zones>
+    <zone id="post">
+      <region>
+        <block>-28, 23, -26</block>
+      </region>
+      <post yaw="135"/>
+    </zone>
+    <zone id="red-net">
+      <region>
+        <sphere origin="-54, 28, 1" radius="2"/>
+      </region>
+      <net owner="red" points="1"/>
+      <check>
+        <team>red</team>
+      </check>
+    </zone>
+    <zone id="blue-net">
+      <region>
+        <sphere origin="-27, 28, 16" radius="2"/>
+      </region>
+      <net owner="blue" points="1"/>
+      <check>
+        <team>blue</team>
+      </check>
+    </zone>
+    <zone id="purple-net">
+      <region>
+        <sphere origin="0, 28, 1" radius="2"/>
+      </region>
+      <net owner="purple" points="1"/>
+      <check>
+        <team>purple</team>
+      </check>
+    </zone>
+    <zone id="pink-net">
+      <region>
+        <sphere origin="14, 28, -25" radius="2"/>
+      </region>
+      <net owner="pink" points="1"/>
+      <check>
+        <team>pink</team>
+      </check>
+    </zone>
+    <zone id="orange-net">
+      <region>
+        <sphere origin="-27, 28, -67" radius="2"/>
+      </region>
+      <net owner="orange" points="1"/>
+      <check>
+        <team>orange</team>
+      </check>
+    </zone>
+    <zone id="yellow-net">
+      <region>
+        <sphere origin="-69, 28, -25" radius="2"/>
+      </region>
+      <net owner="yellow" points="1"/>
+      <check>
+        <team>yellow</team>
+      </check>
+    </zone>
+    <zone id="cyan-net">
+      <region>
+        <sphere origin="-54, 28, -52" radius="2"/>
+      </region>
+      <net owner="cyan" points="1"/>
+      <check>
+        <team>cyan</team>
+      </check>
+    </zone>
+    <zone id="lime-net">
+      <region>
+        <sphere origin="0, 28, -52" radius="2"/>
+      </region>
+      <net owner="lime" points="1"/>
+      <check>
+        <team>lime</team>
+      </check>
+    </zone>
+  </zones>
+</map>

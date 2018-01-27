@@ -1,0 +1,200 @@
+<map name="Nevran" spec="1.0.0" version="1.0.1">
+  <include src="defaults.xml"/>
+  <gametype>dtm</gametype>
+  <gametype>ctw</gametype>
+  <authors>
+    <author role="Author of the map" uuid="62d9830a0b774e219d4fde4b60c68fb5"/>
+    <!-- shaarpie -->
+    <author role="Original XML" uuid="755acf7dc9b44f1db7acdb4dfdfa2b26"/>
+    <!-- Strmr -->
+    <author role="Contributor" uuid="0e56116560bf49e6aa383db002ad7d08"/>
+    <!-- AbusiveUser -->
+  </authors>
+  <teams>
+    <load-group id="teams.red-blue" max="20" min="1"/>
+  </teams>
+  <spawns>
+    <!-- Spectator Spawn -->
+    <spawn>
+      <regions>
+        <point yaw="90">6, 72, 27</point>
+      </regions>
+    </spawn>
+    <!-- Team Spawns -->
+    <spawn loadout="default" team="red" yaw="90">
+      <regions>
+        <point yaw="90">112, 13, 27</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="blue" yaw="-90">
+      <regions>
+        <point yaw="-90">-100, 13, 27</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <objectives>
+    <monuments destroyable="true" materials="coal block;emerald block">
+      <monuments owner="red">
+        <monument name="Coal Monument">
+          <region>
+            <cuboid max="30, 11, 53" min="33, 5, 56"/>
+          </region>
+        </monument>
+        <monument name="Emerald Monument">
+          <region>
+            <cuboid max="33, 5, 2" min="30, 11, -1"/>
+          </region>
+        </monument>
+      </monuments>
+      <monuments owner="blue">
+        <monument name="Coal Monument">
+          <region>
+            <cuboid max="-17, 11, 2" min="-20, 5, -1"/>
+          </region>
+        </monument>
+        <monument name="Emerald Monument">
+          <region>
+            <cuboid max="-17, 11, 56" min="-20, 5, 53"/>
+          </region>
+        </monument>
+      </monuments>
+    </monuments>
+    <wools>
+      <wools team="red">
+        <wool color="blue">
+          <source>
+            <point>-66, 8, 27</point>
+          </source>
+          <destination>
+            <cuboid max="114, 14, 27" min="114, 14, 27"/>
+          </destination>
+        </wool>
+      </wools>
+      <wools team="blue">
+        <wool color="red">
+          <source>
+            <point>78, 8, 27</point>
+          </source>
+          <destination>
+            <cuboid max="-102, 14, 27" min="-102, 14, 27"/>
+          </destination>
+        </wool>
+      </wools>
+    </wools>
+  </objectives>
+  <results>
+    <win scenario="objectives">
+      <check>
+        <time>45m</time>
+      </check>
+    </win>
+  </results>
+  <loadouts>
+    <loadout id="default">
+      <item material="iron sword" slot="0"/>
+      <item material="bow" slot="1">
+        <enchantment>arrow infinite</enchantment>
+      </item>
+      <item material="diamond pickaxe" slot="2">
+        <enchantment level="3">durability</enchantment>
+      </item>
+      <item material="iron axe" slot="3"/>
+      <item amount="64" damage="2" material="log" slot="4"/>
+      <item amount="1" material="golden apple" slot="5"/>
+      <item amount="64" material="smooth brick" slot="6"/>
+      <item amount="64" material="smooth brick" slot="7"/>
+      <item amount="64" material="golden carrot" slot="8"/>
+      <item amount="1" material="arrow" slot="17"/>
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="leather leggings" team-color="true"/>
+      <boots material="leather boots" team-color="true"/>
+    </loadout>
+    <loadout id="kill-reward">
+      <item material="golden apple"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="kill-reward"/>
+    </rewards>
+  </kills>
+  <items>
+    <remove-drops>
+      <any>
+        <material>arrow</material>
+        <material>golden apple</material>
+        <material>iron axe</material>
+        <material>diamond pickaxe</material>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>leather leggings</material>
+        <material>leather boots</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>iron sword</material>
+        <material>bow</material>
+        <material>diamond pickaxe</material>
+      </any>
+    </repair-tools>
+  </items>
+  <regions>
+    <subtract id="void-outer">
+      <void/>
+      <cuboid max="-10, 40, 74" min="22, -0, -20"/>
+    </subtract>
+    <above id="height-limit" y="40"/>
+  </regions>
+  <zones>
+    <zone modify="never" region="void-outer">
+      <message>{errors.outside-map}</message>
+    </zone>
+    <zone modify="never" region="height-limit">
+      <message>{errors.height-limit}</message>
+    </zone>
+    <zone modify="never">
+      <enter>
+        <team>blue</team>
+      </enter>
+      <region>
+        <cylinder base="78, 7, 27" height="6" radius="5"/>
+      </region>
+      <message>{errors.own-wool-room}</message>
+    </zone>
+    <zone modify="never">
+      <enter>
+        <team>red</team>
+      </enter>
+      <region>
+        <cylinder base="-66, 7, 27" height="6" radius="5"/>
+      </region>
+      <message>{errors.own-wool-room}</message>
+    </zone>
+    <zone modify="never">
+      <enter>
+        <team>red</team>
+      </enter>
+      <region>
+        <subtract>
+          <cuboid max="114, 12, 25" min="102, 16, 29"/>
+          <block>114, 14, 27</block>
+        </subtract>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never">
+      <enter>
+        <team>blue</team>
+      </enter>
+      <region>
+        <subtract>
+          <cuboid max="-102, 12, 29" min="-90, 16, 25"/>
+          <block>-102, 14, 27</block>
+        </subtract>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+  </zones>
+</map>

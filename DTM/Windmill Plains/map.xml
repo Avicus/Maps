@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map spec="1.0.5" name="Windmill Plains" version="1.0.0" genre="nebula">
+  <gametype>dtm</gametype>
+  <authors>
+    <author uuid="da98a2f1673c4cecb547e0a342abfde4" />
+    <author uuid="1640f32dc8ed4940902c7e85d68769be" />
+  </authors>
+  <spawns>
+    <spawn>
+      <regions>
+        <point>-0.5, 142.0, -93.5</point>
+      </regions>
+    </spawn>
+    <spawn team="yellow" loadout="default">
+      <regions>
+        <point yaw="-90">-137.5, 99.0, 3.5</point>
+      </regions>
+    </spawn>
+    <spawn team="cyan" loadout="default">
+      <regions>
+        <point yaw="90">136.5, 99.0, -12.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <items>
+    <remove-drops>
+      <any>
+        <material>leather helmet</material>
+        <material>leather chestplate</material>
+        <material>leather leggings</material>
+        <material>leather boots</material>
+        <material>cooked_beef</material>
+        <material>leaves:1</material>
+        <material>mossy cobblestone</material>
+        <material>log:1</material>
+        <material>arrow</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>stone sword</material>
+        <material>bow</material>
+        <material>diamond pickaxe</material>
+        <material>iron axe</material>
+        <material>iron spade</material>
+      </any>
+    </repair-tools>
+  </items>
+  <zones>
+    <zone modify="never">
+      <region>
+        <sphere origin="136, 98, -12" radius="20"/>
+      </region>
+    </zone>
+    <zone modify="never">
+      <region>
+        <sphere origin="-137,98,3" radius="20"/>
+      </region>
+    </zone>
+  </zones>
+  <objectives>
+    <monuments materials="obsidian">
+      <monuments owner="cyan">
+        <monument name="Left">
+          <region>
+            <block>82, 112, -39</block>
+          </region>
+        </monument>
+        <monument name="Right">
+          <region>
+            <block>80, 112, 40</block>
+          </region>
+        </monument>
+      </monuments>
+      <monuments owner="yellow">
+        <monument name="Left">
+          <region>
+            <block>-84, 112, 29</block>
+          </region>
+        </monument>
+        <monument name="Right">
+          <region>
+            <block>-82, 112, -50</block>
+          </region>
+        </monument>
+      </monuments>
+    </monuments>
+  </objectives>
+  <teams>
+    <team id="yellow" color="yellow" min="3" max="20" max-overfill="25">Yellow Team</team>
+    <team id="cyan" color="cyan" min="3" max="20" max-overfill="25">Cyan Team</team>
+  </teams>
+  <loadouts>
+    <loadout id="default">
+      <item slot="0" material="stone sword" />
+      <item slot="1" material="bow" />
+      <item slot="2" material="diamond pickaxe" />
+      <item slot="34" material="iron spade">
+        <enchantments>
+          <enchantment level="1">dig_speed</enchantment>
+        </enchantments>
+      </item>
+      <item slot="3" material="golden apple" amount="3" />
+      <item slot="35" material="iron axe">
+        <enchantments>
+          <enchantment level="1">dig_speed</enchantment>
+        </enchantments>
+      </item>
+      <item slot="4" material="mossy cobblestone" amount="64" />
+      <item slot="5" material="log" amount="64" damage="1" />
+      <item slot="6" material="leaves" amount="64" damage="1" />
+      <item slot="7" material="cooked_beef" amount="24" />
+      <item slot="28" material="arrow" amount="64" />
+      <chestplate team-color="true" material="leather chestplate" />
+      <helmet team-color="true" material="leather helmet" />
+      <boots team-color="true" material="leather boots" />
+      <leggings team-color="true" material="leather leggings" />
+      <effect duration="100" level="4">damage resistance</effect>
+    </loadout>
+  </loadouts>
+</map>

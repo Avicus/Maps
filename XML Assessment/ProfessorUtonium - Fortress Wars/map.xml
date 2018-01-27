@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="Fortress Wars" version="1.0.0" spec="1.0.0">
+  <include src="defaults.xml"/>
+  <authors>
+    <author uuid="42b105207c51425292d98b65df108b12"/> <!-- Piez -->
+  </authors>
+  <teams>
+    <team id="blue" color="blue" min="2" max="10000">{colors.blue}</team>
+    <team id="red" color="red" min="2" max="10000">{colors.red}</team>
+  </teams>
+  <zones>
+    <zone modify="never">
+      <region>
+        <cuboid min="-212,91,21" max="-199,91,63"/>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <cuboid min="-199, 91, 135" max="-212, 84, 162"/>
+      </region>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+  </zones>
+  <regions>
+    <cuboid min="-143,91,55" max="-269,91,102" id="center"/>
+  </regions>
+  <spawns>
+    <!-- Spectator spawn -->
+    <spawn>
+      <regions>
+        <point yaw="90">-127.6, 93, 80</point>
+      </regions>
+    </spawn>
+    <!-- Team spawns -->
+    <spawn team="blue" loadout="default" yaw="180">
+      <regions>
+        <point yaw="180">-205, 86, 159.5</point>
+      </regions>
+    </spawn>
+    <spawn team="red" loadout="default" yaw="0">
+      <regions>
+        <point yaw="0">-206, 86, -1.5</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <objectives>
+    <scores kills="1" limit="1000">
+      <score team="blue"/>
+      <score team="red"/>
+    </scores>
+  </objectives>
+  <loadouts>
+    <loadout id="default">
+      <item slot="0" material="potion" damage="8228"/>
+      <item slot="1" material="potion" damage="8196"/>
+      <item slot="2" material="potion" damage="8266"/>
+    </loadout>
+    <loadout id="Archangel">
+      <health action="add">20</health>
+      <chestplate material="diamond chestplate"/>
+      <leggings material="diamond leggings"/>
+      <boots material="diamond boots"/>
+      <item amount="1" material="wood sword"/>
+      <item amount="1" material="bow"/>
+      <item amount="64" material="log"/>
+      <item amount="64" material="golden apple"/>
+      <item amount="32" material="arrow"/>
+    </loadout>
+    <loadout id="Demon">
+      <health action="add">10</health>
+      <chestplate material="iron chestplate"/>
+      <leggings material="iron leggings"/>
+      <boots material="iron boots"/>
+      <item amount="1" material="diamond sword"/>
+      <item amount="1" material="bow"/>
+      <item amount="64" material="log"/>
+      <item amount="64" material="golden apple"/>
+      <item amount="21" material="arrow"/>
+    </loadout>
+    <loadout id="God">
+      <health action="add">15</health>
+      <item amount="1" material="iron sword"/>
+      <item amount="1" material="bow"/>
+      <chestplate material="chainmail chestplate"/>
+      <leggings material="chainmail leggings"/>
+      <boots material="chainmail boots"/>
+      <item amount="64" material="log"/>
+      <item amount="64" material="golden apple"/>
+      <item amount="64" material="arrow"/>
+      <item amount="64" material="arrow"/>
+    </loadout>
+    <loadout id="effect-clear" force="true">
+      <effect amplifier="5" duration="1s">poison</effect>
+      <effect amplifier="3" duration="1s">slow</effect>
+    </loadout>
+    <loadout id="kill-reward">
+      <item material="golden apple"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="kill-reward"/>
+    </rewards>
+  </kills>
+  <items>
+    <remove-drops>
+      <any>
+        <material>diamond chestplate</material>
+        <material>diamond boots</material>
+        <material>diamond leggings</material>
+        <material>chainmail chestplate</material>
+        <material>chainmail boots</material>
+        <material>chainmail leggings</material>
+        <material>gold chestplate</material>
+        <material>gold boots</material>
+        <material>gold leggings</material>
+        <material>iron sword</material>
+        <material>wood sword</material>
+        <material>diamond sword</material>
+        <material>golden apple</material>
+        <material>arrow</material>
+        <material>bow</material>
+      </any>
+    </remove-drops>
+  </items>
+  <triggers>
+    <trigger on="item-consume" execute="grant-loadout"/>
+  </triggers>
+  <executors>
+    <executor id="grant-loadout" check="always">
+      <execution-group>
+        <apply-loadout check="instant-damage" loadout="Archangel"/>
+        <apply-loadout check="poison" loadout="Demon"/>
+        <apply-loadout check="always" loadout="effect-clear"/>
+        <apply-loadout check="slowness" loadout="God"/>
+        <send-message check="poison" location="chat">^lYou feel the blood of the First Demon surging through your veins</send-message>
+        <send-message check="instant-damage" location="chat">^lYou have been blessed by the holy Archangel</send-message>
+        <send-message check="slowness" location="chat">^lYou have been given another life to live by God</send-message>
+        <take-item check="always" take="potion:8196"/>
+        <take-item check="always" take="potion:8266"/>
+        <take-item check="always" take="potion:8228"/>
+        <take-item check="always" take="potion"/>
+      </execution-group>
+    </executor>
+  </executors>
+  <checks>
+    <item id="instant-damage" damage="8196" material="potion"/>
+    <item id="poison" damage="8228" material="potion"/>
+    <item id="slowness" damage="8266" material="potion"/>
+  </checks>
+</map>

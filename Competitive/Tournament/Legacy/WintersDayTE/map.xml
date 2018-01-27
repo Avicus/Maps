@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<map description="A great CTW tournament map!" name="Winters Day TE" spec="1.0.0" version="1.0.0">
+  <include src="defaults.xml"/>
+  <authors>
+    <author role="The author of the map."
+      uuid="7dcb1605a6414f6f99efea04278b6f7c"/> <!-- Lgmatias -->
+    <author role="Contributor" uuid="c65309b6155346d2b880c4c70154a3bd"/> <!-- Cyclops -->
+    <author role="Contributor" uuid="0b8f95fa0f404f289fd0b8e243bb6800"/> <!-- Fouled -->
+    <author role="Contributor" uuid="1c74c43029a0471fb30bcc2d9031ebcb"/> <!-- Tazz -->
+  </authors>
+  <teams>
+    <load-group id="teams.red-blue" max="12" min="1"/>
+  </teams>
+  <spawns>
+    <spawn team="spectators" yaw="90">
+      <regions>
+        <block>-90, 42, 53</block>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="blue" yaw="-180">
+      <regions>
+        <block>-32, 32, 105</block>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="red" yaw="0">
+      <regions>
+        <block>-32, 32, 2</block>
+      </regions>
+    </spawn>
+  </spawns>
+  <loadouts>
+    <loadout id="default">
+      <effect duration="5s">damage resistance</effect>
+      <helmet material="leather helmet" team-color="true"/>
+      <chestplate material="leather chestplate" team-color="true"/>
+      <leggings material="leather leggings" team-color="true"/>
+      <boots material="leather boots" team-color="true"/>
+      <item material="iron sword" slot="0"/>
+      <item material="bow" slot="1"/>
+      <item material="iron pickaxe" slot="2">
+        <enchantment level="1">durability</enchantment>
+        <enchantment level="1">dig speed</enchantment>
+      </item>
+      <item amount="2" material="golden apple" slot="3"/>
+      <item amount="32" material="log" slot="5"/>
+      <item amount="32" material="glass" slot="6"/>
+      <item amount="32" material="cooked beef" slot="7"/>
+      <item material="bucket" slot="9"/>
+      <item amount="32" material="arrow" slot="27"/>
+    </loadout>
+    <loadout id="kill-reward">
+      <item material="golden apple"/>
+      <item amount="4" material="arrow"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="kill-reward"/>
+    </rewards>
+  </kills>
+  <objectives>
+    <wools pickup="true" team="red">
+      <wool color="lime" refill="true">
+        <source>
+          <block>-61, 11, 118</block>
+        </source>
+        <destination>
+          <block>-35, 13, 0</block>
+        </destination>
+      </wool>
+      <wool color="purple" refill="true">
+        <source>
+          <block>-4, 11, 118</block>
+        </source>
+        <destination>
+          <block>-30, 13, 0</block>
+        </destination>
+      </wool>
+    </wools>
+    <wools pickup="true" team="blue">
+      <wool color="orange" refill="true">
+        <source>
+          <block>-61, 11, -12</block>
+        </source>
+        <destination>
+          <block>-35, 13, 106</block>
+        </destination>
+      </wool>
+      <wool color="yellow" refill="true">
+        <source>
+          <block>-4, 11, -12</block>
+        </source>
+        <destination>
+          <block>-30, 13, 106</block>
+        </destination>
+      </wool>
+    </wools>
+  </objectives>
+</map>

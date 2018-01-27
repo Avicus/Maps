@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="Coral Reef II" spec="1.0.4" version="1.0.4">
+  <include src="defaults.xml"/>
+  <include src="Shared/reward-one-gap.xml"/>
+  <authors>
+    <author uuid="38ab65dd95f9406f917c6accc995421f"/> <!-- GoldenOre -->
+  </authors>
+  <contributors>
+    <contributor uuid="621b2aa84e5f4ed8bd360ae2f8952a06"/> <!-- Strangey -->
+  </contributors>
+  <teams>
+    <load-group id="teams.red-blue" max="8" min="1"/>
+  </teams>
+  <spawns>
+    <spawn>
+      <regions>
+        <point yaw="0">-366.5, 44, 111.5</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="blue">
+      <regions>
+        <point yaw="-90">-473.6, 137, 170.9</point>
+      </regions>
+    </spawn>
+    <spawn loadout="default" team="red">
+      <regions>
+        <point yaw="90">-261.5, 137, 170.9</point>
+      </regions>
+    </spawn>
+  </spawns>
+  <world>
+    <gamerules>
+      <doDaylightCycle>false</doDaylightCycle>
+    </gamerules>
+  </world>
+  <broadcasts>
+    <broadcast format="alert" interval="5m">{broadcasts.wool-safeties}</broadcast>
+  </broadcasts>
+  <loadouts>
+    <loadout id="default">
+      <item material="stone sword" slot="0"/>
+      <item material="bow" slot="1">
+        <enchantments>
+          <enchantment>arrow infinite</enchantment>
+        </enchantments>
+      </item>
+      <item material="iron pickaxe" slot="2">
+        <enchantments>
+          <enchantment level="1">dig speed</enchantment>
+          <enchantment level="4">durability</enchantment>
+        </enchantments>
+      </item>
+      <item material="iron axe" slot="3">
+        <enchantments>
+          <enchantment level="4">durability</enchantment>
+        </enchantments>
+      </item>
+      <item amount="64" damage="2" material="wood" slot="4"/>
+      <item amount="64" material="glass" slot="5"/>
+      <item amount="1" material="golden apple" slot="7"/>
+      <item amount="32" damage="1" material="cooked fish" slot="8"/>
+      <item amount="1" material="arrow" slot="28"/>
+    </loadout>
+    <loadout id="reward-get">
+      <item amount="16" material="sandstone"/>
+    </loadout>
+  </loadouts>
+  <kills>
+    <rewards>
+      <reward loadout="reward-get"/>
+    </rewards>
+  </kills>
+  <results>
+    <win scenario="objectives">
+      <check>
+        <time>45m</time>
+      </check>
+    </win>
+  </results>
+  <objectives>
+    <wools refill-delay="5m" team="blue">
+      <wool color="purple">
+        <source>
+          <cuboid max="-288, 9, 139" min="-293, 9, 134"/>
+        </source>
+        <destination>
+          <block>-467, 12, 168</block>
+        </destination>
+      </wool>
+      <wool color="magenta">
+        <source>
+          <cuboid max="-288, 9, 207" min="-293, 9, 202"/>
+        </source>
+        <destination>
+          <block>-467, 12, 173</block>
+        </destination>
+      </wool>
+    </wools>
+    <wools refill-delay="5m" team="red">
+      <wool color="green">
+        <source>
+          <cuboid max="-448, 9, 202" min="-443, 9, 207"/>
+        </source>
+        <destination>
+          <block>-269, 12, 173</block>
+        </destination>
+      </wool>
+      <wool color="lime">
+        <source>
+          <cuboid max="-448, 9, 134" min="-443, 9, 139"/>
+        </source>
+        <destination>
+          <block>-269, 12, 168</block>
+        </destination>
+      </wool>
+    </wools>
+  </objectives>
+  <regions>
+    <subtract id="void-outer"> <!-- All blocks of void minus the mid region -->
+      <void/>
+      <cuboid max="-297, 30, 196" min="-284, 0, 145"/>
+      <cuboid max="-439, 30, 196" min="-452, 0, 145"/>
+      <cuboid max="-409, 30, 211" min="-327, 0, 130"/>
+    </subtract>
+    <above id="height-limit" y="30"/>
+  </regions>
+  <damage>
+    <disable>
+      <all>
+        <damage>fall</damage>
+        <inside>
+          <region>
+            <join>
+              <cuboid max="-478, 18, 166" min="-470, 9, 175"/>
+              <cuboid max="-258, 18, 175" min="-266, 9, 166"/>
+            </join>
+          </region>
+        </inside>
+      </all>
+    </disable>
+  </damage>
+  <zones>
+    <zone>
+      <enter>
+        <team>blue</team>
+      </enter>
+      <region>
+        <subtract id="monument-enter"> <!-- All of the blocks minus the monument -->
+          <cuboid max="-485, 30, 159" min="-456, 0, 182"/>
+          <block>-467, 12, 168</block>
+          <block>-467, 12, 173</block>
+        </subtract>
+      </region>
+      <modify>
+        <material>gold block</material>
+      </modify>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone>
+      <enter>
+        <team>red</team>
+      </enter>
+      <region>
+        <subtract id="monument-enter"> <!-- All of the blocks minus the monument -->
+          <cuboid max="-251, 30, 182" min="-280, 0, 159"/>
+          <block>-269, 12, 173</block>
+          <block>-269, 12, 168</block>
+        </subtract>
+      </region>
+      <modify>
+        <material>gold block</material>
+      </modify>
+      <message>{errors.spawn-restricted}</message>
+    </zone>
+    <zone modify="never" water-rule="no-flow">
+      <region>
+        <join>
+          <cuboid max="-368, 14, 171" min="-368, 13, 170"/>
+        </join>
+      </region>
+      <message>{errors.cannot-build}</message>
+    </zone>
+    <zone modify="never">
+      <region>
+        <join>
+          <block>-449, 11, 206</block>
+          <block>-449, 11, 203</block>
+          <block>-449, 11, 138</block>
+          <block>-449, 11, 135</block>
+          <block>-287, 11, 135</block>
+          <block>-287, 11, 138</block>
+          <block>-287, 11, 203</block>
+          <block>-287, 11, 206</block>
+        </join>
+      </region>
+      <message>{errors.cannot-build}</message>
+    </zone>
+    <zone>
+      <enter>
+        <team>blue</team>
+      </enter>
+      <modify>
+        <team>blue</team>
+      </modify>
+      <region>
+        <join id="wool-room-modify"> <!-- All of the blocks minus the monument -->
+          <cuboid max="-284, 30, 211" min="-297, 0, 198"/>
+        </join>
+      </region>
+      <message>{errors.cannot-build}</message>
+    </zone>
+    <zone>
+      <enter>
+        <team>blue</team>
+      </enter>
+      <modify>
+        <team>blue</team>
+      </modify>
+      <region>
+        <join id="wool-room-modify"> <!-- All of the blocks minus the monument -->
+          <cuboid max="-284, 30, 130" min="-297, 0, 143"/>
+        </join>
+      </region>
+      <message>{errors.cannot-build}</message>
+    </zone>
+    <zone>
+      <enter>
+        <team>red</team>
+      </enter>
+      <modify>
+        <team>red</team>
+      </modify>
+      <region>
+        <join id="wool-room-modify"> <!-- All of the blocks minus the monument -->
+          <cuboid max="-452, 30, 211" min="-439, 0, 198"/>
+        </join>
+      </region>
+      <message>{errors.cannot-build}</message>
+    </zone>
+    <zone>
+      <enter>
+        <team>red</team>
+      </enter>
+      <modify>
+        <team>red</team>
+      </modify>
+      <region>
+        <join id="wool-room-modify"> <!-- All of the blocks minus the monument -->
+          <cuboid max="-452, 30, 130" min="-439, 0, 143"/>
+        </join>
+      </region>
+      <message>{errors.cannot-build}</message>
+    </zone>
+    <zone modify="never" region="void-outer" water-rule="no-flow">
+      <message>{errors.outside-map}</message>
+    </zone>
+    <zone modify="never" region="height-limit" water-rule="no-flow">
+      <message>{errors.height-limit}</message>
+    </zone>
+  </zones>
+  <items>
+    <remove-drops>
+      <any>
+        <material>cooked fish</material>
+        <material>stained clay</material>
+        <material>stone button</material>
+        <material>brown mushroom</material>
+        <material>redstone</material>
+        <material>sandstone</material>
+        <material>sand</material>
+        <material>string</material>
+      </any>
+    </remove-drops>
+    <repair-tools>
+      <any>
+        <material>stone sword</material>
+        <material>bow</material>
+        <material>iron pickaxe</material>
+        <material>iron axe</material>
+      </any>
+    </repair-tools>
+  </items>
+</map>
